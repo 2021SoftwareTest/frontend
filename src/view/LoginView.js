@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import LoginTable from '../components/LoginTable';
 
@@ -12,4 +13,4 @@ class LoginView extends React.Component {
   }
 }
 
-export default LoginView;
+export default withRouter(LoginView);
