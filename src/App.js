@@ -2,10 +2,14 @@ import './App.css';
 
 import React from 'react';
 
-import LoginView from './view/LoginView';
+import BasicRouter from "./routes/BasicRouter";
 
-function App() {
-  return <LoginView />;
+class App extends React.Component {
+  render() {
+    return (
+        <BasicRouter/>
+    );
+  }
 }
 
 export default App;
