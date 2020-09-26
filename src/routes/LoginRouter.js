@@ -4,7 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 export class LoginRouter extends React.Component {
   constructor(props) {
     super(props);
-    // shuould be changed later
+    // should be changed later
     this.state = {
       isAuthed: false,
       hasAuthed: true,
