@@ -1,0 +1,8 @@
+.register-view {
+  min-height: 697px;
+  display: flex;
+}
+
+.register-section {
+  margin-left: 20%;
+}
