@@ -6,7 +6,7 @@ export default class PrivateRouter extends React.Component {
     super(props);
     // should be changed later
     this.state = {
-      isAuthed: false,
+      isAuthed: true,
       hasAuthed: true,
     };
   }

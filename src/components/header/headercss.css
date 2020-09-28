@@ -1,0 +1,30 @@
+.header {
+  z-index: 32;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.5;
+  color: hsla(0, 0%, 100%, 0.7);
+  background-color: #24292e;
+  padding: 16px 32px 16px 32px;
+}
+
+.header-wrapper {
+  height: 30px;
+}
+
+.header-link {
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  display: inline-block;
+  margin: 5px 0 5px 0;
+  transition: color 0.1s linear;
+}
+
+.header-item {
+}
+
+a.header-link:hover {
+  color: rgb(200, 200, 200);
+}
