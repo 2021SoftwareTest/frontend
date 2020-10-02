@@ -39,9 +39,6 @@
     ]
   },
   "husky": {
-    "hooks": {
-      "pre-commit": "yarn format:staged"
-    }
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",

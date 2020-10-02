@@ -7,16 +7,16 @@ class Footer extends React.Component {
     return (
       <div className="footer">
         <div className="footer-item">
-          <a>item1</a>
+          <a href={'#'}>item1</a>
         </div>
         <div className="footer-item">
-          <a>item1</a>
+          <a href={'#'}>item1</a>
         </div>
         <div className="footer-item">
-          <a>item1</a>
+          <a href={'#'}>item1</a>
         </div>
         <div className="footer-item">
-          <a>item1</a>
+          <a href={'#'}>item1</a>
         </div>
       </div>
     );
