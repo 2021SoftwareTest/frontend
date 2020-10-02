@@ -71,7 +71,7 @@ class RegisterForm extends React.Component {
               </Button>
             </Col>
           </Row>
-          <Row>
+          <Row style={{ marginTop: 20 }}>
             <Col span={24}>
               <p className="term">By clicking “Sign up for Homework Hub”, you agree to ourterms of service andprivacy statement. We’ll occasionally send you account related emails.</p>
             </Col>

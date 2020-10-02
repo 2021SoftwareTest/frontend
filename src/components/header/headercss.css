@@ -13,7 +13,7 @@
 }
 
 .header-link {
-  font-weight: 600;
+  font-weight: 400;
   color: #fff;
   white-space: nowrap;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
@@ -27,4 +27,9 @@
 
 a.header-link:hover {
   color: rgb(200, 200, 200);
+}
+
+.sign-up {
+  display: block;
+  border-color: #d1d5da;
 }

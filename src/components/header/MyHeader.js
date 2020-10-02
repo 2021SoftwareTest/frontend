@@ -7,7 +7,7 @@ import React from 'react';
 
 const { Search } = Input;
 
-class Header extends React.Component {
+class MyHeader extends React.Component {
   render() {
     const menu = (
       <Menu>
@@ -26,7 +26,7 @@ class Header extends React.Component {
       <div className="header">
         <div className="header-wrapper">
           <Row style={{ height: 28 }}>
-            <Col span={1} style={{ height: 28 }}>
+            <Col span={1} offset={2} style={{ height: 28 }}>
               <svg height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true">
                 <path
                   fillRule="evenodd"
@@ -42,13 +42,25 @@ class Header extends React.Component {
               </Dropdown>
             </Col>
             <Col span={1} style={{ height: 28 }}>
-              <a className="header-link">link1</a>
+              <a className="header-link">高 树</a>
             </Col>
             <Col span={1} style={{ height: 28 }}>
-              <a className="header-link">link2</a>
+              <a className="header-link">线 代</a>
             </Col>
-            <Col span={4} style={{ height: 28 }}>
+            <Col span={1} style={{ height: 28 }}>
+              <a className="header-link">大 雾</a>
+            </Col>
+            <Col span={1} style={{ height: 28 }}>
+              <a className="header-link">理 力</a>
+            </Col>
+            <Col span={4} offset={8} style={{ height: 28 }}>
               <Search placeholder="input search text" onSearch={(value) => console.log(value)} style={{ width: 200, height: 28 }} />
+            </Col>
+            <Col span={1}>
+              <a className="header-link">登 录</a>
+            </Col>
+            <Col>
+              <a className="header-link sign-up">注 册</a>
             </Col>
           </Row>
         </div>
@@ -57,4 +69,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default MyHeader;
