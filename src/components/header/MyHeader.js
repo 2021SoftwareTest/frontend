@@ -1,10 +1,11 @@
 import 'antd/dist/antd.css';
 import './headercss.css';
-import logo from '../../assets/logo.png';
 
 import { DownOutlined } from '@ant-design/icons';
 import { Col, Dropdown, Input, Menu, Row } from 'antd';
 import React from 'react';
+
+import logo from '../../assets/logo.png';
 
 const { Search } = Input;
 
