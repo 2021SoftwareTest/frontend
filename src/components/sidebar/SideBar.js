@@ -18,7 +18,7 @@ export class SideBar extends React.Component {
 
     render() {
         return (
-            <Sider width={300} className="site-layout-background"
+            <Sider width="16%" className="site-layout-background"
                 collapsible={true}
                 style={{
                     overflow: 'auto',
@@ -29,7 +29,7 @@ export class SideBar extends React.Component {
                 theme={'white'}
             >
                 <Menu onClick={this.handleClick}
-                      style={{width: 256, height: '100%', borderRight: 0}}
+                      style={{ height: '100%', borderRight: 0}}
                       defaultSelectedKeys={[]}
                       defaultOpenKeys={['sub1', 'sub2']}
                       mode="inline">

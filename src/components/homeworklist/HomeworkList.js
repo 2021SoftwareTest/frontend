@@ -1,3 +1,5 @@
+import './HomeworkList.css';
+
 import {
     CheckCircleOutlined,
     CloseCircleOutlined,
@@ -53,24 +55,26 @@ export class HomeworkList extends React.Component {
         };
 
         return (
-            <List
-                itemLayout="horizontal"
-                dataSource={this.props.data}
-                renderItem={(item) => (
-                    <List.Item>
-                        <List.Item.Meta
-                            avatar={<EditOutlined/>}
-                            title={
-                                <div>
-                                <a href="https://ant.design">{item.title}   </a>
-                                    {TagSwitch(item.tag)}
-                                </div>
-                            }
-                            description={item.comment}
-                        />
-                    </List.Item>
-                )}
-            />
+            <div className="homework-list">
+                <List
+                    itemLayout="horizontal"
+                    dataSource={this.props.data}
+                    renderItem={(item) => (
+                        <List.Item>
+                            <List.Item.Meta
+                                avatar={<EditOutlined/>}
+                                title={
+                                    <div>
+                                        <a href="https://ant.design">{item.title}   </a>
+                                        {TagSwitch(item.tag)}
+                                    </div>
+                                }
+                                description={item.comment}
+                            />
+                        </List.Item>
+                    )}
+                />
+            </div>
         );
     }
 }

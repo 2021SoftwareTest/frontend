@@ -1,3 +1,28 @@
 .site-layout-background {
     background: #fff;
+    padding: 0 0 0 32px;
+}
+
+.ant-layout-sider-children{
+    border-right: 1px solid rgb(220, 220, 220) !important;
+}
+
+.ant-layout-sider-trigger{
+    margin-left: -32px;
+    background-color: rgb(238, 238, 238);
+    border-right: 1px solid rgb(230, 230, 230) !important;
+    transition: all 0.2s;
+}
+
+.ant-menu-inline-collapsed{
+    margin-left:-32px;
+    border-right: 1px solid rgb(230, 230, 230) !important;
+}
+
+.ant-layout-sider-trigger:hover{
+    background-color: rgb(230, 230, 230);
+}
+
+.ant-layout-sider-trigger svg{
+    color: #24292e;
 }
