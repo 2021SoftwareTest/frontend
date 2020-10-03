@@ -14,13 +14,13 @@ class MyHeader extends React.Component {
     const menu = (
       <Menu>
         <Menu.Item>
-          <a href={'#'}>Item 1</a>
+          <a href={'#'}>因为我们好</a>
         </Menu.Item>
         <Menu.Item>
-          <a href={'#'}>Item 2</a>
+          <a href={'#'}>因为我们棒</a>
         </Menu.Item>
         <Menu.Item>
-          <a href={'#'}>Item 3</a>
+          <a href={'#'}>因为我们强</a>
         </Menu.Item>
       </Menu>
     );
@@ -34,7 +34,7 @@ class MyHeader extends React.Component {
             <Col span={2} style={{ height: 28 }}>
               <Dropdown overlay={menu}>
                 <a className="header-link" onClick={(e) => e.preventDefault()}>
-                  Hover me <DownOutlined />
+                  为什么选择小箱交 <DownOutlined />
                 </a>
               </Dropdown>
             </Col>

@@ -36,16 +36,16 @@ export class ClassHeader extends React.Component {
                 <Row>
                     <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
                         <Menu.Item key="Homework" icon={<EditOutlined />}>
-                            Homework
+                            作业
                         </Menu.Item>
                         <Menu.Item key="People" icon={<UserOutlined />}>
-                            People
+                            学生
                         </Menu.Item>
                         <Menu.Item key="Teams" icon={<TeamOutlined />}>
-                            Teams
+                            小组
                         </Menu.Item>
                         <Menu.Item key="Project" icon={<ProjectOutlined />}>
-                            Project
+                            项目
                         </Menu.Item>
                     </Menu>
                 </Row>
