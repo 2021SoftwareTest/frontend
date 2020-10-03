@@ -1,3 +1,5 @@
+import './ClassView.css';
+
 import { Col, Row } from 'antd';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
@@ -5,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 import {ClassHeader} from "../../components/classheader/ClassHeader";
 import MyFooter from '../../components/footer/MyFooter';
 import MyHeader from '../../components/header/MyHeader';
+import Dashboard from "../../components/dashboard/Dashboard";
 import {HomeworkList} from "../../components/homeworklist/HomeworkList";
 
 const Homework = [
@@ -35,12 +38,17 @@ class ClassView extends React.Component {
         return (
             <div>
                 <MyHeader />
-                <Col span={12} offset={6}>
-                <Row>
-                   <ClassHeader/>
-                </Row>
-                    <HomeworkList data={Homework}/>
-                </Col>
+                <ClassHeader />
+                <div className="class-container">
+                    <Row>
+                        <Col span={19} style={{paddingRight:27}}>
+                            <HomeworkList data={Homework} />
+                        </Col>
+                        <Col span={5}>
+                            <Dashboard />
+                        </Col>
+                    </Row>
+                </div>
                 <MyFooter />
             </div>
         );

@@ -1,6 +1,6 @@
 import "./HomeView.css";
 
-import {Col, Divider, Layout, Row} from 'antd';
+import {Col, Divider, Row} from 'antd';
 import React from 'react';
 import {withRouter} from "react-router-dom";
 
