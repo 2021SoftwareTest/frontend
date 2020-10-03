@@ -1,12 +1,12 @@
-import '../css/register.css';
+import './RegisterView.css';
 
 import { Col, Row } from 'antd';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import MyFooter from '../components/footer/MyFooter';
-import MyHeader from '../components/header/MyHeader';
-import RegisterForm from '../components/register/RegisterForm';
+import MyFooter from '../../components/footer/MyFooter';
+import MyHeader from '../../components/header/MyHeader';
+import RegisterForm from '../../components/register/RegisterForm';
 
 class RegisterView extends React.Component {
   render() {

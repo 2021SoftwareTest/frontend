@@ -4,11 +4,15 @@
 
 ## 登录
 
+![login](README.assets/login-1601705507420.png)
+
 ## 注册
+
+![register](README.assets/register.png)
 
 ## 主页
 
-![image-20201003100834394](README.assets/image-20201003100834394.png)
+![home](README.assets/home.png)
 
 ## 课程
 
