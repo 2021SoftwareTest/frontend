@@ -1,0 +1,48 @@
+.register-view {
+  min-height: 697px;
+  display: flex;
+}
+
+.register-section {
+  margin-left: 20%;
+}
+
+.middle {
+  width: 100%;
+  height: 650px;
+  background: url(https://github.com/images/modules/site/heroes/simple-codelines.svg), #2b3137;
+  background-position: center 10%;
+  background-size: cover;
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+.middle-content {
+  margin-left: 24%;
+  margin-top: 80px;
+  width: 70%;
+  float: left;
+}
+
+.middle-content-1 {
+  width: 552px;
+  height: 128px;
+  float: left;
+  margin-top: 65px;
+}
+
+.middle-content-2 p {
+  font-size: 21px;
+  font-weight: normal;
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+.middle-content-1 h1 {
+  font-size: 64px;
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, serif;
+  font-weight: 500;
+  color: #fff;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
