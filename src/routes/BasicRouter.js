@@ -3,7 +3,7 @@ import { Redirect, Router, Switch } from 'react-router-dom';
 
 import { history } from '../utils/history';
 import HomeView from '../views/HomeView';
-import LoginView from '../views/LoginView';
+import LoginView from '../views/loginview/LoginView';
 import RegisterView from '../views/RegisterView';
 import LoginRouter from './LoginRouter';
 import PrivateRouter from './PrivateRouter';
