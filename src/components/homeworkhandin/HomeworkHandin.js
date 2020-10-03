@@ -7,7 +7,6 @@ import React from 'react';
 export class HomeworkHandin extends React.Component {
 
     render () {
-
         const controls = [
             {
                 key: 'bold',
