@@ -6,7 +6,7 @@ export class LoginRouter extends React.Component {
     super(props);
     // should be changed later
     this.state = {
-      isAuthed: false,
+      isAuthed: true,
       hasAuthed: true,
     };
   }

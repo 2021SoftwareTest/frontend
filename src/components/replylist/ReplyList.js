@@ -1,18 +1,26 @@
-import { Avatar, List } from 'antd';
+import { Avatar, Divider, List} from 'antd';
 import React from "react";
 
 const data = [
     {
-        title: 'Ant Design Title 1',
+        title: '语文1',
+        comment: '做的不错',
+        score:95
     },
     {
-        title: 'Ant Design Title 2',
+        title: '数学2',
+        comment: '第五题订正一下',
+        score:80
     },
     {
-        title: 'Ant Design Title 3',
+        title: '英语3',
+        comment: 'Good job',
+        score:100
     },
     {
-        title: 'Ant Design Title 4',
+        title: '编程4',
+        comment: '下课过来找我',
+        score:0
     },
 ];
 
@@ -20,19 +28,22 @@ export class ReplyList extends React.Component {
 
     render() {
         return (
+            <div>
+            <Divider orientation="left">教师回复</Divider>
             <List
                 itemLayout="horizontal"
                 dataSource={data}
                 renderItem={(item) => (
-                    <List.Item>
+                    <List.Item extra={<div>score: {item.score}</div>}>
                         <List.Item.Meta
                             avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                             title={<a href="https://ant.design">{item.title}</a>}
-                            description="Good job"
+                            description={item.comment}
                         />
                     </List.Item>
                 )}
             />
+            </div>
         );
     }
 }

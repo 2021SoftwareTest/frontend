@@ -18,7 +18,7 @@ export class SideBar extends React.Component {
 
     render() {
         return (
-            <Sider width={200} className="site-layout-background"
+            <Sider width={300} className="site-layout-background"
                 collapsible={true}
                 style={{
                     overflow: 'auto',
@@ -30,8 +30,8 @@ export class SideBar extends React.Component {
             >
                 <Menu onClick={this.handleClick}
                       style={{width: 256, height: '100%', borderRight: 0}}
-                      defaultSelectedKeys={['1']}
-                      defaultOpenKeys={['sub1']}
+                      defaultSelectedKeys={[]}
+                      defaultOpenKeys={['sub1', 'sub2']}
                       mode="inline">
                     <SubMenu
                         key="sub1"
@@ -44,10 +44,10 @@ export class SideBar extends React.Component {
                     >
                         <Menu.Item key="1"><BookOutlined/>语文</Menu.Item>
                         <Menu.Item key="2"><BookOutlined/>数学</Menu.Item>
-                        <Menu.Item key="2"><BookOutlined/>英语</Menu.Item>
+                        <Menu.Item key="3"><BookOutlined/>英语</Menu.Item>
                     </SubMenu>
                     <SubMenu
-                        key="sub1"
+                        key="sub2"
                         title={
                             <span>
                                 <TeamOutlined/>
@@ -55,9 +55,9 @@ export class SideBar extends React.Component {
                             </span>
                         }
                     >
-                        <Menu.Item key="1"><TeamOutlined/>语文学习小组</Menu.Item>
-                        <Menu.Item key="2"><TeamOutlined/>数学学习小组</Menu.Item>
-                        <Menu.Item key="2"><TeamOutlined/>英语学习小组</Menu.Item>
+                        <Menu.Item key="4"><TeamOutlined/>语文学习小组</Menu.Item>
+                        <Menu.Item key="5"><TeamOutlined/>数学学习小组</Menu.Item>
+                        <Menu.Item key="6"><TeamOutlined/>英语学习小组</Menu.Item>
                     </SubMenu>
                 </Menu>
             </Sider>
