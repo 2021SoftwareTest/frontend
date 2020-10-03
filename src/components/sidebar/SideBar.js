@@ -1,60 +1,66 @@
+import './SideBar.css';
+
+import {
+    BookOutlined, TeamOutlined
+} from '@ant-design/icons';
 import {Layout, Menu} from 'antd';
-import { Icon } from '@ant-design/compatible';
 import React from 'react';
 
-import {history} from "../../utils/history";
+const {Sider} = Layout;
 
-// eslint-disable-next-line no-unused-vars
-const { SubMenu } = Menu;
-const { Sider } = Layout;
+const {SubMenu} = Menu;
 
 export class SideBar extends React.Component {
 
-    state = {
-        collapsed: false,
-    };
-
-    onCollapse = (collapsed) => {
-        // eslint-disable-next-line no-empty
-        if (collapsed) {
-
-        }
-        console.log(collapsed);
-        this.setState({ collapsed });
-    };
-
-    bookOnClick = () => {
-        history.push("/");
+    handleClick = (e) => {
+        console.log('click ', e);
     };
 
     render() {
         return (
-            <div style={{width:this.state.collapsed ? "80px" : "180px", maxWidth:this.state.collapsed ? "80px" : "180px", minWidth:this.state.collapsed ? "80px" : "180px" }}>
-                <div className="mySider">
-                    <Sider collapsible collapsed={this.state.collapsed} width="180px" onCollapse={this.onCollapse} className="sider" style={{ background: '#fff'}}>
-                        <Menu defaultSelectedKeys={['1']} mode="inline">
-                            <Menu.Item key="1" onClick={this.bookOnClick}>
-                                <Icon type="read" style={{ fontSize: '18px'}}/>
-                                <span style={{ fontSize: '16px'}}>控制面板</span>
-                            </Menu.Item>
-                            <Menu.Item key="2">
-                                <Icon type="shopping-cart" style={{ fontSize: '18px'}} />
-                                <span style={{ fontSize: '16px'}}>课程</span>
-                            </Menu.Item>
-                            <Menu.Item key="3">
-                                <Icon type="solution"  style={{ fontSize: '18px'}}/>
-                                <span style={{ fontSize: '16px'}}>作业</span>
-                            </Menu.Item>
-                            <Menu.Item key="4">
-                                <Icon type="user" style={{ fontSize: '18px'}}/>
-                                <span style={{ fontSize: '16px'}}>小组</span>
-                            </Menu.Item>
-                        </Menu>
-                    </Sider>
-                </div>
-            </div>
-
+            <Sider width={200} className="site-layout-background"
+                collapsible={true}
+                style={{
+                    overflow: 'auto',
+                    height: '100vh',
+                    position: 'fixed',
+                    left: 0,
+                }}
+                theme={'white'}
+            >
+                <Menu onClick={this.handleClick}
+                      style={{width: 256, height: '100%', borderRight: 0}}
+                      defaultSelectedKeys={['1']}
+                      defaultOpenKeys={['sub1']}
+                      mode="inline">
+                    <SubMenu
+                        key="sub1"
+                        title={
+                            <span>
+                                <BookOutlined/>
+                                <span>我的课程</span>
+                            </span>
+                        }
+                    >
+                        <Menu.Item key="1"><BookOutlined/>语文</Menu.Item>
+                        <Menu.Item key="2"><BookOutlined/>数学</Menu.Item>
+                        <Menu.Item key="2"><BookOutlined/>英语</Menu.Item>
+                    </SubMenu>
+                    <SubMenu
+                        key="sub1"
+                        title={
+                            <span>
+                                <TeamOutlined/>
+                                <span>我的小组</span>
+                            </span>
+                        }
+                    >
+                        <Menu.Item key="1"><TeamOutlined/>语文学习小组</Menu.Item>
+                        <Menu.Item key="2"><TeamOutlined/>数学学习小组</Menu.Item>
+                        <Menu.Item key="2"><TeamOutlined/>英语学习小组</Menu.Item>
+                    </SubMenu>
+                </Menu>
+            </Sider>
         );
     }
-
 }

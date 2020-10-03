@@ -1,16 +1,13 @@
-import '../css/home.css';
-
 import {Layout} from 'antd';
 import React from 'react';
 import {withRouter} from "react-router-dom";
 
-// import {Header} from "../components/header/Header";
+import MyHeader from "../components/header/MyHeader";
 import {SideBar} from "../components/sidebar/SideBar";
-import {ClassList} from "../components/classlist/Classlist";
 
-const { Header, Content} = Layout;
+const { Header, Content, Footer } = Layout;
 
-class HomeView extends React.Component {
+class ClassView extends React.Component {
 
     constructor(props) {
         super(props);
@@ -18,8 +15,6 @@ class HomeView extends React.Component {
     }
 
     componentDidMount() {
-        const user = localStorage.getItem("user");
-        this.setState({user:user});
     }
 
     render() {
@@ -27,21 +22,24 @@ class HomeView extends React.Component {
             <Layout className="layout">
 
                 <Header>
-                    {/* <HeaderInfo />*/}
+                    <MyHeader />
                 </Header>
                 <Layout>
-                    <SideBar />
+                    <SideBar/>
                     <Content style={{ padding: '0 50px' }}>
                         <div className="home-content">
-                            <ClassList />
+
                             <div className={"foot-wrapper"}>
                             </div>
                         </div>
                     </Content>
+                </Layout>
+                <Layout>
+                    <Footer/>
                 </Layout>
             </Layout>
         );
     }
 }
 
-export default withRouter(HomeView);
+export default withRouter(ClassView);
