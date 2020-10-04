@@ -19,7 +19,9 @@ class LoginForm extends React.Component {
         this.setState({password: value});
     };
 
-    onSubmit = () => {};
+    onSubmit = () => {
+        localStorage.setItem("user", "");
+    };
 
     render () {
         return (

@@ -29,7 +29,9 @@ class MyHeader extends React.Component {
         <div className="header-wrapper">
           <Row style={{ height: 28 }}>
             <Col span={1} style={{ height: 28, paddingLeft:15}}>
+              <a href={'/'}>
               <img src={logo} alt={'logo'} height={30} width={30} />
+              </a>
             </Col>
             <Col span={2} style={{ height: 28 }}>
               <Dropdown overlay={menu}>
@@ -51,10 +53,10 @@ class MyHeader extends React.Component {
               <Search placeholder="搜索课程" onSearch={(value) => console.log(value)} style={{ width: 200, height: 28 }} />
             </Col>
             <Col span={1}>
-              <a className="header-link">登 录</a>
+              <a href={'/login'} className="header-link">登 录</a>
             </Col>
             <Col>
-              <a className="header-link sign-up">注 册</a>
+              <a href={'/register'} className="header-link sign-up">注 册</a>
             </Col>
           </Row>
         </div>
