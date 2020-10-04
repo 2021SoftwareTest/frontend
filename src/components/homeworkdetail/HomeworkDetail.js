@@ -15,7 +15,7 @@ export class HomeworkDetail extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="homework-detail">
                 <Row>
                     <Col span={24}>
                         <p className={"deadline"} > 截止时间 10月10日， 12:00 之前  总分 100</p>
