@@ -16,14 +16,14 @@ export class HomeworkDetail extends React.Component {
     render() {
         return (
             <div>
-                <Row >
-                    <Col>
-                        <Row>
-                            <h2 className={"deadline"} > 截止时间 10月10日， 12:00 之前  总分 100</h2>
-                        </Row>
-                        <Row>
-                            <h2 className={"content"} > 请写一篇500字以上的游记</h2>
-                        </Row>
+                <Row>
+                    <Col span={24}>
+                        <p className={"deadline"} > 截止时间 10月10日， 12:00 之前  总分 100</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span={24}>
+                        <p className={"content"} > 请写一篇500字以上的游记</p>
                     </Col>
                 </Row>
             </div>

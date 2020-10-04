@@ -1,4 +1,6 @@
-import { Col, Row } from 'antd';
+import './HomeworkView.css';
+
+import { Col, Row, Button } from 'antd';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
@@ -13,15 +15,25 @@ class HomeworkView extends React.Component {
         return (
             <div>
                 <MyHeader />
-                <Col span={12} offset={6}>
+                <HomeworkHeader/>
+                <div className="homework-container">
                     <Row>
-                        <HomeworkHeader/>
+                        <Col span={24} style={{display: "flex"}}>
+                            <p><a>作业1</a>&nbsp;/&nbsp;<a>文件1</a></p>
+                            <Button>取消</Button>
+                        </Col>
                     </Row>
                     <Row>
-                        <HomeworkDetail/>
+                        <Col spa={24}>
+                            <HomeworkDetail/>
+                        </Col>
                     </Row>
-                    <HomeworkHandin/>
-                </Col>
+                    <Row>
+                        <Col span={24}>
+                            <HomeworkHandin/>
+                        </Col>
+                    </Row>
+                </div>
                 <MyFooter />
             </div>
         );
