@@ -17,11 +17,9 @@ class CorrectView extends React.Component {
                 <HomeworkHeader/>
                 <Row>
                     <Col span={12} offset={6}>
-                        <Row>
-                            <Col>
-                                <HomeworkDetail/>
-                            </Col>
-                        </Row>
+                        <Divider orientation="left" > 作业内容 </Divider>
+                        <HomeworkDetail/>
+                        <Divider orientation="left" > 作业提交 </Divider>
                         <HomeworkDone/>
                         <Divider orientation="left" > 批改 </Divider>
                         <HomeworkCorrect/>
