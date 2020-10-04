@@ -1,0 +1,36 @@
+import {Col, Divider, Row} from 'antd';
+import React from 'react';
+import {withRouter} from 'react-router-dom';
+
+import MyFooter from '../../components/footer/MyFooter';
+import MyHeader from '../../components/header/MyHeader';
+import {HomeworkCorrect} from "../../components/homeworkcorrect/HomeworkCorrect";
+import {HomeworkDetail} from "../../components/homeworkdetail/HomeworkDetail";
+import {HomeworkDone} from "../../components/homeworkdone/HomeworkDone";
+import {HomeworkHeader} from "../../components/homeworkheader/HomeworkHeader";
+
+class CorrectView extends React.Component {
+    render() {
+        return (
+            <div>
+                <MyHeader/>
+                <HomeworkHeader/>
+                <Row>
+                    <Col span={12} offset={6}>
+                        <Row>
+                            <Col>
+                                <HomeworkDetail/>
+                            </Col>
+                        </Row>
+                        <HomeworkDone/>
+                        <Divider orientation="left" > 批改 </Divider>
+                        <HomeworkCorrect/>
+                    </Col>
+                </Row>
+                <MyFooter/>
+            </div>
+        );
+    }
+}
+
+export default withRouter(CorrectView);
