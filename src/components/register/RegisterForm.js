@@ -30,17 +30,17 @@ class RegisterForm extends React.Component {
         <div className="register-form-wrapper">
           <Row>
             <Col span={5}>
-              <p className="title">UserName</p>
+              <p className="title">用户名</p>
             </Col>
           </Row>
           <Row>
             <Col span={24}>
-              <Input placeholder="Pick a username" onChange={this.usernameOnChange} className="input" />
+              <Input placeholder="选择一个用户名" onChange={this.usernameOnChange} className="input" />
             </Col>
           </Row>
           <Row>
             <Col span={5}>
-              <p className="title">Email</p>
+              <p className="title">邮箱</p>
             </Col>
           </Row>
           <Row>
@@ -50,30 +50,31 @@ class RegisterForm extends React.Component {
           </Row>
           <Row>
             <Col span={5}>
-              <p className="title">Password</p>
+              <p className="title">密码</p>
             </Col>
           </Row>
           <Row>
             <Col span={24}>
-              <Input placeholder="Create a password" onChange={this.passwordOnChange} className="input" />
+              <Input placeholder="创建密码" onChange={this.passwordOnChange} className="input" />
             </Col>
           </Row>
-          <Row>
-            <p>
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
-              Make sure it's at least 7 characters, including a number, and a lowercase letter.
-            </p>
+          <Row style={{marginTop:5}}>
+            <Col span={24}>
+              <p>
+                确保密码至少有7位字符，包括数字和小写字母。
+              </p>
+            </Col>
           </Row>
           <Row>
             <Col span={24}>
               <Button onChange={this.onSubmit} className="register-button">
-                Sign up for Homework Hub
+                注册到小箱交
               </Button>
             </Col>
           </Row>
-          <Row style={{ marginTop: 20 }}>
+          <Row style={{ marginTop: 25 }}>
             <Col span={24}>
-              <p className="term">By clicking “Sign up for Homework Hub”, you agree to ourterms of service andprivacy statement. We’ll occasionally send you account related emails.</p>
+              <p className="term">点击“注册到小箱交”，代表你同意我们的<a>服务条款</a>。我们会不定期寄给你相关邮件。</p>
             </Col>
           </Row>
         </div>
