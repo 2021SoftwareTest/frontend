@@ -19,8 +19,8 @@ class HomeworkView extends React.Component {
                 <div className="homework-container">
                     <Row>
                         <Col span={24} style={{display: "flex"}}>
-                            <p><a>作业1</a>&nbsp;/&nbsp;<a>文件1</a></p>
-                            <Button>取消</Button>
+                            <p className="homework-title-name"><a>作业1</a>&nbsp;/&nbsp;<a>文件1</a></p>
+                            <Button className="cancel-button">取消</Button>
                         </Col>
                     </Row>
                     <Row>

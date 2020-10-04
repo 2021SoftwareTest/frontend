@@ -1,4 +1,5 @@
 import 'braft-editor/dist/index.css';
+import './HomeworkHandin.css';
 
 import {Button} from "antd";
 import BraftEditor from 'braft-editor';
@@ -21,7 +22,7 @@ export class HomeworkHandin extends React.Component {
                     controls={controls}
                     contentStyle={{height: 210, boxShadow: 'inset 0 1px 3px rgba(0,0,0,.1)'}}
                 />
-                <Button>提交作业</Button>
+                <Button className="submit-button">提交作业</Button>
             </div>
         );
 
