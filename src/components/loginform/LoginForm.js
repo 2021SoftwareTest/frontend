@@ -53,16 +53,18 @@ class LoginForm extends React.Component {
                             <Input placeholder="请输入密码" onChange={this.passwordOnChange} className="login-input" />
                         </div>
                         <div style={{textAlign:"center"}}>
+                            <a href={'/'}>
                             <Button onChange={this.onSubmit} className="login-button">
                                 登&nbsp;&nbsp;&nbsp;录
                             </Button>
+                            </a>
                         </div>
                     </Col>
                 </Row>
                 <Row className="login-register">
                     <Col span={24} style={{padding:"15px 20px"}}>
                         <div style={{textAlign:"center"}}>
-                            <p className="register-link">没有账号？<a>注册一个账号</a></p>
+                            <p className="register-link">没有账号？<a href={'/register'}>注册一个账号</a></p>
                         </div>
                     </Col>
                 </Row>

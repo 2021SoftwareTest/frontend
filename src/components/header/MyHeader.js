@@ -41,14 +41,23 @@ class MyHeader extends React.Component {
               </Dropdown>
             </Col>
             <Col span={1} style={{ height: 28, marginLeft:10 }}>
-              <a className="header-link">我的课程</a>
+              <a href={'/'} className="header-link">我的主页</a>
             </Col>
             <Col span={1} style={{ height: 28, marginLeft:10 }}>
-              <a className="header-link">我的作业</a>
+              <a href={'/class'} className="header-link">我的课程</a>
             </Col>
             <Col span={1} style={{ height: 28, marginLeft:10 }}>
-              <a className="header-link">我的分数</a>
+              <a href={'/homework'} className="header-link">我的作业</a>
             </Col>
+            <Col span={1} style={{ height: 28, marginLeft:10 }}>
+              <a href={'/release'} className="header-link">发布作业</a>
+            </Col>
+            <Col span={1} style={{ height: 28, marginLeft:10 }}>
+              <a href={'/correct'} className="header-link">批改作业</a>
+            </Col>
+            {/* <Col span={1} style={{ height: 28, marginLeft:10 }}>*/}
+            {/*  <a href={'/score'}className="header-link">我的分数</a>*/}
+            {/* </Col>*/}
             <Col span={4} offset={8} style={{ height: 28 }}>
               <Search placeholder="搜索课程" onSearch={(value) => console.log(value)} style={{ width: 200, height: 28 }} />
             </Col>

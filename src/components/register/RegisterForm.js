@@ -67,9 +67,11 @@ class RegisterForm extends React.Component {
           </Row>
           <Row>
             <Col span={24}>
+              <a href={'/'}>
               <Button onChange={this.onSubmit} className="register-button">
                 注册到小箱交
               </Button>
+              </a>
             </Col>
           </Row>
           <Row style={{ marginTop: 25 }}>

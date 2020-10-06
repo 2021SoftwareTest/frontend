@@ -8,7 +8,8 @@ import HomeView from '../views/homeview/HomeView';
 import HomeworkView from "../views/homeworkview/HomeworkView";
 import LoginView from '../views/loginview/LoginView';
 import RegisterView from '../views/registerview/RegisterView';
-import LoginRouter from './LoginRouter';
+import ReleaseView from "../views/releaseview/ReleaseView";
+// import LoginRouter from './LoginRouter';
 import PrivateRouter from './PrivateRouter';
 
 class BasicRouter extends React.Component {
@@ -30,7 +31,8 @@ class BasicRouter extends React.Component {
           <PrivateRouter exact path="/class" component={ClassView} />
           <PrivateRouter exact path="/homework" component={HomeworkView} />
           <PrivateRouter exact path="/correct" component={CorrectView} />
-          <LoginRouter exact path="/login" component={LoginView} />
+          <PrivateRouter exact path="/release" component={ReleaseView} />
+          <PrivateRouter exact path="/login" component={LoginView} />
           <Redirect from="/*" to="/" />
         </Switch>
       </Router>

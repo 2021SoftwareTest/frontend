@@ -1,6 +1,6 @@
 import './HomeworkView.css';
 
-import { Col, Row, Button } from 'antd';
+import { Button, Col, Row } from 'antd';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
