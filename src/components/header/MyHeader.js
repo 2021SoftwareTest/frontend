@@ -14,13 +14,13 @@ class MyHeader extends React.Component {
     const menu = (
       <Menu>
         <Menu.Item>
-          <a href={'#'}>因为我们好</a>
+          <a href={'#'}>界面美观</a>
         </Menu.Item>
         <Menu.Item>
-          <a href={'#'}>因为我们棒</a>
+          <a href={'#'}>响应及时</a>
         </Menu.Item>
         <Menu.Item>
-          <a href={'#'}>因为我们强</a>
+          <a href={'#'}>功能强大</a>
         </Menu.Item>
       </Menu>
     );
