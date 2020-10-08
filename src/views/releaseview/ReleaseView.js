@@ -14,22 +14,22 @@ const { Title } = Typography;
 class ReleaseView extends React.Component {
     dateChange = (date, dateString) => {
         console.log(date, dateString);
-    }
+    };
 
     render() {
         return (
             <div>
                 <MyHeader/>
                 <HomeworkHeader/>
-                <div className="homework-container">
-                    <Row>
+                <div className="release-container">
+                    <Row style={{marginTop:10}}>
                         <Col span={24} style={{display: "flex"}}>
                             <Title>创建新作业</Title>
                         </Col>
                     </Row>
                     <Divider/>
-                    <Row>
-                        <Col >
+                    <Row style={{marginTop:10}}>
+                        <Col span={24}>
                             <Space>
                             作业名: <Input placeholder="作业名" style={{width: 200}}/>
                             截止日期: <DatePicker onChange={this.dateChange}/>
@@ -37,7 +37,7 @@ class ReleaseView extends React.Component {
                             </Space>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row style={{marginTop:10}}>
                         <Col span={24}>
                             作业描述(可选）: <TextArea rows={4} placeholder="作业描述"/>
                         </Col>

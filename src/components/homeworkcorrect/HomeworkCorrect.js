@@ -67,7 +67,7 @@ export class HomeworkCorrect extends React.Component {
 
      scoreChange =(value) => {
         console.log('changed', value);
-    }
+    };
 
     render() {
         const {submitting, value} = this.state;

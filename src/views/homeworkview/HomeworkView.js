@@ -5,7 +5,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import MyFooter from '../../components/footer/MyFooter';
-import MyHeader from '../../components/header/MyHeader';
+import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 import {HomeworkDetail} from "../../components/homeworkdetail/HomeworkDetail";
 import {HomeworkHandin} from "../../components/homeworkhandin/HomeworkHandin";
 import {HomeworkHeader} from "../../components/homeworkheader/HomeworkHeader";
@@ -14,7 +14,7 @@ class HomeworkView extends React.Component {
     render() {
         return (
             <div>
-                <MyHeader />
+                <LoginedHeader />
                 <HomeworkHeader/>
                 <div className="homework-container">
                     <Row>
