@@ -11,6 +11,7 @@ import RegisterView from '../views/registerview/RegisterView';
 import ReleaseView from "../views/releaseview/ReleaseView";
 // import LoginRouter from './LoginRouter';
 import PrivateRouter from './PrivateRouter';
+import TeacherView from "../views/teacherview/TeacherView";
 
 class BasicRouter extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class BasicRouter extends React.Component {
     return (
       <Router history={history}>
         <Switch>
+          <PrivateRouter exact path="/teacher" component={TeacherView} />
           <PrivateRouter exact path="/register" component={RegisterView} />
           <PrivateRouter exact path="/" component={HomeView} />
           <PrivateRouter exact path="/class" component={ClassView} />
