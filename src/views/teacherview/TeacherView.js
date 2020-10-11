@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {ClassDiscuss} from "../../components/classdiscuss/ClassDiscuss";
+import ClassEdit from "../../components/classedit/ClassEdit";
 import ClassHomework from "../../components/classhomework/ClassHomework";
 import ClassMainPage from "../../components/classmainpage/ClassMainPage";
 import {ClassNotice} from "../../components/classnotice/ClassNotice";
@@ -50,7 +51,7 @@ class TeacherView extends React.Component {
             (curSection === 7) ? (<ClassOutline/>) :
             (curSection === 8) ? (<></>) :
             (curSection === 9) ? (<ClassUnit />) :
-            (curSection === 10) ? (<></>) : (<></>);
+            (curSection === 10) ? (<ClassEdit />) : (<></>);
         return (
             <div className="teacher-view">
                 <LoginedHeader/>

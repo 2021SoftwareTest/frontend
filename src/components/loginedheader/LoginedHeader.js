@@ -60,10 +60,7 @@ class LoginedHeader extends React.Component {
                         <Col style={{ height: 28, marginLeft:20 }}>
                             <a href={'/teacher'} className="header-link">教师界面</a>
                         </Col>
-                        {/* <Col span={1} style={{ height: 28, marginLeft:10 }}>*/}
-                        {/*  <a href={'/score'}className="header-link">我的分数</a>*/}
-                        {/* </Col>*/}
-                        <Col offset={14} style={{paddingTop:7, marginRight:5, paddingLeft:40}}>
+                        <Col offset={12} style={{paddingTop:7, marginRight:5, paddingLeft:40}}>
                             <BellOutlined style={{color:"white", fontSize:18 }} />
                             <Badge status="processing" style={{marginTop:-10}}/>
                         </Col>
