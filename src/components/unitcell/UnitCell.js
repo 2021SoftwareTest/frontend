@@ -1,3 +1,5 @@
+import './UnitCell.css';
+
 import {Col, Row} from 'antd';
 import React from 'react';
 
@@ -14,11 +16,9 @@ class UnitCell extends React.Component {
 
     renderHomeList(item) {
         return (
-            <Row>
-                <Col span={24}>
-                    <p>{item.title}</p>
-                </Col>
-            </Row>
+            <div className="homework-list-item">
+                <p>{item.title}</p>
+            </div>
         );
     }
 

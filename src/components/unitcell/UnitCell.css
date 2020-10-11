@@ -1,0 +1,18 @@
+.unit-cell{
+    background-color: #fafbfc;
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 5px;
+    padding: 10px 20px 20px;
+    margin-top: 30px;
+}
+
+.homework-list-item{
+    background-color: #fff;
+    padding:10px 30px;
+    border: 1px solid rgb(230, 230, 230);
+
+}
+
+.homework-list-item p{
+    font-size: 14px;
+}
