@@ -1,5 +1,5 @@
 import { UserOutlined } from '@ant-design/icons';
-import { Avatar, Col, Row, Typography, Divider } from 'antd';
+import { Avatar, Col, Divider, Row, Typography } from 'antd';
 import React from 'react';
 
 const { Paragraph } = Typography;
