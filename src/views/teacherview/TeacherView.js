@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {ClassUnit} from "../../components/classunit/ClassUnit";
 import MyFooter from "../../components/footer/MyFooter";
 import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 import TeacherHeader from "../../components/teacherheader/TeacherHeader";
@@ -44,7 +45,7 @@ class TeacherView extends React.Component {
             (curSection === 6) ? (<></>) :
             (curSection === 7) ? (<></>) :
             (curSection === 8) ? (<></>) :
-            (curSection === 9) ? (<></>) : (<></>);
+            (curSection === 9) ? (<ClassUnit />) : (<></>);
         return (
             <div className="teacher-view">
                 <LoginedHeader/>
