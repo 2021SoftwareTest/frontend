@@ -1,6 +1,6 @@
 import './ClassMainPage.css';
 
-import { Button,Col, Row, Divider } from 'antd';
+import { Button, Col, Divider, Row } from 'antd';
 import React from 'react';
 
 import AnnouncementCell from "../announcementcell/AnnouncementCell";
@@ -24,7 +24,7 @@ class ClassMainPage extends React.Component {
 
     render() {
         const homeworkContent = homeworkContentEx.map((item) => (<UnitCell unitCellContent={item} key={item.title}/>));
-        const announcementContent = announcementContentEx.map((item) => (<AnnouncementCell announcement={item} key={item.title}/>))
+        const announcementContent = announcementContentEx.map((item) => (<AnnouncementCell announcement={item} key={item.title}/>));
         return (
             <div className="class-main-page">
                 <Row>
