@@ -5,12 +5,21 @@ import {Button, Col, Menu, Row} from 'antd';
 import React from "react";
 
 class TeacherHeader extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            current: 'Homework',
+        };
+        // eslint-disable-next-line react/prop-types
+        this.menuCallback = this.props.menuCallback;
+    }
     state = {
         current: 'Homework',
     };
 
     handleClick = (e) => {
         console.log('click ', e);
+        this.menuCallback(e.key);
         this.setState({current: e.key});
     };
 
