@@ -1,14 +1,16 @@
 import React from 'react';
 
+import {ClassDiscuss} from "../../components/classdiscuss/ClassDiscuss";
+import ClassMainPage from "../../components/classmainpage/ClassMainPage";
+import {ClassNotice} from "../../components/classnotice/ClassNotice";
+import {ClassOutline} from "../../components/classoutline/ClassOutline";
 import {ClassUnit} from "../../components/classunit/ClassUnit";
+import {ClassUser} from "../../components/classuser/ClassUser";
 import MyFooter from "../../components/footer/MyFooter";
 import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 import TeacherHeader from "../../components/teacherheader/TeacherHeader";
-import ClassMainPage from "../../components/classmainpage/ClassMainPage";
 import ClassHomework from "../../components/classhomework/ClassHomework";
-import {ClassUser} from "../../components/classuser/ClassUser";
-import {ClassNotice} from "../../components/classnotice/ClassNotice";
-import {ClassDiscuss} from "../../components/classdiscuss/ClassDiscuss";
+
 
 
 class TeacherView extends React.Component {
@@ -45,7 +47,7 @@ class TeacherView extends React.Component {
             (curSection === 4) ? (<></>) :
             (curSection === 5) ? (<ClassUser />) :
             (curSection === 6) ? (<></>) :
-            (curSection === 7) ? (<></>) :
+            (curSection === 7) ? (<ClassOutline/>) :
             (curSection === 8) ? (<></>) :
             (curSection === 9) ? (<ClassUnit />) :
             (curSection === 10) ? (<></>) : (<></>);

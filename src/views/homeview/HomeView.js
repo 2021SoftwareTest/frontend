@@ -6,8 +6,8 @@ import {withRouter} from "react-router-dom";
 
 import {BackToTop} from "../../components/backtotop/BackToTop";
 import MyFooter from "../../components/footer/MyFooter";
-import MyHeader from "../../components/header/MyHeader";
 import {HomeworkList} from "../../components/homeworklist/HomeworkList";
+import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 import {ReplyList} from "../../components/replylist/ReplyList";
 import {SideBar} from "../../components/sidebar/SideBar";
 
@@ -72,7 +72,7 @@ class HomeView extends React.Component {
     render() {
         return (
             <div className="home-view">
-                <MyHeader />
+                <LoginedHeader />
                 <Row style={{minHeight: "100vh"}}>
                     <Col span={4}>
                         <SideBar />

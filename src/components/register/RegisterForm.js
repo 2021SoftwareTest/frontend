@@ -14,8 +14,16 @@ class RegisterForm extends React.Component {
     this.setState({ username: value });
   };
 
+  numberOnChange = (value) => {
+    this.setState({ number: value });
+  };
+
   emailOnChange = (value) => {
     this.setState({ email: value });
+  };
+
+  phoneOnChange = (value) => {
+    this.setState({ phone: value });
   };
 
   passwordOnChange = (value) => {
@@ -30,22 +38,22 @@ class RegisterForm extends React.Component {
         <div className="register-form-wrapper">
           <Row>
             <Col span={5}>
-              <p className="title">用户名</p>
+              <p className="title">姓名</p>
             </Col>
           </Row>
           <Row>
             <Col span={24}>
-              <Input placeholder="选择一个用户名" onChange={this.usernameOnChange} className="input" />
+              <Input placeholder="姓名" onChange={this.usernameOnChange} className="input" />
             </Col>
           </Row>
           <Row>
             <Col span={5}>
-              <p className="title">邮箱</p>
+              <p className="title">学号/工号</p>
             </Col>
           </Row>
           <Row>
             <Col span={24}>
-              <Input placeholder="you@example.com" onChange={this.emailOnChange} className="input" />
+              <Input placeholder="学号/工号" onChange={this.numberOnChange} className="input" />
             </Col>
           </Row>
           <Row>
@@ -64,6 +72,39 @@ class RegisterForm extends React.Component {
                 确保密码至少有7位字符，包括数字和小写字母。
               </p>
             </Col>
+          </Row>
+          <Row>
+            <Col span={5}>
+              <p className="title">手机号</p>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={24}>
+              <Input placeholder="您的手机号" onChange={this.phoneOnChange} className="input" />
+            </Col>
+          </Row>
+          <Row>
+            <Col span={5}>
+              <p className="title">邮箱</p>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={24}>
+              <Input placeholder="you@example.com" onChange={this.emailOnChange} className="input" />
+            </Col>
+          </Row>
+          <Row>
+            <Col span={5}>
+              <p className="title">验证码</p>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={24}>
+              <Input placeholder="请输入收到的验证码" onChange={this.passwordOnChange} className="input" />
+            </Col>
+          </Row>
+          <Row>
+             <p> </p>
           </Row>
           <Row>
             <Col span={24}>
