@@ -40,8 +40,8 @@ class TeacherHeader extends React.Component {
                         <p className="teacher-title">六年级语文</p>
                     </Col>
                     <Col span={3} offset={15} style={{display:"flex", paddingTop:3}}>
-                        <Button className="teacher-button"><EyeOutlined /> Watch </Button>
-                        <Button className="teacher-button"><StarOutlined /> Star </Button>
+                        {/*<Button className="teacher-button"><EyeOutlined /> Watch </Button>*/}
+                        {/*<Button className="teacher-button"><StarOutlined /> Star </Button>*/}
                     </Col>
                 </Row>
                 <Row>

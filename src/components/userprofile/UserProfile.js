@@ -88,23 +88,6 @@ export class UserProfile extends React.Component {
                         </Col>
                     </Row>
                 </div>
-
-                {/*<Row>*/}
-                {/*    <Col span={12}>*/}
-
-                {/*        <div>*/}
-                {/*                <h1> 胡媛媛</h1>*/}
-                {/*                <h2> 电话号码</h2>*/}
-                {/*                <h3> 54749110</h3>*/}
-                {/*                <h2> 电子邮件</h2>*/}
-                {/*                <h3>hyy@sjtu.edu.cn</h3>*/}
-                {/*                <Button>修改信息</Button>*/}
-                {/*        </div>*/}
-                {/*    </Col>*/}
-                {/*    <Col span={12}>*/}
-
-                {/*    </Col>*/}
-                {/*</Row>*/}
             </div>
 
         );

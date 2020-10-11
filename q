@@ -1,0 +1,379 @@
+[33mcommit 737d425c615cb17f83a20495975dd6cf5b96535a[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m)[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sun Oct 11 20:35:01 2020 +0800
+
+    fix: fix router
+
+[33mcommit 2c3f86d3b72e8aa9b539594af79f52cb21806a3e[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Oct 11 19:36:02 2020 +0800
+
+    update: user profile
+
+[33mcommit c53692caafc2c5f50c92b8c40ed891677f8d4141[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Oct 11 15:19:36 2020 +0800
+
+    update: edit
+
+[33mcommit a4099292904019246c7ac28a8805753f881a6bde[m
+Merge: 07f18ae 4bd764f
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Oct 11 13:18:00 2020 +0800
+
+    Merge branch 'dev' of https://github.com/SJTU2020AutumnProj/frontend into dev
+
+[33mcommit 07f18aed0b4a53723d541bf1f94d1a2870357ffd[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Oct 11 13:17:42 2020 +0800
+
+    update
+
+[33mcommit 4bd764fe3210c4939a1688a25f60edeb5e7fa052[m
+Merge: 2daeab1 3594a97
+Author: HaoningLan <546004464@qq.com>
+Date:   Sun Oct 11 13:05:15 2020 +0800
+
+    Merge remote-tracking branch 'origin/dev' into dev
+
+[33mcommit 2daeab1273f555530b6e5a65ee48940686759b6c[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sun Oct 11 13:04:54 2020 +0800
+
+    fix: fix router
+
+[33mcommit 3594a974dc983bdbd3c303c889fca531e91e4e43[m
+Merge: ca36478 795f002
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Oct 11 12:00:07 2020 +0800
+
+    update
+
+[33mcommit ca36478bc23a5d21d92bb9d2cc6ce172d4188120[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Oct 11 11:58:07 2020 +0800
+
+    update
+
+[33mcommit 795f002b7adc4eff8b248ec8698d0e28ac758112[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sun Oct 11 11:24:36 2020 +0800
+
+    feat: add
+
+[33mcommit c4c9867e072b5a3b874b7b60006078313a664531[m
+Merge: 2a8e7c0 ea06a66
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Oct 11 10:49:13 2020 +0800
+
+    update: munu switch
+
+[33mcommit 2a8e7c095b1b4fd567bac84fe838a4bb0a641a16[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Oct 11 10:46:00 2020 +0800
+
+    update: munu switch
+
+[33mcommit ea06a66dc07901519bb9474dfb6ad39fb1711f60[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sun Oct 11 09:56:38 2020 +0800
+
+    feat: add ClassOutline and ClassUnit
+
+[33mcommit 635c860c28863173608b4de2c5a4a6e602d87d68[m
+Merge: e9972a2 4294a6e
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Oct 11 09:44:01 2020 +0800
+
+    Merge branch 'dev' of https://github.com/SJTU2020AutumnProj/frontend into dev
+
+[33mcommit e9972a2c2ed153fcb5bc5b142393a46f7a89cc22[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Oct 11 09:43:38 2020 +0800
+
+    update: unitcell
+
+[33mcommit 4294a6ef73171824ff61fc985226ccdffbd4fa39[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sun Oct 11 09:22:09 2020 +0800
+
+    feat: add
+
+[33mcommit d6afda9335d0b1c8de8ca2956fdc4bb5dd5a4fda[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sat Oct 10 20:46:16 2020 +0800
+
+    update: teacher main page
+
+[33mcommit 59a165c1843885a49044add2fa7167d6bcb7d6bf[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sat Oct 10 17:47:55 2020 +0800
+
+    update: teacher header
+
+[33mcommit 8504ac15932f4a6357fede2e4465325ee461372a[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sat Oct 10 15:29:39 2020 +0800
+
+    update: loginedheader
+
+[33mcommit d84a75ab91e4792a75e5776cb4b68c3490ee0f3a[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Thu Oct 8 11:20:22 2020 +0800
+
+    add: logined header
+
+[33mcommit c3a2f18d2c8ba2914671135322ce2d186f5da63a[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Tue Oct 6 11:35:55 2020 +0800
+
+    feat: add release
+
+[33mcommit c91c959668951e5d03cf96aa95b50574d8df2068[m
+Merge: 88056b8 c67a934
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Tue Oct 6 10:56:42 2020 +0800
+
+    Merge branch 'dev' of https://github.com/SJTU2020AutumnProj/frontend into dev
+
+[33mcommit 88056b8c97f71fb4fe3fae9f15b089d9717bcc4c[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Tue Oct 6 10:55:24 2020 +0800
+
+    update: release page
+
+[33mcommit c67a934ea598173ef569bfbc450c28dd7003a727[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Tue Oct 6 10:05:25 2020 +0800
+
+    Update MyHeader.js
+
+[33mcommit 5e43792d83e060d1666a4f7155ea048625190310[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sun Oct 4 12:06:56 2020 +0800
+
+    fix: correct
+
+[33mcommit f97c5a19e97cb2697960ae129e54f99486643f06[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sun Oct 4 12:06:25 2020 +0800
+
+    fix: correct
+
+[33mcommit bd0f4752a9653f0fad8ae9227adec7e4b6403e66[m
+Merge: fb68529 36556ff
+Author: HaoningLan <546004464@qq.com>
+Date:   Sun Oct 4 12:01:46 2020 +0800
+
+    Merge remote-tracking branch 'origin/dev' into dev
+
+[33mcommit fb68529a21e481dccfe6d177b934d2826545fdf8[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sun Oct 4 12:01:30 2020 +0800
+
+    fix: add CorrectView.js
+
+[33mcommit 36556ff069107fa4303a39acd2657655ef8f98e3[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Oct 4 11:43:44 2020 +0800
+
+    update: homework view
+
+[33mcommit cb7cba5ec475730cb0e4e74ad30f8910c163c424[m
+Merge: 489b940 0c57f48
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Oct 4 11:15:02 2020 +0800
+
+    Merge branch 'dev' of https://github.com/SJTU2020AutumnProj/frontend into dev
+
+[33mcommit 489b9400c6659239a46b25fed8e9b67e853e1cff[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Oct 4 11:14:24 2020 +0800
+
+    update: homework view
+
+[33mcommit 16b1fe2243e34684c9e8412fa9360b34a666cf66[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Oct 4 10:28:27 2020 +0800
+
+    feat: login page
+
+[33mcommit 0c57f48925be3240b5d58a7e88bebad1cbda8e9c[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sun Oct 4 10:05:08 2020 +0800
+
+    fix: beautify the page
+
+[33mcommit 214a58d8f49c184ba2fb0e2f2419c69f8de1db36[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sat Oct 3 22:58:27 2020 +0800
+
+    update: class view
+
+[33mcommit 40b5526feff76f65747786e3e51b9cc3fa76d8de[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sat Oct 3 20:57:54 2020 +0800
+
+    update: homeworkhandin.js
+
+[33mcommit dab2405f87a011cf9a5e2f70a9878251204c5673[m
+Merge: 3240998 d421c05
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sat Oct 3 17:04:21 2020 +0800
+
+    Merge branch 'dev' of https://github.com/SJTU2020AutumnProj/frontend into dev
+
+[33mcommit 32409986cfa493eda2bc6ce9a2f60c393a024e16[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sat Oct 3 17:03:29 2020 +0800
+
+    update: login page
+
+[33mcommit d421c0588c1ef594084797327cfc981827472361[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sat Oct 3 15:49:13 2020 +0800
+
+    feat: reformat and README.md
+
+[33mcommit de43cd3326291332a6902e95bcce4005b044946b[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sat Oct 3 15:34:36 2020 +0800
+
+    feat: add homework
+
+[33mcommit 647786ddd0e8e1dae2eb75842f4c22dc19a790cb[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sat Oct 3 14:54:37 2020 +0800
+
+    update: login page
+
+[33mcommit 5269bdcc959d533155b9632b24938310d738544b[m
+Merge: a087c84 318039b
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sat Oct 3 14:52:57 2020 +0800
+
+    update: login page
+
+[33mcommit a087c84ad15e8f0ff8278338877f876cc1c06baf[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sat Oct 3 14:32:42 2020 +0800
+
+    update: login page
+
+[33mcommit 318039bc98d884ef80b584d939f228a9e4b2264e[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sat Oct 3 14:22:29 2020 +0800
+
+    feat: reformat
+
+[33mcommit 63695311b0f2efdb44b60985ef67b57c07c242ce[m
+Merge: ed4a314 8f1d504
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sat Oct 3 14:01:08 2020 +0800
+
+    update: login page
+
+[33mcommit ed4a3142a508dca8a65ad0cf579d0770fb53c68c[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sat Oct 3 13:58:50 2020 +0800
+
+    update: login page
+
+[33mcommit 8f1d50424fe474ef4c0a9e1a78f79bbbc20d8efd[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sat Oct 3 12:28:22 2020 +0800
+
+    feat: a homepage
+
+[33mcommit 7767cba9b6b26b94c9a4b5ee90499686e6fa8121[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Fri Oct 2 22:55:58 2020 +0800
+
+    update: register
+
+[33mcommit 718c002089f68b8c08a6e384317e5434f8a5be6e[m
+Merge: 9435db1 1bb2555
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Fri Oct 2 22:26:16 2020 +0800
+
+    update: register
+
+[33mcommit 9435db1794f5e5e35b069caa1d773b01487ac362[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Fri Oct 2 22:21:19 2020 +0800
+
+    update: register
+
+[33mcommit 1bb2555b8472d671764eb2473568dfc5d3fd0953[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Fri Oct 2 21:20:42 2020 +0800
+
+    feat：homepage
+
+[33mcommit 27a298a3c2b731cff90eef2ef08e65470443bf0f[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Fri Oct 2 20:03:05 2020 +0800
+
+    homepage
+
+[33mcommit 89d5d83efe6e55884759395f8a161ea24e282627[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Mon Sep 28 11:37:43 2020 +0800
+
+    update: register view
+
+[33mcommit 85b12eb75477faf15c3403051d4c283e2ddefd2a[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Mon Sep 28 10:45:57 2020 +0800
+
+    update: register form and header
+
+[33mcommit 1be036e1c5472f43186817ef487ccea90d1b526a[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sat Sep 26 20:57:24 2020 +0800
+
+    feat: a login page like Github
+
+[33mcommit f2d3e61787101ca8567b3afe3fd2768d9882d1d7[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Sun Sep 20 07:57:54 2020 +0800
+
+    update: router
+
+[33mcommit 15fb21b24e5a0a0450819836e51e3399a8213317[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sat Sep 19 17:35:15 2020 +0800
+
+    fix: add prettier and eslint
+
+[33mcommit d4861d90c33bb14e634a039d0bd1031556864404[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Sat Sep 19 17:28:54 2020 +0800
+
+    feat: add router
+    
+    It is buggy
+
+[33mcommit 06dc2d0be43dbb67b84c5091f7455d2d2409325a[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: HeyCat-svg <1345226109@qq.com>
+Date:   Tue Sep 15 07:57:13 2020 +0800
+
+    feat: login page
+
+[33mcommit 0ff7978984776df43442ce5f31db3bb17053206f[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Mon Sep 14 22:08:14 2020 +0800
+
+    fix: add prettier and eslint
+
+[33mcommit b74f6f81b00bb09263336c76663199a9a7d70904[m
+Author: HaoningLan <546004464@qq.com>
+Date:   Mon Sep 14 21:01:51 2020 +0800
+
+    fix: init
+
+[33mcommit 955b650ab8890f2d61a7af06618caa968df2f942[m
+Author: ALAN <48608756+HaoningLan@users.noreply.github.com>
+Date:   Mon Sep 14 20:54:01 2020 +0800
+
+    Initial commit
