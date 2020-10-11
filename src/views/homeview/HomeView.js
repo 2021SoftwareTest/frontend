@@ -81,9 +81,9 @@ class HomeView extends React.Component {
                         <Row>
                             <Col span={18} style={{paddingRight:10}}>
                                 <Divider orientation="left">最近要做的作业</Divider>
-                                <HomeworkList data={todoHomework} />
+                                <HomeworkList data={todoHomework} style={{backgroundColor:"#fafbfc"}}/>
                                 <Divider orientation="left">已经完成的作业</Divider>
-                                <HomeworkList data={doneHomework} />
+                                <HomeworkList data={doneHomework} style={{backgroundColor:"#fafbfc"}}/>
                             </Col>
                             <Col span={6}>
                                 <ReplyList />

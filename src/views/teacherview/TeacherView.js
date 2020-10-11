@@ -9,6 +9,8 @@ import {ClassUser} from "../../components/classuser/ClassUser";
 import MyFooter from "../../components/footer/MyFooter";
 import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 import TeacherHeader from "../../components/teacherheader/TeacherHeader";
+import ClassHomework from "../../components/classhomework/ClassHomework";
+
 
 
 class TeacherView extends React.Component {
@@ -31,6 +33,7 @@ class TeacherView extends React.Component {
             case "Outline": this.setState({curSection: 7}); break;
             case "Test": this.setState({curSection: 8}); break;
             case "Unit": this.setState({curSection: 9}); break;
+            case "Edit": this.setState({curSection: 10}); break;
         }
     };
 
@@ -39,14 +42,15 @@ class TeacherView extends React.Component {
         const content =
             (curSection === 0) ? (<ClassMainPage />) :
             (curSection === 1) ? (<ClassNotice />) :
-            (curSection === 2) ? (<></>) :
+            (curSection === 2) ? (<ClassHomework />) :
             (curSection === 3) ? (<ClassDiscuss />) :
             (curSection === 4) ? (<></>) :
             (curSection === 5) ? (<ClassUser />) :
             (curSection === 6) ? (<></>) :
             (curSection === 7) ? (<ClassOutline/>) :
             (curSection === 8) ? (<></>) :
-            (curSection === 9) ? (<ClassUnit />) : (<></>);
+            (curSection === 9) ? (<ClassUnit />) :
+            (curSection === 10) ? (<></>) : (<></>);
         return (
             <div className="teacher-view">
                 <LoginedHeader/>
