@@ -12,20 +12,20 @@ class LoginedHeader extends React.Component {
         const menu = (
         <Menu>
             <Menu.Item key="0">
-                <a href="/message">通知</a>
+                <a href={"/message"}>通知</a>
             </Menu.Item>
             <Menu.Item key="1">
-                <a href="/user">个人资料</a>
+                <a href={"/user"}>个人资料</a>
             </Menu.Item>
             <Menu.Item key="2">
-                <a href="/file">文件</a>
+                <a href={"/file"}>文件</a>
             </Menu.Item>
             <Menu.Item key="3">
-                <a href="/setting">个人资料</a>
+                <a href={"/setting"}>个人资料</a>
             </Menu.Item>
             <Menu.Divider/>
             <Menu.Item key="4">
-                <a href="/login">退出登录</a>
+                <a href={"/login"}>退出登录</a>
             </Menu.Item>
         </Menu>
         );
@@ -46,16 +46,19 @@ class LoginedHeader extends React.Component {
                             <a href={'/'} className="header-link">首页</a>
                         </Col>
                         <Col style={{ height: 28, marginLeft:20 }}>
-                            <a href={'/class'} className="header-link">近期要做</a>
+                            <a href={'/class'} className="header-link">我的课程</a>
                         </Col>
                         <Col style={{ height: 28, marginLeft:20 }}>
-                            <a href={'/homework'} className="header-link">近期反馈</a>
+                            <a href={'/homework'} className="header-link">我的作业</a>
                         </Col>
                         <Col style={{ height: 28, marginLeft:20 }}>
-                            <a href={'/release'} className="header-link">发现课程</a>
+                            <a href={'/release'} className="header-link">发布作业</a>
                         </Col>
                         <Col style={{ height: 28, marginLeft:20 }}>
-                            <a href={'/correct'} className="header-link">课程推荐</a>
+                            <a href={'/correct'} className="header-link">批改作业</a>
+                        </Col>
+                        <Col style={{ height: 28, marginLeft:20 }}>
+                            <a href={'/teacher'} className="header-link">教师界面</a>
                         </Col>
                         {/* <Col span={1} style={{ height: 28, marginLeft:10 }}>*/}
                         {/*  <a href={'/score'}className="header-link">我的分数</a>*/}
