@@ -1,6 +1,9 @@
 import "./TeacherHeader.css";
 
-import { EditOutlined, EyeOutlined, ProjectOutlined, StarOutlined, TeamOutlined, UserOutlined} from '@ant-design/icons';
+import { HomeOutlined, FileOutlined, EditOutlined, EyeOutlined,
+    ProjectOutlined, StarOutlined, TeamOutlined, FormOutlined,
+    DeploymentUnitOutlined, NotificationOutlined, CheckOutlined,
+    UserOutlined, LineChartOutlined} from '@ant-design/icons';
 import {Button, Col, Menu, Row} from 'antd';
 import React from "react";
 
@@ -44,35 +47,38 @@ class TeacherHeader extends React.Component {
                 <Row>
                     <Col span={24}>
                         <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" className="teacher-menu">
-                            <Menu.Item key="MainPage" icon={<EditOutlined />}>
+                            <Menu.Item key="MainPage" icon={<HomeOutlined />}>
                                 主 页
                             </Menu.Item>
-                            <Menu.Item key="Announcement" icon={<UserOutlined />}>
+                            <Menu.Item key="Announcement" icon={<NotificationOutlined />}>
                                 公 告
                             </Menu.Item>
-                            <Menu.Item key="Teams" icon={<TeamOutlined />}>
+                            <Menu.Item key="Teams" icon={<FormOutlined />}>
                                 作 业
                             </Menu.Item>
-                            <Menu.Item key="Project" icon={<ProjectOutlined />}>
+                            <Menu.Item key="Project" icon={<TeamOutlined />}>
                                 讨 论
                             </Menu.Item>
-                            <Menu.Item key="Score" icon={<ProjectOutlined />}>
+                            <Menu.Item key="Score" icon={<CheckOutlined />}>
                                 评 分
                             </Menu.Item>
-                            <Menu.Item key="User" icon={<ProjectOutlined />}>
+                            <Menu.Item key="User" icon={<UserOutlined />}>
                                 用 户
                             </Menu.Item>
-                            <Menu.Item key="File" icon={<ProjectOutlined />}>
+                            <Menu.Item key="File" icon={<FileOutlined />}>
                                 文 件
                             </Menu.Item>
                             <Menu.Item key="Outline" icon={<ProjectOutlined />}>
                                 大 纲
                             </Menu.Item>
-                            <Menu.Item key="Test" icon={<ProjectOutlined />}>
+                            <Menu.Item key="Test" icon={<LineChartOutlined />}>
                                 测 验
                             </Menu.Item>
-                            <Menu.Item key="Unit" icon={<ProjectOutlined />}>
+                            <Menu.Item key="Unit" icon={<DeploymentUnitOutlined />}>
                                 单 元
+                            </Menu.Item>
+                            <Menu.Item key="Edit" icon={<EditOutlined />}>
+                                编 辑
                             </Menu.Item>
                         </Menu>
                     </Col>
