@@ -5,10 +5,10 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import {ClassHeader} from "../../components/classheader/ClassHeader";
-import MyFooter from '../../components/footer/MyFooter';
-import MyHeader from '../../components/header/MyHeader';
 import Dashboard from "../../components/dashboard/Dashboard";
+import MyFooter from '../../components/footer/MyFooter';
 import {HomeworkList} from "../../components/homeworklist/HomeworkList";
+import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 
 const Homework = [
     {
@@ -37,7 +37,7 @@ class ClassView extends React.Component {
     render() {
         return (
             <div>
-                <MyHeader />
+                <LoginedHeader />
                 <ClassHeader />
                 <div className="class-container">
                     <Row>

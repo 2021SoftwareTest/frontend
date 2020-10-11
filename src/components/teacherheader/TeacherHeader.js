@@ -1,10 +1,10 @@
 import "./TeacherHeader.css";
 
-import { HomeOutlined, FileOutlined, EditOutlined, EyeOutlined,
-    ProjectOutlined, StarOutlined, TeamOutlined, FormOutlined,
-    DeploymentUnitOutlined, NotificationOutlined, CheckOutlined,
-    UserOutlined, LineChartOutlined} from '@ant-design/icons';
-import {Button, Col, Menu, Row} from 'antd';
+import { CheckOutlined,
+    DeploymentUnitOutlined, EditOutlined,
+FileOutlined, FormOutlined,
+HomeOutlined, LineChartOutlined, NotificationOutlined, ProjectOutlined, TeamOutlined,     UserOutlined} from '@ant-design/icons';
+import {Col, Menu, Row} from 'antd';
 import React from "react";
 
 class TeacherHeader extends React.Component {
@@ -40,8 +40,8 @@ class TeacherHeader extends React.Component {
                         <p className="teacher-title">六年级语文</p>
                     </Col>
                     <Col span={3} offset={15} style={{display:"flex", paddingTop:3}}>
-                        <Button className="teacher-button"><EyeOutlined /> Watch </Button>
-                        <Button className="teacher-button"><StarOutlined /> Star </Button>
+                        {/* <Button className="teacher-button"><EyeOutlined /> Watch </Button>*/}
+                        {/* <Button className="teacher-button"><StarOutlined /> Star </Button>*/}
                     </Col>
                 </Row>
                 <Row>

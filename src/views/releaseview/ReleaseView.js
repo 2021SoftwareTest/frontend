@@ -4,9 +4,9 @@ import {Col, DatePicker, Divider, Input, InputNumber, Row, Space, Typography} fr
 import React from 'react';
 
 import MyFooter from "../../components/footer/MyFooter";
-import MyHeader from "../../components/header/MyHeader";
 import {HomeworkHandin} from "../../components/homeworkhandin/HomeworkHandin";
 import {HomeworkHeader} from "../../components/homeworkheader/HomeworkHeader";
+import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 
 const {TextArea} = Input;
 const { Title } = Typography;
@@ -19,7 +19,7 @@ class ReleaseView extends React.Component {
     render() {
         return (
             <div>
-                <MyHeader/>
+                <LoginedHeader/>
                 <HomeworkHeader/>
                 <div className="release-container">
                     <Row style={{marginTop:10}}>
