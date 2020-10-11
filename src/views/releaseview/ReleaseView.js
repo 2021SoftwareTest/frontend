@@ -4,9 +4,9 @@ import {Col, DatePicker, Divider, Input, InputNumber, Row, Space, Typography} fr
 import React from 'react';
 
 import MyFooter from "../../components/footer/MyFooter";
-import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 import {HomeworkHandin} from "../../components/homeworkhandin/HomeworkHandin";
 import {HomeworkHeader} from "../../components/homeworkheader/HomeworkHeader";
+import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 
 const {TextArea} = Input;
 const { Title } = Typography;

@@ -5,10 +5,10 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import {ClassHeader} from "../../components/classheader/ClassHeader";
-import MyFooter from '../../components/footer/MyFooter';
-import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 import Dashboard from "../../components/dashboard/Dashboard";
+import MyFooter from '../../components/footer/MyFooter';
 import {HomeworkList} from "../../components/homeworklist/HomeworkList";
+import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 
 const Homework = [
     {

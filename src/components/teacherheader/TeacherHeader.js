@@ -1,10 +1,10 @@
 import "./TeacherHeader.css";
 
-import { HomeOutlined, FileOutlined, EditOutlined, EyeOutlined,
-    ProjectOutlined, StarOutlined, TeamOutlined, FormOutlined,
-    DeploymentUnitOutlined, NotificationOutlined, CheckOutlined,
-    UserOutlined, LineChartOutlined} from '@ant-design/icons';
-import {Button, Col, Menu, Row} from 'antd';
+import { CheckOutlined,
+    DeploymentUnitOutlined, EditOutlined,
+FileOutlined, FormOutlined,
+HomeOutlined, LineChartOutlined, NotificationOutlined, ProjectOutlined, TeamOutlined,     UserOutlined} from '@ant-design/icons';
+import {Col, Menu, Row} from 'antd';
 import React from "react";
 
 class TeacherHeader extends React.Component {

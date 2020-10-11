@@ -68,7 +68,7 @@ class RegisterForm extends React.Component {
           </Row>
           <Row style={{marginTop:5}}>
             <Col span={24}>
-              <p>
+              <p style={{marginBottom:0}}>
                 确保密码至少有7位字符，包括数字和小写字母。
               </p>
             </Col>

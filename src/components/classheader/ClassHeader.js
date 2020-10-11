@@ -1,7 +1,7 @@
 import './ClassHeader.css';
 
-import { EditOutlined, EyeOutlined, ProjectOutlined, StarOutlined, TeamOutlined, UserOutlined} from '@ant-design/icons';
-import {Button, Col, Menu, Row} from 'antd';
+import { EditOutlined, ProjectOutlined, TeamOutlined, UserOutlined} from '@ant-design/icons';
+import { Col, Menu, Row} from 'antd';
 import React from "react";
 
 export class ClassHeader extends React.Component {

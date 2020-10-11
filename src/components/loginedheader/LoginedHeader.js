@@ -1,7 +1,7 @@
 import 'antd/dist/antd.css';
 import './LoginHeader.css';
 
-import {BellOutlined, CaretDownOutlined, PlusOutlined, UserOutlined} from "@ant-design/icons";
+import {BellOutlined, CaretDownOutlined, UserOutlined} from "@ant-design/icons";
 import {Avatar, Badge, Col, Dropdown, Input, Menu, Row} from "antd";
 import React from 'react';
 

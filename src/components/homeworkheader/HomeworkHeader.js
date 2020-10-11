@@ -2,12 +2,11 @@ import './HomeworkHeader.css';
 
 import {
     EditOutlined,
-    EyeOutlined,
-    ProjectOutlined, StarOutlined,
+    ProjectOutlined,
     TeamOutlined,
     UserOutlined
 } from '@ant-design/icons';
-import {Button, Col, Menu, Row} from 'antd';
+import { Col, Menu, Row} from 'antd';
 import React from "react";
 
 export class HomeworkHeader extends React.Component {
