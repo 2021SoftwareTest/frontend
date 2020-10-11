@@ -1,18 +1,64 @@
-.class-unit{
-    width: 80%;
-    margin: 50px 5% 0 15%;
-}
-
-.unit-section{
+.user-profile{
+    width: 65%;
+    margin-left:17.5%;
     margin-top: 30px;
 }
 
-.operation-board{
-    margin-left: 30px;
+
+.profile-title{
+    background-color: #eef1f6;
+    margin-bottom: 20px;
 }
 
-.operation-board button{
-    display: block;
-    width: 100%;
+.profile-title p{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    height: 40px;
     margin-top:10px;
+    margin-bottom: 0;
+}
+
+.cus-avator{
+
+}
+
+.cus-avator-pic{
+    height: 200px;
+    width: 200px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+.cus-avator-title{
+    height: 40px;
+}
+
+.cus-avator-title p{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    height: 40px;
+    margin-top:10px;
+    margin-bottom: 0;
+}
+
+.profile-table{
+    margin-left: 7%;
+}
+
+.cus-avator{
+    background-color: #eef1f6;
+    width: 270px;
+    height: 339px;
+}
+
+.profile-pic-button{
+    margin-left: 40%;
+    margin-top: 80px;
+    width: 80px;
 }

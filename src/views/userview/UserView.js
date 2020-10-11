@@ -27,10 +27,9 @@ class UserView extends React.Component {
         const curSection = this.state.curSection;
         const content =
             (curSection === 0) ? (<></>) :
-                (curSection === 1) ? (<UserProfile/>) :
-                    (curSection === 2) ? (<></>) :
-                        (curSection === 3) ? (<></>)
-                            : (<></>);
+            (curSection === 1) ? (<UserProfile/>) :
+            (curSection === 2) ? (<></>) :
+            (curSection === 3) ? (<></>) : (<></>);
         return (
             <div className="teacher-view">
                 <LoginedHeader/>

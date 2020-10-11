@@ -14,5 +14,8 @@
 }
 
 .homework-list-item p{
-    font-size: 14px;
+    padding-top:5px;
+    padding-bottom:5px;
+    margin-bottom: 0;
+    font-size: 16px;
 }

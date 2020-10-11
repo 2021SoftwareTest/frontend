@@ -21,7 +21,7 @@ class LoginedHeader extends React.Component {
                 <a href={"/file"}>文件</a>
             </Menu.Item>
             <Menu.Item key="3">
-                <a href={"/setting"}>个人资料</a>
+                <a href={"/setting"}>个人设置</a>
             </Menu.Item>
             <Menu.Divider/>
             <Menu.Item key="4">

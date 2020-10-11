@@ -1,35 +1,110 @@
 import "./UserProfile.css";
 
-import {Button, Col, Row} from "antd";
+import { Form, Row, Col, Input, Button } from "antd";
 import React from "react";
 
 export class UserProfile extends React.Component {
-
     constructor(props) {
         super(props);
+        this.formRef = React.createRef();
     }
 
     componentDidMount() {
 
     }
 
+    onSubmit = (values) => {
+        console.log(values);
+    };
+
+    onReset = () => {
+        this.formRef.current.resetFields();
+    };
+
+    onFill = () => {
+
+    };
+
     render() {
         return (
-            <div className="class-unit">
-                <Row>
-                    <Col span={20}>
-                        <Row>
-                            <div>
-                                <h1> 胡媛媛</h1>
-                                <h2> 电话号码</h2>
-                                <h3> 54749110</h3>
-                                <h2> 电子邮件</h2>
-                                <h3>hyy@sjtu.edu.cn</h3>
-                                <Button>修改信息</Button>
+            <div className="user-profile">
+                <div className="profile-title">
+                    <p>更新我的个人信息</p>
+                </div>
+                <div className="profile-table">
+                    <Row>
+                        <Col span={16}>
+                            <Form ref={this.formRef} name="user-profile" onFinish={this.onSubmit}>
+                                <Row style={{marginTop:10}}>
+                                    <Col span={12}>
+                                        <Form.Item name="id" label="学号" rules={[{required: true, message:"请输入学号"}]}>
+                                            <Input placeholder="学号或工号" style={{width:240, height:40, borderRadius:5}}/>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col span={12}>
+                                        <Form.Item name="name" label="姓名" rules={[{required: true, message:"请输入姓名"}]}>
+                                            <Input placeholder="请输入姓名" style={{width:240, height:40, borderRadius:5}}/>
+                                        </Form.Item>
+                                    </Col>
+                                </Row>
+                                <Row style={{marginTop:10}}>
+                                    <Col span={12}>
+                                        <Form.Item name="email" label="邮箱" rules={[{required: true, message:"请输入姓名"}]}>
+                                            <Input placeholder="输入邮箱" style={{width:240, height:40, borderRadius:5}}/>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col span={12}>
+                                        <Form.Item name="phone" label="手机" rules={[{required: true, message:"请输入姓名"}]}>
+                                            <Input placeholder="请输入手机号" style={{width:240, height:40, borderRadius:5}}/>
+                                        </Form.Item>
+                                    </Col>
+                                </Row>
+                                <Row style={{marginTop:10}}>
+                                    <Col span={12}>
+                                        <Form.Item name="school" label="学校" rules={[{required: true, message:"请输入姓名"}]}>
+                                            <Input placeholder="请输入学校" style={{width:240, height:40, borderRadius:5}}/>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col span={12}>
+                                        <Form.Item name="class" label="班级" rules={[{required: true, message:"请输入姓名"}]}>
+                                            <Input placeholder="请输入班级" style={{width:240, height:40, borderRadius:5}}/>
+                                        </Form.Item>
+                                    </Col>
+                                </Row>
+                                <Form.Item>
+                                    <Button htmlType="submit" className="profile-pic-button">保存</Button>
+                                </Form.Item>
+                            </Form>
+                        </Col>
+                        <Col span={8}>
+                            <div className="cus-avator">
+                                <div className="cus-avator-title">
+                                    <p>头像</p>
+                                </div>
+                                <div className="cus-avator-pic">
+
+                                </div>
                             </div>
-                        </Row>
-                    </Col>
-                </Row>
+                        </Col>
+                    </Row>
+                </div>
+
+                {/*<Row>*/}
+                {/*    <Col span={12}>*/}
+
+                {/*        <div>*/}
+                {/*                <h1> 胡媛媛</h1>*/}
+                {/*                <h2> 电话号码</h2>*/}
+                {/*                <h3> 54749110</h3>*/}
+                {/*                <h2> 电子邮件</h2>*/}
+                {/*                <h3>hyy@sjtu.edu.cn</h3>*/}
+                {/*                <Button>修改信息</Button>*/}
+                {/*        </div>*/}
+                {/*    </Col>*/}
+                {/*    <Col span={12}>*/}
+
+                {/*    </Col>*/}
+                {/*</Row>*/}
             </div>
 
         );

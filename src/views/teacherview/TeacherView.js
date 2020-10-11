@@ -12,8 +12,6 @@ import MyFooter from "../../components/footer/MyFooter";
 import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 import TeacherHeader from "../../components/teacherheader/TeacherHeader";
 
-
-
 class TeacherView extends React.Component {
     constructor(props) {
         super(props);
