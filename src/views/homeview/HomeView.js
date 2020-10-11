@@ -1,15 +1,16 @@
-import {Divider, Layout} from 'antd';
+import "./HomeView.css";
+
+import {Col, Divider, Row} from 'antd';
 import React from 'react';
 import {withRouter} from "react-router-dom";
 
 import {BackToTop} from "../../components/backtotop/BackToTop";
 import MyFooter from "../../components/footer/MyFooter";
-import MyHeader from "../../components/header/MyHeader";
 import {HomeworkList} from "../../components/homeworklist/HomeworkList";
+import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 import {ReplyList} from "../../components/replylist/ReplyList";
 import {SideBar} from "../../components/sidebar/SideBar";
 
-const {Sider, Content, Footer} = Layout;
 
 const todoHomework = [
     {
@@ -70,29 +71,33 @@ class HomeView extends React.Component {
 
     render() {
         return (
-            <Layout>
-                <MyHeader/>
-                <Layout>
-                    <Sider theme={'light'} width={300}>
-                        <SideBar/>
-                    </Sider>
-                    <Layout>
-                    <Content>
-                        <Divider orientation="left">最近要做的作业</Divider>
-                        <HomeworkList data={todoHomework}/>
-                        <Divider orientation="left">已经完成的作业</Divider>
-                        <HomeworkList data={doneHomework}/>
-                    </Content>
-                    <Sider theme={'light'} reverseArrow={true} width={300}>
-                        <ReplyList/>
-                    </Sider>
-                    </Layout>
-                </Layout>
-                <BackToTop/>
-                <Footer>
-                    <MyFooter/>
-                </Footer>
-            </Layout>
+            <div className="home-view">
+                <LoginedHeader />
+                <Row style={{minHeight: "100vh"}}>
+                    <Col span={4}>
+                        <SideBar />
+                    </Col>
+                    <Col span={20} style={{paddingLeft:10}}>
+                        <Row>
+                            <Col span={18} style={{paddingRight:10}}>
+                                <Divider orientation="left">最近要做的作业</Divider>
+                                <HomeworkList data={todoHomework} style={{backgroundColor:"#fafbfc"}}/>
+                                <Divider orientation="left">已经完成的作业</Divider>
+                                <HomeworkList data={doneHomework} style={{backgroundColor:"#fafbfc"}}/>
+                            </Col>
+                            <Col span={6}>
+                                <ReplyList />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col span={16}>
+                                <MyFooter />
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+                <BackToTop />
+            </div>
         );
     }
 }

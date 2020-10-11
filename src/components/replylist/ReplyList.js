@@ -1,3 +1,5 @@
+import './ReplyList.css';
+
 import { Avatar, Divider, List} from 'antd';
 import React from "react";
 
@@ -29,20 +31,22 @@ export class ReplyList extends React.Component {
     render() {
         return (
             <div>
-            <Divider orientation="left">教师回复</Divider>
-            <List
-                itemLayout="horizontal"
-                dataSource={data}
-                renderItem={(item) => (
-                    <List.Item extra={<div>score: {item.score}</div>}>
-                        <List.Item.Meta
-                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                            title={<a href="https://ant.design">{item.title}</a>}
-                            description={item.comment}
-                        />
-                    </List.Item>
-                )}
-            />
+                <Divider orientation="left">教师回复</Divider>
+                <div className="reply-list">
+                    <List
+                        itemLayout="horizontal"
+                        dataSource={data}
+                        renderItem={(item) => (
+                            <List.Item extra={<div>score: {item.score}</div>}>
+                                <List.Item.Meta
+                                    avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                                    title={<a href="https://ant.design">{item.title}</a>}
+                                    description={item.comment}
+                                />
+                            </List.Item>
+                        )}
+                    />
+                </div>
             </div>
         );
     }

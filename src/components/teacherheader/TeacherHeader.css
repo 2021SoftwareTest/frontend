@@ -1,0 +1,33 @@
+.text-gray-light {
+    color: #6a737d!important;
+}
+
+.teacher-header{
+    padding-top: 16px;
+    background-color: #fafbfc;
+}
+
+.teacher-title{
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size:20px !important;
+    color: #24292e;
+    float:left;
+}
+
+.teacher-svg{
+    margin-top: 9px;
+    margin-right: 8px;
+    color: #586069;
+    vertical-align: text-bottom;
+    float:left;
+}
+
+.teacher-menu{
+    margin-left: 20px !important;
+    background-color: #fafbfc !important;
+}
+
+.teacher-button{
+    margin-left: 10px;
+}

@@ -1,6 +1,6 @@
 .footer {
   height: 100px;
-  background-color: rgb(240, 240, 240);
+  background-color: rgba(240, 240, 240, 0);
   padding: 16px 50px 16px 50px;
 }
 

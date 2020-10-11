@@ -1,9 +1,11 @@
-import { Col, Row } from 'antd';
+import './HomeworkView.css';
+
+import { Button, Col, Row } from 'antd';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import MyFooter from '../../components/footer/MyFooter';
-import MyHeader from '../../components/header/MyHeader';
+import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 import {HomeworkDetail} from "../../components/homeworkdetail/HomeworkDetail";
 import {HomeworkHandin} from "../../components/homeworkhandin/HomeworkHandin";
 import {HomeworkHeader} from "../../components/homeworkheader/HomeworkHeader";
@@ -12,16 +14,26 @@ class HomeworkView extends React.Component {
     render() {
         return (
             <div>
-                <MyHeader />
-                <Col span={12} offset={6}>
+                <LoginedHeader />
+                <HomeworkHeader/>
+                <div className="homework-container">
                     <Row>
-                        <HomeworkHeader/>
+                        <Col span={24} style={{display: "flex"}}>
+                            <p className="homework-title-name"><a>作业1</a>&nbsp;/&nbsp;<a>文件1</a></p>
+                            <Button className="cancel-button">取消</Button>
+                        </Col>
                     </Row>
                     <Row>
-                        <HomeworkDetail/>
+                        <Col spa={24}>
+                            <HomeworkDetail/>
+                        </Col>
                     </Row>
-                    <HomeworkHandin/>
-                </Col>
+                    <Row>
+                        <Col span={24}>
+                            <HomeworkHandin/>
+                        </Col>
+                    </Row>
+                </div>
                 <MyFooter />
             </div>
         );

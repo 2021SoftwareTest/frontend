@@ -1,0 +1,9 @@
+.class-card{
+    background-color: #fafbfc;
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 5px;
+    width:65%;
+    margin-left:17.5%;
+    margin-top: 50px;
+    padding: 30px 50px;
+}
