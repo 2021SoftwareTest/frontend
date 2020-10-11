@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {ClassUser} from "../../components/classuser/ClassUser";
+import {ClassUnit} from "../../components/classunit/ClassUnit";
 import MyFooter from "../../components/footer/MyFooter";
 import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 import TeacherHeader from "../../components/teacherheader/TeacherHeader";
@@ -12,7 +12,7 @@ class TeacherView extends React.Component {
                 <LoginedHeader/>
                 <TeacherHeader/>
                 <div>
-                    <ClassUser/>
+                   <ClassUnit/>
                 </div>
                 <MyFooter/>
             </div>
