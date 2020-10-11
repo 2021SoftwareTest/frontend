@@ -12,13 +12,21 @@ class LoginedHeader extends React.Component {
         const menu = (
         <Menu>
             <Menu.Item key="0">
-                <a href="http://www.alipay.com/">1st menu item</a>
+                <a href="/message">通知</a>
             </Menu.Item>
             <Menu.Item key="1">
-                <a href="http://www.taobao.com/">2nd menu item</a>
+                <a href="/user">个人资料</a>
             </Menu.Item>
-            <Menu.Divider />
-            <Menu.Item key="3">3rd menu item</Menu.Item>
+            <Menu.Item key="2">
+                <a href="/file">文件</a>
+            </Menu.Item>
+            <Menu.Item key="3">
+                <a href="/setting">个人资料</a>
+            </Menu.Item>
+            <Menu.Divider/>
+            <Menu.Item key="4">
+                <a href="/login">退出登录</a>
+            </Menu.Item>
         </Menu>
         );
 

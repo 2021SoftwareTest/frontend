@@ -92,7 +92,12 @@ export class ClassUser extends React.Component {
                                     style={{width: 200}}
                                 />
                             </Col>
-                            <Col span={17}>
+                            <Col span={12}>
+                            </Col>
+                            <Col span={6}>
+                                <Button>添加</Button>
+                                <Button>删除</Button>
+                                <Button>批量导入</Button>
                             </Col>
                         </Row>
                         <Divider style={{margin: "10px 0"}}/>
