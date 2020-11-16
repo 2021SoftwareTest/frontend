@@ -6,9 +6,16 @@ import {Avatar, Badge, Col, Dropdown, Input, Menu, Row} from "antd";
 import React from 'react';
 
 import logo from "../../assets/logo.png";
+import {logout} from "../../services/userService";
+
 const { Search } = Input;
 
+
 class LoginedHeader extends React.Component {
+    logoutOnClick = () => {
+        logout();
+    };
+
     render () {
         const menu = (
         <Menu>
@@ -26,7 +33,7 @@ class LoginedHeader extends React.Component {
             </Menu.Item>
             <Menu.Divider/>
             <Menu.Item key="4">
-                <a href={"/login"}>退出登录</a>
+                <a onClick={this.logoutOnClick}>退出登录</a>
             </Menu.Item>
         </Menu>
         );

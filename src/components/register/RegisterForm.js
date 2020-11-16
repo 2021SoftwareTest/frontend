@@ -4,17 +4,19 @@ import './registercss.css';
 import { Button, Col, Input, Row } from 'antd';
 import React from 'react';
 
+import {register} from "../../services/userService";
+
 class RegisterForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', email: '', password: '' };
+    this.state = { username: '', email: '', password: '', school: '', ID: '', phone: '', authCode: '' };
   }
 
   usernameOnChange = (value) => {
     this.setState({ username: value });
   };
 
-  numberOnChange = (value) => {
+  IDOnChange = (value) => {
     this.setState({ number: value });
   };
 
@@ -30,7 +32,26 @@ class RegisterForm extends React.Component {
     this.setState({ password: value });
   };
 
-  onSubmit = () => {};
+  authCodeOnChange = (value) => {
+    this.setState({authCode: value});
+  };
+
+  schoolOnChange = (value) => {
+    this.setState({school: value});
+  };
+
+  onSubmit = () => {
+      const registerInfo = {
+        userName: this.state.username,
+        password: this.state.password,
+        school: this.state.school,
+        ID: this.state.ID,
+        phone: this.state.phone,
+        email: this.state.email,
+        authcode: this.state.authCode
+      };
+      register(registerInfo);
+  };
 
   render() {
     return (
@@ -38,12 +59,22 @@ class RegisterForm extends React.Component {
         <div className="register-form-wrapper">
           <Row>
             <Col span={5}>
-              <p className="title">姓名</p>
+              <p className="title">用户名</p>
             </Col>
           </Row>
           <Row>
             <Col span={24}>
-              <Input placeholder="姓名" onChange={this.usernameOnChange} className="input" />
+              <Input placeholder="用户名" onChange={this.usernameOnChange} className="input" />
+            </Col>
+          </Row>
+          <Row>
+            <Col span={5}>
+              <p className="title">学校</p>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={24}>
+              <Input placeholder="输入学校全称" onChange={this.schoolOnChange} className="input" />
             </Col>
           </Row>
           <Row>
@@ -53,7 +84,7 @@ class RegisterForm extends React.Component {
           </Row>
           <Row>
             <Col span={24}>
-              <Input placeholder="学号/工号" onChange={this.numberOnChange} className="input" />
+              <Input placeholder="学号/工号" onChange={this.IDOnChange} className="input" />
             </Col>
           </Row>
           <Row>
@@ -100,7 +131,7 @@ class RegisterForm extends React.Component {
           </Row>
           <Row>
             <Col span={24}>
-              <Input placeholder="请输入收到的验证码" onChange={this.passwordOnChange} className="input" />
+              <Input placeholder="请输入收到的验证码" onChange={this.authCodeOnChange} className="input" />
             </Col>
           </Row>
           <Row>

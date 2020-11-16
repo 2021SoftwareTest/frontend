@@ -3,6 +3,8 @@ import "./UserProfile.css";
 import { Form, Row, Col, Input, Button } from "antd";
 import React from "react";
 
+import {getUserInfo} from "../../services/userService";
+
 export class UserProfile extends React.Component {
     constructor(props) {
         super(props);
@@ -12,6 +14,10 @@ export class UserProfile extends React.Component {
     componentDidMount() {
 
     }
+
+    _getUserInfo = () => {
+        const userInfo = localStorage.getItem('user');
+    };
 
     onSubmit = (values) => {
         console.log(values);
