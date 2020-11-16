@@ -19,6 +19,7 @@ class ClassInfo extends React.Component {
     }
 
     nameOnChange = (value) => {
+        console.log(value.currentTarget.value);
         this.setState({name: value});
     };
 
