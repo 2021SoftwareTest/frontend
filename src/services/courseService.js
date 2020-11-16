@@ -1,34 +1,21 @@
-import { message } from 'antd';
-
-import { postRequest, putRequest } from '../utils/ajax';
+import { getRequest, putRequest } from '../utils/ajax';
 
 const baseUrl = 'http://localhost:8080/';
 const courseUrl = baseUrl + 'course/';
 
 
-export const getCourseList = (data) => {
+export const getCourseList = (data, callback) => {
   const url = courseUrl + 'mylist';
-  // TODO
-  const callback = (data) => {
-    // eslint-disable-next-line no-empty
-    if (data.status >= 0) {
-    } else {
-      message.error(data.msg);
-    }
-  };
-  postRequest(url, data, callback);
+  getRequest(url, data, callback);
 };
 
-export const putNewCourse = (data) => {
-  const url = courseUrl + 'mylist';
-  // TODO
-  const callback = (data) => {
-    // eslint-disable-next-line no-empty
-    if (data.status >= 0) {
-    } else {
-      message.error(data.msg);
-    }
-  };
+export const putNewCourse = (data, callback) => {
+  const url = courseUrl + 'newcourse';
   putRequest(url, data, callback);
+};
+
+export const getStudent = (data, callback) => {
+  const url = courseUrl + 'student';
+  getRequest(url, data, callback);
 };
 

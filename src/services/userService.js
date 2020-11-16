@@ -1,6 +1,6 @@
 import { message } from 'antd';
 
-import {  getRequest, postRequest} from '../utils/ajax';
+import {  getRequest, postRequest, putRequest} from '../utils/ajax';
 import { history } from '../utils/history';
 
 const baseUrl = 'http://localhost:8080/';
@@ -47,64 +47,31 @@ export const register = (data) => {
   const url = userUrl + 'register';
   // TODO
   const callback = (data) => {
-    // eslint-disable-next-line no-empty
     if (data.status >= 0) {
+      message.success(data.msg);
     } else {
       message.error(data.msg);
     }
   };
-  postRequest(url, data, callback);
+  putRequest(url, data, callback);
 };
 
-export const getUserInfo = (data) => {
+export const getUserInfo = (data, callback) => {
   const url = userUrl + 'info';
-  // TODO
-  const callback = (data) => {
-    // eslint-disable-next-line no-empty
-    if (data.status >= 0) {
-    } else {
-      message.error(data.msg);
-    }
-  };
   getRequest(url, data, callback);
 };
 
-export const checkPassword = (data) => {
+export const checkPassword = (data, callback) => {
   const url = checkUrl + 'password';
-  // TODO
-  const callback = (data) => {
-    // eslint-disable-next-line no-empty
-    if (data.status >= 0) {
-    } else {
-      message.error(data.msg);
-    }
-  };
   postRequest(url, data, callback);
 };
 
-export const checkPhone = (data) => {
+export const checkPhone = (data, callback) => {
   const url = checkUrl + 'phone';
-  // TODO
-  const callback = (data) => {
-    // eslint-disable-next-line no-empty
-    if (data.status >= 0) {
-
-    } else {
-      message.error(data.msg);
-    }
-  };
   postRequest(url, data, callback);
 };
 
-export const checkEmail = (data) => {
+export const checkEmail = (data, callback) => {
   const url = checkUrl + 'email';
-  // TODO
-  const callback = (data) => {
-    // eslint-disable-next-line no-empty
-    if (data.status >= 0) {
-    } else {
-      message.error(data.msg);
-    }
-  };
   postRequest(url, data, callback);
 };
