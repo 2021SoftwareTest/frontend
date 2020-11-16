@@ -10,9 +10,9 @@ import React from 'react';
 // }
 
 class UnitCell extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     renderHomeList(item) {
         return (

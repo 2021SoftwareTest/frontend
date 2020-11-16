@@ -117,7 +117,7 @@ class RegisterForm extends React.Component {
           </Row>
           <Row style={{ marginTop: 25 }}>
             <Col span={24}>
-              <p className="term">点击“注册到小箱交”，代表你同意我们的<a>服务条款</a>。我们会不定期寄给你相关邮件。</p>
+              <p className="term">点击“注册到小箱交”，代表你同意我们的<a href={"#"}>服务条款</a>。我们会不定期寄给你相关邮件。</p>
             </Col>
           </Row>
         </div>

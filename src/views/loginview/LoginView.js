@@ -7,9 +7,6 @@ import { withRouter } from 'react-router-dom';
 import LoginForm from "../../components/loginform/LoginForm";
 
 class LoginView extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     // let user = localStorage.getItem("user");
@@ -28,10 +25,10 @@ class LoginView extends React.Component {
         <Row>
           <Col span={6} style={{margin:"40px 42%"}}>
             <div>
-              <a className="bottom-link">条款</a>
-              <a className="bottom-link">隐私</a>
-              <a className="bottom-link">安全</a>
-              <a className="bottom-link">联系小箱交</a>
+              <a href={"#"} className="bottom-link">条款</a>
+              <a href={"#"} className="bottom-link">隐私</a>
+              <a href={"#"} className="bottom-link">安全</a>
+              <a href={"#"} className="bottom-link">联系小箱交</a>
             </div>
           </Col>
         </Row>

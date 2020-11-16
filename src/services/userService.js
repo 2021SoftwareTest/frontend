@@ -1,10 +1,15 @@
 import { message } from 'antd';
 
-import { postRequest, postRequestForm } from '../utils/ajax';
+import {  postRequest } from '../utils/ajax';
 import { history } from '../utils/history';
 
+const baseUrl = 'http://localhost:8080/';
+const authUrl = baseUrl + 'auth';
+const userUrl = baseUrl + 'user';
+
 export const login = (data) => {
-  const url = `http://localhost:8080/login`;
+  const url = authUrl + 'login';
+ // TODO
   const callback = (data) => {
     if (data.status >= 0) {
       if (data.data.userType === -1) {
@@ -21,22 +26,8 @@ export const login = (data) => {
   postRequest(url, data, callback);
 };
 
-export const register = (data) => {
-  const url = `http://localhost:8080/register`;
-  const callback = (data) => {
-    if (data.status >= 0) {
-      localStorage.setItem('user', JSON.stringify(data.data));
-      history.push('/');
-      message.success(data.msg);
-    } else {
-      message.error(data.msg);
-    }
-  };
-  postRequest(url, data, callback);
-};
-
 export const logout = () => {
-  const url = `http://localhost:8080/logout`;
+  const url = authUrl + 'logout';
 
   const callback = (data) => {
     if (data.status >= 0) {
@@ -50,54 +41,19 @@ export const logout = () => {
   postRequest(url, {}, callback);
 };
 
-export const getOrders = (userId, callback) => {
-  const data = { userId: userId };
-  const url = `http://localhost:8080/getOrders`;
+
+export const register = (data) => {
+  const url = userUrl + 'register';
+  // TODO
+  const callback = (data) => {
+    if (data.status >= 0) {
+      localStorage.setItem('user', JSON.stringify(data.data));
+      history.push('/');
+      message.success(data.msg);
+    } else {
+      message.error(data.msg);
+    }
+  };
   postRequest(url, data, callback);
 };
 
-export const getCart = (userId, callback) => {
-  const data = { userId: userId };
-  const url = `http://localhost:8080/getCart`;
-  postRequest(url, data, callback);
-};
-
-export const delCartItem = (data, callback) => {
-  const url = `http://localhost:8080/delCartItem`;
-  postRequest(url, data, callback);
-};
-
-export const addOrder = (data, callback) => {
-  const url = `http://localhost:8080/addOrder`;
-  postRequest(url, data, callback);
-};
-
-export const addCart = (data, callback) => {
-  const url = `http://localhost:8080/addCart`;
-  postRequest(url, data, callback);
-};
-
-export const getUsers = (data, callback) => {
-  const url = `http://localhost:8080/getUsers`;
-  postRequest(url, data, callback);
-};
-export const editCartItemNumber = (data, callback) => {
-  const url = `http://localhost:8080/editCartItemNumber`;
-  postRequest(url, data, callback);
-};
-
-export const editUser = (data, callback) => {
-  const url = `http://localhost:8080/editUser`;
-  postRequest(url, data, callback);
-};
-
-export const deleteUser = (id, callback) => {
-  const data = { id: id };
-  const url = `http://localhost:8080/deleteUser`;
-  postRequestForm(url, data, callback);
-};
-
-// export const checkSession = (callback) => {
-//     const url = `http://localhost:8080/checkSession`;
-//     postRequest(url, {}, callback);
-// };
