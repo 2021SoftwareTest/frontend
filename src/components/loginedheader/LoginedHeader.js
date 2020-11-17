@@ -61,18 +61,21 @@ class LoginedHeader extends React.Component {
                         <Col style={{ height: 28, marginLeft:20 }}>
                             <a href={'/teacher'} className="header-link">教师界面</a>
                         </Col>
+                        <Col style={{ height: 28, marginLeft:20 }}>
+                            <a href={'/teacher'} className="header-link">新建课程</a>
+                        </Col>
                         <Col offset={11} style={{paddingTop:7, marginRight:5, paddingLeft:40}}>
                             <BellOutlined style={{color:"white", fontSize:18 }} />
                             <Badge status="processing" style={{marginTop:-10}}/>
                         </Col>
-                        {/*<Col style={{paddingTop:6}}>*/}
+                        {/* <Col style={{paddingTop:6}}>*/}
                         {/*    <Dropdown overlay={menu} trigger={['click']} className="mydropdown">*/}
                         {/*        <div>*/}
                         {/*            <PlusOutlined style={{color:"white"}}/>*/}
                         {/*            <CaretDownOutlined style={{color:"white", fontSize:12}}/>*/}
                         {/*        </div>*/}
                         {/*    </Dropdown>*/}
-                        {/*</Col>*/}
+                        {/* </Col>*/}
                         <Col style={{marginLeft:10}}>
                             <Dropdown overlay={menu} trigger={['click']} className="mydropdown">
                                 <div>

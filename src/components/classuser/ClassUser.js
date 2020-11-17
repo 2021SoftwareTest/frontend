@@ -4,27 +4,11 @@ import {DownOutlined} from '@ant-design/icons';
 import { Button, Col, Divider, Dropdown, Input, Menu, Row, Table} from "antd";
 import React from 'react';
 
+import {getStudent} from '../../services/courseService';
+
 function handleMenuClick(e) {
     console.log('click', e);
 }
-
-const userlist = [
-    {
-        name: "刘瑾玖", class: "六年级语文", role: "老师"
-    },
-    {
-        name: "胡圆圆", class: "六年级语文", role: "助教"
-    },
-    {
-        name: "胡源源", class: "六年级语文", role: "学生"
-    },
-    {
-        name: "胡媛媛", class: "六年级语文", role: "学生"
-    },
-    {
-        name: "胡远远", class: "六年级语文", role: "学生"
-    },
-];
 
 const columns = [
     {
@@ -59,17 +43,45 @@ const menu = (
         </Menu.Item>
     </Menu>
 );
+const courseId = 1;
 
 const {Search} = Input;
+
 
 export class ClassUser extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            userlist : [{
+                name: "刘瑾玖", class: "六年级语文", role: "老师"
+            },
+                {
+                    name: "胡圆圆", class: "六年级语文", role: "助教"
+                },
+                {
+                    name: "胡源源", class: "六年级语文", role: "学生"
+                },
+                {
+                    name: "胡媛媛", class: "六年级语文", role: "学生"
+                },
+                {
+                    name: "胡远远", class: "六年级语文", role: "学生"
+                }, ],
+        };
     }
 
     componentDidMount() {
+        const data = {
+            courseId: courseId,
+        };
+        const callback = (data) => {
+            this.setState({
+                students: data.students
+            });
 
+        };
+        getStudent(data, callback);
     }
 
     render() {
@@ -101,7 +113,7 @@ export class ClassUser extends React.Component {
                             </Col>
                         </Row>
                         <Divider style={{margin: "10px 0"}}/>
-                        <Table dataSource={userlist} columns={columns}/>
+                        <Table dataSource={this.state.userlist} columns={columns}/>
                     </Col>
                 </Row>
             </div>
