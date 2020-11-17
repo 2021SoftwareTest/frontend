@@ -5,6 +5,8 @@ import { DropboxOutlined } from '@ant-design/icons';
 import { Button, Col, Input, Row } from 'antd';
 import React from 'react';
 
+import {login} from '../../services/userService';
+
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
@@ -20,7 +22,11 @@ class LoginForm extends React.Component {
     };
 
     onSubmit = () => {
-        localStorage.setItem("user", "");
+        const loginInfo = {
+            userName: this.state.username,
+            password: this.state.password
+        };
+        login(loginInfo);
     };
 
     render () {
