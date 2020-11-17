@@ -4,6 +4,7 @@ import { Button, Col, Form, Input, message, Row } from "antd";
 import React from "react";
 
 import {getUserInfo} from "../../services/userService";
+import {saveUserInfo} from "../../services/userService";
 
 export class UserProfile extends React.Component {
     constructor(props) {
@@ -72,12 +73,31 @@ export class UserProfile extends React.Component {
         getUserInfo(userId, callback);
     };
 
+    _saveUserInfo = () => {
+        const userInfo = {
+            userId: this.state.userId,
+            userType: this.state.userType,
+            userName: this.state.userName,
+            school: this.state.school,
+            ID: this.state.ID,
+            phone: this.state.phone,
+            email: this.state.email
+        };
+        const callback = (data) => {
+            if (data.state === 200){
+                message.success(data.msg);
+            }
+            else {
+                message.error(data.msg);
+            }
+        };
+        saveUserInfo(userInfo, callback);
+    };
 
-
+    // eslint-disable-next-line no-unused-vars
     onSubmit = (values) => {
-        console.log(values);
         console.log(this.state);
-
+        this._saveUserInfo();
         // test
         // const obj = {
         //     id: 11,

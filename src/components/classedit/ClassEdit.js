@@ -1,15 +1,17 @@
-import './ClassEdit.css'
+import './ClassEdit.css';
 
-import { AntDesignOutlined } from '@ant-design/icons';
-import { Avatar, Row, Col, Input } from 'antd';
 import React from 'react';
+
 import ClassInfo from "../classinfo/ClassInfo";
 
 const classInfo = {
-    name: "六年级语文",
+    subject: "六年级语文",
+    semester: "第二学期",
+    grade: "六年级",
+    year: "2020",
+    students: [1, 2, 3, 4, 5],
+    courseId: 99,
     description: "这个老师很懒，他没有写描述。",
-    detail: "简介都没写，还想让我写detail？pa",
-    books: "《深入理解计算机系统》 《没 有 精 神》"
 };
 
 
@@ -26,7 +28,8 @@ class ClassEdit extends React.Component {
     render() {
         return (
           <div className="class-edit">
-              <ClassInfo classInfo={classInfo} />
+              {/* eslint-disable-next-line react/prop-types */}
+              <ClassInfo classInfo={classInfo} addClass={this.props.addClass}/>
           </div>
         );
     }

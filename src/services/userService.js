@@ -61,6 +61,11 @@ export const getUserInfo = (data, callback) => {
   getRequest(url, data, callback);
 };
 
+export const saveUserInfo = (data, callback) => {
+  const url = userUrl + 'info';
+  postRequest(url, data, callback);
+};
+
 export const checkPassword = (data, callback) => {
   const url = checkUrl + 'password';
   postRequest(url, data, callback);

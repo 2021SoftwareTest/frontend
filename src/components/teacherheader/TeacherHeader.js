@@ -2,8 +2,10 @@ import "./TeacherHeader.css";
 
 import { CheckOutlined,
     DeploymentUnitOutlined, EditOutlined,
-FileOutlined, FormOutlined,
-HomeOutlined, LineChartOutlined, NotificationOutlined, ProjectOutlined, TeamOutlined,     UserOutlined} from '@ant-design/icons';
+    FileOutlined, FormOutlined, HomeOutlined,
+    LineChartOutlined, NotificationOutlined,
+    PlusOutlined, ProjectOutlined, TeamOutlined,
+    UserOutlined} from '@ant-design/icons';
 import {Col, Menu, Row} from 'antd';
 import React from "react";
 
@@ -40,8 +42,8 @@ class TeacherHeader extends React.Component {
                         <p className="teacher-title">六年级语文</p>
                     </Col>
                     <Col span={3} offset={15} style={{display:"flex", paddingTop:3}}>
-                        {/*<Button className="teacher-button"><EyeOutlined /> Watch </Button>*/}
-                        {/*<Button className="teacher-button"><StarOutlined /> Star </Button>*/}
+                        {/* <Button className="teacher-button"><EyeOutlined /> Watch </Button>*/}
+                        {/* <Button className="teacher-button"><StarOutlined /> Star </Button>*/}
                     </Col>
                 </Row>
                 <Row>
@@ -79,6 +81,9 @@ class TeacherHeader extends React.Component {
                             </Menu.Item>
                             <Menu.Item key="Edit" icon={<EditOutlined />}>
                                 编 辑
+                            </Menu.Item>
+                            <Menu.Item key="AddClass" icon={<PlusOutlined />}>
+                                添加课程
                             </Menu.Item>
                         </Menu>
                     </Col>

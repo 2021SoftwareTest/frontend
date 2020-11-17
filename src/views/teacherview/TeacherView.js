@@ -1,5 +1,6 @@
 import React from 'react';
 
+import AddClassForm from "../../components/addClassForm/AddClassForm";
 import {ClassDiscuss} from "../../components/classdiscuss/ClassDiscuss";
 import ClassEdit from "../../components/classedit/ClassEdit";
 import ClassHomework from "../../components/classhomework/ClassHomework";
@@ -55,6 +56,9 @@ class TeacherView extends React.Component {
             case "Edit":
                 this.setState({curSection: 10});
                 break;
+            case "AddClass":
+                this.setState({curSection: 11});
+                break;
         }
     };
 
@@ -71,7 +75,8 @@ class TeacherView extends React.Component {
                                         (curSection === 7) ? (<ClassOutline/>) :
                                             (curSection === 8) ? (<></>) :
                                                 (curSection === 9) ? (<ClassUnit/>) :
-                                                    (curSection === 10) ? (<ClassEdit/>) : (<></>);
+                                                    (curSection === 10) ? (<ClassEdit />) :
+                                                        (curSection === 11) ? (<AddClassForm />) : (<></>);
         return (
             <div className="teacher-view">
                 <LoginedHeader/>
