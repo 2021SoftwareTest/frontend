@@ -11,8 +11,8 @@ export class UserProfile extends React.Component {
         super(props);
         this.formRef = React.createRef();
         this.state = {
-            userId: -1,
-            userType: -1,
+            userId: 1,
+            userType: 0,
             userName: '',
             school: '',
             ID: '',
@@ -43,15 +43,16 @@ export class UserProfile extends React.Component {
 
 
     componentDidMount() {
-        // this._getUserInfo();
+        this._getUserInfo();
     }
 
     _getUserInfo = () => {
-        const userInfo = JSON.parse(localStorage.getItem('user'));
-        const userId = userInfo.user.userId;
+        const userId = JSON.parse(localStorage.getItem('user')).user.userID;
+        console.log('userId:'+userId);
         const callback = (data) => {
-            if (data.state === 200) {
+            if (data.status === 200) {
                 const userInfo = data.data.user;
+                console.log(userInfo);
                 this.setState({
                     userId: userInfo.userId,
                     userType: userInfo.userType,
@@ -61,22 +62,31 @@ export class UserProfile extends React.Component {
                     phone: userInfo.phone,
                     email: userInfo.email
                 });
-                message.success(data.message);
+                const obj = {
+                    id: userInfo.userId,
+                    name: userInfo.userName,
+                    email: userInfo.email,
+                    phone: userInfo.phone,
+                    school: userInfo.school
+                };
+                this.formRef.current.setFieldsValue(obj);
+                // console.log(this.formRef.current);
+
+                message.success(data.msg);
             }
-            else if (data.state === 306) {
-                message.error(data.message);
+            else if (data.status === 306) {
+                message.error(data.msg);
             }
-            else if (data.state === 403) {
-                message.error(data.message);
+            else if (data.status === 403) {
+                message.error(data.msg);
             }
         };
-        getUserInfo(userId, callback);
+        getUserInfo({'userId': userId}, callback);
     };
 
     _saveUserInfo = () => {
         const userInfo = {
             userId: this.state.userId,
-            userType: this.state.userType,
             userName: this.state.userName,
             school: this.state.school,
             ID: this.state.ID,
@@ -84,19 +94,20 @@ export class UserProfile extends React.Component {
             email: this.state.email
         };
         const callback = (data) => {
-            if (data.state === 200){
+            console.log(data);
+            if (data.status === 200){
                 message.success(data.msg);
             }
             else {
                 message.error(data.msg);
             }
         };
-        saveUserInfo(userInfo, callback);
+        console.log(userInfo);
+        saveUserInfo({'user':userInfo}, callback);
     };
 
     // eslint-disable-next-line no-unused-vars
     onSubmit = (values) => {
-        console.log(this.state);
         this._saveUserInfo();
         // test
         // const obj = {
@@ -120,6 +131,7 @@ export class UserProfile extends React.Component {
 
     render() {
         const userInfo = this.state;
+        console.log(userInfo);
         return (
             <div className="user-profile">
                 <div className="profile-title">
@@ -134,7 +146,7 @@ export class UserProfile extends React.Component {
                                         <Form.Item name="id" label="学号" rules={[{required: true, message:"请输入学号"}]}>
                                             <Input placeholder="学号或工号"
                                                    style={{width:240, height:40, borderRadius:5}}
-                                                   value={userInfo.userId}
+                                                   value={this.state.userId}
                                                    onChange={this.IDOnChange}
                                             />
                                         </Form.Item>
@@ -143,7 +155,7 @@ export class UserProfile extends React.Component {
                                         <Form.Item name="name" label="姓名" rules={[{required: true, message:"请输入姓名"}]}>
                                             <Input placeholder="请输入姓名"
                                                    style={{width:240, height:40, borderRadius:5}}
-                                                   value={userInfo.userName}
+                                                   value={this.state.userName}
                                                    onChange={this.usernameOnChange}
                                             />
                                         </Form.Item>
@@ -154,7 +166,7 @@ export class UserProfile extends React.Component {
                                         <Form.Item name="email" label="邮箱" rules={[{required: true, message:"请输入邮箱"}]}>
                                             <Input placeholder="输入邮箱"
                                                    style={{width:240, height:40, borderRadius:5}}
-                                                   value={userInfo.email}
+                                                   value={this.state.email}
                                                    onChange={this.emailOnChange}
                                             />
                                         </Form.Item>
@@ -163,7 +175,7 @@ export class UserProfile extends React.Component {
                                         <Form.Item name="phone" label="手机" rules={[{required: true, message:"请输入手机"}]}>
                                             <Input placeholder="请输入手机号"
                                                    style={{width:240, height:40, borderRadius:5}}
-                                                   value={userInfo.phone}
+                                                   value={this.state.phone}
                                                    onChange={this.phoneOnChange}
                                             />
                                         </Form.Item>
@@ -174,7 +186,7 @@ export class UserProfile extends React.Component {
                                         <Form.Item name="school" label="学校" rules={[{required: true, message:"请输入学校"}]}>
                                             <Input placeholder="请输入学校"
                                                    style={{width:240, height:40, borderRadius:5}}
-                                                   value={userInfo.school}
+                                                   value={this.state.school}
                                                    onChange={this.schoolOnChange}
                                             />
                                         </Form.Item>

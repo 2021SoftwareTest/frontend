@@ -1,13 +1,12 @@
 function parseParams (data) { // json转为URL参数
   try {
     const tempArr = [];
-    for (const i in data) {
-      // var key = encodeURIComponent(i);
-      const value = encodeURIComponent(data[i]);
-      // tempArr.push(key + '=' + value);
-      tempArr.push(value);
+    for (let key in data) {
+      // const value = encodeURIComponent(data[i]);
+      tempArr.push(key + '=' + data[key]);
+      // tempArr.push(value);
     }
-    const urlParamsStr = tempArr.join('/');
+    const urlParamsStr = tempArr.join('&');
     return urlParamsStr;
   } catch (err) {
     return '';
@@ -62,12 +61,15 @@ const getRequest = (url, json, callback) => {
       'Content-Type': 'application/json'
     },
     credentials: 'include',
-    mode: 'cors',
-    cache: 'default'
+    // mode: 'cors',
+    // cache: 'default'
   };
   // console.log("参数",url+"?"+parseParams(json));
-
-  fetch(url + '/' + parseParams(json), opts)
+  if(!!json){
+    url = url + '?' + parseParams(json);
+  }
+  console.log(url);
+  fetch(url, opts)
       .then((response) =>
           // json=response.json();
           response.json())

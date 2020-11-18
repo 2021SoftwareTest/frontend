@@ -12,16 +12,17 @@ export const login = (data) => {
   const url = authUrl + 'login';
  // TODO
   const callback = (data) => {
-    if (data.status >= 0) {
+    if (data.status === 200) {
       if (data.data.userType === -1) {
         message.error('您的账号已经被禁用！');
       } else {
         localStorage.setItem('user', JSON.stringify(data.data));
         history.push('/');
+        window.location='/';
         message.success(data.msg);
       }
     } else {
-      message.error(data.msg);
+      message.error("登录失败");
     }
   };
   postRequest(url, data, callback);
@@ -31,15 +32,16 @@ export const logout = () => {
   const url = authUrl + 'logout';
 
   const callback = (data) => {
-    if (data.status >= 0) {
+    if (data.status === 200) {
       localStorage.removeItem('user');
-      history.push('/');
+      history.push('/login');
+      window.location='/login';
       message.success(data.msg);
     } else {
       message.error(data.msg);
     }
   };
-  postRequest(url, {}, callback);
+  getRequest(url, undefined, callback);
 };
 
 
@@ -47,13 +49,16 @@ export const register = (data) => {
   const url = userUrl + 'register';
   // TODO
   const callback = (data) => {
-    if (data.status >= 0) {
+    console.log(data);
+    if (data.status === 200) {
       message.success(data.msg);
+      history.push('/login');
+      window.location='/login';
     } else {
       message.error(data.msg);
     }
   };
-  putRequest(url, data, callback);
+  postRequest(url, data, callback);
 };
 
 export const getUserInfo = (data, callback) => {

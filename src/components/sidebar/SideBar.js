@@ -3,7 +3,7 @@ import './SideBar.css';
 import {
     BookOutlined, TeamOutlined
 } from '@ant-design/icons';
-import {Layout, Menu} from 'antd';
+import {Layout, Menu, message} from 'antd';
 import React from 'react';
 
 import {getCourseList} from '../../services/courseService';
@@ -12,18 +12,12 @@ const {Sider} = Layout;
 
 const {SubMenu} = Menu;
 
-const userId = 1;
-
 export class SideBar extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-          courseList:[
-              {courseId:1, courseName:'语文'},
-              {courseId:2, courseName:'数学'},
-              {courseId:3, courseName:'英语'}
-              ]
+          courseList:[]
         };
     }
     handleClick = (e) => {
@@ -31,19 +25,33 @@ export class SideBar extends React.Component {
     };
 
     componentDidMount() {
+        let userId = JSON.parse(localStorage.getItem('user')).user.userID;
+        if(!userId){
+            userId = 1;
+        }
         const data = {
             userId:userId,
         };
         const callback = (data) => {
-            this.setState({
-                courseList:data.data
-            });
+            console.log(data);
+            if(data.status === 200){
+                console.log(data);
+                if(!!data.data){
+                    this.setState({
+                        courseList:data.data
+                    });
+                }
+                message.success(data.msg);
+            }
+            else{
+                message.error(data.msg);
+            }
         };
         getCourseList(data, callback);
     }
 
     render() {
-        const courseList = this.state.courseList.map((item) => (<Menu.Item key={item.courseId}><BookOutlined/>{item.courseName}</Menu.Item>));
+        const courseList = this.state.courseList.map((item) => (<Menu.Item key={item.courseID}><BookOutlined/>{item.courseName}</Menu.Item>));
         return (
             <Sider width="16%" className="site-layout-background"
                 collapsible={true}

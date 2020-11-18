@@ -49,6 +49,7 @@ class AddClassForm extends React.Component {
             startTime: this.state.startTime,
             endTime: this.state.endTime
         };
+        const userId = JSON.parse(localStorage.getItem('user')).user.userID;
         const callback = (data) => {
             if (data.state === 200) {
                 message.success(data.msg);
@@ -57,7 +58,12 @@ class AddClassForm extends React.Component {
                 message.error(data.msg);
             }
         };
-        putNewCourse(courseInfo, callback);
+        const data = {
+            'course': courseInfo, 
+            'userId':userId
+        };
+        console.log(data);
+        putNewCourse(data, callback);
     };
 
     render() {

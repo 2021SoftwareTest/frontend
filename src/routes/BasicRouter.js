@@ -11,7 +11,7 @@ import RegisterView from '../views/registerview/RegisterView';
 import ReleaseView from "../views/releaseview/ReleaseView";
 import TeacherView from "../views/teacherview/TeacherView";
 import UserView from "../views/userview/UserView";
-// import LoginRouter from './LoginRouter';
+import LoginRouter from './LoginRouter';
 import PrivateRouter from './PrivateRouter';
 
 class BasicRouter extends React.Component {
