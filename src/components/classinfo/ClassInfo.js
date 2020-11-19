@@ -9,29 +9,49 @@ class ClassInfo extends React.Component {
     constructor(props) {
         super(props);
         // eslint-disable-next-line react/prop-types
-        const {name, description, detail, books} = this.props.classInfo;
+        const {subject, semester, grade, year, students, courseId} = this.props.classInfo;
         this.state = {
-            name: name,
-            description: description,
-            detail: detail,
-            books: books
+            subject: subject,
+            semester: semester,
+            grade: grade,
+            year: year,
+            students: students,
+            courseId: courseId,
+            description: '这个老师很懒，什么也没有写',
+            detail: '这个老师很懒，什么也没有写'
         };
     }
 
-    nameOnChange = (value) => {
-        this.setState({name: value});
+    subjectOnChange = (e) => {
+        this.setState({subject: e.target.value});
     };
 
-    descriptionOnChange = (value) => {
-        this.setState({description: value});
+    semesterOnChange = (e) => {
+        this.setState({semester: e.target.value});
     };
 
-    detailOnChange = (value) => {
-        this.setState({detail: value});
+    gradeChange = (e) => {
+        this.setState({grade: e.target.value});
     };
 
-    booksOnChange = (value) => {
-        this.setState({books: value});
+    yearOnChange = (e) => {
+        this.setState({year: e.target.value});
+    };
+
+    descriptionOnChange = (e) => {
+        this.setState({description: e.target.value});
+    };
+
+    detailOnChange = (e) => {
+        this.setState({detail: e.target.value});
+    };
+
+    renderStudentList = (list) => {
+        return list.map((item, index) => (
+            <div key={index} className="list-item">
+                {item}
+            </div>
+        ));
     };
 
     render() {
@@ -44,25 +64,57 @@ class ClassInfo extends React.Component {
                     <Col span={19}>
                         <div className="class-name">
                             <Row>
-                                <Col span={24}>
-                                    <h2>课程名称</h2>
+                                <Col span={11}>
+                                    <Row>
+                                        <Col span={24}>
+                                            <h2>课程名称</h2>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col span={24}>
+                                            <Input value={this.state.subject} onChange={this.subjectOnChange}/>
+                                        </Col>
+                                    </Row>
                                 </Col>
-                            </Row>
-                            <Row>
-                                <Col span={24}>
-                                    <Input value={this.state.name} onChange={this.nameOnChange}/>
+                                <Col span={12} offset={1}>
+                                    <Row>
+                                        <Col span={24}>
+                                            <h2>年级</h2>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col span={24}>
+                                            <Input value={this.state.grade} onChange={this.gradeChange}/>
+                                        </Col>
+                                    </Row>
                                 </Col>
                             </Row>
                         </div>
                         <div className="class-detail">
                             <Row>
-                                <Col span={24}>
-                                    <h2>所需教材</h2>
+                                <Col span={11}>
+                                    <Row>
+                                        <Col span={24}>
+                                            <h2>学年</h2>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col span={24}>
+                                            <Input value={this.state.year} onChange={this.yearOnChange}/>
+                                        </Col>
+                                    </Row>
                                 </Col>
-                            </Row>
-                            <Row>
-                                <Col span={24}>
-                                    <Input value={this.state.books} onChange={this.booksOnChange}/>
+                                <Col span={12} offset={1}>
+                                    <Row>
+                                        <Col span={24}>
+                                            <h2>学期</h2>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col span={24}>
+                                            <Input value={this.state.semester} onChange={this.semesterOnChange}/>
+                                        </Col>
+                                    </Row>
                                 </Col>
                             </Row>
                         </div>
@@ -99,6 +151,12 @@ class ClassInfo extends React.Component {
                             />
                         </Col>
                     </Row>
+                </div>
+                <div className="student-list-container">
+                    <h2>学生列表</h2>
+                    <div className="student-list">
+                        {this.renderStudentList(this.state.students)}
+                    </div>
                 </div>
             </div>
         );

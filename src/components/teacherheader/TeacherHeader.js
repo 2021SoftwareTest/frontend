@@ -1,10 +1,12 @@
 import "./TeacherHeader.css";
 
-import { HomeOutlined, FileOutlined, EditOutlined, EyeOutlined,
-    ProjectOutlined, StarOutlined, TeamOutlined, FormOutlined,
-    DeploymentUnitOutlined, NotificationOutlined, CheckOutlined,
-    UserOutlined, LineChartOutlined} from '@ant-design/icons';
-import {Button, Col, Menu, Row} from 'antd';
+import { CheckOutlined,
+    DeploymentUnitOutlined, EditOutlined,
+    FileOutlined, FormOutlined, HomeOutlined,
+    LineChartOutlined, NotificationOutlined,
+    PlusOutlined, ProjectOutlined, TeamOutlined,
+    UserOutlined} from '@ant-design/icons';
+import {Col, Menu, Row} from 'antd';
 import React from "react";
 
 class TeacherHeader extends React.Component {
@@ -21,7 +23,7 @@ class TeacherHeader extends React.Component {
     };
 
     handleClick = (e) => {
-        console.log('click ', e);
+        // console.log('click ', e);
         this.menuCallback(e.key);
         this.setState({current: e.key});
     };
@@ -40,8 +42,8 @@ class TeacherHeader extends React.Component {
                         <p className="teacher-title">六年级语文</p>
                     </Col>
                     <Col span={3} offset={15} style={{display:"flex", paddingTop:3}}>
-                        <Button className="teacher-button"><EyeOutlined /> Watch </Button>
-                        <Button className="teacher-button"><StarOutlined /> Star </Button>
+                        {/* <Button className="teacher-button"><EyeOutlined /> Watch </Button>*/}
+                        {/* <Button className="teacher-button"><StarOutlined /> Star </Button>*/}
                     </Col>
                 </Row>
                 <Row>
@@ -79,6 +81,9 @@ class TeacherHeader extends React.Component {
                             </Menu.Item>
                             <Menu.Item key="Edit" icon={<EditOutlined />}>
                                 编 辑
+                            </Menu.Item>
+                            <Menu.Item key="AddClass" icon={<PlusOutlined />}>
+                                添加课程
                             </Menu.Item>
                         </Menu>
                     </Col>

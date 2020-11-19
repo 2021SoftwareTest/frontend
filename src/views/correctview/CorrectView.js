@@ -3,17 +3,17 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 
 import MyFooter from '../../components/footer/MyFooter';
-import MyHeader from '../../components/header/MyHeader';
 import {HomeworkCorrect} from "../../components/homeworkcorrect/HomeworkCorrect";
 import {HomeworkDetail} from "../../components/homeworkdetail/HomeworkDetail";
 import {HomeworkDone} from "../../components/homeworkdone/HomeworkDone";
 import {HomeworkHeader} from "../../components/homeworkheader/HomeworkHeader";
+import LoginedHeader from "../../components/loginedheader/LoginedHeader";
 
 class CorrectView extends React.Component {
     render() {
         return (
             <div>
-                <MyHeader/>
+                <LoginedHeader/>
                 <HomeworkHeader/>
                 <Row>
                     <Col span={12} offset={6}>

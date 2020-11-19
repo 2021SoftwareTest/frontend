@@ -1,7 +1,7 @@
 import './ClassHeader.css';
 
-import { EditOutlined, EyeOutlined, ProjectOutlined, StarOutlined, TeamOutlined, UserOutlined} from '@ant-design/icons';
-import {Button, Col, Menu, Row} from 'antd';
+import { EditOutlined, ProjectOutlined, TeamOutlined, UserOutlined} from '@ant-design/icons';
+import { Col, Menu, Row} from 'antd';
 import React from "react";
 
 export class ClassHeader extends React.Component {
@@ -28,8 +28,8 @@ export class ClassHeader extends React.Component {
                         <p className="class-title">六年级语文</p>
                     </Col>
                     <Col span={3} offset={15} style={{display:"flex", paddingTop:3}}>
-                        <Button className="class-button"><EyeOutlined /> Watch </Button>
-                        <Button className="class-button"><StarOutlined /> Star </Button>
+                        {/*<Button className="class-button"><EyeOutlined /> Watch </Button>*/}
+                        {/*<Button className="class-button"><StarOutlined /> Star </Button>*/}
                     </Col>
                 </Row>
                 <Row>

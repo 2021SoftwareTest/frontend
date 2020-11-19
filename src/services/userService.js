@@ -1,103 +1,87 @@
 import { message } from 'antd';
 
-import { postRequest, postRequestForm } from '../utils/ajax';
+import {  getRequest, postRequest, putRequest} from '../utils/ajax';
 import { history } from '../utils/history';
 
+const baseUrl = 'http://localhost:8080/';
+const authUrl = baseUrl + 'auth/';
+const userUrl = baseUrl + 'user/';
+const checkUrl = baseUrl + 'check/';
+
 export const login = (data) => {
-  const url = `http://localhost:8080/login`;
+  const url = authUrl + 'login';
+ // TODO
   const callback = (data) => {
-    if (data.status >= 0) {
+    if (data.status === 200) {
       if (data.data.userType === -1) {
         message.error('您的账号已经被禁用！');
       } else {
         localStorage.setItem('user', JSON.stringify(data.data));
         history.push('/');
+        window.location='/';
         message.success(data.msg);
       }
     } else {
-      message.error(data.msg);
-    }
-  };
-  postRequest(url, data, callback);
-};
-
-export const register = (data) => {
-  const url = `http://localhost:8080/register`;
-  const callback = (data) => {
-    if (data.status >= 0) {
-      localStorage.setItem('user', JSON.stringify(data.data));
-      history.push('/');
-      message.success(data.msg);
-    } else {
-      message.error(data.msg);
+      message.error("登录失败");
     }
   };
   postRequest(url, data, callback);
 };
 
 export const logout = () => {
-  const url = `http://localhost:8080/logout`;
+  const url = authUrl + 'logout';
 
   const callback = (data) => {
-    if (data.status >= 0) {
+    if (data.status === 200) {
       localStorage.removeItem('user');
-      history.push('/');
+      history.push('/login');
+      window.location='/login';
       message.success(data.msg);
     } else {
       message.error(data.msg);
     }
   };
-  postRequest(url, {}, callback);
+  getRequest(url, undefined, callback);
 };
 
-export const getOrders = (userId, callback) => {
-  const data = { userId: userId };
-  const url = `http://localhost:8080/getOrders`;
+
+export const register = (data) => {
+  const url = userUrl + 'register';
+  // TODO
+  const callback = (data) => {
+    console.log(data);
+    if (data.status === 200) {
+      message.success(data.msg);
+      history.push('/login');
+      window.location='/login';
+    } else {
+      message.error(data.msg);
+    }
+  };
   postRequest(url, data, callback);
 };
 
-export const getCart = (userId, callback) => {
-  const data = { userId: userId };
-  const url = `http://localhost:8080/getCart`;
+export const getUserInfo = (data, callback) => {
+  const url = userUrl + 'info';
+  getRequest(url, data, callback);
+};
+
+export const saveUserInfo = (data, callback) => {
+  const url = userUrl + 'info';
   postRequest(url, data, callback);
 };
 
-export const delCartItem = (data, callback) => {
-  const url = `http://localhost:8080/delCartItem`;
+export const checkPassword = (data, callback) => {
+  const url = checkUrl + 'password';
   postRequest(url, data, callback);
 };
 
-export const addOrder = (data, callback) => {
-  const url = `http://localhost:8080/addOrder`;
+export const checkPhone = (data, callback) => {
+  const url = checkUrl + 'phone';
   postRequest(url, data, callback);
 };
 
-export const addCart = (data, callback) => {
-  const url = `http://localhost:8080/addCart`;
+export const checkEmail = (data, callback) => {
+  const url = checkUrl + 'email';
   postRequest(url, data, callback);
 };
-
-export const getUsers = (data, callback) => {
-  const url = `http://localhost:8080/getUsers`;
-  postRequest(url, data, callback);
-};
-export const editCartItemNumber = (data, callback) => {
-  const url = `http://localhost:8080/editCartItemNumber`;
-  postRequest(url, data, callback);
-};
-
-export const editUser = (data, callback) => {
-  const url = `http://localhost:8080/editUser`;
-  postRequest(url, data, callback);
-};
-
-export const deleteUser = (id, callback) => {
-  const data = { id: id };
-  const url = `http://localhost:8080/deleteUser`;
-  postRequestForm(url, data, callback);
-};
-
-// export const checkSession = (callback) => {
-//     const url = `http://localhost:8080/checkSession`;
-//     postRequest(url, {}, callback);
-// };

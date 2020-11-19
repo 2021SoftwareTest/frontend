@@ -3,8 +3,10 @@ import './SideBar.css';
 import {
     BookOutlined, TeamOutlined
 } from '@ant-design/icons';
-import {Layout, Menu} from 'antd';
+import {Layout, Menu, message} from 'antd';
 import React from 'react';
+
+import {getCourseList} from '../../services/courseService';
 
 const {Sider} = Layout;
 
@@ -12,11 +14,44 @@ const {SubMenu} = Menu;
 
 export class SideBar extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+          courseList:[]
+        };
+    }
     handleClick = (e) => {
         console.log('click ', e);
     };
 
+    componentDidMount() {
+        let userId = JSON.parse(localStorage.getItem('user')).user.userID;
+        if(!userId){
+            userId = 1;
+        }
+        const data = {
+            userId:userId,
+        };
+        const callback = (data) => {
+            console.log(data);
+            if(data.status === 200){
+                console.log(data);
+                if(!!data.data){
+                    this.setState({
+                        courseList:data.data
+                    });
+                }
+                message.success(data.msg);
+            }
+            else{
+                message.error(data.msg);
+            }
+        };
+        getCourseList(data, callback);
+    }
+
     render() {
+        const courseList = this.state.courseList.map((item) => (<Menu.Item key={item.courseID}><BookOutlined/>{item.courseName}</Menu.Item>));
         return (
             <Sider width="16%" className="site-layout-background"
                 collapsible={true}
@@ -42,9 +77,7 @@ export class SideBar extends React.Component {
                             </span>
                         }
                     >
-                        <Menu.Item key="1"><BookOutlined/>语文</Menu.Item>
-                        <Menu.Item key="2"><BookOutlined/>数学</Menu.Item>
-                        <Menu.Item key="3"><BookOutlined/>英语</Menu.Item>
+                        {courseList}
                     </SubMenu>
                     <SubMenu
                         key="sub2"

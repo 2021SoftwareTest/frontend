@@ -1,13 +1,21 @@
+import 'antd/dist/antd.css';
 import './LoginHeader.css';
 
-import {BellOutlined, CaretDownOutlined, PlusOutlined, UserOutlined} from "@ant-design/icons";
+import {BellOutlined, CaretDownOutlined, UserOutlined} from "@ant-design/icons";
 import {Avatar, Badge, Col, Dropdown, Input, Menu, Row} from "antd";
 import React from 'react';
 
 import logo from "../../assets/logo.png";
+import {logout} from "../../services/userService";
+
 const { Search } = Input;
 
+
 class LoginedHeader extends React.Component {
+    logoutOnClick = () => {
+        logout();
+    };
+
     render () {
         const menu = (
         <Menu>
@@ -25,7 +33,7 @@ class LoginedHeader extends React.Component {
             </Menu.Item>
             <Menu.Divider/>
             <Menu.Item key="4">
-                <a href={"/login"}>退出登录</a>
+                <a onClick={this.logoutOnClick}>退出登录</a>
             </Menu.Item>
         </Menu>
         );
@@ -60,18 +68,21 @@ class LoginedHeader extends React.Component {
                         <Col style={{ height: 28, marginLeft:20 }}>
                             <a href={'/teacher'} className="header-link">教师界面</a>
                         </Col>
-                        <Col offset={12} style={{paddingTop:7, marginRight:5, paddingLeft:40}}>
+                        {/*<Col style={{ height: 28, marginLeft:20 }}>*/}
+                        {/*    <a href={'/teacher'} className="header-link">新建课程</a>*/}
+                        {/*</Col>*/}
+                        <Col offset={11} style={{paddingTop:7, marginRight:5, paddingLeft:40}}>
                             <BellOutlined style={{color:"white", fontSize:18 }} />
                             <Badge status="processing" style={{marginTop:-10}}/>
                         </Col>
-                        <Col style={{paddingTop:6}}>
-                            <Dropdown overlay={menu} trigger={['click']} className="mydropdown">
-                                <div>
-                                    <PlusOutlined style={{color:"white"}}/>
-                                    <CaretDownOutlined style={{color:"white", fontSize:12}}/>
-                                </div>
-                            </Dropdown>
-                        </Col>
+                        {/* <Col style={{paddingTop:6}}>*/}
+                        {/*    <Dropdown overlay={menu} trigger={['click']} className="mydropdown">*/}
+                        {/*        <div>*/}
+                        {/*            <PlusOutlined style={{color:"white"}}/>*/}
+                        {/*            <CaretDownOutlined style={{color:"white", fontSize:12}}/>*/}
+                        {/*        </div>*/}
+                        {/*    </Dropdown>*/}
+                        {/* </Col>*/}
                         <Col style={{marginLeft:10}}>
                             <Dropdown overlay={menu} trigger={['click']} className="mydropdown">
                                 <div>

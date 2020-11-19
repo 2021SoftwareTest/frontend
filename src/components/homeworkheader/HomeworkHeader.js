@@ -2,12 +2,11 @@ import './HomeworkHeader.css';
 
 import {
     EditOutlined,
-    EyeOutlined,
-    ProjectOutlined, StarOutlined,
+    ProjectOutlined,
     TeamOutlined,
     UserOutlined
 } from '@ant-design/icons';
-import {Button, Col, Menu, Row} from 'antd';
+import { Col, Menu, Row} from 'antd';
 import React from "react";
 
 export class HomeworkHeader extends React.Component {
@@ -34,8 +33,8 @@ export class HomeworkHeader extends React.Component {
                         <p className="homework-title"><a>六年级语文</a>&nbsp;/&nbsp;<a className="homework-name">作业一</a></p>
                     </Col>
                     <Col span={3} offset={15} style={{display:"flex", paddingTop:3}}>
-                        <Button className="homework-button"><EyeOutlined /> Watch</Button>
-                        <Button className="homework-button"><StarOutlined /> Star </Button>
+                        {/*<Button className="homework-button"><EyeOutlined /> Watch</Button>*/}
+                        {/*<Button className="homework-button"><StarOutlined /> Star </Button>*/}
                     </Col>
                 </Row>
                 <Row>
