@@ -1,7 +1,9 @@
 import './CardInfo.css';
 
-import {Avatar, Col, Input, Row} from 'antd';
+import {Avatar, Col, Input, Row, message} from 'antd';
 import React from 'react';
+
+import {getStudent} from '../../services/courseService';
 
 const { TextArea } = Input;
 
@@ -49,10 +51,47 @@ class ClassInfo extends React.Component {
     renderStudentList = (list) => {
         return list.map((item, index) => (
             <div key={index} className="list-item">
+                <Row>
+                    <Col span={3}>
+                        {item.userID}
+                    </Col>
+                    <Col span={3}>
+                        {item.userName}
+                    </Col>
+                    <Col span={3}>
+                        {item.school}
+                    </Col>
+                    <Col span={3}>
+                        {item.phone}
+                    </Col>
+                    <Col span={3}>
+                        {item.email}
+                    </Col>
+                </Row>
                 {item}
             </div>
         ));
     };
+
+    _getStudent = () => {
+        const data = {
+            'courseId': this.state.courseId
+        };
+        const callback = (data) => {
+            if (data.status === 200){
+                this.setState({students: data.data});
+                message.success(data.msg);
+            }
+            else{
+                message.error(data.msg);
+            }
+        };
+        getStudent(data, callback)
+    }
+
+    componentDidMount() {
+        // this._getStudent();
+    }
 
     render() {
         return (
