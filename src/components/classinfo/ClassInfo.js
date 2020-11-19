@@ -49,28 +49,54 @@ class ClassInfo extends React.Component {
     };
 
     renderStudentList = (list) => {
-        return list.map((item, index) => (
-            <div key={index} className="list-item">
-                <Row>
-                    <Col span={3}>
-                        {item.userID}
-                    </Col>
-                    <Col span={3}>
-                        {item.userName}
-                    </Col>
-                    <Col span={3}>
-                        {item.school}
-                    </Col>
-                    <Col span={3}>
-                        {item.phone}
-                    </Col>
-                    <Col span={3}>
-                        {item.email}
-                    </Col>
-                </Row>
-                {item}
+        return (
+            <div>
+                <div className="student-list-header">
+                    <Row>
+                        <Col span={3} offset={1}>
+                            学号
+                        </Col>
+                        <Col span={4}>
+                            姓名
+                        </Col>
+                        <Col span={4}>
+                            学校
+                        </Col>
+                        <Col span={5}>
+                            手机
+                        </Col>
+                        <Col span={5}>
+                            邮箱
+                        </Col>
+                    </Row>
+                </div>
+                <div className="student-list">
+                    {
+                        list.map((item, index) => (
+                            <div key={index} className="list-item">
+                                <Row>
+                                    <Col span={3} offset={1}>
+                                        {item.id}
+                                    </Col>
+                                    <Col span={4}>
+                                        {item.userName}
+                                    </Col>
+                                    <Col span={4}>
+                                        {item.school}
+                                    </Col>
+                                    <Col span={5}>
+                                        {item.phone}
+                                    </Col>
+                                    <Col span={5}>
+                                        {item.email}
+                                    </Col>
+                                </Row>
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
-        ));
+        );
     };
 
     _getStudent = () => {
@@ -82,16 +108,16 @@ class ClassInfo extends React.Component {
                 this.setState({students: data.data});
                 message.success(data.msg);
             }
-            else{
+            else {
                 message.error(data.msg);
             }
         };
         getStudent(data, callback)
-    }
+    };
 
     componentDidMount() {
         // this._getStudent();
-    }
+    };
 
     render() {
         return (
@@ -193,9 +219,7 @@ class ClassInfo extends React.Component {
                 </div>
                 <div className="student-list-container">
                     <h2>学生列表</h2>
-                    <div className="student-list">
-                        {this.renderStudentList(this.state.students)}
-                    </div>
+                    {this.renderStudentList(this.state.students)}
                 </div>
             </div>
         );
