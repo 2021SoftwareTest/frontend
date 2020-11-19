@@ -23,7 +23,7 @@ class TeacherHeader extends React.Component {
     };
 
     handleClick = (e) => {
-        console.log('click ', e);
+        // console.log('click ', e);
         this.menuCallback(e.key);
         this.setState({current: e.key});
     };

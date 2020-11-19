@@ -63,7 +63,7 @@ export class UserProfile extends React.Component {
                     email: userInfo.email
                 });
                 const obj = {
-                    id: userInfo.userId,
+                    id: userInfo.ID,
                     name: userInfo.userName,
                     email: userInfo.email,
                     phone: userInfo.phone,
