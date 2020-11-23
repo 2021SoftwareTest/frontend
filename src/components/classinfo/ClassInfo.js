@@ -104,7 +104,7 @@ class ClassInfo extends React.Component {
             'courseId': this.state.courseId
         };
         const callback = (data) => {
-            if (data.status === 200){
+            if (data.status === 200) {
                 this.setState({students: data.data});
                 message.success(data.msg);
             }
@@ -112,12 +112,12 @@ class ClassInfo extends React.Component {
                 message.error(data.msg);
             }
         };
-        getStudent(data, callback)
+        getStudent(data, callback);
     };
 
     componentDidMount() {
         // this._getStudent();
-    };
+    }
 
     render() {
         return (
