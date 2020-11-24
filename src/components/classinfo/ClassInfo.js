@@ -116,7 +116,7 @@ class ClassInfo extends React.Component {
     };
 
     componentDidMount() {
-        // this._getStudent();
+        this._getStudent();
     };
 
     render() {

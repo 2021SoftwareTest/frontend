@@ -21,7 +21,7 @@ const classInfo = {
             'email': '122@ass.com'
         }
     ],
-    courseId: 99,
+    courseId: 1,
     description: "这个老师很懒，他没有写描述。",
 };
 
