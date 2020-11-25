@@ -28,6 +28,7 @@ class BasicRouter extends React.Component {
     return (
       <Router history={history}>
         <Switch>
+          <PrivateRouter exact path="/login" component={LoginView} />
           <PrivateRouter exact path="/teacher" component={TeacherView} />
           <PrivateRouter exact path="/register" component={RegisterView} />
           <PrivateRouter exact path="/" component={HomeView} />
@@ -35,7 +36,6 @@ class BasicRouter extends React.Component {
           <PrivateRouter exact path="/homework" component={HomeworkView} />
           <PrivateRouter exact path="/correct" component={CorrectView} />
           <PrivateRouter exact path="/release" component={ReleaseView} />
-          <PrivateRouter exact path="/login" component={LoginView} />
           <PrivateRouter exact path="/user" component={UserView} />
           <PrivateRouter exact path="/rich" component={RichEditor} />
           <Redirect from="/*" to="/" />

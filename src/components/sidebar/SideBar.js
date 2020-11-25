@@ -25,9 +25,11 @@ export class SideBar extends React.Component {
     };
 
     componentDidMount() {
-        let userId = JSON.parse(localStorage.getItem('user')).user.userID;
-        if(!userId){
-            userId = 1;
+        let userId = 1;
+        let user = JSON.parse(localStorage.getItem('user'));
+        if(user)
+        {
+            userId = user.userID;
         }
         const data = {
             userId:userId,
@@ -79,7 +81,8 @@ export class SideBar extends React.Component {
                     >
                         {courseList}
                     </SubMenu>
-                    <SubMenu
+                    {/* no teams */}
+                    {/* <SubMenu
                         key="sub2"
                         title={
                             <span>
@@ -91,7 +94,7 @@ export class SideBar extends React.Component {
                         <Menu.Item key="4"><TeamOutlined/>语文学习小组</Menu.Item>
                         <Menu.Item key="5"><TeamOutlined/>数学学习小组</Menu.Item>
                         <Menu.Item key="6"><TeamOutlined/>英语学习小组</Menu.Item>
-                    </SubMenu>
+                    </SubMenu> */}
                 </Menu>
             </Sider>
         );
