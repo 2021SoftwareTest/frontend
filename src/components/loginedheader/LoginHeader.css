@@ -1,12 +1,12 @@
-.logined-search{
-    width: 80%;
-    height: 28px;
+.logined-search {
+  width: 80%;
+  height: 28px;
 }
 
-.ant-col-offset-14{
-    margin-left: 52% !important;
+.ant-col-offset-14 {
+  margin-left: 52% !important;
 }
 
-.mydropdown:hover{
-    cursor: pointer;
+.mydropdown:hover {
+  cursor: pointer;
 }

@@ -1,14 +1,14 @@
-.homework-container{
-    width:1088px;
-    margin: 50px 0 50px 15%;
+.homework-container {
+  width: 1088px;
+  margin: 50px 0 50px 15%;
 }
 
-.homework-title-name{
-    font-size: 16px;
-    font-weight: 600;
-    margin-top:3px;
+.homework-title-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 3px;
 }
 
-.cancel-button{
-    margin-left:15px;
+.cancel-button {
+  margin-left: 15px;
 }

@@ -1,6 +1,6 @@
 import { message } from 'antd';
 
-import {  getRequest, postRequest, putRequest} from '../utils/ajax';
+import { getRequest, postRequest } from '../utils/ajax';
 import { history } from '../utils/history';
 
 const baseUrl = 'http://localhost:8080/';
@@ -10,7 +10,7 @@ const checkUrl = baseUrl + 'check/';
 
 export const login = (data) => {
   const url = authUrl + 'login';
- // TODO
+  // TODO
   const callback = (data) => {
     if (data.status === 200) {
       if (data.data.userType === -1) {
@@ -18,11 +18,11 @@ export const login = (data) => {
       } else {
         localStorage.setItem('user', JSON.stringify(data.data));
         history.push('/');
-        window.location='/';
+        window.location = '/';
         message.success(data.msg);
       }
     } else {
-      message.error("登录失败");
+      message.error('登录失败');
     }
   };
   postRequest(url, data, callback);
@@ -35,7 +35,7 @@ export const logout = () => {
     if (data.status === 200) {
       localStorage.removeItem('user');
       history.push('/login');
-      window.location='/login';
+      window.location = '/login';
       message.success(data.msg);
     } else {
       message.error(data.msg);
@@ -43,7 +43,6 @@ export const logout = () => {
   };
   getRequest(url, undefined, callback);
 };
-
 
 export const register = (data) => {
   const url = userUrl + 'register';
@@ -53,7 +52,7 @@ export const register = (data) => {
     if (data.status === 200) {
       message.success(data.msg);
       history.push('/login');
-      window.location='/login';
+      window.location = '/login';
     } else {
       message.error(data.msg);
     }

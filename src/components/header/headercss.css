@@ -16,7 +16,7 @@
   font-weight: 500;
   color: #fff;
   white-space: nowrap;
-  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, serif;
+  font-family: 'Microsoft YaHei', 微软雅黑, 'MicrosoftJhengHei', 华文细黑, STHeiti, MingLiu, serif;
   display: inline-block;
   margin: 5px 0 5px 0;
   transition: color 0.1s linear;
@@ -33,6 +33,6 @@ a.header-link:hover {
   display: block;
   border: solid 1px #fff;
   border-radius: 5px;
-  padding:5px 10px 5px 10px;
+  padding: 5px 10px 5px 10px;
   margin-top: 0;
 }

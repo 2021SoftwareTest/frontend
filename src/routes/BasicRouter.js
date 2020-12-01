@@ -1,18 +1,18 @@
 import React from 'react';
 import { Redirect, Router, Switch } from 'react-router-dom';
 
+import RichEditor from '../components/richeditor/RichEditor';
 import { history } from '../utils/history';
-import ClassView from "../views/classview/ClassView";
-import CorrectView from "../views/correctview/CorrectView";
+import ClassView from '../views/classview/ClassView';
+import CorrectView from '../views/correctview/CorrectView';
 import HomeView from '../views/homeview/HomeView';
-import HomeworkView from "../views/homeworkview/HomeworkView";
+import HomeworkView from '../views/homeworkview/HomeworkView';
 import LoginView from '../views/loginview/LoginView';
 import RegisterView from '../views/registerview/RegisterView';
-import ReleaseView from "../views/releaseview/ReleaseView";
-import TeacherView from "../views/teacherview/TeacherView";
-import UserView from "../views/userview/UserView";
+import ReleaseView from '../views/releaseview/ReleaseView';
+import TeacherView from '../views/teacherview/TeacherView';
+import UserView from '../views/userview/UserView';
 import PrivateRouter from './PrivateRouter';
-import RichEditor from "../components/richeditor/RichEditor";
 
 class BasicRouter extends React.Component {
   constructor(props) {

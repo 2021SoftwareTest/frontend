@@ -45,13 +45,13 @@ export default class PrivateRouter extends React.Component {
           this.state.isAuthed ? (
             <Component {...props} />
           ) : (
-              <Redirect
-                to={{
-                  pathname: '/login',
-                  state: { from: props.location },
-                }}
-              />
-            )
+            <Redirect
+              to={{
+                pathname: '/login',
+                state: { from: props.location },
+              }}
+            />
+          )
         }
       />
     );

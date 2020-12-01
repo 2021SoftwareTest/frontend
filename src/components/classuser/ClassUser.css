@@ -1,18 +1,18 @@
-.class-user{
-    width: 80%;
-    margin: 50px 5% 0 15%;
+.class-user {
+  width: 80%;
+  margin: 50px 5% 0 15%;
 }
 
-.unit-section{
-    margin-top: 30px;
+.unit-section {
+  margin-top: 30px;
 }
 
-.operation-board{
-    margin-left: 30px;
+.operation-board {
+  margin-left: 30px;
 }
 
-.operation-board button{
-    display: block;
-    width: 100%;
-    margin-top:10px;
+.operation-board button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
 }

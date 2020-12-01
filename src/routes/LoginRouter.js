@@ -49,8 +49,8 @@ export class LoginRouter extends React.Component {
               }}
             />
           ) : (
-              <Component {...props} />
-            )
+            <Component {...props} />
+          )
         }
       />
     );

@@ -10,7 +10,7 @@
 
 http://localhost:3000/login
 
-（PS：注意 src/routes/LoginRouter.js中第九行的isAuthed修改为false，src/routes/PrivateRouter.js中第九行的isAuthed修改为false）
+（PS：注意 src/routes/LoginRouter.js 中第九行的 isAuthed 修改为 false，src/routes/PrivateRouter.js 中第九行的 isAuthed 修改为 false）
 
 #### 示例
 
@@ -22,7 +22,7 @@ http://localhost:3000/login
 
 http://localhost:3000/login
 
-（PS：注意 src/routes/LoginRouter.js中第九行的isAuthed修改为true，src/routes/PrivateRouter.js中第九行的isAuthed修改为true，以下相同）
+（PS：注意 src/routes/LoginRouter.js 中第九行的 isAuthed 修改为 true，src/routes/PrivateRouter.js 中第九行的 isAuthed 修改为 true，以下相同）
 
 #### 示例
 
@@ -49,8 +49,6 @@ http://localhost:3000/
 #### 示例
 
 ![](README.assets/mainpage.png)
-
-
 
 ### 课程详情
 
@@ -81,8 +79,6 @@ http://localhost:3000/correct
 ### 示例
 
 ![](README.assets/correcthomework.png)
-
-
 
 ### 教师界面
 
