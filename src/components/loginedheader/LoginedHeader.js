@@ -11,6 +11,27 @@ import { logout } from '../../services/userService';
 const { Search } = Input;
 
 class LoginedHeader extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      userType:2
+    };
+  }
+
+  componentDidMount()
+  {
+    const user = localStorage.getItem("user");
+    let userType = 2;
+    if (user)
+    {
+      userType = JSON.parse(user).user.userType;
+    }
+    this.setState({
+      userType:userType,
+    });
+  }
+
   logoutOnClick = () => {
     logout();
   };
@@ -37,6 +58,8 @@ class LoginedHeader extends React.Component {
       </Menu>
     );
 
+    const userType = this.state.userType === 1;
+
     return (
       <div className="header">
         <div className="header-wrapper">
@@ -54,7 +77,7 @@ class LoginedHeader extends React.Component {
                 首页
               </a>
             </Col>
-            <Col style={{ height: 28, marginLeft: 20 }}>
+            {/* <Col style={{ height: 28, marginLeft: 20 }}>
               <a href={'/class'} className="header-link">
                 我的课程
               </a>
@@ -78,13 +101,19 @@ class LoginedHeader extends React.Component {
               <a href={'/teacher'} className="header-link">
                 教师界面
               </a>
-            </Col>
-            <Col style={{ height: 28, marginLeft: 20 }}>
+            </Col> */}
+            {
+            userType ?
+            <Col >
               <a href={'/teacher'} className="header-link">
                 新建课程
               </a>
             </Col>
-            <Col offset={8} style={{ paddingTop: 7, marginRight: 5, paddingLeft: 40 }}>
+            :
+            <Col style={{ height: 28, marginLeft: 20 }}></Col>
+            }
+
+            <Col offset={16} style={{ paddingTop: 7, marginRight: 5, paddingLeft: 40 }}>
               <BellOutlined style={{ color: 'white', fontSize: 18 }} />
               <Badge status="processing" style={{ marginTop: -10 }} />
             </Col>

@@ -14,7 +14,8 @@ export class SideBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      courseList: [],
+      courseList: [{courseID:1, courseName:"数学"}],
+      homeworkList: [{homeworkID:1, homeworkName:"数学作业"}],
     };
   }
   handleClick = (e) => {
@@ -50,8 +51,18 @@ export class SideBar extends React.Component {
   render() {
     const courseList = this.state.courseList.map((item) => (
       <Menu.Item key={item.courseID}>
+        <a href = {'/class'}>
         <BookOutlined />
         {item.courseName}
+        </a>
+      </Menu.Item>
+    ));
+    const homeworkList = this.state.homeworkList.map((item) => (
+      <Menu.Item key={item.homeworkID}>
+        <a href = {'/homework'}>
+        <BookOutlined />
+        {item.homeworkName}
+        </a>
       </Menu.Item>
     ));
     return (
@@ -88,18 +99,7 @@ export class SideBar extends React.Component {
               </span>
             }
           >
-            <Menu.Item key="4">
-              <BookOutlined />
-              语文作业
-            </Menu.Item>
-            <Menu.Item key="5">
-              <BookOutlined />
-              数学作业
-            </Menu.Item>
-            <Menu.Item key="6">
-              <BookOutlined />
-              英语作业
-            </Menu.Item>
+           {homeworkList}
           </SubMenu>
         </Menu>
       </Sider>

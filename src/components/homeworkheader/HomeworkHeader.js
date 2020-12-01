@@ -27,7 +27,7 @@ export class HomeworkHeader extends React.Component {
               />
             </svg>
             <p className="homework-title">
-              <a href ={'#top'}> 六年级语文</a>&nbsp;/&nbsp;<a href = {'#top'} className="homework-name">作业一</a>
+              <a href ={'/class'}> 六年级语文</a>&nbsp;/&nbsp;<a href = {'/homework'} className="homework-name">作业一</a>
             </p>
           </Col>
           <Col span={3} offset={15} style={{ display: 'flex', paddingTop: 3 }}>

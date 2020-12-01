@@ -20,7 +20,7 @@ class HomeworkView extends React.Component {
           <Row>
             <Col span={24} style={{ display: 'flex' }}>
               <p className="homework-title-name">
-                <a href = {'#top'}>作业1</a>&nbsp;/&nbsp;<a href = {'#top'}>文件1</a>
+                <a href = {'/'}>作业1</a>&nbsp;/&nbsp;<a href = {'/'}>文件1</a>
               </p>
               <Button className="cancel-button">取消</Button>
             </Col>

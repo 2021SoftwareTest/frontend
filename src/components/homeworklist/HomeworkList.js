@@ -62,7 +62,7 @@ export class HomeworkList extends React.Component {
                 avatar={<EditOutlined />}
                 title={
                   <div>
-                    <a href="https://ant.design">{item.title} </a>
+                    <a href="/homework">{item.title} </a>
                     {TagSwitch(item.tag)}
                   </div>
                 }
