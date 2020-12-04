@@ -67,7 +67,7 @@ class AddClassForm extends React.Component {
 
   render() {
     return (
-      <div className="class-card">
+      <div className="class-card add-class-card ">
         <Row>
           <Col span={5} style={{ paddingLeft: '4.5%', paddingTop: 15 }}>
             <Avatar size={100} />

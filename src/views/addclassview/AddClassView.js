@@ -25,19 +25,9 @@ class AddClassView extends React.Component {
           <Col span={4}>
             <SideBar />
           </Col>
-          <Col span={20} style={{ paddingLeft: 10 }}>
-            <Row>
-              <Col span={18} style={{ paddingRight: 10 }}>
-                <AddClassForm/>
-              </Col>
-              <Col span={6}>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={16}>
-                <MyFooter />
-              </Col>
-            </Row>
+          <Col span={20}>
+            <AddClassForm/>
+            <MyFooter />
           </Col>
         </Row>
         <BackToTop />

@@ -72,7 +72,7 @@ class LoginedHeader extends React.Component {
             <Col span={4} style={{ height: 28 }}>
               <Search placeholder="搜索课程" onSearch={(value) => console.log(value)} className="logined-search" />
             </Col>
-            <Col style={{ height: 28, marginLeft: -40 }}>
+            <Col  span={1} style={{ height: 28, marginLeft: -20}}>
               <a href={'/'} className="header-link">
                 首页
               </a>
@@ -104,16 +104,16 @@ class LoginedHeader extends React.Component {
             </Col> */}
             {
             userType ?
-            <Col >
+            <Col sapn={1} styles={{height: 28, marginLeft:-40}}>
               <a href={'/teacher'} className="header-link">
                 新建课程
               </a>
             </Col>
             :
-            <Col style={{ height: 28, marginLeft: 20 }}></Col>
+            <></>
             }
 
-            <Col offset={16} style={{ paddingTop: 7, marginRight: 5, paddingLeft: 40 }}>
+            <Col offset={15} style={{ paddingTop: 7, marginRight: 5, paddingLeft: 40 }}>
               <BellOutlined style={{ color: 'white', fontSize: 18 }} />
               <Badge status="processing" style={{ marginTop: -10 }} />
             </Col>

@@ -1,4 +1,7 @@
+import './TeacherView.css'
+
 import React from 'react';
+import {Row, Col} from 'antd';
 
 import AddClassForm from '../../components/addClassForm/AddClassForm';
 import { ClassDiscuss } from '../../components/classdiscuss/ClassDiscuss';
@@ -12,6 +15,7 @@ import { ClassUser } from '../../components/classuser/ClassUser';
 import MyFooter from '../../components/footer/MyFooter';
 import LoginedHeader from '../../components/loginedheader/LoginedHeader';
 import TeacherHeader from '../../components/teacherheader/TeacherHeader';
+import {SideBar} from '../../components/sidebar/SideBar';
 
 class TeacherView extends React.Component {
   constructor(props) {
@@ -99,9 +103,16 @@ class TeacherView extends React.Component {
     return (
       <div className="teacher-view">
         <LoginedHeader />
-        <TeacherHeader menuCallback={this.menuCallback} />
-        <div>{content}</div>
-        <MyFooter />
+        <Row>
+          <Col span={4}>
+            <SideBar />
+          </Col>
+          <Col span={20}>
+            <TeacherHeader menuCallback={this.menuCallback} />
+            <div className="teacher-view-content">{content}</div>
+            <MyFooter />
+          </Col>
+        </Row>
       </div>
     );
   }
