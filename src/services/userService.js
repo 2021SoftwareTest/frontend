@@ -84,3 +84,18 @@ export const checkEmail = (data, callback) => {
   const url = checkUrl + 'email';
   postRequest(url, data, callback);
 };
+
+export const getUsersInClass = (data, callback) => {
+  const url = userUrl + 'getUsersInClass';
+  postRequest(url, data, callback);
+};
+
+export const deleteUserInClass = (data, callback) => {
+  const url = userUrl + 'deleteUserInClass';
+  postRequest(url, data, callback);
+};
+
+export const editUserInClass = (data, callback) => {
+  const url = userUrl + 'editUserInClass';
+  postRequest(url, data, callback);
+};

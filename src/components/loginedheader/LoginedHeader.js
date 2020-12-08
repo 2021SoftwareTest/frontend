@@ -114,7 +114,9 @@ class LoginedHeader extends React.Component {
             }
 
             <Col offset={15} style={{ paddingTop: 7, marginRight: 5, paddingLeft: 40 }}>
+              <a href = "/notification">
               <BellOutlined style={{ color: 'white', fontSize: 18 }} />
+              </a>
               <Badge status="processing" style={{ marginTop: -10 }} />
             </Col>
             {/* <Col style={{paddingTop:6}}>*/}

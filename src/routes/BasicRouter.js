@@ -9,6 +9,7 @@ import CorrectView from '../views/correctview/CorrectView';
 import HomeView from '../views/homeview/HomeView';
 import HomeworkView from '../views/homeworkview/HomeworkView';
 import LoginView from '../views/loginview/LoginView';
+import NotificationView from '../views/notificationview/NotificationView';
 import RegisterView from '../views/registerview/RegisterView';
 import ReleaseView from '../views/releaseview/ReleaseView';
 import TeacherView from '../views/teacherview/TeacherView';
@@ -40,6 +41,7 @@ class BasicRouter extends React.Component {
           <PrivateRouter exact path="/user" component={UserView} />
           <PrivateRouter exact path="/rich" component={RichEditor} />
           <PrivateRouter exact path="/addclass" component={AddClassView} />
+          <PrivateRouter exact path="/notification" component = {NotificationView}/>
           <Redirect from="/*" to="/" />
         </Switch>
       </Router>

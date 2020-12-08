@@ -1,7 +1,7 @@
-import './TeacherView.css'
+import './TeacherView.css';
 
+import {Col, Row} from 'antd';
 import React from 'react';
-import {Row, Col} from 'antd';
 
 import AddClassForm from '../../components/addClassForm/AddClassForm';
 import { ClassDiscuss } from '../../components/classdiscuss/ClassDiscuss';
@@ -11,11 +11,11 @@ import ClassMainPage from '../../components/classmainpage/ClassMainPage';
 import { ClassNotice } from '../../components/classnotice/ClassNotice';
 import { ClassOutline } from '../../components/classoutline/ClassOutline';
 import { ClassUnit } from '../../components/classunit/ClassUnit';
-import { ClassUser } from '../../components/classuser/ClassUser';
+import ClassUser from '../../components/classuser/ClassUser';
 import MyFooter from '../../components/footer/MyFooter';
 import LoginedHeader from '../../components/loginedheader/LoginedHeader';
-import TeacherHeader from '../../components/teacherheader/TeacherHeader';
 import {SideBar} from '../../components/sidebar/SideBar';
+import TeacherHeader from '../../components/teacherheader/TeacherHeader';
 
 class TeacherView extends React.Component {
   constructor(props) {
