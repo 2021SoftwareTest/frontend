@@ -105,7 +105,7 @@ class LoginedHeader extends React.Component {
             {
             userType ?
             <Col sapn={1} styles={{height: 28, marginLeft:-40}}>
-              <a href={'/teacher'} className="header-link">
+              <a href={'/addclass'} className="header-link">
                 新建课程
               </a>
             </Col>

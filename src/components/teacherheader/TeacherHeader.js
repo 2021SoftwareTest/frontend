@@ -8,14 +8,11 @@ class TeacherHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      current: 'Homework',
+      current: 'MainPage'
     };
     // eslint-disable-next-line react/prop-types
     this.menuCallback = this.props.menuCallback;
   }
-  state = {
-    current: 'Homework',
-  };
 
   handleClick = (e) => {
     // console.log('click ', e);
@@ -77,9 +74,6 @@ class TeacherHeader extends React.Component {
               </Menu.Item>
               <Menu.Item key="Edit" icon={<EditOutlined />}>
                 编 辑
-              </Menu.Item>
-              <Menu.Item key="AddClass" icon={<PlusOutlined />}>
-                添加课程
               </Menu.Item>
             </Menu>
           </Col>

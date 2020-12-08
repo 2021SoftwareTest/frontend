@@ -60,11 +60,8 @@ class TeacherView extends React.Component {
       case 'Edit':
         this.setState({ curSection: 10 });
         break;
-      case 'AddClass':
-        this.setState({ curSection: 11 });
-        break;
       default:
-        this.setState({curSection:11});
+        this.setState({curSection:0});
         console.log("error");
         break;
     }
@@ -95,8 +92,6 @@ class TeacherView extends React.Component {
         <ClassUnit />
       ) : curSection === 10 ? (
         <ClassEdit />
-      ) : curSection === 11 ? (
-        <AddClassForm />
       ) : (
         <></>
       );
