@@ -1,13 +1,14 @@
-import 'braft-editor/dist/index.css';
 import './HomeworkHandin.css';
 
+import { CKEditor } from '@ckeditor/ckeditor5-react';
 import { Avatar, Button, Comment, Form, Input } from 'antd';
-import BraftEditor from 'braft-editor';
 import React from 'react';
+
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const { TextArea } = Input;
 // eslint-disable-next-line react/prop-types
-const Editor = ({ onChange, onSubmit, submitting, value }) => (
+const EditorComment = ({ onChange, onSubmit, submitting, value }) => (
   <>
     <Form.Item>
       <TextArea rows={4} onChange={onChange} value={value} />
@@ -44,10 +45,27 @@ export class HomeworkHandin extends React.Component {
 
     return (
       <div className="editor-wrapper">
-        <BraftEditor controls={controls} contentStyle={{ height: 210, boxShadow: 'inset 0 1px 3px rgba(0,0,0,.1)' }} />
+        <CKEditor
+          editor={ClassicEditor}
+          data="<p>请输入文本</p>"
+          onReady={(editor) => {
+            // You can store the "editor" and use when it is needed.
+            console.log('Editor is ready to use!', editor);
+          }}
+          onChange={(event, editor) => {
+            const data = editor.getData();
+            console.log({ event, editor, data });
+          }}
+          onBlur={(event, editor) => {
+            console.log('Blur.', editor);
+          }}
+          onFocus={(event, editor) => {
+            console.log('Focus.', editor);
+          }}
+        />
         <Comment
           avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
-          content={<Editor onChange={this.handleChange} onSubmit={this.handleSubmit} submitting={submitting} value={value} />}
+          content={<EditorComment onChange={this.handleChange} onSubmit={this.handleSubmit} submitting={submitting} value={value} />}
         />
         <Button className="submit-button">提交</Button>
       </div>

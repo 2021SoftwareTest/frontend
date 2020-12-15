@@ -1,9 +1,36 @@
 import 'braft-editor/dist/index.css';
 
-import { Badge, Descriptions } from 'antd';
+import ReactDOM from "react-dom";
+import CanvasDraw from "react-canvas-draw";
+import { Badge, Descriptions, Button, Row, Col } from 'antd';
 import React from 'react';
 
 export class HomeworkDone extends React.Component {
+  constructor(props) {
+    super(props);
+    this.canvas = React.createRef();
+    this.state = {
+      color: "#ffc600",
+      width: 400,
+      height:400,
+      brushRadius: 4,
+      lazyRadius: 0,
+      drawContent:""
+    };
+  };
+
+  onSave = () => {
+    this.setState({drawContent: this.canvas.getSaveData()});
+  };
+
+  onClear = () => {
+    this.canvas.clear();
+  }
+
+  onUndo = () => {
+    this.canvas.undo();
+  }
+
   render() {
     return (
       <div>
@@ -34,6 +61,36 @@ export class HomeworkDone extends React.Component {
             <br />
           </Descriptions.Item>
         </Descriptions>
+        <div>
+            <Row>
+              <Col span={3}>
+                <Button onClick={this.onUndo}>
+                  撤销
+                </Button>
+              </Col>
+              <Col span={3}>
+                <Button onClick={this.onClear}>
+                  清空
+                </Button>
+              </Col>
+              <Col span={3}>
+                <Button onClick={this.onSave}>
+                  保存
+                </Button>
+              </Col>
+            </Row>
+            <CanvasDraw
+            ref={canvasDraw => (this.canvas = canvasDraw)}
+            brushColor={this.state.color}
+            brushRadius={this.state.brushRadius}
+            lazyRadius={this.state.lazyRadius}
+            canvasWidth={this.state.width}
+            canvasHeight={this.state.height}
+            imgSrc="https://upload.wikimedia.org/wikipedia/commons/a/a1/Nepalese_Mhapuja_Mandala.jpg"
+            hideGrid
+          />
+        </div>
+        
       </div>
     );
   }
