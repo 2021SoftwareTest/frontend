@@ -1,9 +1,12 @@
 import './HomeworkHandin.css';
 
-import { CKEditor } from '@ckeditor/ckeditor5-react';
+
 import { Avatar, Button, Comment, Form, Input } from 'antd';
 import React from 'react';
 
+// import CusEditor from '../cuseditor/CusEditor';
+
+import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const { TextArea } = Input;
