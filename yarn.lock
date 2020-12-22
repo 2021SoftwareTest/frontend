@@ -1150,6 +1150,60 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@ckeditor/ckeditor5-build-classic@^23.1.0":
+  version "23.1.0"
+  resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-build-classic/download/@ckeditor/ckeditor5-build-classic-23.1.0.tgz#b358bd9c266727cd1504d16fb069ada43694e2e5"
+  integrity sha1-s1i9nCZnJ80VBNFvsGmtpDaU4uU=
+
+"@ckeditor/ckeditor5-core@^24.0.0":
+  version "24.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-core/-/ckeditor5-core-24.0.0.tgz#1f031c34657cbc13a924d81258130174385d0ca7"
+  integrity sha512-regUaX5oFtM5VJkZIfzge3Yg4PxKJkYSC6JcTwewJ2FJ5GB3FvH+vLEJwhAm0qisssy6HBLhXJXjDbCEHTVVCw==
+  dependencies:
+    "@ckeditor/ckeditor5-engine" "^24.0.0"
+    "@ckeditor/ckeditor5-utils" "^24.0.0"
+    lodash-es "^4.17.15"
+
+"@ckeditor/ckeditor5-engine@^24.0.0":
+  version "24.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-engine/-/ckeditor5-engine-24.0.0.tgz#316b1a3f0f80ffececb5f9d356c8bce5a57346e3"
+  integrity sha512-+M/S+q5+2vuwv9oVE0dd2p3Ex0RzQiqfYJMFGmBH2Smj7RKwREYlohtx6DneMmvEbbeVyCz3eFKXgh+RkQhoAA==
+  dependencies:
+    "@ckeditor/ckeditor5-utils" "^24.0.0"
+    lodash-es "^4.17.15"
+
+"@ckeditor/ckeditor5-react@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.npm.taobao.org/@ckeditor/ckeditor5-react/download/@ckeditor/ckeditor5-react-3.0.0.tgz#05a1bdd7b26a8c1df6fd734376ea84e394d6ab47"
+  integrity sha1-BaG917JqjB32/XNDduqE45TWq0c=
+  dependencies:
+    prop-types "^15.7.2"
+
+"@ckeditor/ckeditor5-ui@^24.0.0":
+  version "24.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-ui/-/ckeditor5-ui-24.0.0.tgz#6aec366600c214aacf42bdd4718daf30a2dace3f"
+  integrity sha512-/HtAmJ1qLy5YVuJVfqItY6WJeY4Wqxu6SJYPCMMmm489Ky5Ea44FgINv9AF7pVnDIP7LJ+/hzFJCXQZr1Ud+jw==
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^24.0.0"
+    "@ckeditor/ckeditor5-utils" "^24.0.0"
+    lodash-es "^4.17.15"
+
+"@ckeditor/ckeditor5-upload@^24.0.0":
+  version "24.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-upload/-/ckeditor5-upload-24.0.0.tgz#b03e5fba5ab5c15603f6445070dc7efb6ae363cf"
+  integrity sha512-1sPSTcDM/7q3C4HqBKm0ReHJFdDlpORTMzXsvN6YH9nmB+kI4QY52NG0MLfQEQfNSHdeTjUxqnmvelhxjBD3KA==
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^24.0.0"
+    "@ckeditor/ckeditor5-ui" "^24.0.0"
+    "@ckeditor/ckeditor5-utils" "^24.0.0"
+
+"@ckeditor/ckeditor5-utils@^24.0.0":
+  version "24.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-utils/-/ckeditor5-utils-24.0.0.tgz#4c1e829e6712a011df60d041730c57b9c14a5a22"
+  integrity sha512-m+8ZuO7Gqv5WDGnoI1Y7VA8cwCa9+26/Unth6PCBq3UvOT2ivm310YTItE8TqlP14aJk178UZj8VoMTj+V3jwQ==
+  dependencies:
+    lodash-es "^4.17.15"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -3196,6 +3250,11 @@ caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
+
+catenary-curve@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/catenary-curve/-/catenary-curve-1.0.1.tgz#57c3061992735bfd34b274c401a96806fe30a21f"
+  integrity sha512-vSHQtYFjItV4wxUH5OkicA3Kmln6thBBWlJLiw2f4apfvkKw4BVe8bTbG6lnbJe60CIr8PyHzjSX27blSJ07Ww==
 
 chalk@2.4.2, chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
@@ -5798,6 +5857,11 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
+highlight-words-core@^1.2.0:
+  version "1.2.2"
+  resolved "https://registry.npm.taobao.org/highlight-words-core/download/highlight-words-core-1.2.2.tgz#1eff6d7d9f0a22f155042a00791237791b1eeaaa"
+  integrity sha1-Hv9tfZ8KIvFVBCoAeRI3eRse6qo=
+
 history@^4.9.0:
   version "4.10.1"
   resolved "https://registry.npm.taobao.org/history/download/history-4.10.1.tgz#33371a65e3a83b267434e2b3f3b1b4c58aad4cf3"
@@ -7300,6 +7364,11 @@ last-call-webpack-plugin@^3.0.0:
     lodash "^4.17.5"
     webpack-sources "^1.1.0"
 
+lazy-brush@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/lazy-brush/-/lazy-brush-1.0.1.tgz#5bf099073237294d2f6fc9d6c5d1d705e891c5bf"
+  integrity sha512-xT/iSClTVi7vLoF8dCWTBhCuOWqsLXCMPa6ucVmVAk6hyNCM5JeS1NLhXqIrJktUg+caEYKlqSOUU4u3cpXzKg==
+
 lazy-cache@^0.2.3:
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/lazy-cache/-/lazy-cache-0.2.7.tgz#7feddf2dcb6edb77d11ef1d117ab5ffdf0ab1b65"
@@ -7455,6 +7524,11 @@ locate-path@^6.0.0:
   integrity sha1-VTIeswn+u8WcSAHZMackUqaB0oY=
   dependencies:
     p-locate "^5.0.0"
+
+lodash-es@^4.17.15:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
+  integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
 
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"
@@ -7629,6 +7703,11 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
+
+memoize-one@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.npm.taobao.org/memoize-one/download/memoize-one-4.1.0.tgz#a2387c58c03fff27ca390c31b764a79addf3f906"
+  integrity sha1-ojh8WMA//yfKOQwxt2Snmt3z+QY=
 
 memory-fs@^0.4.1:
   version "0.4.1"
@@ -10219,6 +10298,16 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
+react-canvas-draw@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-canvas-draw/-/react-canvas-draw-1.1.1.tgz#6c340db92338c5d42f2ccd30ffef9b7b121bbe88"
+  integrity sha512-PvZc7g21bYSGebsi73qMgQUV1QQXC464/FouTACwffdytUcMhZM77Jlbj6sOJnctKY9x0IRlJIF2cZj3UVPWGg==
+  dependencies:
+    catenary-curve "^1.0.1"
+    lazy-brush "^1.0.1"
+    prop-types "^15.6.2"
+    resize-observer-polyfill "^1.5.0"
+
 react-dev-utils@^10.2.1:
   version "10.2.1"
   resolved "https://registry.npm.taobao.org/react-dev-utils/download/react-dev-utils-10.2.1.tgz?cache=0&sync_timestamp=1596663210539&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-dev-utils%2Fdownload%2Freact-dev-utils-10.2.1.tgz#f6de325ae25fa4d546d09df4bb1befdc6dd19c19"
@@ -10263,6 +10352,15 @@ react-error-overlay@^6.0.7:
   version "6.0.7"
   resolved "https://registry.npm.taobao.org/react-error-overlay/download/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha1-Hc+0WatnHVP2YKmRUTyy8KBVMQg=
+
+react-highlight-words@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.npm.taobao.org/react-highlight-words/download/react-highlight-words-0.16.0.tgz#4b4b9824e3d2b98789d3e3b3aedb5e961ae1b7cf"
+  integrity sha1-S0uYJOPSuYeJ0+Ozrttelhrht88=
+  dependencies:
+    highlight-words-core "^1.2.0"
+    memoize-one "^4.0.0"
+    prop-types "^15.5.8"
 
 react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.13.1"

@@ -1,3 +1,7 @@
-.submit-button{
-    margin-top:50px;
+.submit-button {
+  margin-top: 50px;
+}
+
+.editor-wrapper .ck .ck-editor__main .ck-content{
+  min-height: 200px;
 }

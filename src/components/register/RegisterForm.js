@@ -4,7 +4,7 @@ import './registercss.css';
 import { Button, Col, Input, Row } from 'antd';
 import React from 'react';
 
-import {register} from "../../services/userService";
+import { register } from '../../services/userService';
 
 class RegisterForm extends React.Component {
   constructor(props) {
@@ -33,25 +33,25 @@ class RegisterForm extends React.Component {
   };
 
   authCodeOnChange = (e) => {
-    this.setState({authCode: e.target.value});
+    this.setState({ authCode: e.target.value });
   };
 
   schoolOnChange = (e) => {
-    this.setState({school: e.target.value});
+    this.setState({ school: e.target.value });
   };
 
   onSubmit = () => {
-      const registerInfo = {
-        userName: this.state.username,
-        password: this.state.password,
-        school: this.state.school,
-        ID: this.state.ID,
-        phone: this.state.phone,
-        email: this.state.email,
-        authcode: this.state.authCode
-      };
-      console.log(registerInfo)
-      register(registerInfo);
+    const registerInfo = {
+      userName: this.state.username,
+      password: this.state.password,
+      school: this.state.school,
+      ID: this.state.ID,
+      phone: this.state.phone,
+      email: this.state.email,
+      authcode: this.state.authCode,
+    };
+    console.log(registerInfo);
+    register(registerInfo);
   };
 
   render() {
@@ -99,11 +99,9 @@ class RegisterForm extends React.Component {
               <Input placeholder="创建密码" value={registerInfo.password} onChange={this.passwordOnChange} className="input" />
             </Col>
           </Row>
-          <Row style={{marginTop:5}}>
+          <Row style={{ marginTop: 5 }}>
             <Col span={24}>
-              <p style={{marginBottom:0}}>
-                确保密码至少有7位字符，包括数字和小写字母。
-              </p>
+              <p style={{ marginBottom: 0 }}>确保密码至少有7位字符，包括数字和小写字母。</p>
             </Col>
           </Row>
           <Row>
@@ -137,7 +135,7 @@ class RegisterForm extends React.Component {
             </Col>
           </Row>
           <Row>
-             <p> </p>
+            <p> </p>
           </Row>
           <Row>
             <Col span={24}>
@@ -148,7 +146,9 @@ class RegisterForm extends React.Component {
           </Row>
           <Row style={{ marginTop: 25 }}>
             <Col span={24}>
-              <p className="term">点击“注册到小箱交”，代表你同意我们的<a href={"#"}>服务条款</a>。我们会不定期寄给你相关邮件。</p>
+              <p className="term">
+                点击“注册到小箱交”，代表你同意我们的<a href={'#top'}>服务条款</a>。我们会不定期寄给你相关邮件。
+              </p>
             </Col>
           </Row>
         </div>

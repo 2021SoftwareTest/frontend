@@ -1,99 +1,108 @@
 import './SideBar.css';
 
-import {
-    BookOutlined, TeamOutlined
-} from '@ant-design/icons';
-import {Layout, Menu, message} from 'antd';
+import { BookOutlined, EditOutlined } from '@ant-design/icons';
+import { Layout, Menu, message } from 'antd';
 import React from 'react';
 
-import {getCourseList} from '../../services/courseService';
+import { getCourseList } from '../../services/courseService';
 
-const {Sider} = Layout;
+const { Sider } = Layout;
 
-const {SubMenu} = Menu;
+const { SubMenu } = Menu;
 
 export class SideBar extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-          courseList:[]
-        };
-    }
-    handleClick = (e) => {
-        console.log('click ', e);
+  constructor(props) {
+    super(props);
+    this.state = {
+      courseList: [{courseID:1, courseName:"数学"}],
+      homeworkList: [{homeworkID:1, homeworkName:"数学作业"}],
     };
+  }
+  handleClick = (e) => {
+    console.log('click ', e);
+  };
 
-    componentDidMount() {
-        let userId = JSON.parse(localStorage.getItem('user')).user.userID;
-        if(!userId){
-            userId = 1;
+  componentDidMount() {
+    let userId = 1;
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      userId = user.user.userID;
+    }
+    const data = {
+      userId: userId,
+    };
+    const callback = (data) => {
+      console.log(data);
+      if (data.status === 200) {
+        console.log(data);
+        if (data.data) {
+          this.setState({
+            courseList: data.data,
+          });
         }
-        const data = {
-            userId:userId,
-        };
-        const callback = (data) => {
-            console.log(data);
-            if(data.status === 200){
-                console.log(data);
-                if(!!data.data){
-                    this.setState({
-                        courseList:data.data
-                    });
-                }
-                message.success(data.msg);
-            }
-            else{
-                message.error(data.msg);
-            }
-        };
-        getCourseList(data, callback);
-    }
+        message.success(data.msg);
+      } else {
+        message.error(data.msg);
+      }
+    };
+    getCourseList(data, callback);
+  }
 
-    render() {
-        const courseList = this.state.courseList.map((item) => (<Menu.Item key={item.courseID}><BookOutlined/>{item.courseName}</Menu.Item>));
-        return (
-            <Sider width="16%" className="site-layout-background"
-                collapsible={true}
-                style={{
-                    overflow: 'auto',
-                    height: '100vh',
-                    position: 'fixed',
-                    left: 0,
-                }}
-                theme={'white'}
-            >
-                <Menu onClick={this.handleClick}
-                      style={{ height: '100%', borderRight: 0}}
-                      defaultSelectedKeys={[]}
-                      defaultOpenKeys={['sub1', 'sub2']}
-                      mode="inline">
-                    <SubMenu
-                        key="sub1"
-                        title={
-                            <span>
-                                <BookOutlined/>
-                                <span>我的课程</span>
-                            </span>
-                        }
-                    >
-                        {courseList}
-                    </SubMenu>
-                    <SubMenu
-                        key="sub2"
-                        title={
-                            <span>
-                                <TeamOutlined/>
-                                <span>我的小组</span>
-                            </span>
-                        }
-                    >
-                        <Menu.Item key="4"><TeamOutlined/>语文学习小组</Menu.Item>
-                        <Menu.Item key="5"><TeamOutlined/>数学学习小组</Menu.Item>
-                        <Menu.Item key="6"><TeamOutlined/>英语学习小组</Menu.Item>
-                    </SubMenu>
-                </Menu>
-            </Sider>
-        );
-    }
+  render() {
+    const courseList = this.state.courseList.map((item) => (
+      <Menu.Item key={item.courseID}>
+        <a href = {'/class'}>
+        <BookOutlined />
+        {item.courseName}
+        </a>
+      </Menu.Item>
+    ));
+    const homeworkList = this.state.homeworkList.map((item) => (
+      <Menu.Item key={item.homeworkID}>
+        <a href = {'/homework'}>
+        <BookOutlined />
+        {item.homeworkName}
+        </a>
+      </Menu.Item>
+    ));
+    return (
+      <Sider
+        width="16%"
+        className="site-layout-background"
+        collapsible={true}
+        style={{
+          overflow: 'auto',
+          height: '100vh',
+          position: 'fixed',
+          left: 0,
+        }}
+        theme={'white'}
+      >
+        <Menu onClick={this.handleClick} style={{ height: '100%', borderRight: 0 }} defaultSelectedKeys={[]} defaultOpenKeys={['sub1', 'sub2']} mode="inline">
+          <SubMenu
+            key="sub1"
+            title={
+              <span>
+                <BookOutlined />
+                <span>我的课程</span>
+              </span>
+            }
+          >
+            {courseList}
+          </SubMenu>
+          <SubMenu
+            key="sub2"
+            title={
+              <span>
+                <EditOutlined />
+                <span>我的作业</span>
+              </span>
+            }
+          >
+           {homeworkList}
+          </SubMenu>
+        </Menu>
+      </Sider>
+    );
+  }
 }

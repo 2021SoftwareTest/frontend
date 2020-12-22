@@ -1,8 +1,13 @@
-.time-range{
-    margin-top: 5px;
+.time-range {
+  margin-top: 5px;
 }
 
-.submit{
-    margin-top: 20px;
-    text-align: center;
+.submit {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.add-class-card{
+  margin: 80px 12% 30px 6% !important;
+  width: auto !important;
 }

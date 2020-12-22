@@ -9,8 +9,19 @@ const classInfo = {
     semester: "第二学期",
     grade: "六年级",
     year: "2020",
-    students: [1, 2, 3, 4, 5],
-    courseId: 99,
+    students: [
+        {
+            'userID':15,
+            'userType':2,
+            'userName': 'dsy',
+            'password': '12345',
+            'school': 'SJTU',
+            'id': 'id unknown',
+            'phone': '123456666',
+            'email': '122@ass.com'
+        }
+    ],
+    courseId: 1,
     description: "这个老师很懒，他没有写描述。",
 };
 

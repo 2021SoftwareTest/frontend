@@ -1,1 +1,3 @@
-Feel free to contribute your code to our frontend!
+# CONTRIBUTING
+
+Feel free to contribute your code and ideas to our frontend!
