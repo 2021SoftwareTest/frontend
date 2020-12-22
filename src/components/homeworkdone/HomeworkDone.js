@@ -1,6 +1,5 @@
 import 'braft-editor/dist/index.css';
 
-import ReactDOM from "react-dom";
 import CanvasDraw from "react-canvas-draw";
 import { Badge, Descriptions, Button, Row, Col } from 'antd';
 import React from 'react';

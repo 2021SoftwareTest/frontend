@@ -1,6 +1,6 @@
 import './TeacherHeader.css';
 
-import { CheckOutlined, DeploymentUnitOutlined, EditOutlined, FileOutlined, FormOutlined, HomeOutlined, LineChartOutlined, NotificationOutlined, PlusOutlined, ProjectOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
+import { CheckOutlined, DeploymentUnitOutlined, EditOutlined, FileOutlined, FormOutlined, HomeOutlined, LineChartOutlined, NotificationOutlined, ProjectOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
 import { Col, Menu, Row } from 'antd';
 import React from 'react';
 

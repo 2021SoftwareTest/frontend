@@ -1,7 +1,7 @@
 import 'antd/dist/antd.css';
 import './CourseCard.css';
 
-import { CommentOutlined, FolderOutlined, FormOutlined, NotificationOutlined, DownOutlined } from '@ant-design/icons';
+import { CommentOutlined, FolderOutlined, FormOutlined, NotificationOutlined } from '@ant-design/icons';
 import { Menu, Col, Image, Row, Dropdown } from 'antd';
 import React from 'react';
 
@@ -31,7 +31,7 @@ class CourseCard extends React.Component {
                 <div>
                     <div className="image-cover">
                         <Dropdown overlay={menu}>
-                            <a className="ant-dropdown-link">
+                            <a href={"#top"} className="ant-dropdown-link">
                                 <h1 style={{fontSize:24, color:"#fff", fontWeight:"bold"}}>...</h1>
                             </a>
                         </Dropdown>
@@ -41,23 +41,23 @@ class CourseCard extends React.Component {
                     />
                 </div>
                 <div className="course-content">
-                    <a>
+                    <a href={"#top"}>
                         <p className="course-name">{courseName}</p>
                         <p className="course-id ellipsis">{courseId}</p>
                         <p className="course-term ellipsis">{courseTerm}</p>
                     </a>
                     <Row style={{marginLeft:"9%"}}>
                         <Col span={6}>
-                            <a><NotificationOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/></a>
+                            <a href={"#top"}><NotificationOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/></a>
                         </Col>
                         <Col span={6}>
-                            <a><FolderOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/></a>
+                            <a href={"#top"}><FolderOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/></a>
                         </Col>
                         <Col span={6}>
-                            <a><FormOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/></a>
+                            <a href={"#top"}><FormOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/></a>
                         </Col>
                         <Col span={6}>
-                            <a><CommentOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/></a>
+                            <a href={"#top"}><CommentOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/></a>
                         </Col>
                     </Row>
                 </div>

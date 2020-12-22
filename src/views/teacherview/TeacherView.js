@@ -3,7 +3,6 @@ import './TeacherView.css';
 import {Col, Row} from 'antd';
 import React from 'react';
 
-import AddClassForm from '../../components/addClassForm/AddClassForm';
 import { ClassDiscuss } from '../../components/classdiscuss/ClassDiscuss';
 import ClassEdit from '../../components/classedit/ClassEdit';
 import ClassHomework from '../../components/classhomework/ClassHomework';

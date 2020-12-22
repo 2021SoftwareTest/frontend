@@ -1,13 +1,10 @@
 import './HomeworkHandin.css';
 
-
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+// import CusEditor from '../cuseditor/CusEditor';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
 import { Avatar, Button, Comment, Form, Input } from 'antd';
 import React from 'react';
-
-// import CusEditor from '../cuseditor/CusEditor';
-
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const { TextArea } = Input;
 // eslint-disable-next-line react/prop-types
@@ -32,18 +29,18 @@ export class HomeworkHandin extends React.Component {
   };
 
   render() {
-    const controls = [
-      {
-        key: 'bold',
-        text: <b>加粗</b>,
-      },
-      'italic',
-      'underline',
-      'separator',
-      'link',
-      'separator',
-      'media',
-    ];
+    // const controls = [
+    //   {
+    //     key: 'bold',
+    //     text: <b>加粗</b>,
+    //   },
+    //   'italic',
+    //   'underline',
+    //   'separator',
+    //   'link',
+    //   'separator',
+    //   'media',
+    // ];
     const { submitting, value } = this.state;
 
     return (
