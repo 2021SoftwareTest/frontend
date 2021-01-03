@@ -1,42 +1,49 @@
 import './ClassUser.css';
 
-import {SearchOutlined} from '@ant-design/icons';
-import {Button, Col, Drawer, Form, Input, message, Popover, Row, Table} from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
+import {Button, Input, message, Space, Table} from 'antd';
 import React from 'react';
-import {Highlighter} from 'react-highlight-words';
+import Highlighter from 'react-highlight-words';
 
-import {deleteUserInClass, editUserInClass, getUsersInClass} from "../../services/userService";
+import {deleteUserInClass, getUsersInClass} from "../../services/userService";
+
+const dataSource = [
+    {
+        userId: '0',
+        userType: '0',
+        userName: 'teacher',
+        school: 'SJTU',
+        ID: '00000',
+        phone: '00000',
+        email: '00@00.com'
+    },
+    {
+        userId: '1',
+        userType: '1',
+        userName: 'student',
+        school: 'SJTU',
+        ID: '00001',
+        phone: '00001',
+        email: '01@01.com'
+    }
+];
+
 
 class ClassUser extends React.Component {
 
-    constructor(props) {
-        super(props);
+    state = {
+        dataSource: [],
+        classId: 0,
 
-        this.state = {
-            dataSource: [
-              {userId:'0', userType:'0', userName:'teacher', school:'SJTU', ID: '00000', phone: '00000', email: '00@00.com'},
-              {userId:'1', userType:'1', userName:'student', school:'SJTU', ID: '00001', phone: '00001', email: '01@01.com'},
-            ],
-
-            searchText: '',
-            searchedColumn: '',
-
-            addVisible: false,
-            editVisible: false,
-            loading: false,
-
-            courseId:'1',
-            userId: '',
-            userType: '',
-            userName: '',
-            school: '',
-            ID:'',
-            phone:'',
-            email:'',
-        };
-    }
+        searchText: '',
+        searchedColumn: '',
+    };
 
     componentDidMount() {
+        this.setState({
+            dataSource: dataSource,
+            classId: 1,
+        });
         const callback = (data) => {
             this.setState({dataSource: data});
         };
@@ -46,29 +53,13 @@ class ClassUser extends React.Component {
         } else if (user.userType !== 0) {
             message.error("你没有权限");
         } else {
-            getUsersInClass({"classId": this.state.clas}, callback);
+            getUsersInClass({"classId": this.state.classId}, callback);
         }
     }
 
-    showAddDrawer = () => {
-        this.setState({
-            addVisible: true,
-        });
-    };
-
-    closeAddDrawer = () => {
-        this.setState({
-            addVisible: false,
-        });
-    };
-
-    handleAdd = () => {
-        console.log('addUser');
-    }
-
     getColumnSearchProps = (dataIndex) => ({
-        filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters}) => (
-            <div style={{padding: 8}}>
+        filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+            <div style={{ padding: 8 }}>
                 <Input
                     ref={(node) => {
                         this.searchInput = node;
@@ -77,44 +68,41 @@ class ClassUser extends React.Component {
                     value={selectedKeys[0]}
                     onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
                     onPressEnter={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
-                    style={{width: 188, marginBottom: 8, display: 'block'}}
+                    style={{ width: 188, marginBottom: 8, display: 'block' }}
                 />
-                <Button
-                    type="primary"
-                    onClick={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
-                    icon={<SearchOutlined/>}
-                    size="small"
-                    style={{width: 90, marginRight: 8}}
-                >
-                    Search
-                </Button>
-                <Button onClick={() => this.handleReset(clearFilters)} size="small" style={{width: 90}}>
-                    Reset
-                </Button>
+                <Space>
+                    <Button
+                        type="primary"
+                        onClick={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
+                        icon={<SearchOutlined />}
+                        size="small"
+                        style={{ width: 90 }}
+                    >
+                        Search
+                    </Button>
+                    <Button onClick={() => this.handleReset(clearFilters)} size="small" style={{ width: 90 }}>
+                        Reset
+                    </Button>
+                </Space>
             </div>
         ),
-
-        filterIcon: (filtered) => <SearchOutlined style={{color: filtered ? '#1890ff' : undefined}}/>,
-
+        filterIcon: (filtered) => <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />,
         onFilter: (value, record) =>
             record[dataIndex]
-                .toString()
-                .toLowerCase()
-                .includes(value.toLowerCase()),
-
+                ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())
+                : '',
         onFilterDropdownVisibleChange: (visible) => {
             if (visible) {
-                setTimeout(() => this.searchInput.select());
+                setTimeout(() => this.searchInput.select(), 100);
             }
         },
-
         render: (text) =>
             this.state.searchedColumn === dataIndex ? (
                 <Highlighter
-                    highlightStyle={{backgroundColor: '#ffc069', padding: 0}}
+                    highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
                     searchWords={[this.state.searchText]}
                     autoEscape
-                    textToHighlight={text.toString()}
+                    textToHighlight={text ? text.toString() : ''}
                 />
             ) : (
                 text
@@ -131,53 +119,16 @@ class ClassUser extends React.Component {
 
     handleReset = (clearFilters) => {
         clearFilters();
-        this.setState({searchText: ''});
+        this.setState({ searchText: '' });
     };
 
-    showEditDrawer = () => {
-        this.setState({
-            editVisible: true,
-        });
-    };
-
-    closeEditDrawer = () => {
-        this.setState({
-            editVisible: false,
-        });
-    };
-
-    handleEdit = (userId, userType, userName, school, ID, phone, email) => {
-        this.showEditDrawer();
-        this.setState(
-            {
-                userId: userId,
-                userType: userType,
-                userName: userName,
-                school: school,
-                ID: ID,
-                phone: phone,
-                email: email,
-            }
-        );
-    };
-
-    handleDelete = () => {
+    handleDelete = (userId) => {
         const callback = (data) => {
             if (data.status >= 0) {
                 message.success(data.msg);
-                this.setState({
-                  userId: '',
-                  userType: '',
-                  userName: '',
-                  school: '',
-                  ID: '',
-                  phone: '',
-                  email: '',
-                });
-                this.closeEditDrawer();
                 const dataSource = [...this.state.dataSource];
                 this.setState({
-                    dataSource: dataSource.filter((item) => item.userId !== this.state.userId),
+                    dataSource: dataSource.filter((item) => item.userId !== userId),
                 });
 
                 const callback = (data) => {
@@ -189,194 +140,67 @@ class ClassUser extends React.Component {
                 message.error(data.msg);
             }
         };
-        deleteUserInClass({"classId":this.state.classId, "userId":this.state.userId}, callback);
+        deleteUserInClass({"classId": this.state.classId, "userId": userId}, callback);
     };
 
-    handleSubmit = () => {
-        const callback = () => {
-            message.success('修改成功');
-            const tmp = this.state.dataSource;
-            for (let i = 0; i < tmp.length; i++) {
-                if (tmp[i].userId === this.state.userId) {
-                    tmp[i].userType = this.state.userType;
-                }
-                this.setState({dataSource: tmp});
-            }
-            this.closeEditDrawer();
-        };
-        const json = {
-            userId: this.state.userId,
-            classId: this.state.classId,
-            userType: this.state.userType
-        };
-        editUserInClass(json, callback);
-    }
-
     render() {
+
+        const {dataSource} = this.state;
         const columns = [
             {
-                title: 'userId',
+                title: '序号',
                 dataIndex: 'userId',
-                ...this.getColumnSearchProps('userId'),
-                editable: false,
+                key: 'userId',
                 sorter: (a, b) => a.userId - b.userId,
             },
             {
-              title: 'userType',
-              dataIndex: 'userType',
-              ...this.getColumnSearchProps('userType'),
-              editable: true,
-              sorter: (a, b) => a.userType - b.userType,
-              render: (text) =>
-                  <Popover content={
-                      <div>
-                          <p> 0: teacher</p>
-                          <p> 1: student</p>
-                      </div>
-                  } title="Attention">
-                      <text>{text}</text>
-                  </Popover>
-          },
+                title: '类型',
+                dataIndex: 'userType',
+                filters: [
+                    {text: '教师', value: '0'},
+                    {text: '学生', value: '1'},
+                ],
+                onFilter: (value, record) => record.userType.indexOf(value) === 0,
+                render: (text) =>
+                    <text>
+                        {text === '0' ? '教师' : '学生'}
+                    </text>
+            },
             {
-                title: 'username',
+                title: '姓名',
                 dataIndex: 'userName',
                 ...this.getColumnSearchProps('userName'),
-                editable: true,
-                sorter: (a, b) => a.userName.length - b.userName.length,
             },
             {
-                title: 'school',
-                dataIndex: 'school',
-                ...this.getColumnSearchProps('school'),
-                  editable: true,
-                }, {
-                  title: 'ID',
-                  dataIndex: 'ID',
-                  ...this.getColumnSearchProps('ID'),
-                  editable: true,
-                  sorter: (a, b) => a.ID.length - b.ID.length,
-                }, {
-                  title: 'phone',
-                  dataIndex: 'phone',
-                  ...this.getColumnSearchProps('phone'),
-                  editable: true,
-                  sorter: (a, b) => a.phone.length - b.phone.length,
-                }, {
-                  title: 'email',
-                  dataIndex: 'email',
-                ...this.getColumnSearchProps('email'),
-                editable: true,
-                sorter: (a, b) => a.email.length - b.email.length,
+                title: '学号',
+                dataIndex: 'ID',
+                sorter: (a, b) => a.ID - b.ID,
+            }, {
+                title: '手机',
+                dataIndex: 'phone',
+            }, {
+                title: '邮箱',
+                dataIndex: 'email',
             },
             {
-                title: 'operation',
-                dataIndex: 'operation',
-                render: (text, record) =>
-                    this.state.dataSource.length >= 1 ? (
-                        <Button
-                            onClick={() => {
-                                this.handleEdit(record.userId, record.userType, record.userName, record.school, record.ID, record.phone, record.email);
-                            }}>Edit
-                        </Button>
-                    ) : null
+                title: '操作',
+                dataIndex: 'action',
+                render: (text, record) => (
+                    <Space size="middle">
+                        <a onClick={this.handleDelete(record.userId)}>Delete</a>
+                    </Space>
+                )
             },
         ];
-        const {dataSource} = this.state;
+
         return (
-          <div className="class-user">
+            <div className="class-user">
                 <Table
                     bordered
                     dataSource={dataSource}
                     columns={columns}
-                    scroll={{ x: 1500 }}
-                    sticky
                 />
-                <Drawer
-                    title="Edit user"
-                    width={720}
-                    onClose={this.closeEditDrawer}
-                    visible={this.state.editVisible}
-                    bodyStyle={{paddingBottom: 80}}
-                    footer={
-                        <div
-                            style={{
-                                textAlign: 'right',
-                            }}
-                        >
-                            <Button onClick={this.handleDelete} style={{marginRight: 8}}>
-                                Delete
-                            </Button>
-                            <Button onClick={this.handleSubmit} type="primary">
-                                Submit
-                            </Button>
-                        </div>
-                    }
-                >
-                    <Form layout="vertical" hideRequiredMark>
-                        <Row gutter={16}>
-                            <Col span={12}>
-                                <Form.Item
-                                    name="username"
-                                    label="username"
-                                    rules={[{required: true, message: 'Please enter username'}]}
-                                >
-                                    <Input placeholder="Please enter username" defaultValue={this.state.username}/>
-                                </Form.Item>
-                            </Col>
-                            <Col span={12}>
-                                <Form.Item
-                                    name="password"
-                                    label="password"
-                                    rules={[{required: true, message: 'Please enter password'}]}
-                                >
-                                    <Input placeholder="Please enter password" defaultValue={this.state.password}/>
-                                </Form.Item>
-                            </Col>
-                        </Row>
-                        <Row gutter={16}>
-                            <Col span={12}>
-                                <Form.Item
-                                    name="email"
-                                    label="email"
-                                    rules={[{required: true, message: 'Please enter email'}]}
-                                >
-                                    <Input placeholder="Please enter email" defaultValue={this.state.email}/>
-                                </Form.Item>
-                            </Col>
-                            <Col span={12}>
-                                <Form.Item
-                                    name="address"
-                                    label="address"
-                                    rules={[{required: true, message: 'Please enter address'}]}
-                                >
-                                    <Input placeholder="Please enter address" defaultValue={this.state.address}/>
-                                </Form.Item>
-                            </Col>
-                        </Row>
-                        <Row gutter={16}>
-                            <Col span={12}>
-                                <Form.Item
-                                    name="userType"
-                                    label="userType"
-                                    rules={[{required: true, message: 'Please choose a userType'}]}
-                                >
-                                    <Popover content={
-                                        <div>
-                                            <p>-1: ban</p>
-                                            <p> 0: admin</p>
-                                            <p> 1: customer</p>
-                                        </div>
-                                    } title="Attention">
-                                        <Input placeholder="Please choose a userType"
-                                               onChange={(e) => this.setState({userType: e.target.value})}
-                                               defaultValue={this.state.userType}/>
-                                    </Popover>
-                                </Form.Item>
-                            </Col>
-                        </Row>
-                    </Form>
-                </Drawer>
-              </div>
+            </div>
         );
     }
 }
