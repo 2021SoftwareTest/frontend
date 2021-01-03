@@ -37,11 +37,9 @@ class ClassUser extends React.Component {
     }
 
     componentDidMount() {
-
         const callback = (data) => {
             this.setState({dataSource: data});
         };
-
         const user = JSON.parse(localStorage.getItem('user'));
         if (user === null) {
             message.error("请登录");
