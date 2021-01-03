@@ -1,6 +1,6 @@
 import './HomeworkHeader.css';
 
-import { EditOutlined, ProjectOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
+import { EditOutlined, ProjectOutlined, UploadOutlined, CheckSquareOutlined, BookOutlined } from '@ant-design/icons';
 import { Col, Menu, Row } from 'antd';
 import React from 'react';
 
@@ -41,11 +41,14 @@ export class HomeworkHeader extends React.Component {
               <Menu.Item key="Homework" icon={<EditOutlined />}>
                 作 业
               </Menu.Item>
-              <Menu.Item key="Question" icon={<UserOutlined />}>
-                问 题
+              <Menu.Item key="Submit" icon={<UploadOutlined />}>
+                提 交
               </Menu.Item>
-              <Menu.Item key="Discussion" icon={<TeamOutlined />}>
-                讨 论
+              <Menu.Item key="Correct" icon={<CheckSquareOutlined />}>
+                批 改
+              </Menu.Item>
+              <Menu.Item key="Answer" icon={<BookOutlined />}>
+                标 答
               </Menu.Item>
               <Menu.Item key="Score" icon={<ProjectOutlined />}>
                 分 数
