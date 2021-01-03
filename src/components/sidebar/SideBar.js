@@ -51,7 +51,7 @@ export class SideBar extends React.Component {
   render() {
     const courseList = this.state.courseList.map((item) => (
       <Menu.Item key={item.courseID}>
-        <a href = {'/class'}>
+        <a href = {'/courses'}>
         <BookOutlined />
         {item.courseName}
         </a>
