@@ -29,18 +29,6 @@ export class HomeworkHandin extends React.Component {
   };
 
   render() {
-    // const controls = [
-    //   {
-    //     key: 'bold',
-    //     text: <b>加粗</b>,
-    //   },
-    //   'italic',
-    //   'underline',
-    //   'separator',
-    //   'link',
-    //   'separator',
-    //   'media',
-    // ];
     const { submitting, value } = this.state;
 
     return (
@@ -54,7 +42,8 @@ export class HomeworkHandin extends React.Component {
           }}
           onChange={(event, editor) => {
             const data = editor.getData();
-            console.log({ event, editor, data });
+            console.log(data);
+            // console.log({ event, editor, data });
           }}
           onBlur={(event, editor) => {
             console.log('Blur.', editor);
