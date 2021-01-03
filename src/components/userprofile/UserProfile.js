@@ -45,7 +45,12 @@ export class UserProfile extends React.Component {
   }
 
   _getUserInfo = () => {
-    const userId = JSON.parse(localStorage.getItem('user')).user.userID;
+    const user = localStorage.getItem('user');
+    let userId = 1;
+    if (user !== null)
+    {
+      userId = JSON.parse(user).user.userID;
+    }
     console.log('userId:' + userId);
     const callback = (data) => {
       if (data.status === 200) {
