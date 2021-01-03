@@ -40,10 +40,10 @@ class LoginedHeader extends React.Component {
     const menu = (
       <Menu>
         <Menu.Item key="0">
-          <a href={'/message'}>通知</a>
+          <a href={'/user'}>通知</a>
         </Menu.Item>
         <Menu.Item key="1">
-          <a href={'/setting'}>个人资料</a>
+          <a href={'/user'}>个人资料</a>
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="4">
