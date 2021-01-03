@@ -1,0 +1,22 @@
+.import-container{
+    width: 80%;
+    margin: 50px 5% 0 15%;
+}
+
+.import-container h2{
+    margin-bottom:20px;
+    margin-left: 50px;
+}
+
+.import-header{
+    background-color: rgb(250, 251, 252);
+    margin-bottom: 20px;
+    padding: 5px 30px;
+    border: 1px solid rgb(230, 230, 230);
+    text-align: center;
+}
+
+.unselected, .selected{
+    margin-right: 80px;
+}
+

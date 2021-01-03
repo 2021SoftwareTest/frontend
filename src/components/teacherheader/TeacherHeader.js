@@ -1,6 +1,8 @@
 import './TeacherHeader.css';
 
-import { CheckOutlined, DeploymentUnitOutlined, EditOutlined, FileOutlined, FormOutlined, HomeOutlined, LineChartOutlined, NotificationOutlined, ProjectOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
+import { CheckOutlined, DeploymentUnitOutlined, EditOutlined, 
+  FileOutlined, FormOutlined, HomeOutlined, LineChartOutlined, 
+  NotificationOutlined, ProjectOutlined, TeamOutlined, UserOutlined, UserAddOutlined } from '@ant-design/icons';
 import { Col, Menu, Row } from 'antd';
 import React from 'react';
 
@@ -59,6 +61,9 @@ class TeacherHeader extends React.Component {
               </Menu.Item>
               <Menu.Item key="User" icon={<UserOutlined />}>
                 用 户
+              </Menu.Item>
+              <Menu.Item key="Import" icon={<UserAddOutlined />}>
+                导入
               </Menu.Item>
               <Menu.Item key="File" icon={<FileOutlined />}>
                 文 件

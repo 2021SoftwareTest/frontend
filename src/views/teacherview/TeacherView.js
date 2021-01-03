@@ -15,6 +15,7 @@ import MyFooter from '../../components/footer/MyFooter';
 import LoginedHeader from '../../components/loginedheader/LoginedHeader';
 import {SideBar} from '../../components/sidebar/SideBar';
 import TeacherHeader from '../../components/teacherheader/TeacherHeader';
+import UserImport from '../../components/userimport/UserImport';
 
 class TeacherView extends React.Component {
   constructor(props) {
@@ -59,6 +60,9 @@ class TeacherView extends React.Component {
       case 'Edit':
         this.setState({ curSection: 10 });
         break;
+      case 'Import':
+        this.setState({ curSection: 11});
+        break;
       default:
         this.setState({curSection:0});
         console.log("error");
@@ -91,7 +95,9 @@ class TeacherView extends React.Component {
         <ClassUnit />
       ) : curSection === 10 ? (
         <ClassEdit />
-      ) : (
+      ) : curSection === 11 ? (
+        <UserImport />
+      ):(
         <></>
       );
     return (
