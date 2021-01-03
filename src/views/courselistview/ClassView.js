@@ -1,6 +1,6 @@
 import './ClassView.css';
 
-import { Col, Divider,Row } from 'antd';
+import { Col, Divider, Row } from 'antd';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
@@ -27,7 +27,7 @@ class CourseListView extends React.Component {
 
   componentDidMount () {
     this.setState({courseList: data});
-  };
+  }
 
   render() {
     const content = this.state.courseList.map((item, index) => (<CourseCard data={item} key={index} />));

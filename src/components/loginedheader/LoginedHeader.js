@@ -43,17 +43,11 @@ class LoginedHeader extends React.Component {
           <a href={'/message'}>通知</a>
         </Menu.Item>
         <Menu.Item key="1">
-          <a href={'/user'}>个人资料</a>
-        </Menu.Item>
-        <Menu.Item key="2">
-          <a href={'/file'}>文件</a>
-        </Menu.Item>
-        <Menu.Item key="3">
-          <a href={'/setting'}>个人设置</a>
+          <a href={'/setting'}>个人资料</a>
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="4">
-          <a href={'/'}onClick={this.logoutOnClick}>退出登录</a>
+          <a href={'/'} onClick={this.logoutOnClick}>退出登录</a>
         </Menu.Item>
       </Menu>
     );
@@ -77,31 +71,6 @@ class LoginedHeader extends React.Component {
                 首页
               </a>
             </Col>
-            {/* <Col style={{ height: 28, marginLeft: 20 }}>
-              <a href={'/class'} className="header-link">
-                我的课程
-              </a>
-            </Col>
-            <Col style={{ height: 28, marginLeft: 20 }}>
-              <a href={'/homework'} className="header-link">
-                我的作业
-              </a>
-            </Col>
-            <Col style={{ height: 28, marginLeft: 20 }}>
-              <a href={'/release'} className="header-link">
-                发布作业
-              </a>
-            </Col>
-            <Col style={{ height: 28, marginLeft: 20 }}>
-              <a href={'/correct'} className="header-link">
-                批改作业
-              </a>
-            </Col>
-            <Col style={{ height: 28, marginLeft: 20 }}>
-              <a href={'/teacher'} className="header-link">
-                教师界面
-              </a>
-            </Col> */}
             {
             userType ?
             <Col sapn={1} styles={{height: 28, marginLeft:-40}}>
@@ -114,19 +83,11 @@ class LoginedHeader extends React.Component {
             }
 
             <Col offset={15} style={{ paddingTop: 7, marginRight: 5, paddingLeft: 40 }}>
-              <a href = "/notification">
+              <a href = '/notification'>
               <BellOutlined style={{ color: 'white', fontSize: 18 }} />
               </a>
               <Badge status="processing" style={{ marginTop: -10 }} />
             </Col>
-            {/* <Col style={{paddingTop:6}}>*/}
-            {/*    <Dropdown overlay={menu} trigger={['click']} className="mydropdown">*/}
-            {/*        <div>*/}
-            {/*            <PlusOutlined style={{color:"white"}}/>*/}
-            {/*            <CaretDownOutlined style={{color:"white", fontSize:12}}/>*/}
-            {/*        </div>*/}
-            {/*    </Dropdown>*/}
-            {/* </Col>*/}
             <Col style={{ marginLeft: 10 }}>
               <Dropdown overlay={menu} trigger={['click']} className="mydropdown">
                 <div>

@@ -1,6 +1,6 @@
 import './UserHeader.css';
 
-import { EditOutlined, ProjectOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
+import { EditOutlined, UserOutlined } from '@ant-design/icons';
 import { Col, Menu, Row } from 'antd';
 import React from 'react';
 
@@ -35,12 +35,6 @@ class UserHeader extends React.Component {
               </Menu.Item>
               <Menu.Item key="Profile" icon={<UserOutlined />}>
                 个人资料
-              </Menu.Item>
-              <Menu.Item key="File" icon={<TeamOutlined />}>
-                文件
-              </Menu.Item>
-              <Menu.Item key="Setting" icon={<ProjectOutlined />}>
-                设置
               </Menu.Item>
             </Menu>
           </Col>
