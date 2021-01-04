@@ -32,12 +32,8 @@ jobs:
       env:
         CI: false
     - name: Deploy
-      run: npm run deploy
-      env:
-        CI: false
-#     - name: Deploy
-#       uses: JamesIves/github-pages-deploy-action@releases/v3
-#       with:
-#         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-#         BRANCH: gh-pages
-#         FOLDER: build
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: build
