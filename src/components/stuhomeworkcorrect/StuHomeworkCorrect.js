@@ -50,7 +50,7 @@ class StuHomeworkCorrect extends React.Component {
         setTimeout(() => {
             this.setState({width:this.handinContent.current.clientWidth, height:this.handinContent.current.clientHeight});
             this.canvas.loadSaveData(this.state.description);
-        },500);
+        },100);
     }
 
     render() {

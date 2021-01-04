@@ -32,7 +32,7 @@ export class HomeworkDone extends React.Component {
     setTimeout(() => {
       this.setState({width:this.handinContent.current.clientWidth, height:this.handinContent.current.clientHeight});
       this.canvas.loadSaveData(this.props.hwDoneData.description);
-    }, 500);
+    }, 100);
   };
 
   onSave = () => {
