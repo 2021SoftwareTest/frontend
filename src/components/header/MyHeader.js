@@ -3,6 +3,7 @@ import './headercss.css';
 
 import { DownOutlined } from '@ant-design/icons';
 import { Col, Dropdown, Input, Menu, Row } from 'antd';
+import {Link} from 'react-router-dom';
 import React from 'react';
 
 import logo from '../../assets/logo.png';
@@ -29,9 +30,9 @@ class MyHeader extends React.Component {
         <div className="header-wrapper">
           <Row style={{ height: 28 }}>
             <Col span={1} style={{ height: 28, paddingLeft: 15 }}>
-              <a href={'/'}>
+            <Link to={{pathname:'/'}}>
                 <img src={logo} alt={'logo'} height={30} width={30} />
-              </a>
+             </Link>
             </Col>
             <Col span={2} style={{ height: 28 }}>
               <Dropdown overlay={menu}>
@@ -41,27 +42,27 @@ class MyHeader extends React.Component {
               </Dropdown>
             </Col>
             <Col span={1} style={{ height: 28, marginLeft: 10 }}>
-              <a href={'/'} className="header-link">
+              <a href={'#top'} className="header-link">
                 我的主页
               </a>
             </Col>
             <Col span={1} style={{ height: 28, marginLeft: 10 }}>
-              <a href={'/class'} className="header-link">
+              <a href={'#top'} className="header-link">
                 我的课程
               </a>
             </Col>
             <Col span={1} style={{ height: 28, marginLeft: 10 }}>
-              <a href={'/homework'} className="header-link">
+              <a href={'#top'} className="header-link">
                 我的作业
               </a>
             </Col>
             <Col span={1} style={{ height: 28, marginLeft: 10 }}>
-              <a href={'/release'} className="header-link">
+              <a href={'#top'} className="header-link">
                 发布作业
               </a>
             </Col>
             <Col span={1} style={{ height: 28, marginLeft: 10 }}>
-              <a href={'/correct'} className="header-link">
+              <a href={'#top'} className="header-link">
                 批改作业
               </a>
             </Col>
@@ -72,14 +73,14 @@ class MyHeader extends React.Component {
               <Search placeholder="搜索课程" onSearch={(value) => console.log(value)} style={{ width: 200, height: 28 }} />
             </Col>
             <Col span={1}>
-              <a href={'/login'} className="header-link">
+              <Link to={{pathname:'/login'}} className="header-link">
                 登 录
-              </a>
+              </Link>
             </Col>
             <Col>
-              <a href={'/register'} className="header-link sign-up">
+              <Link to={{pathname:'/register'}} className="header-link sign-up">
                 注 册
-              </a>
+              </Link>
             </Col>
           </Row>
         </div>

@@ -187,7 +187,7 @@ class ClassUser extends React.Component {
                 dataIndex: 'action',
                 render: (text, record) => (
                     <Space size="middle">
-                        <a onClick={this.handleDelete(record.userId)}>Delete</a>
+                        <Button onClick={this.handleDelete(record.userId)}>Delete</Button>
                     </Space>
                 )
             },
