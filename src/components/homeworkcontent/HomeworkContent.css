@@ -1,17 +1,7 @@
 .homework-content-container .submit-button {
     margin-top: 50px;
   }
-  
+
   .homework-content-container .ck .ck-editor__main .ck-content{
     min-height: 200px;
-  }
-
-  .homework-content-container p{
-      font-size: 15px;
-      margin-bottom: 7px;
-  }
-
-  .homework-content-container h2 {
-      font-weight: bold;
-      color:rgb(56, 65, 75);
   }

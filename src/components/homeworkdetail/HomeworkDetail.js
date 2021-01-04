@@ -14,18 +14,30 @@ export class HomeworkDetail extends React.Component {
   };
 
   render() {
+    const {title, content, endTime, score} = this.props.data;
     return (
       <div className="homework-detail">
+        <h2 className="homework-title">
+          {title}
+        </h2>
         <Row>
-          <Col span={24}>
-            <p className={'deadline'}> 截止时间 10月10日， 12:00 之前 总分 100</p>
+          <Col span={6}>
+            <p>
+              <strong>截止时间:&nbsp;&nbsp;</strong>{endTime}
+            </p>
+          </Col>
+          <Col span={4}>
+            <p>
+              <strong>总分:</strong>{score}
+            </p>
           </Col>
         </Row>
-        <Row>
-          <Col span={24}>
-            <p className={'content'}> 请写一篇500字以上的游记</p>
-          </Col>
-        </Row>
+        <div className="description">
+          <p>
+            <strong>作业描述:</strong><br/>
+            {content}
+          </p>
+        </div>
       </div>
     );
   }

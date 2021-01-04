@@ -4,6 +4,7 @@ import React from 'react';
 import {Row, Col, Avatar, Button, Comment, Form, Input} from "antd";
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
+import {HomeworkDetail} from "../homeworkdetail/HomeworkDetail";
 
 
 const { TextArea } = Input;
@@ -35,30 +36,10 @@ class HomeworkContent extends React.Component {
     };
 
     render() {
-        const {title, endTime, description, score, state} = this.props.data;
+        const {title, endTime, content, score, state} = this.props.data;
         return(
             <div className="homework-content-container">
-                <h2 className="homework-title">
-                    {title}
-                </h2>
-                <Row>
-                    <Col span={6}>
-                        <p>
-                            <strong>截止时间:&nbsp;&nbsp;</strong>{endTime}
-                        </p>
-                    </Col>
-                    <Col span={4}>
-                        <p>
-                           <strong>总分:</strong>{score} 
-                        </p>
-                    </Col>
-                </Row>
-                <div className="description">
-                    <p>
-                        <strong>作业描述:</strong><br/>
-                        {description}
-                    </p>
-                </div>
+               <HomeworkDetail data={this.props.data} />
                 <div className="editor">
                     <CKEditor
                         editor={ClassicEditor}

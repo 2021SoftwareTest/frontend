@@ -12,6 +12,23 @@ import { HomeworkHeader } from '../../components/homeworkheader/HomeworkHeader';
 import LoginedHeader from '../../components/loginedheader/LoginedHeader';
 import {SideBar} from '../../components/sidebar/SideBar';
 
+const data = {
+  title: "作业一",
+  description: "我是description",
+  note: "我是note",
+  content: "我是content",
+  endTime: "0000-00-00 00:00:00",
+  startTime: "1111-11-11 11:11:11",
+  score: 100,
+  courseId: 0,
+  courseName: "六年级语文",
+  state: 1,
+  checkId: null,
+  answerId: null,
+  standardAnswerId: null,
+  hwId: 1
+};
+
 class CorrectView extends React.Component {
   render() {
     return (
@@ -22,7 +39,7 @@ class CorrectView extends React.Component {
             <SideBar />
           </Col>
           <Col span={20}>
-            <HomeworkHeader />
+            <HomeworkHeader data={data}/>
             <div className="homwork-correct-container">
               <Divider orientation="left"> 作业内容 </Divider>
               <HomeworkDetail />
