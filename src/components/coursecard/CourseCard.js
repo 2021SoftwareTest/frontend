@@ -3,6 +3,7 @@ import './CourseCard.css';
 
 import { CommentOutlined, FolderOutlined, FormOutlined, NotificationOutlined } from '@ant-design/icons';
 import { Col, Dropdown,Image, Menu, Row } from 'antd';
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 /*
@@ -41,23 +42,27 @@ class CourseCard extends React.Component {
                     />
                 </div>
                 <div className="course-content">
-                    <a href={"/teacher"}>
+                    <Link to={{pathname:'/teacher'}}>
                         <p className="course-name">{courseName}</p>
                         <p className="course-id ellipsis">{courseId}</p>
                         <p className="course-term ellipsis">{courseTerm}</p>
-                    </a>
+                        </Link>
                     <Row style={{marginLeft:"9%"}}>
                         <Col span={6}>
-                            <a href={"/teacher"}><NotificationOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/></a>
+                        <Link to={{pathname:'/teacher'}}>
+                            <NotificationOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/>
+                        </Link>
                         </Col>
                         <Col span={6}>
-                            <a href={"/teacher"}><FolderOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/></a>
+                        <Link to={{pathname:'/teacher'}}><FolderOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/>
+                        </Link>
                         </Col>
                         <Col span={6}>
-                            <a href={"/teacher"}><FormOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/></a>
+                        <Link to={{pathname:'/teacher'}}><FormOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/>
+                        </Link>
                         </Col>
                         <Col span={6}>
-                            <a href={"/teacher"}><CommentOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/></a>
+                        <Link to={{pathname:'/teacher'}}><CommentOutlined style={{fontSize:24, color:"rgb(100, 100, 100)"}}/></Link>
                         </Col>
                     </Row>
                 </div>

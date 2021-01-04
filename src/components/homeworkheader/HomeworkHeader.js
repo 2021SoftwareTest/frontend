@@ -4,18 +4,25 @@ import { EditOutlined, ProjectOutlined, UploadOutlined, CheckSquareOutlined, Boo
 import { Col, Menu, Row } from 'antd';
 import React from 'react';
 
+
+// this.props.data = {title:, description:, note:, ...} 详情见“获取作业详情”
 export class HomeworkHeader extends React.Component {
-  state = {
-    current: 'Homework',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      current: 'Homework'
+    }
+    this.menuCallback = this.props.menuCallback;
+  }
 
   handleClick = (e) => {
-    console.log('click ', e);
+    this.menuCallback(e.key);
     this.setState({ current: e.key });
   };
 
   render() {
     const { current } = this.state;
+    const { courseName, title} = this.props.data;
     return (
       <div className="homework-header">
         <Row>
@@ -27,12 +34,10 @@ export class HomeworkHeader extends React.Component {
               />
             </svg>
             <p className="homework-title">
-              <a href ={'/class'}> 六年级语文</a>&nbsp;/&nbsp;<a href = {'/homework'} className="homework-name">作业一</a>
+              <a href ={'/class'}> {courseName}</a>
+              &nbsp;/&nbsp;
+              <a href = {'/homework'} className="homework-name">{title}</a>
             </p>
-          </Col>
-          <Col span={3} offset={15} style={{ display: 'flex', paddingTop: 3 }}>
-            {/* <Button className="homework-button"><EyeOutlined /> Watch</Button>*/}
-            {/* <Button className="homework-button"><StarOutlined /> Star </Button>*/}
           </Col>
         </Row>
         <Row>

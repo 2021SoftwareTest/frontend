@@ -3,6 +3,7 @@ import './LoginHeader.css';
 
 import { BellOutlined, CaretDownOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Badge, Col, Dropdown, Input, Menu, Row } from 'antd';
+import {Link} from 'react-router-dom';
 import React from 'react';
 
 import logo from '../../assets/logo.png';
@@ -40,14 +41,14 @@ class LoginedHeader extends React.Component {
     const menu = (
       <Menu>
         <Menu.Item key="0">
-          <a href={'/user'}>通知</a>
+          <Link to={{pathname:'/user'}}>通知</Link>
         </Menu.Item>
         <Menu.Item key="1">
-          <a href={'/user'}>个人资料</a>
+        <Link to={{pathname:'/user'}}>个人资料</Link>
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="4">
-          <a href={'/'} onClick={this.logoutOnClick}>退出登录</a>
+        <Link to={{pathname:'/login'}}> onClick={this.logoutOnClick}>退出登录</Link>
         </Menu.Item>
       </Menu>
     );
@@ -59,24 +60,24 @@ class LoginedHeader extends React.Component {
         <div className="header-wrapper">
           <Row style={{ height: 28 }}>
             <Col span={1} style={{ height: 28, paddingLeft: 15 }}>
-              <a href={'/'}>
+            <Link to={{pathname:'/'}}>
                 <img src={logo} alt={'logo'} height={30} width={30} />
-              </a>
+            </Link>
             </Col>
             <Col span={4} style={{ height: 28 }}>
               <Search placeholder="搜索课程" onSearch={(value) => console.log(value)} className="logined-search" />
             </Col>
             <Col  span={1} style={{ height: 28, marginLeft: -20}}>
-              <a href={'/'} className="header-link">
+            <Link to={{pathname:'/'}} className="header-link">
                 首页
-              </a>
+            </Link>
             </Col>
             {
             userType ?
             <Col sapn={1} styles={{height: 28, marginLeft:-40}}>
-              <a href={'/addclass'} className="header-link">
+              <Link to={{pathname:'/addclass'}} className="header-link">
                 新建课程
-              </a>
+              </Link>
             </Col>
             :
             <></>

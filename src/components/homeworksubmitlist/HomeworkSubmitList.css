@@ -1,0 +1,23 @@
+.homework-submit-list {
+    width: 90%;
+}
+
+.homework-submit-list h2{
+    margin-left: 50px;
+}
+
+.homework-submit-list .list-container .submit-header{
+    background-color: rgb(250, 251, 252);
+    margin-bottom: 20px;
+    padding: 5px 30px;
+    border: 1px solid rgb(230, 230, 230);
+    text-align: center;
+}
+
+.homework-submit-list .list-item-container .list-item {
+    text-align: center;
+    background-color: rgb(250, 251, 252);
+    border: 1px solid rgb(230, 230, 230);
+    padding: 5px 30px;
+}
+

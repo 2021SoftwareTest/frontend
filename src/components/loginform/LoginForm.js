@@ -6,6 +6,7 @@ import { Button, Col, Input, Row } from 'antd';
 import React from 'react';
 
 import { login } from '../../services/userService';
+import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -69,7 +70,7 @@ class LoginForm extends React.Component {
           <Col span={24} style={{ padding: '15px 20px' }}>
             <div style={{ textAlign: 'center' }}>
               <p className="register-link">
-                没有账号？<a href={'/register'}>注册一个账号</a>
+                没有账号？<Link to={{pathname:'/register'}}>注册一个账号</Link>
               </p>
             </div>
           </Col>

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Redirect, Router, Switch } from 'react-router-dom';
+import { Redirect, HashRouter, Switch } from 'react-router-dom';
 
-import RichEditor from '../components/richeditor/RichEditor';
-import { history } from '../utils/history';
+// import { history } from '../utils/history';
 import AddClassView from '../views/addclassview/AddClassView';
 // import ClassView from '../views/classview/ClassView';
+
 import CorrectView from '../views/correctview/CorrectView';
 import CourseListView from '../views/courselistview/ClassView';
 import HomeView from '../views/homeview/HomeView';
@@ -16,20 +16,21 @@ import ReleaseView from '../views/releaseview/ReleaseView';
 import TeacherView from '../views/teacherview/TeacherView';
 import UserView from '../views/userview/UserView';
 import PrivateRouter from './PrivateRouter';
+import RichEditor from "../components/richeditor/RichEditor";
 
 class BasicRouter extends React.Component {
-  constructor(props) {
-    super(props);
-
-    history.listen((location, action) => {
-      // clear alert on location change
-      console.log(location, action);
-    });
-  }
+  // constructor(props) {
+  //   super(props);
+  //
+  //   history.listen((location, action) => {
+  //     // clear alert on location change
+  //     console.log(location, action);
+  //   });
+  // }
 
   render() {
     return (
-      <Router history={history}>
+      <HashRouter>
         <Switch>
           <PrivateRouter exact path="/" component={HomeView} />
           <PrivateRouter exact path="/login" component={LoginView} />
@@ -45,7 +46,7 @@ class BasicRouter extends React.Component {
           <PrivateRouter exact path="/notification" component = {NotificationView}/>
           <Redirect from="/*" to="/" />
         </Switch>
-      </Router>
+      </HashRouter>
     );
   }
 }

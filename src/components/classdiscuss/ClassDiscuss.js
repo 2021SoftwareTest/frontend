@@ -51,7 +51,7 @@ export class ClassDiscuss extends React.Component {
             <Divider style={{ margin: '10px 0' }} />
             <Comment
               actions={[<span key="comment-nested-reply-to">回复</span>]}
-              author={<a href={'#top'}>胡媛媛</a>}
+              author={<p>胡媛媛</p>}
               avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
               content={<p>我们来讨论一下今天布置的三角函数题吧</p>}
             />
