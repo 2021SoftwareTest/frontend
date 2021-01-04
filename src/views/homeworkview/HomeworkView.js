@@ -10,6 +10,27 @@ import { HomeworkHandin } from '../../components/homeworkhandin/HomeworkHandin';
 import { HomeworkHeader } from '../../components/homeworkheader/HomeworkHeader';
 import LoginedHeader from '../../components/loginedheader/LoginedHeader';
 import {SideBar} from '../../components/sidebar/SideBar';
+import HomeworkContent from '../../components/homeworkcontent/HomeworkContent';
+
+
+
+const data = {
+  title: "作业一",
+  description: "我是description",
+  note: "我是note",
+  content: "我是content",
+  endTime: "0000-00-00 00:00:00",
+  startTime: "1111-11-11 11:11:11",
+  score: 100,
+  courseId: 0,
+  courseName: "六年级语文",
+  state: 1,
+  checkId: null,
+  answerId: null,
+  standardAnswerId: null,
+  hwId: 1
+}
+
 
 class HomeworkView extends React.Component {
   constructor(props) {
@@ -46,7 +67,7 @@ class HomeworkView extends React.Component {
     const curSection = this.state.curSection;
     const content =
       curSection === 0 ? (
-        <></>
+        <HomeworkContent data={data}/>
       ) : curSection === 1 ? (
         <></>
       ) : curSection === 2 ? (
@@ -67,26 +88,9 @@ class HomeworkView extends React.Component {
             <SideBar />
           </Col>
           <Col span={20}>
-            <HomeworkHeader />
+            <HomeworkHeader menuCallback={this.menuCallback} data={data}/>
             <div className="homework-container">
-              <Row>
-                <Col span={24} style={{ display: 'flex' }}>
-                  <p className="homework-title-name">
-                    <a href = {'/'}>作业1</a>&nbsp;/&nbsp;<a href = {'/'}>文件1</a>
-                  </p>
-                  <Button className="cancel-button">取消</Button>
-                </Col>
-              </Row>
-              <Row>
-                <Col spa={24}>
-                   <HomeworkDetail />
-                </Col>
-              </Row>
-              <Row>
-                <Col span={24}>
-                  <HomeworkHandin />
-                </Col>
-              </Row>
+              {content}
             </div>  
             <MyFooter />
           </Col>

@@ -1,7 +1,6 @@
 import './HomeworkHandin.css';
 
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-// import CusEditor from '../cuseditor/CusEditor';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import { Avatar, Button, Comment, Form, Input } from 'antd';
 import React from 'react';
@@ -14,7 +13,7 @@ const EditorComment = ({ onChange, onSubmit, submitting, value }) => (
       <TextArea rows={4} onChange={onChange} value={value} />
     </Form.Item>
     <Form.Item>
-      <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
+      <Button loading={submitting} onClick={onSubmit} type="primary">
         提交
       </Button>
     </Form.Item>
