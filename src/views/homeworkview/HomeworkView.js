@@ -11,6 +11,7 @@ import { HomeworkHeader } from '../../components/homeworkheader/HomeworkHeader';
 import LoginedHeader from '../../components/loginedheader/LoginedHeader';
 import {SideBar} from '../../components/sidebar/SideBar';
 import HomeworkContent from '../../components/homeworkcontent/HomeworkContent';
+import HomeworkSubmitList from '../../components/homeworksubmitlist/HomeworkSubmitList';
 
 
 
@@ -67,9 +68,9 @@ class HomeworkView extends React.Component {
     const curSection = this.state.curSection;
     const content =
       curSection === 0 ? (
-        <HomeworkContent data={data}/>
+        <HomeworkContent data={data} />
       ) : curSection === 1 ? (
-        <></>
+        <HomeworkSubmitList data={data} />
       ) : curSection === 2 ? (
         <></>
       ) : curSection === 3 ? (
