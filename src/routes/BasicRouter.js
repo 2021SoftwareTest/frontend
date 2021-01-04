@@ -19,14 +19,14 @@ import PrivateRouter from './PrivateRouter';
 import RichEditor from "../components/richeditor/RichEditor";
 
 class BasicRouter extends React.Component {
-  constructor(props) {
-    super(props);
-
-    // history.listen((location, action) => {
-    //   // clear alert on location change
-    //   console.log(location, action);
-    // });
-  }
+  // constructor(props) {
+  //   super(props);
+  //
+  //   history.listen((location, action) => {
+  //     // clear alert on location change
+  //     console.log(location, action);
+  //   });
+  // }
 
   render() {
     return (

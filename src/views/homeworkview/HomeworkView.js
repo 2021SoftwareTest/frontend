@@ -43,21 +43,21 @@ class HomeworkView extends React.Component {
   };
 
   render() {
-    const curSection = this.state.curSection;
-    const content =
-      curSection === 0 ? (
-        <></>
-      ) : curSection === 1 ? (
-        <></>
-      ) : curSection === 2 ? (
-        <></>
-      ) : curSection === 3 ? (
-        <></>
-      ) : curSection === 4 ? (
-        <></>
-      ): (
-        <></>
-      )
+    // const curSection = this.state.curSection;
+    // const content =
+    //   curSection === 0 ? (
+    //     <></>
+    //   ) : curSection === 1 ? (
+    //     <></>
+    //   ) : curSection === 2 ? (
+    //     <></>
+    //   ) : curSection === 3 ? (
+    //     <></>
+    //   ) : curSection === 4 ? (
+    //     <></>
+    //   ): (
+    //     <></>
+    //   )
 
     return (
       <div>
@@ -87,7 +87,7 @@ class HomeworkView extends React.Component {
                   <HomeworkHandin />
                 </Col>
               </Row>
-            </div>  
+            </div>
             <MyFooter />
           </Col>
         </Row>
