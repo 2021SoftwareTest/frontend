@@ -1,7 +1,7 @@
 import './UserImport.css';
 
+import {Button, Col, Row} from 'antd';
 import React from 'react';
-import {Row, Col, Button} from 'antd';
 
 const data = [
     {userId:1, name:"xxx", school:"SJTU", ID:"518021910xxx"},
@@ -17,7 +17,7 @@ class UserImport extends React.Component {
         this.state = {
             unselected: [],
             selected: []
-        }
+        };
     }
 
     componentDidMount() {
@@ -25,8 +25,8 @@ class UserImport extends React.Component {
     }
 
     handleSelect = (userId) => {
-        let _unselected = this.state.unselected;
-        let _selected = this.state.selected;
+        const _unselected = this.state.unselected;
+        const _selected = this.state.selected;
         let tmpObj;
         for (let i = 0; i < _unselected.length; ++i) {
             if (_unselected[i].userId === userId) {
@@ -44,8 +44,8 @@ class UserImport extends React.Component {
     };
 
     handleUnselect = (userId) => {
-        let _unselected = this.state.unselected;
-        let _selected = this.state.selected;
+        const _unselected = this.state.unselected;
+        const _selected = this.state.selected;
         let tmpObj;
         for (let i = 0; i < _selected.length; ++i) {
             if (_selected[i].userId === userId) {
@@ -58,8 +58,7 @@ class UserImport extends React.Component {
         this.setState({unselected:_unselected, selected: _selected});
     };
 
-    renderStudentList = (list, handleClick) => {
-        return(
+    renderStudentList = (list, handleClick) => (
             list.map((item, index) => (
                 <div key={index} className="list-item" onClick={() => handleClick(item.userId)}>
                     <Row>
@@ -70,12 +69,11 @@ class UserImport extends React.Component {
                 </div>
             ))
         );
-    };
 
     render() {
         const contentSelected = this.renderStudentList(this.state.selected, this.handleUnselect);
         const contentUnselected = this.renderStudentList(this.state.unselected, this.handleSelect);
-        return(
+        return (
             <div className="import-container">
                 <Row>
                     <Col span={12}>

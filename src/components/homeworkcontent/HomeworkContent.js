@@ -1,7 +1,7 @@
 import "./HomeworkContent.css";
 
 import React from 'react';
-import {Row, Col, Avatar, Button, Comment, Form, Input} from "antd";
+import {Row, Col, Avatar, Button, Comment, Input} from "antd";
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import {HomeworkDetail} from "../homeworkdetail/HomeworkDetail";
