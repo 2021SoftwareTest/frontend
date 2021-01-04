@@ -23,7 +23,7 @@ class LoginedHeader extends React.Component {
   componentDidMount()
   {
     const user = localStorage.getItem("user");
-    let userType = 2;
+    let userType = 1;
     if (user)
     {
       userType = JSON.parse(user).user.userType;
@@ -48,12 +48,12 @@ class LoginedHeader extends React.Component {
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="4">
-        <Link to={{pathname:'/login'}}> onClick={this.logoutOnClick}>退出登录</Link>
+        <Link to={{pathname:'/login'}} onClick={this.logoutOnClick}> 退出登录 </Link>
         </Menu.Item>
       </Menu>
     );
 
-    const userType = this.state.userType === 1;
+    const userType = this.state.userType <= 1;
 
     return (
       <div className="header">

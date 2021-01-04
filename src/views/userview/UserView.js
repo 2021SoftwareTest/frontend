@@ -4,6 +4,7 @@ import MyFooter from '../../components/footer/MyFooter';
 import LoginedHeader from '../../components/loginedheader/LoginedHeader';
 import UserHeader from '../../components/userheader/UserHeader';
 import { UserProfile } from '../../components/userprofile/UserProfile';
+import {NotificationList} from "../../components/notificationlist/NotificationList";
 
 class UserView extends React.Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class UserView extends React.Component {
 
   render() {
     const curSection = this.state.curSection;
-    const content = curSection === 0 ? <></> : curSection === 1 ? <UserProfile /> : curSection === 2 ? <></> : curSection === 3 ? <></> : <></>;
+    const content = curSection === 0 ? <NotificationList/> : curSection === 1 ? <UserProfile /> : curSection === 2 ? <></> : curSection === 3 ? <></> : <></>;
     return (
       <div className="teacher-view">
         <LoginedHeader />

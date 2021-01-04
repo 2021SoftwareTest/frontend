@@ -21,7 +21,7 @@ class ReleaseView extends React.Component {
     return (
       <div>
         <LoginedHeader />
-        
+
         <Row>
           <Col span={4}>
             <SideBar />
