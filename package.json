@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sjtu2020autumnproj.github.io/frontend/",
+  "homepage": ".",
   "dependencies": {
     "@ant-design/compatible": "^1.0.8",
     "@ant-design/icons": "4.0.0",
@@ -16,7 +16,8 @@
     "braft-editor": "^2.3.9",
     "braft-utils": "^3.0.12",
     "history": "^5.0.0",
-    "moment": "^2.29.0",
+    "jest-snapshot": "^26.6.2",
+    "moment": "^2.29.1",
     "node-fetch": "^2.6.1",
     "react": "^16.13.1",
     "react-canvas-draw": "^1.1.1",
@@ -33,8 +34,8 @@
     "format": "eslint \"**/*.js\" --fix && prettier \"**/*.{css,html,js,json,md,sass}\" --write",
     "format:check": "eslint \"**/*.js\" && prettier-check \"**/*.{css,html,js,json,md,sass}\"",
     "format:staged": "eslint \"**/*.js\" --fix && pretty-quick --staged --verbose --pattern \"**/*.{css,html,js,json,md,sass}\"",
-    "deploy": "gh-pages -d build",
-    "predeploy": "npm run build"
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

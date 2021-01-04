@@ -2,6 +2,7 @@ import './SideBar.css';
 
 import { BookOutlined, EditOutlined } from '@ant-design/icons';
 import { Layout, Menu, message } from 'antd';
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 import { getCourseList } from '../../services/courseService';
@@ -51,18 +52,18 @@ export class SideBar extends React.Component {
   render() {
     const courseList = this.state.courseList.map((item) => (
       <Menu.Item key={item.courseID}>
-        <a href = {'/courses'}>
+        <Link to={{ pathname: '/teacher' }}>
         <BookOutlined />
         {item.courseName}
-        </a>
+        </Link>
       </Menu.Item>
     ));
     const homeworkList = this.state.homeworkList.map((item) => (
       <Menu.Item key={item.homeworkID}>
-        <a href = {'/homework'}>
+        <Link to={{ pathname: '/homework' }}>
         <BookOutlined />
         {item.homeworkName}
-        </a>
+        </Link>
       </Menu.Item>
     ));
     return (
