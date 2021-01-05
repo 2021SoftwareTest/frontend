@@ -3,7 +3,7 @@ import './CardInfo.css';
 import {Avatar, Col, Input, message, Row} from 'antd';
 import React from 'react';
 
-import {getStudent} from '../../services/courseService';
+import {getCourseUser} from '../../services/courseService';
 
 const {TextArea} = Input;
 
@@ -91,7 +91,7 @@ class ClassInfo extends React.Component {
                 message.error(data.msg);
             }
         };
-        getStudent(data, callback);
+        getCourseUser(data, callback);
     };
 
     componentDidMount() {

@@ -53,7 +53,7 @@ class ClassUser extends React.Component {
         } else if (user.userType !== 0) {
             message.error("你没有权限");
         } else {
-            getCourseStudent({"classId": this.state.classId}, callback);
+            getCourseUser({"classId": this.state.classId}, callback);
         }
     }
 
