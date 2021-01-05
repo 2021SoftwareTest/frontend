@@ -11,8 +11,8 @@ const classInfo = {
     year: "2020",
     students: [
         {
-            'userID':15,
-            'userType':2,
+            'userID': 15,
+            'userType': 2,
             'userName': 'dsy',
             'password': '12345',
             'school': 'SJTU',
@@ -30,18 +30,17 @@ class ClassEdit extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          name:"",
-          description:"",
-          books: []
+            name: "",
+            description: "",
+            books: []
         };
     }
 
     render() {
         return (
-          <div className="class-edit">
-              {/* eslint-disable-next-line react/prop-types */}
-              <ClassInfo classInfo={classInfo} addClass={this.props.addClass}/>
-          </div>
+            <div className="class-edit">
+                <ClassInfo classInfo={classInfo} addClass={this.props.addClass}/>
+            </div>
         );
     }
 }

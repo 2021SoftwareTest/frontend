@@ -1,6 +1,6 @@
 import './ClassUser.css';
 
-import { SearchOutlined } from '@ant-design/icons';
+import {SearchOutlined} from '@ant-design/icons';
 import {Button, Input, message, Space, Table} from 'antd';
 import React from 'react';
 import Highlighter from 'react-highlight-words';
@@ -58,8 +58,8 @@ class ClassUser extends React.Component {
     }
 
     getColumnSearchProps = (dataIndex) => ({
-        filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
-            <div style={{ padding: 8 }}>
+        filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters}) => (
+            <div style={{padding: 8}}>
                 <Input
                     ref={(node) => {
                         this.searchInput = node;
@@ -68,25 +68,25 @@ class ClassUser extends React.Component {
                     value={selectedKeys[0]}
                     onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
                     onPressEnter={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
-                    style={{ width: 188, marginBottom: 8, display: 'block' }}
+                    style={{width: 188, marginBottom: 8, display: 'block'}}
                 />
                 <Space>
                     <Button
                         type="primary"
                         onClick={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
-                        icon={<SearchOutlined />}
+                        icon={<SearchOutlined/>}
                         size="small"
-                        style={{ width: 90 }}
+                        style={{width: 90}}
                     >
                         Search
                     </Button>
-                    <Button onClick={() => this.handleReset(clearFilters)} size="small" style={{ width: 90 }}>
+                    <Button onClick={() => this.handleReset(clearFilters)} size="small" style={{width: 90}}>
                         Reset
                     </Button>
                 </Space>
             </div>
         ),
-        filterIcon: (filtered) => <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />,
+        filterIcon: (filtered) => <SearchOutlined style={{color: filtered ? '#1890ff' : undefined}}/>,
         onFilter: (value, record) =>
             record[dataIndex]
                 ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())
@@ -99,7 +99,7 @@ class ClassUser extends React.Component {
         render: (text) =>
             this.state.searchedColumn === dataIndex ? (
                 <Highlighter
-                    highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
+                    highlightStyle={{backgroundColor: '#ffc069', padding: 0}}
                     searchWords={[this.state.searchText]}
                     autoEscape
                     textToHighlight={text ? text.toString() : ''}
@@ -119,7 +119,7 @@ class ClassUser extends React.Component {
 
     handleReset = (clearFilters) => {
         clearFilters();
-        this.setState({ searchText: '' });
+        this.setState({searchText: ''});
     };
 
     handleDelete = (userId) => {

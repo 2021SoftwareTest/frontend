@@ -1,14 +1,14 @@
-.import-container{
+.import-container {
     width: 80%;
     margin: 50px 5% 0 15%;
 }
 
-.import-container h2{
-    margin-bottom:20px;
+.import-container h2 {
+    margin-bottom: 20px;
     margin-left: 50px;
 }
 
-.import-header{
+.import-header {
     background-color: rgb(250, 251, 252);
     margin-bottom: 20px;
     padding: 5px 30px;
@@ -16,20 +16,20 @@
     text-align: center;
 }
 
-.unselected, .selected{
+.unselected, .selected {
     margin-right: 80px;
 }
 
-.import-container .list-item{
+.import-container .list-item {
     text-align: center;
     background-color: rgb(250, 251, 252);
     border: 1px solid rgb(230, 230, 230);
     padding: 5px 30px;
 }
 
-.import-container .list-item:hover{
+.import-container .list-item:hover {
     background-color: rgb(255, 255, 255);
-    cursor:pointer
+    cursor: pointer
 }
 
 .import-container .submit {

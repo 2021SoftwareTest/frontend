@@ -1,25 +1,25 @@
-.course-card{
+.course-card {
     box-sizing: border-box;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     border-radius: 4px;
     overflow: hidden;
     background: #fff;
-    width:262px;
+    width: 262px;
     display: inline-block;
     vertical-align: top;
     margin: 0 36px 36px 0;
 }
 
-.course-card .ant-dropdown-link{
+.course-card .ant-dropdown-link {
     float: right;
 }
 
-.course-card h1{
+.course-card h1 {
     line-height: 10px;
     margin: 0;
 }
 
-.ant-image-img{
+.ant-image-img {
     position: absolute;
     z-index: 1;
 }
@@ -29,18 +29,18 @@
     z-index: 2;
     background: rgba(102, 173, 212, 0.6);
     box-sizing: border-box;
-    width:262px;
+    width: 262px;
     height: 164px;
     padding: 8px;
 }
 
-.course-content{
+.course-content {
     padding: 12px 18px;
 }
 
-.course-name{
+.course-name {
     color: rgb(50, 50, 50);
-    transform:translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
     padding: 0;
     margin: 0;
     line-height: 1.3;
@@ -48,30 +48,30 @@
     font-weight: bold;
 }
 
-.course-id{
+.course-id {
     line-height: 1.3;
     padding: 0;
     color: rgb(78, 78, 78);
     font-size: 1rem;
 }
 
-.course-term{
+.course-term {
     line-height: 1.3;
     font-size: 12px;
     height: 1rem;
     color: rgb(78, 78, 78);
 }
 
-.ellipsis{
+.ellipsis {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.course-content a:hover{
+.course-content a:hover {
     text-decoration: underline;
 }
 
-.course-content p{
-    margin-bottom:8px;
+.course-content p {
+    margin-bottom: 8px;
 }

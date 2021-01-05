@@ -1,10 +1,10 @@
 import './TeacherHomeworkCorrect.css';
 
-import { Col, Divider, Row } from 'antd';
+import {Divider} from 'antd';
 import React from 'react';
-import { HomeworkCorrect } from '../../components/homeworkcorrect/HomeworkCorrect';
-import { HomeworkDetail } from '../../components/homeworkdetail/HomeworkDetail';
-import { HomeworkDone } from '../../components/homeworkdone/HomeworkDone';
+import {HomeworkCorrect} from '../../components/homeworkcorrect/HomeworkCorrect';
+import {HomeworkDetail} from '../../components/homeworkdetail/HomeworkDetail';
+import {HomeworkDone} from '../../components/homeworkdone/HomeworkDone';
 
 const dataAns = {
     answerId: 0,
@@ -54,27 +54,28 @@ class TeacherHomeworkCorrect extends React.Component {
 
     render() {
         const hwDoneData = {
-            answerId:this.state.answerId,
-            commitTime:this.state.commitTime,
-            content:this.state.content,
+            answerId: this.state.answerId,
+            commitTime: this.state.commitTime,
+            content: this.state.content,
             note: this.state.note,
             description: this.state.description
         };
         const hwCorrectData = {
-          checkId: this.state.checkId,
-          checkTime: this.state.checkTime,
-          score: this.state.score,
-          comment: this.state.comment
+            checkId: this.state.checkId,
+            checkTime: this.state.checkTime,
+            score: this.state.score,
+            comment: this.state.comment
         };
         const userType = this.props.userType;
-        return(
+        return (
             <div className="homwork-correct-container">
-                <Divider orientation="left"> <p className="divider-content">作业内容</p> </Divider>
-                <HomeworkDetail data={this.props.data} />
-                <Divider orientation="left"> <p className="divider-content">作业提交</p> </Divider>
-                <HomeworkDone data={this.props.data} hwDoneData={hwDoneData} userType={userType} userData={this.props.userData} stdAns={false}/>
-                <Divider orientation="left"> <p className="divider-content">批改</p> </Divider>
-                <HomeworkCorrect data={this.props.data} hwCorrectData={hwCorrectData} userType={userType} />
+                <Divider orientation="left"><p className="divider-content">作业内容</p></Divider>
+                <HomeworkDetail data={this.props.data}/>
+                <Divider orientation="left"><p className="divider-content">作业提交</p></Divider>
+                <HomeworkDone data={this.props.data} hwDoneData={hwDoneData} userType={userType}
+                              userData={this.props.userData} stdAns={false}/>
+                <Divider orientation="left"><p className="divider-content">批改</p></Divider>
+                <HomeworkCorrect data={this.props.data} hwCorrectData={hwCorrectData} userType={userType}/>
             </div>
         );
     }

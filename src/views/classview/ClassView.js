@@ -1,4 +1,4 @@
-import './TeacherView.css';
+import './ClassView.css';
 
 import {Col, Row} from 'antd';
 import React from 'react';
@@ -12,13 +12,13 @@ import {ClassOutline} from '../../components/classoutline/ClassOutline';
 import {ClassUnit} from '../../components/classunit/ClassUnit';
 import ClassUser from '../../components/classuser/ClassUser';
 import MyFooter from '../../components/footer/MyFooter';
+import HomeworkRelease from "../../components/homeworkrelease/HomeworkRelease";
 import LoginedHeader from '../../components/loginedheader/LoginedHeader';
 import {SideBar} from '../../components/sidebar/SideBar';
 import TeacherHeader from '../../components/teacherheader/TeacherHeader';
 import UserImport from '../../components/userimport/UserImport';
-import HomeworkRelease from "../../components/homeworkrelease/HomeworkRelease";
 
-class TeacherView extends React.Component {
+class ClassView extends React.Component {
 
     constructor(props) {
         super(props);
@@ -33,9 +33,15 @@ class TeacherView extends React.Component {
         if (user) {
             userType = JSON.parse(user).user.userType;
         }
+
         this.setState({
-            userType: userType,
+            userType: userType
         });
+
+        const query = this.props.location.search;
+        const arr = query.split('&');
+        const id = arr[0].substr(9);
+        console.log("classId:" + id);
     }
 
     menuCallback = (key) => {
@@ -77,7 +83,7 @@ class TeacherView extends React.Component {
                 this.setState({curSection: 11});
                 break;
             case 'Release':
-                this.setState({curSection:12});
+                this.setState({curSection: 12});
                 break;
             default:
                 this.setState({curSection: 0});
@@ -117,7 +123,7 @@ class TeacherView extends React.Component {
                 <UserImport/>
             ) : curSection === 12 ? (
                 <HomeworkRelease/>
-                ) : (
+            ) : (
                 <></>
             );
         return (
@@ -138,4 +144,4 @@ class TeacherView extends React.Component {
     }
 }
 
-export default TeacherView;
+export default ClassView;

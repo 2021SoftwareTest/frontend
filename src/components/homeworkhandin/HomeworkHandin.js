@@ -44,7 +44,8 @@ export class HomeworkHandin extends React.Component {
                 <Comment
                     avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
                                     alt="Han Solo"/>}
-                    content={<TextArea rows={4} onChange={this.handleCommentChange} placeholder={"备注"} value={this.state.commentContent}/>}
+                    content={<TextArea rows={4} onChange={this.handleCommentChange} placeholder={"备注"}
+                                       value={this.state.commentContent}/>}
                 />
                 <Button className="submit-button">提交</Button>
             </div>

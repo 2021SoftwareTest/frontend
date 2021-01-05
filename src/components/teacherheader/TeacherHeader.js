@@ -1,10 +1,13 @@
 import './TeacherHeader.css';
 
 import {
-    CheckOutlined, DeploymentUnitOutlined, EditOutlined,
-    FileOutlined, FormOutlined, HomeOutlined, LineChartOutlined,
-    NotificationOutlined, ProjectOutlined, TeamOutlined, UserAddOutlined,
-UserOutlined} from '@ant-design/icons';
+    EditOutlined,
+    FileOutlined,
+    FormOutlined,
+    NotificationOutlined,
+    UserAddOutlined,
+    UserOutlined
+} from '@ant-design/icons';
 import {Col, Menu, Row} from 'antd';
 import React from 'react';
 
@@ -19,7 +22,6 @@ class TeacherHeader extends React.Component {
         // eslint-disable-next-line react/prop-types
         this.menuCallback = this.props.menuCallback;
     }
-
 
     handleClick = (e) => {
         // console.log('click ', e);

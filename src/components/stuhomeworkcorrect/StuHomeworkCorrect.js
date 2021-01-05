@@ -4,7 +4,7 @@ import {Avatar, Col, Comment, Input, Row} from 'antd';
 import React from 'react';
 import CanvasDraw from "react-canvas-draw";
 
-const { TextArea } = Input;
+const {TextArea} = Input;
 
 const dataAns = {
     answerId: 0,
@@ -46,16 +46,24 @@ class StuHomeworkCorrect extends React.Component {
 
     componentDidMount() {
         this.setState({commitTime: dataAns.commitTime, content: dataAns.content, note: dataAns.note});
-        this.setState({checkTime: dataCheck.checkTime, score: dataCheck.score, description:dataCheck.description, comment:dataCheck.comment});
+        this.setState({
+            checkTime: dataCheck.checkTime,
+            score: dataCheck.score,
+            description: dataCheck.description,
+            comment: dataCheck.comment
+        });
         setTimeout(() => {
-            this.setState({width:this.handinContent.current.clientWidth, height:this.handinContent.current.clientHeight});
+            this.setState({
+                width: this.handinContent.current.clientWidth,
+                height: this.handinContent.current.clientHeight
+            });
             this.canvas.loadSaveData(this.state.description);
-        },100);
+        }, 100);
     }
 
     render() {
         const {title, content, endTime, score} = this.props.data;
-        const {color, brushRadius, lazyRadius} = {color: "#ff0000", brushRadius:2, lazyRadius:0};
+        const {color, brushRadius, lazyRadius} = {color: "#ff0000", brushRadius: 2, lazyRadius: 0};
         return (
             <div className="stu-homework-correct">
                 <div className="homework-container">
@@ -104,8 +112,9 @@ class StuHomeworkCorrect extends React.Component {
                     <p><strong>批改时间:&nbsp;&nbsp;</strong>{this.state.checkTime}</p>
                     <p><strong>分数:&nbsp;&nbsp;</strong>{this.state.score}</p>
                     <Comment
-                        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
-                        content={<TextArea disabled rows={4} value={this.state.comment} />}
+                        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                                        alt="Han Solo"/>}
+                        content={<TextArea disabled rows={4} value={this.state.comment}/>}
                     />
                 </div>
             </div>

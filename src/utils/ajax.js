@@ -1,17 +1,17 @@
 function parseParams(data) {
-  // json转为URL参数
-  try {
-    const tempArr = [];
-    for (const key in data) {
-      // const value = encodeURIComponent(data[i]);
-      tempArr.push(key + '=' + data[key]);
-      // tempArr.push(value);
+    // json转为URL参数
+    try {
+        const tempArr = [];
+        for (const key in data) {
+            // const value = encodeURIComponent(data[i]);
+            tempArr.push(key + '=' + data[key]);
+            // tempArr.push(value);
+        }
+        const urlParamsStr = tempArr.join('&');
+        return urlParamsStr;
+    } catch (err) {
+        return '';
     }
-    const urlParamsStr = tempArr.join('&');
-    return urlParamsStr;
-  } catch (err) {
-    return '';
-  }
 }
 
 // function getParams(url) {  //URL参数转为json
@@ -35,100 +35,100 @@ function parseParams(data) {
 // const fetch = require('node-fetch');
 
 const postRequest = (url, json, callback) => {
-  const opts = {
-    method: 'POST',
-    body: JSON.stringify(json),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    credentials: 'include',
-  };
+    const opts = {
+        method: 'POST',
+        body: JSON.stringify(json),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+    };
 
-  fetch(url, opts)
-    .then((response) => response.json())
-    .then((data) => {
-      callback(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    fetch(url, opts)
+        .then((response) => response.json())
+        .then((data) => {
+            callback(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 };
-export { postRequest };
+export {postRequest};
 
 const getRequest = (url, json, callback) => {
-  const opts = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    credentials: 'include',
-    // mode: 'cors',
-    // cache: 'default'
-  };
-  // console.log("参数",url+"?"+parseParams(json));
-  if (json) {
-    url = url + '?' + parseParams(json);
-  }
-  console.log(url);
-  fetch(url, opts)
-    .then((response) =>
-      // json=response.json();
-      response.json()
-    )
-    .then((data) => {
-      callback(data);
-      // console.log("data!!!",data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    const opts = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        // mode: 'cors',
+        // cache: 'default'
+    };
+    // console.log("参数",url+"?"+parseParams(json));
+    if (json) {
+        url = url + '?' + parseParams(json);
+    }
+    console.log(url);
+    fetch(url, opts)
+        .then((response) =>
+            // json=response.json();
+            response.json()
+        )
+        .then((data) => {
+            callback(data);
+            // console.log("data!!!",data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 };
 
-export { getRequest };
+export {getRequest};
 
 const deleteRequest = (url, json, callback) => {
-  const opts = {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    credentials: 'include',
-    mode: 'cors',
-    cache: 'default',
-  };
-  // console.log("参数",url+"?"+parseParams(json));
+    const opts = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        mode: 'cors',
+        cache: 'default',
+    };
+    // console.log("参数",url+"?"+parseParams(json));
 
-  fetch(url + '/' + parseParams(json), opts)
-    .then((response) =>
-      // json=response.json();
-      response.json()
-    )
-    .then((data) => {
-      callback(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    fetch(url + '/' + parseParams(json), opts)
+        .then((response) =>
+            // json=response.json();
+            response.json()
+        )
+        .then((data) => {
+            callback(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 };
-export { deleteRequest };
+export {deleteRequest};
 
 const putRequest = (url, json, callback) => {
-  const opts = {
-    method: 'PUT',
-    body: JSON.stringify(json),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    credentials: 'include',
-  };
+    const opts = {
+        method: 'PUT',
+        body: JSON.stringify(json),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+    };
 
-  fetch(url, opts)
-    .then((response) => response.json())
-    .then((data) => {
-      callback(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    fetch(url, opts)
+        .then((response) => response.json())
+        .then((data) => {
+            callback(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 };
-export { putRequest };
+export {putRequest};

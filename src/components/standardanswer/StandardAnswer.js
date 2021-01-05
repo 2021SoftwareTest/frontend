@@ -1,10 +1,9 @@
 import './StandardAnswer.css';
 
-import { Col, Divider, Row } from 'antd';
+import {Divider} from 'antd';
 import React from 'react';
-import { HomeworkCorrect } from '../../components/homeworkcorrect/HomeworkCorrect';
-import { HomeworkDetail } from '../../components/homeworkdetail/HomeworkDetail';
-import { HomeworkDone } from '../../components/homeworkdone/HomeworkDone';
+import {HomeworkDetail} from '../../components/homeworkdetail/HomeworkDetail';
+import {HomeworkDone} from '../../components/homeworkdone/HomeworkDone';
 
 const dataAns = {
     answerId: 0,
@@ -36,17 +35,17 @@ class StandardAnswer extends React.Component {
 
     render() {
         const hwDoneData = {
-            answerId:this.state.answerId,
-            commitTime:this.state.commitTime,
-            content:this.state.content,
+            answerId: this.state.answerId,
+            commitTime: this.state.commitTime,
+            content: this.state.content,
             note: this.state.note,
         };
         const userType = this.props.userType;
-        return(
+        return (
             <div className="homwork-correct-container">
-                <Divider orientation="left"> <p className="divider-content">作业内容</p></Divider>
-                <HomeworkDetail data={this.props.data} />
-                <Divider orientation="left"> <p className="divider-content">参考答案</p></Divider>
+                <Divider orientation="left"><p className="divider-content">作业内容</p></Divider>
+                <HomeworkDetail data={this.props.data}/>
+                <Divider orientation="left"><p className="divider-content">参考答案</p></Divider>
                 <HomeworkDone data={this.props.data} hwDoneData={hwDoneData} userType={userType} stdAns={true}/>
             </div>
         );

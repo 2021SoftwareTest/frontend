@@ -1,62 +1,62 @@
 .user-profile {
-  width: 65%;
-  margin-left: 17.5%;
-  margin-top: 30px;
+    width: 65%;
+    margin-left: 17.5%;
+    margin-top: 30px;
 }
 
 .profile-title {
-  background-color: #eef1f6;
-  margin-bottom: 20px;
+    background-color: #eef1f6;
+    margin-bottom: 20px;
 }
 
 .profile-title p {
-  font-size: 20px;
-  font-weight: 600;
-  text-align: center;
-  line-height: 40px;
-  vertical-align: middle;
-  height: 40px;
-  margin-top: 10px;
-  margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 .cus-avator {
 }
 
 .cus-avator-pic {
-  height: 200px;
-  width: 200px;
-  background-color: #fff;
-  margin: 0 auto;
+    height: 200px;
+    width: 200px;
+    background-color: #fff;
+    margin: 0 auto;
 }
 
 .cus-avator-title {
-  height: 40px;
+    height: 40px;
 }
 
 .cus-avator-title p {
-  font-size: 20px;
-  font-weight: 600;
-  text-align: center;
-  line-height: 40px;
-  vertical-align: middle;
-  height: 40px;
-  margin-top: 10px;
-  margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 .profile-table {
-  margin-left: 7%;
+    margin-left: 7%;
 }
 
 .cus-avator {
-  background-color: #eef1f6;
-  width: 270px;
-  height: 339px;
+    background-color: #eef1f6;
+    width: 270px;
+    height: 339px;
 }
 
 .profile-pic-button {
-  margin-left: 40%;
-  margin-top: 80px;
-  width: 80px;
+    margin-left: 40%;
+    margin-top: 80px;
+    width: 80px;
 }

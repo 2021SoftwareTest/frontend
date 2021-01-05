@@ -4,11 +4,11 @@ import {Button, Col, Row} from 'antd';
 import React from 'react';
 
 const data = [
-    {userId:1, name:"xxx", school:"SJTU", ID:"518021910xxx"},
-    {userId:2, name:"xxx", school:"SJTU", ID:"518021910xxx"},
-    {userId:3, name:"xxx", school:"SJTU", ID:"518021910xxx"},
-    {userId:4, name:"xxx", school:"SJTU", ID:"518021910xxx"},
-    {userId:5, name:"xxx", school:"SJTU", ID:"518021910xxx"}
+    {userId: 1, name: "xxx", school: "SJTU", ID: "518021910xxx"},
+    {userId: 2, name: "xxx", school: "SJTU", ID: "518021910xxx"},
+    {userId: 3, name: "xxx", school: "SJTU", ID: "518021910xxx"},
+    {userId: 4, name: "xxx", school: "SJTU", ID: "518021910xxx"},
+    {userId: 5, name: "xxx", school: "SJTU", ID: "518021910xxx"}
 ];
 
 class UserImport extends React.Component {
@@ -36,7 +36,7 @@ class UserImport extends React.Component {
             }
         }
         _selected.push(tmpObj);
-        this.setState({unselected:_unselected, selected: _selected});
+        this.setState({unselected: _unselected, selected: _selected});
     }
 
     onSubmit = () => {
@@ -55,20 +55,20 @@ class UserImport extends React.Component {
             }
         }
         _unselected.push(tmpObj);
-        this.setState({unselected:_unselected, selected: _selected});
+        this.setState({unselected: _unselected, selected: _selected});
     };
 
     renderStudentList = (list, handleClick) => (
-            list.map((item, index) => (
-                <div key={index} className="list-item" onClick={() => handleClick(item.userId)}>
-                    <Row>
-                        <Col span={8}>{item.name}</Col>
-                        <Col span={8}>{item.school}</Col>
-                        <Col span={8}>{item.ID}</Col>
-                    </Row>
-                </div>
-            ))
-        );
+        list.map((item, index) => (
+            <div key={index} className="list-item" onClick={() => handleClick(item.userId)}>
+                <Row>
+                    <Col span={8}>{item.name}</Col>
+                    <Col span={8}>{item.school}</Col>
+                    <Col span={8}>{item.ID}</Col>
+                </Row>
+            </div>
+        ))
+    );
 
     render() {
         const contentSelected = this.renderStudentList(this.state.selected, this.handleUnselect);

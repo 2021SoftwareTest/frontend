@@ -1,23 +1,113 @@
 import "./HomeworkSubmitList.css"
 
 import React from "react";
-import { Col, Menu, Row, Tag } from 'antd';
+import {Col, Row, Tag} from 'antd';
 
 
 const data = [
-    {userId: 1, name: "ckkk", ID:"518021910xxx", school: "SJTU", state: 0, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkkk", ID:"518021910xxx", school: "SJTU", state: 1, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkkkk", ID:"518021910xxx", school: "SJTU", state: 2, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkkkkk", ID:"518021910xxx", school: "SJTU", state: 3, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkkkkkk", ID:"518021910xxx", school: "SJTU", state: 4, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkkkkkkk", ID:"518021910xxx", school: "SJTU", state: 1, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkkkkkkkk", ID:"518021910xxx", school: "SJTU", state: 2, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkkkkkkkkk", ID:"518021910xxx", school: "SJTU", state: 2, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkkkkkkkkkk", ID:"518021910xxx", school: "SJTU", state: 3, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkkkkkkkkkkk", ID:"518021910xxx", school: "SJTU", state: 2, answerId: null, checkId: null, standardAnswerId: null},
+    {
+        userId: 1,
+        name: "ckkk",
+        ID: "518021910xxx",
+        school: "SJTU",
+        state: 0,
+        answerId: null,
+        checkId: null,
+        standardAnswerId: null
+    },
+    {
+        userId: 1,
+        name: "ckkkk",
+        ID: "518021910xxx",
+        school: "SJTU",
+        state: 1,
+        answerId: null,
+        checkId: null,
+        standardAnswerId: null
+    },
+    {
+        userId: 1,
+        name: "ckkkkk",
+        ID: "518021910xxx",
+        school: "SJTU",
+        state: 2,
+        answerId: null,
+        checkId: null,
+        standardAnswerId: null
+    },
+    {
+        userId: 1,
+        name: "ckkkkkk",
+        ID: "518021910xxx",
+        school: "SJTU",
+        state: 3,
+        answerId: null,
+        checkId: null,
+        standardAnswerId: null
+    },
+    {
+        userId: 1,
+        name: "ckkkkkkk",
+        ID: "518021910xxx",
+        school: "SJTU",
+        state: 4,
+        answerId: null,
+        checkId: null,
+        standardAnswerId: null
+    },
+    {
+        userId: 1,
+        name: "ckkkkkkkk",
+        ID: "518021910xxx",
+        school: "SJTU",
+        state: 1,
+        answerId: null,
+        checkId: null,
+        standardAnswerId: null
+    },
+    {
+        userId: 1,
+        name: "ckkkkkkkkk",
+        ID: "518021910xxx",
+        school: "SJTU",
+        state: 2,
+        answerId: null,
+        checkId: null,
+        standardAnswerId: null
+    },
+    {
+        userId: 1,
+        name: "ckkkkkkkkkk",
+        ID: "518021910xxx",
+        school: "SJTU",
+        state: 2,
+        answerId: null,
+        checkId: null,
+        standardAnswerId: null
+    },
+    {
+        userId: 1,
+        name: "ckkkkkkkkkkk",
+        ID: "518021910xxx",
+        school: "SJTU",
+        state: 3,
+        answerId: null,
+        checkId: null,
+        standardAnswerId: null
+    },
+    {
+        userId: 1,
+        name: "ckkkkkkkkkkkk",
+        ID: "518021910xxx",
+        school: "SJTU",
+        state: 2,
+        answerId: null,
+        checkId: null,
+        standardAnswerId: null
+    },
 ];
 
-class HomeworkSubmitList extends React.Component{
+class HomeworkSubmitList extends React.Component {
     constructor(props) {
         super(props);
         this.submitListCallback = this.props.submitListCallback;
@@ -26,19 +116,19 @@ class HomeworkSubmitList extends React.Component{
         };
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.setState({studentList: data});
     }
 
-    handleListItemClick (item) {
+    handleListItemClick(item) {
         this.submitListCallback(item);
     }
 
     renderList = (list) => {
-        return(
+        return (
             list.map((item, index) => {
                 let tag = null;
-                switch(item.state){
+                switch (item.state) {
                     case 0:
                         tag = (<Tag color="blue">未提交</Tag>);
                         break;
@@ -57,7 +147,7 @@ class HomeworkSubmitList extends React.Component{
                     default:
                         console.log("error");
                 }
-                return(
+                return (
                     <div key={index} className="list-item" onClick={() => (this.handleListItemClick(item))}>
                         <Row>
                             <Col span={6}>{item.name}</Col>
@@ -74,7 +164,7 @@ class HomeworkSubmitList extends React.Component{
 
     render() {
         const content = this.renderList(this.state.studentList);
-        return(
+        return (
             <div className="homework-submit-list">
                 <h2>提交列表</h2>
                 <div className="list-container">
