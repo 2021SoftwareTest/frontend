@@ -5,15 +5,13 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import MyFooter from '../../components/footer/MyFooter';
-import { HomeworkDetail } from '../../components/homeworkdetail/HomeworkDetail';
-import { HomeworkHandin } from '../../components/homeworkhandin/HomeworkHandin';
 import { HomeworkHeader } from '../../components/homeworkheader/HomeworkHeader';
 import LoginedHeader from '../../components/loginedheader/LoginedHeader';
 import {SideBar} from '../../components/sidebar/SideBar';
 import HomeworkContent from '../../components/homeworkcontent/HomeworkContent';
 import HomeworkSubmitList from '../../components/homeworksubmitlist/HomeworkSubmitList';
-
-
+import StuHomeworkCorrect from "../../components/stuhomeworkcorrect/StuHomeworkCorrect";
+import TeacherHomeworkCorrect from "../../components/teacherhomeworkcorrect/TeacherHomeworkCorrect";
 
 const data = {
   title: "作业一",
@@ -29,8 +27,9 @@ const data = {
   checkId: null,
   answerId: null,
   standardAnswerId: null,
-  hwId: 1
-}
+  hwId: 1,
+  userId: 1
+};
 
 
 class HomeworkView extends React.Component {
@@ -66,20 +65,27 @@ class HomeworkView extends React.Component {
 
   render() {
     const curSection = this.state.curSection;
+    const userType = 1;       // 0: 管理员 1: 老师 2: 学生
     const content =
       curSection === 0 ? (
         <HomeworkContent data={data} />
       ) : curSection === 1 ? (
         <HomeworkSubmitList data={data} />
       ) : curSection === 2 ? (
-        <></>
+          userType === 1 ? (
+              <TeacherHomeworkCorrect data={data} />
+          ) : (userType === 2) ? (
+              <StuHomeworkCorrect data={data} />
+          ) : (
+              <></>
+          )
       ) : curSection === 3 ? (
         <></>
       ) : curSection === 4 ? (
         <></>
-      ): (
+      ) : (
         <></>
-      )
+      );
 
     return (
       <div>
@@ -92,7 +98,7 @@ class HomeworkView extends React.Component {
             <HomeworkHeader menuCallback={this.menuCallback} data={data}/>
             <div className="homework-container">
               {content}
-            </div>  
+            </div>
             <MyFooter />
           </Col>
         </Row>
