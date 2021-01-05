@@ -10,8 +10,8 @@ import LoginedHeader from '../../components/loginedheader/LoginedHeader';
 import {SideBar} from '../../components/sidebar/SideBar';
 import HomeworkContent from '../../components/homeworkcontent/HomeworkContent';
 import HomeworkSubmitList from '../../components/homeworksubmitlist/HomeworkSubmitList';
-import StuHomeworkCorrect from "../../components/stuhomeworkcorrect/StuHomeworkCorrect";
 import TeacherHomeworkCorrect from "../../components/teacherhomeworkcorrect/TeacherHomeworkCorrect";
+import StandardAnswer from "../../components/standardanswer/StandardAnswer";
 
 const data = {
   title: "作业一",
@@ -35,9 +35,16 @@ const data = {
 class HomeworkView extends React.Component {
   constructor(props) {
     super(props);
+    this.setKeyFun =  null;
     this.state = {
-      curSection: 0
-    }
+      curSection: 0,
+      userData: {
+        userId: 0,
+        name: "",
+        school: "",
+        ID: ""
+      }
+    };
   };
 
   menuCallback = (key) => {
@@ -54,35 +61,33 @@ class HomeworkView extends React.Component {
       case "Answer":
         this.setState({curSection: 3});
         break;
-      case "Score":
-        this.setState({curSection: 4});
-        break;
       default:
         this.setState({curSection: 0});
         console.log("error");
     }
   };
 
+  submitListCallback = (userData) => {
+    this.setState({userData: userData, curSection: 2});
+    this.setKeyFun("Correct");
+  };
+
+  homeworkHeaderSetKeyFunCallback = (fun) => {
+    this.setKeyFun = fun;
+  };
+
   render() {
     const curSection = this.state.curSection;
-    const userType = 1;       // 0: 管理员 1: 老师 2: 学生
+    const userType = 2;       // 0: 管理员 1: 老师 2: 学生
     const content =
       curSection === 0 ? (
         <HomeworkContent data={data} />
       ) : curSection === 1 ? (
-        <HomeworkSubmitList data={data} />
+        <HomeworkSubmitList data={data} submitListCallback={this.submitListCallback}/>
       ) : curSection === 2 ? (
-          userType === 1 ? (
-              <TeacherHomeworkCorrect data={data} />
-          ) : (userType === 2) ? (
-              <StuHomeworkCorrect data={data} />
-          ) : (
-              <></>
-          )
+        <TeacherHomeworkCorrect data={data} userType={userType} userData={this.state.userData}/>
       ) : curSection === 3 ? (
-        <></>
-      ) : curSection === 4 ? (
-        <></>
+        <StandardAnswer data={data} userType={userType} />
       ) : (
         <></>
       );
@@ -95,7 +100,7 @@ class HomeworkView extends React.Component {
             <SideBar />
           </Col>
           <Col span={20}>
-            <HomeworkHeader menuCallback={this.menuCallback} data={data}/>
+            <HomeworkHeader menuCallback={this.menuCallback} data={data} userType={userType} homeworkHeaderSetKeyFunCallback={this.homeworkHeaderSetKeyFunCallback}/>
             <div className="homework-container">
               {content}
             </div>

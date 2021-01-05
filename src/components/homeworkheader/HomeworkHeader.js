@@ -1,7 +1,7 @@
 import './HomeworkHeader.css';
 
 import { EditOutlined, ProjectOutlined, UploadOutlined, CheckSquareOutlined, BookOutlined } from '@ant-design/icons';
-import { Col, Menu, Row } from 'antd';
+import { Col, Menu, Row, message } from 'antd';
 import React from 'react';
 
 
@@ -11,13 +11,27 @@ export class HomeworkHeader extends React.Component {
     super(props);
     this.state = {
       current: 'Homework'
-    }
+    };
+    this.userType = this.props.userType;
     this.menuCallback = this.props.menuCallback;
+    this.homeworkHeaderSetKeyFunCallback = this.props.homeworkHeaderSetKeyFunCallback;
   }
 
+  componentDidMount() {
+    this.homeworkHeaderSetKeyFunCallback(this.setKey);
+  };
+
   handleClick = (e) => {
+    if (this.userType === 1 && e.key === "Correct"){
+      message.info("请在提交列表选择具体学生");
+      return;
+    }
     this.menuCallback(e.key);
     this.setState({ current: e.key });
+  };
+
+  setKey = (key) => {     // 此函数作为对象赋给上层，使上层能控制下层的key
+    this.setState({current: key});
   };
 
   render() {
@@ -46,17 +60,20 @@ export class HomeworkHeader extends React.Component {
               <Menu.Item key="Homework" icon={<EditOutlined />}>
                 作 业
               </Menu.Item>
-              <Menu.Item key="Submit" icon={<UploadOutlined />}>
-                提 交
-              </Menu.Item>
+              {
+                (this.userType === 1) ? (
+                    <Menu.Item key="Submit" icon={<UploadOutlined />}>
+                      提 交
+                    </Menu.Item>
+                ) : (
+                    <></>
+                )
+              }
               <Menu.Item key="Correct" icon={<CheckSquareOutlined />}>
                 批 改
               </Menu.Item>
               <Menu.Item key="Answer" icon={<BookOutlined />}>
                 标 答
-              </Menu.Item>
-              <Menu.Item key="Score" icon={<ProjectOutlined />}>
-                分 数
               </Menu.Item>
             </Menu>
           </Col>

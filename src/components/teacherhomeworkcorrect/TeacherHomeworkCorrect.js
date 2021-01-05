@@ -32,7 +32,7 @@ class TeacherHomeworkCorrect extends React.Component {
             note: "我是note",
             checkId: 0,
             checkTime: "",
-            score: 90,
+            score: 70,
             description: "",
             comment: ""
         }
@@ -66,14 +66,15 @@ class TeacherHomeworkCorrect extends React.Component {
           score: this.state.score,
           comment: this.state.comment
         };
+        const userType = this.props.userType;
         return(
             <div className="homwork-correct-container">
                 <Divider orientation="left"> <p className="divider-content">作业内容</p> </Divider>
                 <HomeworkDetail data={this.props.data} />
                 <Divider orientation="left"> <p className="divider-content">作业提交</p> </Divider>
-                <HomeworkDone data={this.props.data} hwDoneData={hwDoneData}/>
+                <HomeworkDone data={this.props.data} hwDoneData={hwDoneData} userType={userType} userData={this.props.userData} stdAns={false}/>
                 <Divider orientation="left"> <p className="divider-content">批改</p> </Divider>
-                <HomeworkCorrect data={this.props.data} hwCorrectData={hwCorrectData}/>
+                <HomeworkCorrect data={this.props.data} hwCorrectData={hwCorrectData} userType={userType} />
             </div>
         );
     }
