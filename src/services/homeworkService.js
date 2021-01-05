@@ -1,7 +1,7 @@
 import {getRequest, postRequest, putRequest} from '../utils/ajax';
 
-const baseUrl = 'http://localhost:8080/';
-const homeworkUrl = baseUrl + 'homework';
+import {homeworkUrl} from '../utils/config';
+
 
 export const createHomework = (data, callback) => {
     const url = homeworkUrl + 'create';

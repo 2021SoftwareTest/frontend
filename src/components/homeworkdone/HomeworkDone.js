@@ -4,10 +4,10 @@ import {Badge, Button, Col, Descriptions, Row} from 'antd';
 import React from 'react';
 import CanvasDraw from "react-canvas-draw";
 
-const userData = {
-    name: 'ckk',
-    ID: 'xxxxxxxxx'
-};
+// const userData = {
+//     name: 'ckk',
+//     ID: 'xxxxxxxxx'
+// };
 
 export class HomeworkDone extends React.Component {
     constructor(props) {

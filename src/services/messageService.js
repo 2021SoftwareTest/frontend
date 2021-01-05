@@ -1,6 +1,5 @@
 import {getRequest} from '../utils/ajax';
-
-const baseUrl = 'http://localhost:8080/';
+import {baseUrl} from '../utils/config';
 const messageUrl = baseUrl + 'message';
 
 export const getMessageByUserId = (data, callback) => {

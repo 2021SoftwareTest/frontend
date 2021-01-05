@@ -1,6 +1,6 @@
 import {postRequest} from '../utils/ajax';
 
-const baseUrl = 'http://localhost:8080/';
+import {baseUrl} from '../utils/config';
 
 export const changePassword = (data, callback) => {
     const url = baseUrl + 'userPassword';

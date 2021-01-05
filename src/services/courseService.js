@@ -1,7 +1,6 @@
 import {getRequest, putRequest, postRequest} from '../utils/ajax';
 
-const baseUrl = 'http://localhost:8080/';
-const courseUrl = baseUrl + 'course/';
+import {courseUrl} from '../utils/config';
 
 export const putNewCourse = (data, callback) => {
     const url = courseUrl + 'newcourse';

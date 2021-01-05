@@ -1,7 +1,7 @@
 import {getRequest, putRequest} from '../utils/ajax';
 
-const baseUrl = 'http://localhost:8080/';
-const answerUrl = baseUrl + 'answer';
+import {answerUrl} from '../utils/config';
+
 
 export const putAnswer = (data, callback) => {
     const url = answerUrl + 'new';

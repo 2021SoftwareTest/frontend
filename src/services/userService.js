@@ -1,9 +1,5 @@
 import {getRequest, postRequest} from '../utils/ajax';
-
-const baseUrl = 'http://localhost:8080/';
-const authUrl = baseUrl + 'auth/';
-const userUrl = baseUrl + 'user/';
-const verificationUrl = baseUrl + 'verification';
+import {baseUrl,authUrl,verificationUrl,userUrl} from '../utils/config';
 
 export const login = (data, callback) => {
     const url = authUrl + 'login';
