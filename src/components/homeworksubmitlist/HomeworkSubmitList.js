@@ -6,27 +6,32 @@ import { Col, Menu, Row, Tag } from 'antd';
 
 const data = [
     {userId: 1, name: "ckkk", ID:"518021910xxx", school: "SJTU", state: 0, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkk", ID:"518021910xxx", school: "SJTU", state: 1, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkk", ID:"518021910xxx", school: "SJTU", state: 2, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkk", ID:"518021910xxx", school: "SJTU", state: 3, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkk", ID:"518021910xxx", school: "SJTU", state: 4, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkk", ID:"518021910xxx", school: "SJTU", state: 1, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkk", ID:"518021910xxx", school: "SJTU", state: 2, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkk", ID:"518021910xxx", school: "SJTU", state: 2, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkk", ID:"518021910xxx", school: "SJTU", state: 3, answerId: null, checkId: null, standardAnswerId: null},
-    {userId: 1, name: "ckkk", ID:"518021910xxx", school: "SJTU", state: 2, answerId: null, checkId: null, standardAnswerId: null},
-]
+    {userId: 1, name: "ckkkk", ID:"518021910xxx", school: "SJTU", state: 1, answerId: null, checkId: null, standardAnswerId: null},
+    {userId: 1, name: "ckkkkk", ID:"518021910xxx", school: "SJTU", state: 2, answerId: null, checkId: null, standardAnswerId: null},
+    {userId: 1, name: "ckkkkkk", ID:"518021910xxx", school: "SJTU", state: 3, answerId: null, checkId: null, standardAnswerId: null},
+    {userId: 1, name: "ckkkkkkk", ID:"518021910xxx", school: "SJTU", state: 4, answerId: null, checkId: null, standardAnswerId: null},
+    {userId: 1, name: "ckkkkkkkk", ID:"518021910xxx", school: "SJTU", state: 1, answerId: null, checkId: null, standardAnswerId: null},
+    {userId: 1, name: "ckkkkkkkkk", ID:"518021910xxx", school: "SJTU", state: 2, answerId: null, checkId: null, standardAnswerId: null},
+    {userId: 1, name: "ckkkkkkkkkk", ID:"518021910xxx", school: "SJTU", state: 2, answerId: null, checkId: null, standardAnswerId: null},
+    {userId: 1, name: "ckkkkkkkkkkk", ID:"518021910xxx", school: "SJTU", state: 3, answerId: null, checkId: null, standardAnswerId: null},
+    {userId: 1, name: "ckkkkkkkkkkkk", ID:"518021910xxx", school: "SJTU", state: 2, answerId: null, checkId: null, standardAnswerId: null},
+];
 
 class HomeworkSubmitList extends React.Component{
     constructor(props) {
         super(props);
+        this.submitListCallback = this.props.submitListCallback;
         this.state = {
             studentList: []
-        }
+        };
     }
 
     componentDidMount(){
         this.setState({studentList: data});
+    }
+
+    handleListItemClick (item) {
+        this.submitListCallback(item);
     }
 
     renderList = (list) => {
@@ -38,22 +43,22 @@ class HomeworkSubmitList extends React.Component{
                         tag = (<Tag color="blue">未提交</Tag>);
                         break;
                     case 1:
-                        tag = (<Tag color="green">已提交</Tag>)
+                        tag = (<Tag color="green">已提交</Tag>);
                         break;
                     case 2:
-                        tag = (<Tag color="red">超时提交</Tag>)
+                        tag = (<Tag color="red">超时提交</Tag>);
                         break;
                     case 3:
-                        tag = (<Tag color="green">已批改</Tag>)
+                        tag = (<Tag color="green">已批改</Tag>);
                         break;
                     case 5:
-                        tag = (<Tag color="purple">有答案</Tag>)
+                        tag = (<Tag color="purple">有答案</Tag>);
                         break;
                     default:
                         console.log("error");
                 }
                 return(
-                    <div key={index} className="list-item">
+                    <div key={index} className="list-item" onClick={() => (this.handleListItemClick(item))}>
                         <Row>
                             <Col span={6}>{item.name}</Col>
                             <Col span={6}>{item.ID}</Col>
@@ -62,10 +67,10 @@ class HomeworkSubmitList extends React.Component{
                         </Row>
                     </div>
                 );
-                
+
             })
         );
-    }
+    };
 
     render() {
         const content = this.renderList(this.state.studentList);

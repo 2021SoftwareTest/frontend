@@ -8,12 +8,25 @@ import React from 'react';
 const { TextArea } = Input;
 
 export class HomeworkCorrect extends React.Component {
-  state = {
-    comment: this.props.hwCorrectData.comment,
-    score: this.props.hwCorrectData.score
-  };
+    constructor(props) {
+        super(props);
+        this.userType = this.props.userType;
+        this.state = {
+            comment: this.props.hwCorrectData.comment,
+            score: this.props.hwCorrectData.score
+        }
+    }
 
-  handleSubmit = () => {
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                comment: this.props.hwCorrectData.comment,
+                score: this.props.hwCorrectData.score
+            });
+        }, 400);
+    }
+
+    handleSubmit = () => {
 
   };
 
@@ -30,7 +43,7 @@ export class HomeworkCorrect extends React.Component {
     return (
       <>
         <div>
-            <Input style={{ width: 200 }} placeholder="分数" value={score} onChange={this.onScoreChange}/>
+            <Input style={{ width: 200 }} placeholder="分数" value={score} onChange={this.onScoreChange} disabled={this.userType !== 1}/>
             <Button className="correct-button">
               <SmileOutlined />做得不错
             </Button>
@@ -43,7 +56,7 @@ export class HomeworkCorrect extends React.Component {
         </div>
         <Comment
           avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
-          content={<TextArea rows={4} onChange={this.onCommentChange} value={comment} />}
+          content={<TextArea rows={4} onChange={this.onCommentChange} value={comment} disabled={this.userType !== 1}/>}
         />
       </>
     );
