@@ -25,8 +25,8 @@ class Router extends React.Component {
         return (
             <HashRouter history={history}>
                 <Switch>
-                    <PrivateRoute exact path="/" component={HomeView}/>
                     <LoginRoute exact path="/login" component={LoginView}/>
+                    <PrivateRoute exact path="/" component={HomeView}/>
                     <PrivateRoute exact path="/class" component={ClassView}/>
                     <PrivateRoute exact path="/register" component={RegisterView}/>
                     <PrivateRoute exact path="/homework" component={HomeworkView}/>

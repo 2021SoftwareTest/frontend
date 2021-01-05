@@ -42,6 +42,8 @@ class ClassView extends React.Component {
         const arr = query.split('&');
         const id = arr[0].substr(9);
         console.log("classId:" + id);
+
+        this.setState({courseId:id});
     }
 
     menuCallback = (key) => {
@@ -118,7 +120,7 @@ class ClassView extends React.Component {
             ) : curSection === 9 ? (
                 <ClassUnit/>
             ) : curSection === 10 ? (
-                <ClassEdit/>
+                <ClassEdit courseId={this.state.courseId}/>
             ) : curSection === 11 ? (
                 <UserImport/>
             ) : curSection === 12 ? (

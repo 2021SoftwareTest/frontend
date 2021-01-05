@@ -42,14 +42,13 @@ class AddClassForm extends React.Component {
 
     onSubmit = () => {
         console.log(this.state);
-        const courseInfo = {
+        const data = {
             courseName: this.state.courseName,
             introduction: this.state.introduction,
             textbooks: this.state.textbooks,
             startTime: this.state.startTime,
             endTime: this.state.endTime,
         };
-        const userId = JSON.parse(localStorage.getItem('user')).userID;
         const callback = (data) => {
             if (data.status === 200) {
                 message.success(data.msg);
@@ -57,11 +56,6 @@ class AddClassForm extends React.Component {
                 message.error(data.msg);
             }
         };
-        const data = {
-            course: courseInfo,
-            userId: userId,
-        };
-        console.log(data);
         putNewCourse(data, callback);
     };
 
