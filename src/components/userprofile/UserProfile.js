@@ -48,7 +48,7 @@ export class UserProfile extends React.Component {
         const user = localStorage.getItem('user');
         let userId = 1;
         if (user !== null) {
-            userId = JSON.parse(user).user.userID;
+            userId = JSON.parse(user).userID;
         }
         console.log('userId:' + userId);
         const callback = (data) => {

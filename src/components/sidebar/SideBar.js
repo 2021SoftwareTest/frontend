@@ -28,7 +28,7 @@ export class SideBar extends React.Component {
         let userId = 1;
         const user = JSON.parse(localStorage.getItem('user'));
         if (user) {
-            userId = user.user.userID;
+            userId = user.userID;
         }
         const data = {
             userId: userId,

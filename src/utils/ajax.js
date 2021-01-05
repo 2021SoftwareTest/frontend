@@ -7,30 +7,29 @@ function parseParams(data) {
             tempArr.push(key + '=' + data[key]);
             // tempArr.push(value);
         }
-        const urlParamsStr = tempArr.join('&');
-        return urlParamsStr;
+        return tempArr.join('&');
     } catch (err) {
         return '';
     }
 }
 
-// function getParams(url) {  //URL参数转为json
-//     try {
-//         var index = url.indexOf('?');
-//         url = url.match(/\?([^#]+)/)[1];
-//         var obj = {}, arr = url.split('&');
-//         for (var i = 0; i < arr.length; i++) {
-//             var subArr = arr[i].split('=');
-//             var key = decodeURIComponent(subArr[0]);
-//             var value = decodeURIComponent(subArr[1]);
-//             obj[key] = value;
-//         }
-//         return obj;
-//
-//     } catch (err) {
-//         return null;
-//     }
-// }
+// eslint-disable-next-line no-unused-vars
+function getParams(url) {  // URL参数转为json
+    try {
+        url = url.match(/\?([^#]+)/)[1];
+        const obj = {}, arr = url.split('&');
+        for (let i = 0; i < arr.length; i++) {
+            const subArr = arr[i].split('=');
+            const key = decodeURIComponent(subArr[0]);
+            const value = decodeURIComponent(subArr[1]);
+            obj[key] = value;
+        }
+        return obj;
+
+    } catch (err) {
+        return null;
+    }
+}
 
 // const fetch = require('node-fetch');
 

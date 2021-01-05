@@ -31,7 +31,7 @@ class ClassView extends React.Component {
         const user = localStorage.getItem("user");
         let userType = 0;
         if (user) {
-            userType = JSON.parse(user).user.userType;
+            userType = JSON.parse(user).userType;
         }
 
         this.setState({

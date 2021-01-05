@@ -1,7 +1,7 @@
 import 'antd/dist/antd.css';
 import './registercss.css';
 
-import {Button, Col, Input, Row} from 'antd';
+import {Button, Col, Input, message, Row} from 'antd';
 import React from 'react';
 
 import {register} from '../../services/userService';
@@ -50,8 +50,16 @@ class RegisterForm extends React.Component {
             email: this.state.email,
             authcode: this.state.authCode,
         };
-        console.log(registerInfo);
-        register(registerInfo);
+        const callback = (data) => {
+            console.log(data);
+            if (data.status === 200) {
+                message.success(data.msg);
+                window.location.href = '/login';
+            } else {
+                message.error(data.msg);
+            }
+        };
+        register(registerInfo, callback);
     };
 
     render() {

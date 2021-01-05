@@ -2,11 +2,11 @@ import 'antd/dist/antd.css';
 import './LoginForm.css';
 
 import {DropboxOutlined} from '@ant-design/icons';
-import {Button, Col, Input, Row} from 'antd';
+import {Button, Col, Input, message, Row} from 'antd';
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import {login} from '../../services/userService';
-import {Link} from 'react-router-dom';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -27,7 +27,22 @@ class LoginForm extends React.Component {
             userName: this.state.username,
             password: this.state.password,
         };
-        login(loginInfo);
+        // TODO: Remove this after connect
+        window.location.href = '/';
+        const callback = (data) => {
+            if (data.status === 200) {
+                if (data.data.userType === -1) {
+                    message.error('您的账号已经被禁用！');
+                } else {
+                    localStorage.setItem('user', JSON.stringify(data.data.user));
+                    window.location.href = '/';
+                    message.success(data.msg);
+                }
+            } else {
+                message.error('登录失败');
+            }
+        };
+        login(loginInfo, callback);
     };
 
     render() {

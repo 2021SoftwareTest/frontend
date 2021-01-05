@@ -5,7 +5,7 @@ import {Button, Input, message, Space, Table} from 'antd';
 import React from 'react';
 import Highlighter from 'react-highlight-words';
 
-import {deleteUserInClass, getUsersInClass} from "../../services/userService";
+import {deleteCourseUser, getCourseUser} from "../../services/courseService";
 
 const dataSource = [
     {
@@ -53,7 +53,7 @@ class ClassUser extends React.Component {
         } else if (user.userType !== 0) {
             message.error("你没有权限");
         } else {
-            getUsersInClass({"classId": this.state.classId}, callback);
+            getCourseStudent({"classId": this.state.classId}, callback);
         }
     }
 
@@ -134,13 +134,13 @@ class ClassUser extends React.Component {
                 const callback = (data) => {
                     this.setState({dataSource: data});
                 };
-                getUsersInClass({"classId": this.state.classId}, callback);
+                getCourseUser({"classId": this.state.classId}, callback);
 
             } else {
                 message.error(data.msg);
             }
         };
-        deleteUserInClass({"classId": this.state.classId, "userId": userId}, callback);
+        deleteCourseUser({"classId": this.state.classId, "userId": userId}, callback);
     };
 
     render() {

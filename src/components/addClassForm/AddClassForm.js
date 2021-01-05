@@ -49,7 +49,7 @@ class AddClassForm extends React.Component {
             startTime: this.state.startTime,
             endTime: this.state.endTime,
         };
-        const userId = JSON.parse(localStorage.getItem('user')).user.userID;
+        const userId = JSON.parse(localStorage.getItem('user')).userID;
         const callback = (data) => {
             if (data.status === 200) {
                 message.success(data.msg);

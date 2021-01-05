@@ -7,11 +7,6 @@ import {withRouter} from 'react-router-dom';
 import LoginForm from '../../components/loginform/LoginForm';
 
 class LoginView extends React.Component {
-    componentDidMount() {
-        // let user = localStorage.getItem("user");
-        // this.setState({user:user});
-        console.log('LoginView');
-    }
 
     render() {
         return (

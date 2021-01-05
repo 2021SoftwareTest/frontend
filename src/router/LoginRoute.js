@@ -7,7 +7,7 @@ export class LoginRoute extends React.Component {
         // should be changed later
         this.state = {
             isAuthed: false,
-            hasAuthed: false,
+            hasAuthed: true,
         };
     }
 

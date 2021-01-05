@@ -2,7 +2,7 @@ import 'antd/dist/antd.css';
 import './LoginHeader.css';
 
 import {BellOutlined, CaretDownOutlined, UserOutlined} from '@ant-design/icons';
-import {Avatar, Badge, Col, Dropdown, Input, Menu, Row} from 'antd';
+import {Avatar, Badge, Col, Dropdown, Input, Menu, message, Row} from 'antd';
 import {Link} from 'react-router-dom';
 import React from 'react';
 
@@ -24,7 +24,7 @@ class LoginedHeader extends React.Component {
         const user = localStorage.getItem("user");
         let userType = 1;
         if (user) {
-            userType = JSON.parse(user).user.userType;
+            userType = JSON.parse(user).userType;
         }
         this.setState({
             userType: userType,
@@ -32,7 +32,16 @@ class LoginedHeader extends React.Component {
     }
 
     logoutOnClick = () => {
-        logout();
+        const callback = (data) => {
+            if (data.status === 200) {
+                localStorage.removeItem('user');
+                window.location.href = '/login';
+                message.success(data.msg);
+            } else {
+                message.error(data.msg);
+            }
+        };
+        logout(callback);
     };
 
     render() {
@@ -83,9 +92,9 @@ class LoginedHeader extends React.Component {
                         }
 
                         <Col offset={15} style={{paddingTop: 7, marginRight: 5, paddingLeft: 40}}>
-                            <a href='/notification'>
+                            <Link to={{pathname: '/user'}}>
                                 <BellOutlined style={{color: 'white', fontSize: 18}}/>
-                            </a>
+                            </Link>
                             <Badge status="processing" style={{marginTop: -10}}/>
                         </Col>
                         <Col style={{marginLeft: 10}}>
