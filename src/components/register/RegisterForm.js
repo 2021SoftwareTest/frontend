@@ -4,12 +4,12 @@ import './registercss.css';
 import {Button, Col, Input, message, Row} from 'antd';
 import React from 'react';
 
-import {register} from '../../services/userService';
+import {register, sendVerification} from '../../services/userService';
 
 class RegisterForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {username: '', email: '', password: '', school: '', ID: '', phone: '', authCode: ''};
+        this.state = {username: '', email: '', password: '', school: '', ID: '', phone: '', authCode: '', name:''};
     }
 
     usernameOnChange = (e) => {
@@ -40,6 +40,26 @@ class RegisterForm extends React.Component {
         this.setState({school: e.target.value});
     };
 
+    nameOnChange = (e) => {
+        this.setState({name: e.target.value});
+    };
+
+
+    sendVerification = () => {
+        const data = {
+            userName: this.state.userName,
+            email: this.state.email
+        };
+        const callback = (data) => {
+            if (data.status === 200) {
+                message.success(data.msg);
+            } else {
+                message.error(data.msg);
+            }
+        };
+        sendVerification(data, callback);
+    }
+
     onSubmit = () => {
         const registerInfo = {
             userName: this.state.username,
@@ -49,6 +69,7 @@ class RegisterForm extends React.Component {
             phone: this.state.phone,
             email: this.state.email,
             authcode: this.state.authCode,
+            name:this.state.name
         };
         const callback = (data) => {
             console.log(data);
@@ -144,9 +165,12 @@ class RegisterForm extends React.Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col span={24}>
+                        <Col span={16}>
                             <Input placeholder="请输入收到的验证码" value={registerInfo.authCode}
                                    onChange={this.authCodeOnChange} className="input"/>
+                        </Col>
+                        <Col span={6} offset={1}>
+                            <Button style={{marginTop: 10}} onClick={this.sendVerification}>发送验证码</Button>
                         </Col>
                     </Row>
                     <Row>

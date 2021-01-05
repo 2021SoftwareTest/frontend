@@ -75,9 +75,7 @@ export class UserProfile extends React.Component {
                 // console.log(this.formRef.current);
 
                 message.success(data.msg);
-            } else if (data.status === 306) {
-                message.error(data.msg);
-            } else if (data.status === 403) {
+            } else {
                 message.error(data.msg);
             }
         };

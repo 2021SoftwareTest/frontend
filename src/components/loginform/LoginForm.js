@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
     };
 
     onSubmit = () => {
-        const loginInfo = {
+        const data = {
             userName: this.state.username,
             password: this.state.password,
         };
@@ -39,10 +39,10 @@ class LoginForm extends React.Component {
                     message.success(data.msg);
                 }
             } else {
-                message.error('登录失败');
+                message.error(data.msg);
             }
         };
-        login(loginInfo, callback);
+        login(data, callback);
     };
 
     render() {

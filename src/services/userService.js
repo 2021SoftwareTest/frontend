@@ -1,5 +1,5 @@
 import {getRequest, postRequest} from '../utils/ajax';
-import {baseUrl,authUrl,verificationUrl,userUrl} from '../utils/config';
+import {authUrl, userUrl, verificationUrl} from '../utils/config';
 
 export const login = (data, callback) => {
     const url = authUrl + 'login';
@@ -21,6 +21,11 @@ export const register = (data, callback) => {
     postRequest(url, data, callback);
 };
 
+export const getOtherUserInfo = (data, callback) => {
+    const url = userUrl + 'otherinfo';
+    getRequest(url, data, callback);
+};
+
 export const getUserInfo = (data, callback) => {
     const url = userUrl + 'info';
     getRequest(url, data, callback);
@@ -31,17 +36,17 @@ export const saveUserInfo = (data, callback) => {
     postRequest(url, data, callback);
 };
 
-export const changePassword = (data, callback) => {
-    const url = userUrl + 'password';
-    postRequest(url, data, callback);
-};
+// export const changePassword = (data, callback) => {
+//     const url = userUrl + 'password';
+//     postRequest(url, data, callback);
+// };
 
-export const setAvatar = (data, callback) => {
-    const url = baseUrl + 'avatar';
-    postRequest(url, data, callback);
-};
+// export const setAvatar = (data, callback) => {
+//     const url = baseUrl + 'avatar';
+//     postRequest(url, data, callback);
+// };
 
-export const checkAuth = (data, callback) => {
+export const checkAuth = (callback) => {
     const url = authUrl + 'checkAuth';
-    getRequest(url, data, callback);
+    getRequest(url, undefined, callback);
 };

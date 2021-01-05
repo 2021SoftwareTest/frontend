@@ -1,6 +1,7 @@
 import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
 import {message} from "antd";
+import {checkAuth} from "../services/userService";
 
 export default class PrivateRoute extends React.Component {
     constructor(props) {
@@ -11,19 +12,18 @@ export default class PrivateRoute extends React.Component {
         };
     }
 
-    checkAuth = (data) => {
-        console.log(data);
-        if (data.status >= 0) {
-            this.setState({isAuthed: true, hasAuthed: true});
-        } else {
-            message.error(data.msg);
-            localStorage.removeItem('user');
-            this.setState({isAuthed: false, hasAuthed: true});
-        }
-    };
-
     componentDidMount() {
-        // userService.checkSession(this.checkAuth);
+        const callback = (data) => {
+            console.log(data);
+            if (data.status >= 0) {
+                this.setState({isAuthed: true, hasAuthed: true});
+            } else {
+                message.error(data.msg);
+                localStorage.removeItem('user');
+                this.setState({isAuthed: false, hasAuthed: true});
+            }
+        };
+        checkAuth(callback);
     }
 
     render() {
