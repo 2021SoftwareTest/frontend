@@ -52,6 +52,9 @@ class HomeworkRelease extends React.Component {
             if (data.status === 200) {
                 message.success(data.msg);
             }
+            else {
+                message.error(data.msg);
+            }
         };
         createHomework(data, callback);
     };
