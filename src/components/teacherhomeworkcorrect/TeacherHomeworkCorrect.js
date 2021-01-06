@@ -8,6 +8,8 @@ import {HomeworkDone} from '../../components/homeworkdone/HomeworkDone';
 
 import {getStuAnswerByAnsId} from "../../services/ansCheckService";
 import {getStuCheckByCheckId} from "../../services/ansCheckService";
+import {correctHomework} from "../../services/homeworkService";
+import {publishCheck} from "../../services/homeworkService";
 
 const dataAns = {
     answerId: 0,
@@ -28,6 +30,8 @@ const dataCheck = {
 class TeacherHomeworkCorrect extends React.Component {
     constructor(props) {
         super(props);
+        this.componentHwDone = React.createRef();
+        this.componentHwCorrect = React.createRef();
         this.userType = this.props.userType;
         this.state = {
             answerId: -1,
@@ -43,22 +47,21 @@ class TeacherHomeworkCorrect extends React.Component {
     }
 
     componentDidMount() {
-        let answerId, checkId;
         if (this.userType === 1) {  // 老师
-            answerId = this.props.userData.answerId;
-            checkId = this.props.userData.checkId;
+            this.answerId = this.props.userData.answerId;
+            this.checkId = this.props.userData.checkId;
         }
         else if (this.userType === 2) { // 学生
-            answerId = this.props.ansCheckData.answerId;
-            checkId = this.props.ansCheckData.checkId;
+            this.answerId = this.props.ansCheckData.answerId;
+            this.checkId = this.props.ansCheckData.checkId;
         }
-        if (answerId === -1) {
+        if (this.answerId === -1) {
             message.info("未提交作业");
             return;
         }
         // get stu's answer
         {
-            const args = {answerId: answerId};
+            const args = {answerId: this.answerId};
             const callback = (data) => {
                 if (data.status === 200) {
                     this.setState({
@@ -77,8 +80,8 @@ class TeacherHomeworkCorrect extends React.Component {
         }
         // get stu's check info
         {
-            if (checkId !== -1) {
-                const args = {checkId: checkId};
+            if (this.checkId !== -1) {
+                const args = {checkId: this.checkId};
                 const callback = (data) => {
                     if (data.status === 200) {
                         this.setState({
@@ -100,11 +103,46 @@ class TeacherHomeworkCorrect extends React.Component {
     }
 
     handleSubmit = () => {
-
+        if (this.answerId === -1) {
+            message.info("此学生未提交作业");
+            return;
+        }
+        // if (this.checkId !== -1) {
+        //     message.info("此作业已被批改 请点击发布");
+        //     return;
+        // }
+        const args = {
+            answerId: this.answerId,
+            score: this.componentHwCorrect.state.score,
+            comment: this.componentHwCorrect.state.comment,
+            description: this.componentHwDone.state.drawContent
+        };
+        const callback = (data) => {
+            if (data.status === 200) {
+                message.success(data.msg);
+            }
+            else {
+                message.error(data.msg);
+            }
+        };
+        correctHomework(args, callback);
     };
 
     handlePublish = () => {
-
+        if (this.checkId === -1) {
+            message.info("未提交批改 请提交批改");
+            return;
+        }
+        const args = {hwId: this.props.homeworkData.hwId};
+        const callback = (data) => {
+            if (data.status === 200) {
+                message.success(data.msg);
+            }
+            else {
+                message.error(data.msg);
+            }
+        };
+        publishCheck(args, callback);
     };
 
     render() {
@@ -131,16 +169,18 @@ class TeacherHomeworkCorrect extends React.Component {
                               userData={this.props.userData}
                               userType={userType}
                               stdAns={false}
+                              ref={(r) => (this.componentHwDone = r)}
                 />
                 <Divider orientation="left"><p className="divider-content">批改</p></Divider>
                 <HomeworkCorrect hwCorrectData={hwCorrectData}
                                  userType={userType}
+                                 ref={(r) => (this.componentHwCorrect = r)}
                 />
                 {
                     (this.userType === 1) ? (
                         <div style={{marginTop:20}}>
-                            <Button type="primary" onclick={this.handleSubmit}>提交批改</Button>
-                            <Button onclick={this.handlePublish} style={{marginLeft:20}}>发布批改</Button>
+                            <Button type="primary" onClick={this.handleSubmit}>提交批改</Button>
+                            <Button onClick={this.handlePublish} style={{marginLeft:20}}>发布批改</Button>
                         </div>
                     ) : (
                         <></>

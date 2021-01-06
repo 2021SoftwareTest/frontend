@@ -27,7 +27,8 @@ export class HomeworkDone extends React.Component {
             setTimeout(() => {
                 this.setState({
                     width: this.handinContent.current.clientWidth,
-                    height: this.handinContent.current.clientHeight
+                    height: this.handinContent.current.clientHeight,
+                    drawContent: this.props.hwDoneData.description
                 });
                 this.canvas.loadSaveData(this.props.hwDoneData.description);
             }, 1000);
