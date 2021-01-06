@@ -17,16 +17,17 @@ export const getCourseList = (data, callback) => {
     getRequest(url, data, callback);
 };
 
-
-export const getCourseHwlist = (data, callback) => {
+export const getCourseDetail = (data, callback) => {
     const url = courseUrl + 'detail';
     getRequest(url, data, callback);
 };
 
-export const getCourseDetail = (data, callback) => {
+export const getCourseHwlist = (data, callback) => {
     const url = courseUrl + 'hwlist';
     getRequest(url, data, callback);
 };
+
+
 
 export const deleteCourse = (data, callback) => {
     const url = courseUrl + 'delete';
