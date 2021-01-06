@@ -101,29 +101,29 @@ class ClassView extends React.Component {
         console.log("userType in view:" + userType);
         const content =
             curSection === 0 ? (
-                <ClassMainPage/>
+                <ClassMainPage courseId={this.state.courseId}/>
             ) : curSection === 1 ? (
-                <ClassNotice/>
+                <ClassNotice courseId={this.state.courseId}/>
             ) : curSection === 2 ? (
                 <ClassHomework courseId={this.state.courseId}/>
             ) : curSection === 3 ? (
-                <ClassDiscuss/>
+                <ClassDiscuss courseId={this.state.courseId}/>
             ) : curSection === 4 ? (
                 <></>
             ) : curSection === 5 ? (
-                <ClassUser/>
+                <ClassUser courseId={this.state.courseId}/>
             ) : curSection === 6 ? (
                 <></>
             ) : curSection === 7 ? (
-                <ClassOutline/>
+                <ClassOutline courseId={this.state.courseId}/>
             ) : curSection === 8 ? (
                 <></>
             ) : curSection === 9 ? (
-                <ClassUnit/>
+                <ClassUnit courseId={this.state.courseId}/>
             ) : curSection === 10 ? (
                 <ClassEdit courseId={this.state.courseId}/>
             ) : curSection === 11 ? (
-                <UserImport/>
+                <UserImport courseId={this.state.courseId}/>
             ) : curSection === 12 ? (
                 <HomeworkRelease courseId={this.courseId}/>
             ) : (

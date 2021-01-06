@@ -37,31 +37,31 @@ export class SideBar extends React.Component {
         const callback1 = (data) => {
             console.log(data);
             if (data.status === 200) {
-                console.log(data);
+                // console.log(data);
                 if (data.data) {
                     this.setState({
                         courseList: data.data,
                     });
                 }
-                message.success(data.msg);
+                // message.success(data.msg);
             } else {
-                message.error(data.msg);
+                // message.error(data.msg);
             }
         };
         getCourseList(data, callback1);
 
         const callback2 = (data) => {
-            console.log(data);
+            // console.log(data);
             if (data.status === 200) {
-                console.log(data);
+                // console.log(data);
                 if (data.data) {
                     this.setState({
                         homeworkList: data.data,
                     });
                 }
-                message.success(data.msg);
+                // message.success(data.msg);
             } else {
-                message.error(data.msg);
+                // message.error(data.msg);
             }
         };
 
@@ -82,7 +82,7 @@ export class SideBar extends React.Component {
             <Menu.Item key={item.homeworkID}>
                 <Link to={{pathname: '/homework', search: '?homeworkId=' + item.homeworkID}}>
                     <EditOutlined/>
-                    {item.homeworkName}
+                    {item.title}
                 </Link>
             </Menu.Item>
         ));

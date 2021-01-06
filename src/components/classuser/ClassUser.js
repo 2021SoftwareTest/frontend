@@ -10,8 +10,8 @@ import {deleteCourseUser, getCourseUser} from "../../services/courseService";
 const dataSource = [
     {
         userId: '0',
+        name: 'teacher',
         userType: '0',
-        userName: 'teacher',
         school: 'SJTU',
         ID: '00000',
         phone: '00000',
@@ -20,7 +20,7 @@ const dataSource = [
     {
         userId: '1',
         userType: '1',
-        userName: 'student',
+        name: 'student',
         school: 'SJTU',
         ID: '00001',
         phone: '00001',
@@ -33,7 +33,7 @@ class ClassUser extends React.Component {
 
     state = {
         dataSource: [],
-        classId: 0,
+        courseId: 0,
 
         searchText: '',
         searchedColumn: '',
@@ -42,19 +42,16 @@ class ClassUser extends React.Component {
     componentDidMount() {
         this.setState({
             dataSource: dataSource,
-            classId: 1,
+            courseId: this.props.courseId,
         });
         const callback = (data) => {
-            this.setState({dataSource: data});
+            console.log("getUser" + data);
+            this.setState({dataSource: data.data});
         };
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (user === null) {
-            message.error("请登录");
-        } else if (user.userType !== 0) {
-            message.error("你没有权限");
-        } else {
-            getCourseUser({"classId": this.state.classId}, callback);
-        }
+        const data = {
+            "courseId": this.props.courseId,
+        };
+        getCourseUser(data, callback);
     }
 
     getColumnSearchProps = (dataIndex) => ({
@@ -130,17 +127,11 @@ class ClassUser extends React.Component {
                 this.setState({
                     dataSource: dataSource.filter((item) => item.userId !== userId),
                 });
-
-                const callback = (data) => {
-                    this.setState({dataSource: data});
-                };
-                getCourseUser({"classId": this.state.classId}, callback);
-
             } else {
                 message.error(data.msg);
             }
         };
-        deleteCourseUser({"classId": this.state.classId, "userId": userId}, callback);
+        deleteCourseUser({"courseId": this.state.courseId, "userId": userId}, callback);
     };
 
     render() {
@@ -168,8 +159,8 @@ class ClassUser extends React.Component {
             },
             {
                 title: '姓名',
-                dataIndex: 'userName',
-                ...this.getColumnSearchProps('userName'),
+                dataIndex: 'name',
+                ...this.getColumnSearchProps('name'),
             },
             {
                 title: '学号',
@@ -187,7 +178,7 @@ class ClassUser extends React.Component {
                 dataIndex: 'action',
                 render: (text, record) => (
                     <Space size="middle">
-                        <Button onClick={this.handleDelete(record.userId)}>Delete</Button>
+                        <Button onClick={() => {this.handleDelete(record.userId);}}>Delete</Button>
                     </Space>
                 )
             },

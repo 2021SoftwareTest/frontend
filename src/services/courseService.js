@@ -1,4 +1,4 @@
-import {getRequest, putRequest, postRequest} from '../utils/ajax';
+import {getRequest, putRequest, postRequest, deleteRequest} from '../utils/ajax';
 
 import {courseUrl} from '../utils/config';
 
@@ -29,7 +29,7 @@ export const getCourseHwlist = (data, callback) => {
 
 export const deleteCourse = (data, callback) => {
     const url = courseUrl + 'delete';
-    getRequest(url, data, callback);
+    postRequest(url, data, callback);
 };
 
 export const getCourseUser = (data, callback) => {
@@ -52,12 +52,7 @@ export const addCourseUser = (data, callback) => {
     postRequest(url, data, callback);
 };
 
-export const chooseCourse = (data, callback) => {
-    const url = courseUrl + 'course';
-    postRequest(url, data, callback);
-};
-
-export const getCourseMessage = (data, callback) => {
-    const url = courseUrl + 'message';
-    getRequest(url, data, callback);
-};
+// export const chooseCourse = (data, callback) => {
+//     const url = courseUrl + 'course';
+//     postRequest(url, data, callback);
+// };

@@ -10,7 +10,7 @@ class AnnouncementCell extends React.Component {
 
     render() {
         // eslint-disable-next-line react/prop-types
-        const {title, content, time} = this.props.announcement;
+        const {title, content, msgTime} = this.props.announcement;
         return (
             <div className="announcement-cell">
                 <Row>
@@ -31,7 +31,7 @@ class AnnouncementCell extends React.Component {
                     </Col>
                     <Col span={4}>
                         <p>发布在</p>
-                        <p>{time}</p>
+                        <p>{msgTime}</p>
                     </Col>
                 </Row>
                 <Divider style={{margin: '10px 0'}}/>
