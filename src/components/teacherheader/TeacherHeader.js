@@ -56,39 +56,18 @@ class TeacherHeader extends React.Component {
                             this.props.userType <= 1 ?
                                 <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal"
                                       className="teacher-menu">
-                                    {/* <Menu.Item key="MainPage" icon={<HomeOutlined/>}>*/}
-                                    {/*    主 页*/}
-                                    {/* </Menu.Item>*/}
                                     <Menu.Item key="Announcement" icon={<NotificationOutlined/>}>
                                         公 告
                                     </Menu.Item>
                                     <Menu.Item key="Teams" icon={<FormOutlined/>}>
                                         作 业
                                     </Menu.Item>
-                                    {/* <Menu.Item key="Project" icon={<TeamOutlined/>}>*/}
-                                    {/*    讨 论*/}
-                                    {/* </Menu.Item>*/}
-                                    {/* <Menu.Item key="Score" icon={<CheckOutlined/>}>*/}
-                                    {/*    评 分*/}
-                                    {/* </Menu.Item>*/}
                                     <Menu.Item key="User" icon={<UserOutlined/>}>
                                         用 户
                                     </Menu.Item>
                                     <Menu.Item key="Import" icon={<UserAddOutlined/>}>
                                         导入
                                     </Menu.Item>
-                                    {/* <Menu.Item key="File" icon={<FileOutlined/>}>*/}
-                                    {/*    文 件*/}
-                                    {/* </Menu.Item>*/}
-                                    {/* <Menu.Item key="Outline" icon={<ProjectOutlined/>}>*/}
-                                    {/*    大 纲*/}
-                                    {/* </Menu.Item>*/}
-                                    {/* <Menu.Item key="Test" icon={<LineChartOutlined/>}>*/}
-                                    {/*    测 验*/}
-                                    {/* </Menu.Item>*/}
-                                    {/* <Menu.Item key="Unit" icon={<DeploymentUnitOutlined/>}>*/}
-                                    {/*    单 元*/}
-                                    {/* </Menu.Item>*/}
                                     <Menu.Item key="Release" icon={<FileOutlined/>}>
                                         发 布
                                     </Menu.Item>
@@ -100,33 +79,12 @@ class TeacherHeader extends React.Component {
                                 // student
                                 <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal"
                                       className="teacher-menu">
-                                    {/* <Menu.Item key="MainPage" icon={<HomeOutlined/>}>*/}
-                                    {/*    主 页*/}
-                                    {/* </Menu.Item>*/}
                                     <Menu.Item key="Announcement" icon={<NotificationOutlined/>}>
                                         公 告
                                     </Menu.Item>
                                     <Menu.Item key="Teams" icon={<FormOutlined/>}>
                                         作 业
                                     </Menu.Item>
-                                    {/* <Menu.Item key="Project" icon={<TeamOutlined/>}>*/}
-                                    {/*    讨 论*/}
-                                    {/* </Menu.Item>*/}
-                                    {/* <Menu.Item key="Score" icon={<CheckOutlined/>}>*/}
-                                    {/*    评 分*/}
-                                    {/* </Menu.Item>*/}
-                                    {/* <Menu.Item key="File" icon={<FileOutlined/>}>*/}
-                                    {/*    文 件*/}
-                                    {/* </Menu.Item>*/}
-                                    {/* <Menu.Item key="Outline" icon={<ProjectOutlined/>}>*/}
-                                    {/*    大 纲*/}
-                                    {/* </Menu.Item>*/}
-                                    {/* <Menu.Item key="Test" icon={<LineChartOutlined/>}>*/}
-                                    {/*    测 验*/}
-                                    {/* </Menu.Item>*/}
-                                    {/* <Menu.Item key="Unit" icon={<DeploymentUnitOutlined/>}>*/}
-                                    {/*    单 元*/}
-                                    {/* </Menu.Item>*/}
                                 </Menu>
                         }
                     </Col>
