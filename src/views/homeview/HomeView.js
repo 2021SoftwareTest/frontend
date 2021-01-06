@@ -1,6 +1,6 @@
 import './HomeView.css';
 
-import {Col, Divider, Row} from 'antd';
+import {Col, Divider, message, Row} from 'antd';
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 
@@ -10,6 +10,7 @@ import MyFooter from '../../components/footer/MyFooter';
 import LoginedHeader from '../../components/loginedheader/LoginedHeader';
 import {ReplyList} from '../../components/replylist/ReplyList';
 import {SideBar} from '../../components/sidebar/SideBar';
+import {getCourseList} from "../../services/courseService";
 
 const data = [
     {courseImage: "xxx", courseId: 1, courseName: "CSE1", courseTerm: "2020-2021 Fall"},
@@ -23,14 +24,37 @@ class HomeView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: [],
             courseList: []
+        };
+        this.state = {
+            courseList: data
         };
     }
 
     componentDidMount() {
-        const user = localStorage.getItem('user');
-        this.setState({user: user, courseList: data});
+        let userId = 1;
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            userId = user.userID;
+        }
+        const data = {
+            userId: userId,
+        };
+        const callback = (data) => {
+            console.log(data);
+            if (data.status === 200) {
+                console.log(data);
+                if (data.data) {
+                    this.setState({
+                        courseList: data.data,
+                    });
+                }
+                message.success(data.msg);
+            } else {
+                message.error(data.msg);
+            }
+        };
+        getCourseList(data, callback);
     }
 
     render() {

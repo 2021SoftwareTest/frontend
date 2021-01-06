@@ -27,8 +27,6 @@ export const getCourseHwlist = (data, callback) => {
     getRequest(url, data, callback);
 };
 
-
-
 export const deleteCourse = (data, callback) => {
     const url = courseUrl + 'delete';
     getRequest(url, data, callback);

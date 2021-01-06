@@ -4,57 +4,91 @@ import {Divider} from 'antd';
 import React from 'react';
 
 import {HomeworkList} from '../homeworklist/HomeworkList';
+import {getCourseHwlist} from "../../services/courseService";
 
 const todoHomework = [
     {
-        homeworkId: 1,
-        title: '语文作业3',
-        tag: '未读',
-        comment: 'deadline: Today',
+        hwId: 1,
+        courseId:1,
+        userId:1,
+        startTime:"2021-1-1",
+        endTime:"2021-1-8",
+        title: '语文作业1',
+        score:'100',
+        state:1,
+        answerId: 1,
     },
     {
-        homeworkId: 2,
-        title: '语文作业4',
-        tag: '未读',
-        comment: 'deadline: Today',
-    },
-    {
-        homeworkId: 3,
-        title: '数学作业2',
-        tag: '未读',
-        comment: '最后一题比较难，同学们注意一下',
-    },
-    {
-        homeworkId: 4,
-        title: '英语作业2',
-        tag: '正在做',
-        comment: 'deadline: Today',
+        hwId: 2,
+        courseId:1,
+        userId:1,
+        startTime:"2021-1-1",
+        endTime:"2021-1-8",
+        title: '语文作业2',
+        score:'100',
+        state:2,
+        answerId: 1,
     },
 ];
 const doneHomework = [
     {
-        title: '语文作业1',
-        tag: '已完成',
-        comment: '做的不错',
+        hwId: 3,
+        courseId:1,
+        userId:1,
+        startTime:"2021-1-1",
+        endTime:"2021-1-8",
+        title: '语文作业3',
+        score:'100',
+        state:3,
+        answerId: 1,
     },
     {
-        title: '语文作业2',
-        tag: '请订正',
-        comment: '作文自己再琢磨琢磨',
-    },
-    {
-        title: '数学作业1',
-        tag: '已完成',
-        comment: '有进步',
-    },
-    {
-        title: '英语作业1',
-        tag: '已结束',
-        comment: '无',
+        hwId: 4,
+        courseId:1,
+        userId:1,
+        startTime:"2021-1-1",
+        endTime:"2021-1-8",
+        title: '语文作业4',
+        score:'100',
+        state:4,
+        answerId: 1,
     },
 ];
 
 class ClassHomework extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            todoHomework: todoHomework,
+            doneHomework: doneHomework,
+            courseId: props.courseId,
+        }
+    }
+
+    componentDidMount() {
+        const data = {
+            courseId: this.state.courseId,
+        };
+        const callback = (data) => {
+            todoHomework = [];
+            doneHomework = [];
+            for (let i = 0; i < data.data.length(); i++) {
+                if (data.data[i].status <= 2) {
+                    todoHomework.push(data.data[i]);
+                } else {
+                    doneHomework.push(data.data[i]);
+                }
+            }
+            this.setState({
+                todoHomework: todoHomework,
+                doneHomework: doneHomework
+            });
+
+        };
+        getCourseHwlist(data, callback);
+    }
+
     render() {
         return (
             <div className="class-homework">

@@ -8,16 +8,6 @@ import {editCourse, getCourseDetail} from "../../services/courseService";
 
 const {TextArea} = Input;
 
-const classInfo = {
-    endTime: "2020-1-1",
-    startTime: "2020-7-1",
-    courseName: "六年级语文",
-    courseId: 1,
-    introduction: "这个老师很懒，他没有写描述。",
-    textbooks: "六年级语文书",
-    status: "0"
-};
-
 class ClassInfo extends React.Component {
     constructor(props) {
         super(props);

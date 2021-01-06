@@ -105,7 +105,7 @@ class ClassView extends React.Component {
             ) : curSection === 1 ? (
                 <ClassNotice/>
             ) : curSection === 2 ? (
-                <ClassHomework/>
+                <ClassHomework courseId={this.state.courseId}/>
             ) : curSection === 3 ? (
                 <ClassDiscuss/>
             ) : curSection === 4 ? (

@@ -1,5 +1,4 @@
 import {getRequest, postRequest, putRequest} from '../utils/ajax';
-
 import {homeworkUrl} from '../utils/config';
 
 
@@ -30,6 +29,11 @@ export const getStudentAnswer = (data, callback) => {
 
 export const getHomeworkSituation = (data, callback) => {
     const url = homeworkUrl + 'cmtlist';
+    getRequest(url, data, callback);
+};
+
+export const getUserHomework = (data, callback) => {
+    const url = homeworkUrl + 'user';
     getRequest(url, data, callback);
 };
 
