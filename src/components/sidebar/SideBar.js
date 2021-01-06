@@ -2,8 +2,8 @@ import './SideBar.css';
 
 import {BookOutlined, EditOutlined} from '@ant-design/icons';
 import {Layout, Menu, message} from 'antd';
-import {Link} from 'react-router-dom';
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import {getCourseList} from '../../services/courseService';
 
@@ -48,6 +48,7 @@ export class SideBar extends React.Component {
             }
         };
         getCourseList(data, callback);
+
     }
 
     render() {
