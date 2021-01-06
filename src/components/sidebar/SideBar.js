@@ -6,6 +6,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import {getCourseList} from '../../services/courseService';
+import {getUserHomework} from "../../services/homeworkService";
 
 const {Sider} = Layout;
 
@@ -33,7 +34,7 @@ export class SideBar extends React.Component {
         const data = {
             userId: userId,
         };
-        const callback = (data) => {
+        const callback1 = (data) => {
             console.log(data);
             if (data.status === 200) {
                 console.log(data);
@@ -47,7 +48,24 @@ export class SideBar extends React.Component {
                 message.error(data.msg);
             }
         };
-        getCourseList(data, callback);
+        getCourseList(data, callback1);
+
+        const callback2 = (data) => {
+            console.log(data);
+            if (data.status === 200) {
+                console.log(data);
+                if (data.data) {
+                    this.setState({
+                        homeworkList: data.data,
+                    });
+                }
+                message.success(data.msg);
+            } else {
+                message.error(data.msg);
+            }
+        };
+
+        getUserHomework(data, callback2);
 
     }
 
@@ -63,7 +81,7 @@ export class SideBar extends React.Component {
         const homeworkList = this.state.homeworkList.map((item) => (
             <Menu.Item key={item.homeworkID}>
                 <Link to={{pathname: '/homework', search: '?homeworkId=' + item.homeworkID}}>
-                    <BookOutlined/>
+                    <EditOutlined/>
                     {item.homeworkName}
                 </Link>
             </Menu.Item>

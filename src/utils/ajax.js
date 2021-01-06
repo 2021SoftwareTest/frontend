@@ -40,7 +40,8 @@ const postRequest = (url, json, callback) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        credentials: 'include',
+        // credentials: 'include',
+        mode: 'cors',
     };
 
     fetch(url, opts)
@@ -60,9 +61,8 @@ const getRequest = (url, json, callback) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        credentials: 'include',
-        // mode: 'cors',
-        // cache: 'default'
+        // credentials: 'include',
+        mode: 'cors',
     };
     // console.log("参数",url+"?"+parseParams(json));
     if (json) {
@@ -91,9 +91,8 @@ const deleteRequest = (url, json, callback) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        credentials: 'include',
+        // credentials: 'include',
         mode: 'cors',
-        cache: 'default',
     };
     // console.log("参数",url+"?"+parseParams(json));
 
@@ -118,7 +117,8 @@ const putRequest = (url, json, callback) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        credentials: 'include',
+        // credentials: 'include',
+        mode: 'cors',
     };
 
     fetch(url, opts)

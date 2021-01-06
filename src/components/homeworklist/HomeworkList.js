@@ -20,31 +20,31 @@ export class HomeworkList extends React.Component {
     render() {
         const TagSwitch = (type) => {
             switch (type) {
-                case '未读':
+                case 0:
                     return (
                         <Tag icon={<ExclamationCircleOutlined/>} color="warning">
                             未读
                         </Tag>
                     );
-                case '正在做':
+                case 1:
                     return (
                         <Tag icon={<SyncOutlined spin/>} color="processing">
                             正在做
                         </Tag>
                     );
-                case '已完成':
+                case 2:
                     return (
                         <Tag icon={<CheckCircleOutlined/>} color="success">
                             已完成
                         </Tag>
                     );
-                case '请订正':
+                case 3:
                     return (
                         <Tag icon={<CloseCircleOutlined/>} color="error">
                             请订正
                         </Tag>
                     );
-                case '已结束':
+                case 4:
                     return (
                         <Tag icon={<MinusCircleOutlined/>} color="default">
                             已结束
@@ -74,7 +74,7 @@ export class HomeworkList extends React.Component {
                                             pathname: "/homework",
                                             search: "homeworkId=" + item.homeworkId
                                         }}>{item.title} </Link>
-                                        {TagSwitch(item.tag)}
+                                        {TagSwitch(item.state)}
                                     </div>
                                 }
                                 description={item.comment}

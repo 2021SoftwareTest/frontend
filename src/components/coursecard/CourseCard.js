@@ -2,9 +2,10 @@ import 'antd/dist/antd.css';
 import './CourseCard.css';
 
 import {CommentOutlined, FolderOutlined, FormOutlined, NotificationOutlined} from '@ant-design/icons';
-import {Col, Dropdown, Image, Menu, Row} from 'antd';
+import {Col, Dropdown, Image, Menu, message, Row} from 'antd';
 import {Link} from 'react-router-dom';
 import React from 'react';
+import {deleteCourse} from "../../services/courseService";
 
 /*
  * Data structure of props.data:
@@ -17,8 +18,20 @@ class CourseCard extends React.Component {
         console.log(e.key);
     };
 
-    onDelete = (e) => {
-        console.log("delete" + e.key);
+    onDelete = () => {
+        const {courseId} = this.props.data;
+        const data = {
+            courseId: courseId,
+        };
+        const callback = (data) => {
+            console.log(data);
+            if (data.status === 200) {
+                message.success(data.msg);
+            } else {
+                message.error(data.msg);
+            }
+        };
+        deleteCourse(data, callback);
     }
 
     render() {
