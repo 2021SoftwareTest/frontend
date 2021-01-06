@@ -58,7 +58,7 @@ export class UserProfile extends React.Component {
                 this.setState({
                     userId: userInfo.userId,
                     userType: userInfo.userType,
-                    userName: userInfo.userName,
+                    userName: userInfo.name,
                     school: userInfo.school,
                     ID: userInfo.ID,
                     phone: userInfo.phone,
@@ -66,7 +66,7 @@ export class UserProfile extends React.Component {
                 });
                 const obj = {
                     id: userInfo.ID,
-                    name: userInfo.userName,
+                    name: userInfo.name,
                     email: userInfo.email,
                     phone: userInfo.phone,
                     school: userInfo.school,
@@ -74,7 +74,7 @@ export class UserProfile extends React.Component {
                 this.formRef.current.setFieldsValue(obj);
                 // console.log(this.formRef.current);
 
-                message.success(data.msg);
+                // message.success(data.msg);
             } else {
                 message.error(data.msg);
             }

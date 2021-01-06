@@ -1,13 +1,13 @@
 import {getRequest} from '../utils/ajax';
-import {baseUrl} from '../utils/config';
-const messageUrl = baseUrl + 'message';
+import {messageUrl} from '../utils/config';
+
 
 export const getMessageByUserId = (data, callback) => {
-    const url = messageUrl + 'getMessageByUserId';
+    const url = messageUrl + 'userId';
     getRequest(url, data, callback);
 };
 
 export const getMessageByCourseId = (data, callback) => {
-    const url = messageUrl + 'getCourseByUserId';
+    const url = messageUrl + 'courseId';
     getRequest(url, data, callback);
 };

@@ -1,17 +1,11 @@
 import './UserImport.css';
 
-import {Button, Col, Row} from 'antd';
+import {Button, Col, message, Row} from 'antd';
 import React from 'react';
-
-const data = [
-    {userId: 1, name: "xxx", school: "SJTU", ID: "518021910xxx"},
-    {userId: 2, name: "xxx", school: "SJTU", ID: "518021910xxx"},
-    {userId: 3, name: "xxx", school: "SJTU", ID: "518021910xxx"},
-    {userId: 4, name: "xxx", school: "SJTU", ID: "518021910xxx"},
-    {userId: 5, name: "xxx", school: "SJTU", ID: "518021910xxx"}
-];
+import {addCourseUser, getCourseNotInUser} from "../../services/courseService";
 
 class UserImport extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -21,7 +15,22 @@ class UserImport extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({unselected: data});
+        this.setState({
+            unselected: [
+                {userId: 1, name: "xxx", school: "SJTU", ID: "518021910xxx"},
+                {userId: 2, name: "xxx", school: "SJTU", ID: "518021910xxx"},
+                {userId: 3, name: "xxx", school: "SJTU", ID: "518021910xxx"},
+                {userId: 4, name: "xxx", school: "SJTU", ID: "518021910xxx"},
+                {userId: 5, name: "xxx", school: "SJTU", ID: "518021910xxx"}
+            ]
+        });
+        const data = {
+            "courseId": this.props.courseId,
+        };
+        const callback = (data) => {
+            this.setState({unselected: data.data});
+        };
+        getCourseNotInUser(data, callback);
     }
 
     handleSelect = (userId) => {
@@ -38,9 +47,26 @@ class UserImport extends React.Component {
         _selected.push(tmpObj);
         this.setState({unselected: _unselected, selected: _selected});
     }
+    len;
 
     onSubmit = () => {
-        console.log(this.state.selected);
+        const selected = this.state.selected;
+        let students = [];
+        for (let i = 0, len = selected; i < len; i++) {
+            students.push({userId: selected.userId});
+        }
+        const data = {
+            students: students,
+            courseId: this.props.courseId,
+        };
+        const callback = (data) => {
+            if (data.status === 200) {
+                message.success(data.msg);
+            } else {
+                message.error(data.msg);
+            }
+        };
+        addCourseUser(data, callback);
     };
 
     handleUnselect = (userId) => {

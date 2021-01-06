@@ -3,44 +3,45 @@ import './ReplyList.css';
 import {Avatar, Divider, List} from 'antd';
 import React from 'react';
 
-const data = [
-    {
-        title: '语文1',
-        comment: '做的不错',
-        score: 95,
-    },
-    {
-        title: '数学2',
-        comment: '第五题订正一下',
-        score: 80,
-    },
-    {
-        title: '英语3',
-        comment: 'Good job',
-        score: 100,
-    },
-    {
-        title: '编程4',
-        comment: '下课过来找我',
-        score: 0,
-    },
-];
+import {getMessageByUserId} from "../../services/messageService";
+import {Link} from "react-router-dom";
 
 export class ReplyList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            announcements: [],
+        };
+    }
+
+    componentDidMount() {
+
+        const callback = (data) => {
+            console.log(data);
+            this.setState({announcements: data.data});
+        };
+        getMessageByUserId(undefined, callback);
+    }
+
     render() {
+        const announcements = this.state.announcements;
         return (
             <div>
                 <Divider orientation="left">教师回复</Divider>
                 <div className="reply-list">
                     <List
                         itemLayout="horizontal"
-                        dataSource={data}
+                        dataSource={announcements}
                         renderItem={(item) => (
-                            <List.Item extra={<div>score: {item.score}</div>}>
+                            // <List.Item extra={<div>score: {item.score}</div>}>
+                            <List.Item>
                                 <List.Item.Meta avatar={<Avatar
                                     src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>}
-                                                title={<a href="https://ant.design">{item.title}</a>}
-                                                description={item.comment}/>
+                                                title={<Link to={{
+                                                    pathname: "/class",
+                                                    search: "?classId?" + item.courseId
+                                                }}>{item.title}</Link>}
+                                                description={item.content}/>
                             </List.Item>
                         )}
                     />

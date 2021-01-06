@@ -20,15 +20,15 @@ class ClassInfo extends React.Component {
             textbooks: "",
             status: ""
         };
-        this.state = {
-            endTime: "2020-7-1",
-            startTime: "2020-1-1",
-            courseName: "六年级语文",
-            courseId: 1,
-            introduction: "这个老师很懒，他没有写描述。",
-            textbooks: "六年级语文书",
-            status: "0"
-        };
+        // this.state = {
+        //     endTime: "2020-7-1",
+        //     startTime: "2020-1-1",
+        //     courseName: "六年级语文",
+        //     courseId: 1,
+        //     introduction: "这个老师很懒，他没有写描述。",
+        //     textbooks: "六年级语文书",
+        //     status: "0"
+        // };
     }
 
     componentDidMount() {
@@ -37,6 +37,7 @@ class ClassInfo extends React.Component {
             courseId: this.props.courseId,
         };
         const callback = (data) => {
+            console.log(data);
             this.setState({
                 endTime: data.data.endTime,
                 startTime: data.data.startTime,

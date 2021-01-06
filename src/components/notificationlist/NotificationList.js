@@ -5,12 +5,7 @@ import {Button, Col, Divider, Dropdown, Input, Menu, Row} from 'antd';
 import React from 'react';
 
 import AnnouncementCell from '../announcementcell/AnnouncementCell';
-
-const announcementContentEx = [
-    {title: '数学作业1', content: '你的数学作业第五题有问题', isread: '0', time: '2020年11月15日 15:16:15'},
-    {title: '语文作业2', content: '语文作业2已经完成批改', isread: '1', time: '2020年11月15日 15:12:15'},
-    {title: '英语作业4', content: '你的老师给你布置了新作业，快去看看吧', isread: '0', time: '2020年11月15日 15:13:15'},
-];
+import {getMessageByCourseId, getMessageByUserId} from "../../services/messageService";
 
 function handleMenuClick(e) {
     console.log('click', e);
@@ -28,13 +23,25 @@ const {Search} = Input;
 
 export class NotificationList extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            announcements: [],
+        };
+    }
+
     componentDidMount() {
+        const callback = (data) => {
+            console.log("getMessageByUserId");
+            console.log(data);
+            this.setState({announcements: data.data});
+        };
+        getMessageByUserId(undefined, callback);
     }
 
     render() {
-        const announcementContent = announcementContentEx.map((item) => <AnnouncementCell announcement={item}
+        const announcementContent = this.state.announcements.map((item) => <AnnouncementCell announcement={item}
                                                                                           key={item.title}/>);
-
         return (
             <div className="class-notice">
                 <Row>

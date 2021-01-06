@@ -49,7 +49,7 @@ class HomeView extends React.Component {
                         courseList: data.data,
                     });
                 }
-                message.success(data.msg);
+                // message.success(data.msg);
             } else {
                 message.error(data.msg);
             }

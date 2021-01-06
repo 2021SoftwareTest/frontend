@@ -7,3 +7,4 @@ export const verificationUrl = baseUrl + 'verification/';
 export const homeworkUrl = baseUrl + 'homework/';
 export const answerUrl = baseUrl + 'answer/';
 export const courseUrl = baseUrl + 'course/';
+export const messageUrl = baseUrl + 'message/';

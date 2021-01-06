@@ -3,8 +3,6 @@ import './HomeworkRelease.css';
 import {Avatar, Button, Col, Comment, DatePicker, Divider, Input, InputNumber, Row, Space, Typography} from 'antd';
 import React from 'react';
 
-import {HomeworkHandin} from '../homeworkhandin/HomeworkHandin';
-
 const {TextArea} = Input;
 const {Title} = Typography;
 
@@ -46,7 +44,6 @@ class HomeworkRelease extends React.Component {
     };
 
     onSubmit = () => {
-
     };
 
     render() {
