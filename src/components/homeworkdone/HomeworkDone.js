@@ -19,24 +19,18 @@ export class HomeworkDone extends React.Component {
             width: 400,
             height: 400,
             drawContent: "",
-
-            name: "",
-            ID: ""
         };
     }
 
     componentDidMount() {
         if (!this.props.stdAns) {   // 针对非标答界面 需要canvas
-            if (this.userType === 1) {  // 1: 老师
-                this.setState({name: this.props.userData.name, ID: this.props.userData.ID});
-            }
             setTimeout(() => {
                 this.setState({
                     width: this.handinContent.current.clientWidth,
                     height: this.handinContent.current.clientHeight
                 });
                 this.canvas.loadSaveData(this.props.hwDoneData.description);
-            }, 100);
+            }, 1000);
         }
     };
 
@@ -60,7 +54,11 @@ export class HomeworkDone extends React.Component {
             lazyRadius: 0
         };
         const {commitTime, content, note} = this.props.hwDoneData;
-        const {name, ID} = this.state;
+        let name, ID;
+        if (!this.props.stdAns) {       // std answer界面没有name&ID
+            name = this.props.userData.name;
+            ID = this.props.userData.ID
+        }
         return (
             <div>
                 {(this.userType === 1 && !this.props.stdAns) ? (

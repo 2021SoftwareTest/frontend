@@ -1,11 +1,15 @@
 import "./HomeworkContent.css";
 
 import React from 'react';
-import {Avatar, Button, Comment, Input} from "antd";
+import {Avatar, Button, Comment, Input, message} from "antd";
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {CKEditor} from '@ckeditor/ckeditor5-react';
 import {HomeworkDetail} from "../homeworkdetail/HomeworkDetail";
 
+import {getStuAnswerByAnsId} from "../../services/ansCheckService";
+import {submitStuAns} from "../../services/ansCheckService";
+import {publishRightAnswer} from "../../services/homeworkService";
+import {postRightAnswer} from "../../services/homeworkService";
 
 const {TextArea} = Input;
 
@@ -13,15 +17,94 @@ const {TextArea} = Input;
 class HomeworkContent extends React.Component {
     constructor(props) {
         super(props);
+        this.userType = this.props.userType;
         this.state = {
             hwContent: "",
             noteContent: "",
-            commentContent: ""
         };
     };
 
-    handleSubmit = () => {
+    componentDidMount() {
+        if (this.userType === 2) {  // 学生
+            setTimeout(() => {
+                const {answerId} = this.props.ansCheckData;
+                console.log(this.props.ansCheckData);
+                if (answerId !== -1) {
+                    let args = {answerId: answerId};
+                    const callback = (data) => {
+                        console.log(data);
+                        if (data.status === 200) {
+                            this.setState({
+                                hwContent: data.data.content,
+                                noteContent: data.data.note
+                            });
+                            message.success(data.msg);
+                        }
+                        else {
+                            message.error(data.msg);
+                        }
+                    };
+                    getStuAnswerByAnsId(args, callback);
+                }
+            },1000);
+        }
+    }
 
+    handleStdAnsPublish = () => {
+        const {hwId, standardAnswerId} = this.props.homeworkData;
+        if (standardAnswerId === -1) {
+            message.info("请先提交标准答案再选择发布");
+            return;
+        }
+        const args = { hwId: hwId };
+        const callback = (data) => {
+            if (data.status === 200) {
+                message.success(data.msg);
+            }
+            else {
+                message.error(data.msg);
+            }
+        };
+        publishRightAnswer(args, callback);
+    };
+
+    handleSubmit = () => {
+        const {hwId} = this.props.homeworkData;
+        if (this.userType === 1) {  // 老师
+            const args = {
+                hwId: hwId,
+                content: this.state.hwContent,
+                note: this.state.noteContent
+            };
+            const callback = (data) => {
+                console.log(data);
+              if (data.status === 200) {
+                  message.success(data.msg);
+              }
+              else {
+                  message.error(data.msg);
+              }
+            };
+            postRightAnswer(args, callback);
+        }
+        else if (this.userType === 2) { // 学生
+            let myDate = new Date();
+            const args = {
+                hwId: hwId,
+                commitTime: myDate.toLocaleDateString(),
+                content: this.state.hwContent,
+                note: this.state.noteContent
+            };
+            const callback = (data) => {
+                if (data.status === 200) {
+                    message.success(data.msg);
+                }
+                else {
+                    message.error(data.msg);
+                }
+            };
+            submitStuAns(args, callback);
+        }
     };
 
     handleHomeworkChange = (event, editor) => {
@@ -30,7 +113,7 @@ class HomeworkContent extends React.Component {
         // console.log({ event, editor, data });
     };
 
-    handleCommentChange = (e) => {
+    handleNoteChange = (e) => {
         console.log(e.target.value);
         this.setState({commentContent: e.target.value});
     };
@@ -42,7 +125,7 @@ class HomeworkContent extends React.Component {
                 <div className="editor">
                     <CKEditor
                         editor={ClassicEditor}
-                        data="<p>请输入文本</p>"
+                        data={this.state.hwContent}
                         onReady={(editor) => {
                             console.log('Editor is ready to use!', editor);
                         }}
@@ -59,11 +142,23 @@ class HomeworkContent extends React.Component {
                     <Comment
                         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
                                         alt="Han Solo"/>}
-                        content={<TextArea rows={4} onChange={this.handleCommentChange}
-                                           value={this.state.commentContent}/>}
+                        content={<TextArea rows={4} onChange={this.handleNoteChange}
+                                           value={this.state.noteContent}/>}
                     />
                 </div>
                 <Button className="submit-button" type="primary" onClick={this.handleSubmit}>提交</Button>
+                {
+                    (this.userType === 1) ? (
+                        <Button className="submit-button"
+                                onClick={this.handleStdAnsPublish}
+                                style={{marginLeft: 20}}
+                        >
+                            发布标准答案
+                        </Button>
+                    ) : (
+                        <></>
+                    )
+                }
             </div>
         );
     }

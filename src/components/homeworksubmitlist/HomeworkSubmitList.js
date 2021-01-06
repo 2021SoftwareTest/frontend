@@ -1,111 +1,10 @@
 import "./HomeworkSubmitList.css"
 
 import React from "react";
-import {Col, Row, Tag} from 'antd';
+import {Col, message, Row, Tag} from 'antd';
 
+import {getHomeworkSubmissionList} from '../../services/homeworkService';
 
-const data = [
-    {
-        userId: 1,
-        name: "ckkk",
-        ID: "518021910xxx",
-        school: "SJTU",
-        state: 0,
-        answerId: null,
-        checkId: null,
-        standardAnswerId: null
-    },
-    {
-        userId: 1,
-        name: "ckkkk",
-        ID: "518021910xxx",
-        school: "SJTU",
-        state: 1,
-        answerId: null,
-        checkId: null,
-        standardAnswerId: null
-    },
-    {
-        userId: 1,
-        name: "ckkkkk",
-        ID: "518021910xxx",
-        school: "SJTU",
-        state: 2,
-        answerId: null,
-        checkId: null,
-        standardAnswerId: null
-    },
-    {
-        userId: 1,
-        name: "ckkkkkk",
-        ID: "518021910xxx",
-        school: "SJTU",
-        state: 3,
-        answerId: null,
-        checkId: null,
-        standardAnswerId: null
-    },
-    {
-        userId: 1,
-        name: "ckkkkkkk",
-        ID: "518021910xxx",
-        school: "SJTU",
-        state: 4,
-        answerId: null,
-        checkId: null,
-        standardAnswerId: null
-    },
-    {
-        userId: 1,
-        name: "ckkkkkkkk",
-        ID: "518021910xxx",
-        school: "SJTU",
-        state: 1,
-        answerId: null,
-        checkId: null,
-        standardAnswerId: null
-    },
-    {
-        userId: 1,
-        name: "ckkkkkkkkk",
-        ID: "518021910xxx",
-        school: "SJTU",
-        state: 2,
-        answerId: null,
-        checkId: null,
-        standardAnswerId: null
-    },
-    {
-        userId: 1,
-        name: "ckkkkkkkkkk",
-        ID: "518021910xxx",
-        school: "SJTU",
-        state: 2,
-        answerId: null,
-        checkId: null,
-        standardAnswerId: null
-    },
-    {
-        userId: 1,
-        name: "ckkkkkkkkkkk",
-        ID: "518021910xxx",
-        school: "SJTU",
-        state: 3,
-        answerId: null,
-        checkId: null,
-        standardAnswerId: null
-    },
-    {
-        userId: 1,
-        name: "ckkkkkkkkkkkk",
-        ID: "518021910xxx",
-        school: "SJTU",
-        state: 2,
-        answerId: null,
-        checkId: null,
-        standardAnswerId: null
-    },
-];
 
 class HomeworkSubmitList extends React.Component {
     constructor(props) {
@@ -117,7 +16,18 @@ class HomeworkSubmitList extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({studentList: data});
+        const args = { hwId: this.props.homeworkData.hwId };
+        const callback = (data) => {
+            console.log(data);
+            if (data.status === 200) {
+                this.setState({studentList:data.data});
+                message.success(data.msg);
+            }
+            else {
+                message.error(data.msg);
+            }
+        };
+        getHomeworkSubmissionList(args, callback);
     }
 
     handleListItemClick(item) {

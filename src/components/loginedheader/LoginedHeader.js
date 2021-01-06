@@ -47,11 +47,8 @@ class LoginedHeader extends React.Component {
     render() {
         const menu = (
             <Menu>
-                <Menu.Item key="0">
-                    <Link to={{pathname: '/user'}}>通知</Link>
-                </Menu.Item>
                 <Menu.Item key="1">
-                    <Link to={{pathname: '/user'}}>个人资料</Link>
+                    <Link to={{pathname: '/user'}}>个人中心</Link>
                 </Menu.Item>
                 <Menu.Divider/>
                 <Menu.Item key="4">

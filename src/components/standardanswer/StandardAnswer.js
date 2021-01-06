@@ -1,9 +1,11 @@
 import './StandardAnswer.css';
 
-import {Divider} from 'antd';
+import {Divider, message} from 'antd';
 import React from 'react';
 import {HomeworkDetail} from '../../components/homeworkdetail/HomeworkDetail';
 import {HomeworkDone} from '../../components/homeworkdone/HomeworkDone';
+
+import {getStuAnswerByAnsId} from "../../services/ansCheckService";
 
 const dataAns = {
     answerId: 0,
@@ -16,21 +18,37 @@ const dataAns = {
 class StandardAnswer extends React.Component {
     constructor(props) {
         super(props);
+        this.userType = this.props.userType;
         this.state = {
-            answerId: 0,
+            answerId: -1,
             commitTime: "",
             content: "",
-            note: "我是note",
-        }
+            note: "",
+        };
     }
 
     componentDidMount() {
-        this.setState({
-            answerId: dataAns.answerId,
-            commitTime: dataAns.commitTime,
-            content: dataAns.content,
-            note: dataAns.note,
-        });
+        const {standardAnswerId} = this.props.homeworkData;
+        if (standardAnswerId === -1) {
+            message.info("此作业尚未发布答案");
+            return;
+        }
+        const args = {answerId: standardAnswerId};
+        const callback = (data) => {
+            if (data.status === 200) {
+                this.setState({
+                    answerId: data.data.answerId,
+                    commitTime: data.data.commitTime,
+                    content: data.data.content,
+                    note: data.data.note,
+                });
+                message.success(data.msg);
+            }
+            else {
+                message.error(data.msg);
+            }
+        };
+        getStuAnswerByAnsId(args, callback);
     }
 
     render() {
@@ -40,13 +58,15 @@ class StandardAnswer extends React.Component {
             content: this.state.content,
             note: this.state.note,
         };
-        const userType = this.props.userType;
         return (
             <div className="homwork-correct-container">
                 <Divider orientation="left"><p className="divider-content">作业内容</p></Divider>
-                <HomeworkDetail data={this.props.data}/>
+                <HomeworkDetail data={this.props.homeworkData}/>
                 <Divider orientation="left"><p className="divider-content">参考答案</p></Divider>
-                <HomeworkDone data={this.props.data} hwDoneData={hwDoneData} userType={userType} stdAns={true}/>
+                <HomeworkDone hwDoneData={hwDoneData}
+                              userType={this.userType}
+                              stdAns={true}
+                />
             </div>
         );
     }

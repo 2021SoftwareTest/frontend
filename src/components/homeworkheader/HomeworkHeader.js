@@ -39,7 +39,8 @@ export class HomeworkHeader extends React.Component {
 
     render() {
         const {current} = this.state;
-        const {courseName, title, courseId, homeworkId} = this.props.data;
+        const {title, courseId, homeworkId} = this.props.data;
+        const courseName = "六年级语文";
         return (
             <div className="homework-header">
                 <Row>
