@@ -13,5 +13,5 @@ export const getStuCheckByCheckId = (data, callback) => {
 
 export const submitStuAns = (data, callback) => {
     const url = answerUrl + 'new';
-    putRequest(url, data. callback);
+    putRequest(url, data, callback);
 };

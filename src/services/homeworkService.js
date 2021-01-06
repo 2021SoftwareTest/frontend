@@ -22,11 +22,6 @@ export const teacherGetHomework = (data, callback) => {
     getRequest(url, data, callback);
 };
 
-export const getStudentAnswer = (data, callback) => {
-    const url = homeworkUrl + 'getStudentAnswer';
-    getRequest(url, data, callback);
-};
-
 export const getHomeworkSubmissionList = (data, callback) => {
     const url = homeworkUrl + 'cmtlist';
     getRequest(url, data, callback);

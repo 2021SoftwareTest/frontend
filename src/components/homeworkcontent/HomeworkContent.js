@@ -28,11 +28,9 @@ class HomeworkContent extends React.Component {
         if (this.userType === 2) {  // 学生
             setTimeout(() => {
                 const {answerId} = this.props.ansCheckData;
-                console.log(this.props.ansCheckData);
                 if (answerId !== -1) {
                     let args = {answerId: answerId};
                     const callback = (data) => {
-                        console.log(data);
                         if (data.status === 200) {
                             this.setState({
                                 hwContent: data.data.content,
@@ -47,6 +45,27 @@ class HomeworkContent extends React.Component {
                     getStuAnswerByAnsId(args, callback);
                 }
             },1000);
+        }
+        else if (this.userType === 1) { // 老师
+            setTimeout(() => {
+                const {standardAnswerId} = this.props.homeworkData;
+                if (standardAnswerId !== -1) {
+                    let args = {answerId: standardAnswerId};
+                    const callback = (data) => {
+                        if (data.status === 200) {
+                            this.setState({
+                                hwContent: data.data.content,
+                                noteContent: data.data.note
+                            });
+                            message.success(data.msg);
+                        }
+                        else {
+                            message.error(data.msg);
+                        }
+                    };
+                    getStuAnswerByAnsId(args, callback);
+                }
+            }, 1000);
         }
     }
 
@@ -109,12 +128,12 @@ class HomeworkContent extends React.Component {
 
     handleHomeworkChange = (event, editor) => {
         const data = editor.getData();
-        console.log(data);
-        // console.log({ event, editor, data });
+        this.setState({hwContent: data});
+        // console.log(data);
     };
 
     handleNoteChange = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         this.setState({commentContent: e.target.value});
     };
 

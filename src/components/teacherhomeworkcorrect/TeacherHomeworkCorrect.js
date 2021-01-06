@@ -1,6 +1,6 @@
 import './TeacherHomeworkCorrect.css';
 
-import {Divider, message} from 'antd';
+import {Divider, message, Button} from 'antd';
 import React from 'react';
 import {HomeworkCorrect} from '../../components/homeworkcorrect/HomeworkCorrect';
 import {HomeworkDetail} from '../../components/homeworkdetail/HomeworkDetail';
@@ -99,6 +99,14 @@ class TeacherHomeworkCorrect extends React.Component {
         }
     }
 
+    handleSubmit = () => {
+
+    };
+
+    handlePublish = () => {
+
+    };
+
     render() {
         const hwDoneData = {
             answerId: this.state.answerId,
@@ -128,6 +136,17 @@ class TeacherHomeworkCorrect extends React.Component {
                 <HomeworkCorrect hwCorrectData={hwCorrectData}
                                  userType={userType}
                 />
+                {
+                    (this.userType === 1) ? (
+                        <div style={{marginTop:20}}>
+                            <Button type="primary" onclick={this.handleSubmit}>提交批改</Button>
+                            <Button onclick={this.handlePublish} style={{marginLeft:20}}>发布批改</Button>
+                        </div>
+                    ) : (
+                        <></>
+                    )
+                }
+
             </div>
         );
     }

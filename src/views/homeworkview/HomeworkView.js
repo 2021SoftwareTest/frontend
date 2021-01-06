@@ -14,26 +14,7 @@ import TeacherHomeworkCorrect from "../../components/teacherhomeworkcorrect/Teac
 import StandardAnswer from "../../components/standardanswer/StandardAnswer";
 
 import {teacherGetHomework} from "../../services/homeworkService";
-import {getStudentAnswer} from "../../services/homeworkService";
 import {getHomeworkDetail} from "../../services/homeworkService";
-
-const data = {
-    title: "作业一",
-    description: "我是description",
-    note: "我是note",
-    content: "我是content",
-    endTime: "0000-00-00 00:00:00",
-    startTime: "1111-11-11 11:11:11",
-    score: 100,
-    courseId: 0,
-    courseName: "六年级语文",
-    state: 1,
-    checkId: null,
-    answerId: null,
-    standardAnswerId: null,
-    homeworkId: 1,
-    userId: 1
-};
 
 
 class HomeworkView extends React.Component {
@@ -175,8 +156,7 @@ class HomeworkView extends React.Component {
                                         userType={userType}
                 />
             ) : curSection === 3 ? (
-                <StandardAnswer data={data}
-                                homeworkData={this.state.homeworkData}
+                <StandardAnswer homeworkData={this.state.homeworkData}
                                 userType={userType}
                 />
             ) : (
