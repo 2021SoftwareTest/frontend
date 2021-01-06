@@ -15,20 +15,17 @@ class UserImport extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({
-            unselected: [
-                {userId: 1, name: "xxx", school: "SJTU", ID: "518021910xxx"},
-                {userId: 2, name: "xxx", school: "SJTU", ID: "518021910xxx"},
-                {userId: 3, name: "xxx", school: "SJTU", ID: "518021910xxx"},
-                {userId: 4, name: "xxx", school: "SJTU", ID: "518021910xxx"},
-                {userId: 5, name: "xxx", school: "SJTU", ID: "518021910xxx"}
-            ]
-        });
         const data = {
             "courseId": this.props.courseId,
         };
         const callback = (data) => {
-            this.setState({unselected: data.data});
+            if (data.status === 200) {
+                this.setState({unselected: data.data});
+                message.success(data.msg);
+            }
+            else {
+                message.error(data.msg);
+            }
         };
         getCourseNotInUser(data, callback);
     }
@@ -46,14 +43,13 @@ class UserImport extends React.Component {
         }
         _selected.push(tmpObj);
         this.setState({unselected: _unselected, selected: _selected});
-    }
-    len;
+    };
 
     onSubmit = () => {
         const selected = this.state.selected;
         let students = [];
-        for (let i = 0, len = selected; i < len; i++) {
-            students.push({userId: selected.userId});
+        for (let i = 0, len = selected.length; i < len; i++) {
+            students.push({userId: selected[i].userId});
         }
         const data = {
             students: students,
