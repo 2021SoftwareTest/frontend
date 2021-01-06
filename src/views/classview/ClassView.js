@@ -19,9 +19,9 @@ import TeacherHeader from '../../components/teacherheader/TeacherHeader';
 import UserImport from '../../components/userimport/UserImport';
 
 class ClassView extends React.Component {
-
     constructor(props) {
         super(props);
+        this.courseId = -1;
         this.state = {
             curSection: 1,
         };
@@ -41,6 +41,7 @@ class ClassView extends React.Component {
         const query = this.props.location.search;
         const arr = query.split('&');
         const id = arr[0].substr(9);
+        this.courseId = id;
         console.log("classId:" + id);
 
         this.setState({courseId:id});
@@ -124,7 +125,7 @@ class ClassView extends React.Component {
             ) : curSection === 11 ? (
                 <UserImport/>
             ) : curSection === 12 ? (
-                <HomeworkRelease/>
+                <HomeworkRelease courseId={this.courseId}/>
             ) : (
                 <></>
             );

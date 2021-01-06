@@ -16,6 +16,10 @@ class RegisterForm extends React.Component {
         this.setState({username: e.target.value});
     };
 
+    nameOnChange = (e) => {
+      this.setState({name: e.target.value});
+    };
+
     IDOnChange = (e) => {
         this.setState({ID: e.target.value});
     };
@@ -58,7 +62,7 @@ class RegisterForm extends React.Component {
             }
         };
         sendVerification(data, callback);
-    }
+    };
 
     onSubmit = () => {
         const registerInfo = {
@@ -96,6 +100,17 @@ class RegisterForm extends React.Component {
                     <Row>
                         <Col span={24}>
                             <Input placeholder="用户名" value={registerInfo.username} onChange={this.usernameOnChange}
+                                   className="input"/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col span={5}>
+                            <p className="title">姓名</p>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col span={24}>
+                            <Input placeholder="姓名" value={registerInfo.name} onChange={this.nameOnChange}
                                    className="input"/>
                         </Col>
                     </Row>
