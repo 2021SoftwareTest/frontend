@@ -18,6 +18,16 @@ export const getHomeworkDetail = (data, callback) => {
     getRequest(url, data, callback);
 };
 
+export const teacherGetHomework = (data, callback) => {
+    const url = homeworkUrl + 'teacherGetHomework';
+    getRequest(url, data, callback);
+};
+
+export const getStudentAnswer = (data, callback) => {
+    const url = homeworkUrl + 'getStudentAnswer';
+    getRequest(url, data, callback);
+};
+
 export const getHomeworkSituation = (data, callback) => {
     const url = homeworkUrl + 'cmtlist';
     getRequest(url, data, callback);

@@ -1,9 +1,9 @@
 import './HomeworkRelease.css';
 
-import {Avatar, Button, Col, Comment, DatePicker, Divider, Input, InputNumber, Row, Space, Typography} from 'antd';
+import {Avatar, Button, Col, Comment, DatePicker, Divider, Input, InputNumber, Row, Space, Typography, message} from 'antd';
 import React from 'react';
 
-import {HomeworkHandin} from '../homeworkhandin/HomeworkHandin';
+import {createHomework} from "../../services/homeworkService";
 
 const {TextArea} = Input;
 const {Title} = Typography;
@@ -46,7 +46,14 @@ class HomeworkRelease extends React.Component {
     };
 
     onSubmit = () => {
-
+        const data = this.state;
+        data.courseId = this.courseId;
+        const callback = (data) => {
+            if (data.status === 200) {
+                message.success(data.msg);
+            }
+        };
+        createHomework(data, callback);
     };
 
     render() {

@@ -36,10 +36,9 @@ class HomeworkContent extends React.Component {
     };
 
     render() {
-        // const {title, endTime, content, score, state} = this.props.data;
         return (
             <div className="homework-content-container">
-                <HomeworkDetail data={this.props.data}/>
+                <HomeworkDetail data={this.props.homeworkData}/>
                 <div className="editor">
                     <CKEditor
                         editor={ClassicEditor}

@@ -4,17 +4,8 @@ import {Col, Row} from 'antd';
 import React from 'react';
 
 export class HomeworkDetail extends React.Component {
-    state = {
-        current: 'Homework',
-    };
-
-    handleClick = (e) => {
-        console.log('click ', e);
-        this.setState({current: e.key});
-    };
-
     render() {
-        const {title, content, endTime, score} = this.props.data;
+        const {title, content, endTime, score} = this.props.homeworkData;
         return (
             <div className="homework-detail">
                 <h2 className="homework-title">

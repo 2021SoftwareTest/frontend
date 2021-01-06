@@ -1,6 +1,6 @@
 import './HomeworkView.css';
 
-import {Col, Row} from 'antd';
+import {Col, message, Row} from 'antd';
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 
@@ -12,6 +12,10 @@ import HomeworkContent from '../../components/homeworkcontent/HomeworkContent';
 import HomeworkSubmitList from '../../components/homeworksubmitlist/HomeworkSubmitList';
 import TeacherHomeworkCorrect from "../../components/teacherhomeworkcorrect/TeacherHomeworkCorrect";
 import StandardAnswer from "../../components/standardanswer/StandardAnswer";
+
+import {teacherGetHomework} from "../../services/homeworkService";
+import {getStudentAnswer} from "../../services/homeworkService";
+import {getHomeworkDetail} from "../../services/homeworkService";
 
 const data = {
     title: "作业一",
@@ -35,9 +39,30 @@ const data = {
 class HomeworkView extends React.Component {
     constructor(props) {
         super(props);
+        this.userType = 1;  // 需要从localstorage中拿
         this.setKeyFun = null;
         this.state = {
             curSection: 0,
+            homeworkData: {
+                hwId: -1,
+                courseId: -1,
+                teacherId: -1,
+                startTime: '',
+                endTime: '',
+                title: '',
+                score: '',
+                standardAnswerId: -1,
+                content: '',
+                description: '',
+                note: ''
+            },
+            ansCheckData:{
+                hwId: -1,
+                answerId: -1,
+                checkId: -1,
+                studentId: -1,
+                state: -1
+            },
             userData: {
                 userId: 0,
                 name: "",
@@ -50,8 +75,54 @@ class HomeworkView extends React.Component {
     componentDidMount() {
         const query = this.props.location.search;
         const arr = query.split('&');
-        const homeworkId = arr[0].substr(12);
-        console.log("homeworkId:" + homeworkId);
+        this.homeworkId = arr[0].substr(12);
+        if (this.userType === 1) {  // 老师
+            const args = {hwId: this.homeworkId};
+            const callback = (data) => {
+                if (data.status === 200){
+                    this.setState({homeworkData:data.data});
+                    message.success(data.msg);
+                }
+                else {
+                    message.error(data.msg);
+                }
+            };
+            teacherGetHomework(args, callback);
+        }
+        else if (this.userType === 2) {
+            const args = {hwId: this.homeworkId};
+            const callback = (data) => {
+                if (data.status === 200) {
+                    this.setState({
+                        homeworkData: {
+                            hwId: data.data.hwId,
+                            courseId: data.data.courseId,
+                            teacherId: data.data.teacherId,
+                            startTime: data.data.startTime,
+                            endTime: data.data.endTime,
+                            title: data.data.title,
+                            score: data.data.score,
+                            standardAnswerId: data.data.standardAnswerId,
+                            content: data.data.content,
+                            description: data.data.description,
+                            note: data.data.note
+                        },
+                        ansCheckData: {
+                            hwId: data.data.hwId,
+                            answerId: data.data.answerId,
+                            checkId: data.data.checkId,
+                            studentId: -1,
+                            state: data.data.state
+                        }
+                    });
+                    message.success(data.msg);
+                }
+                else {
+                    message.error(data.msg);
+                }
+            };
+            getHomeworkDetail(args, callback);
+        }
     }
 
     menuCallback = (key) => {
@@ -85,10 +156,13 @@ class HomeworkView extends React.Component {
 
     render() {
         const curSection = this.state.curSection;
-        const userType = 2;       // 0: 管理员 1: 老师 2: 学生
+        const userType = this.userType;       // 0: 管理员 1: 老师 2: 学生
         const content =
             curSection === 0 ? (
-                <HomeworkContent data={data}/>
+                <HomeworkContent homeworkData={this.state.homeworkData}
+                                 ansCheckData={this.state.ansCheckData}
+                                 data={data}
+                />
             ) : curSection === 1 ? (
                 <HomeworkSubmitList data={data} submitListCallback={this.submitListCallback}/>
             ) : curSection === 2 ? (
