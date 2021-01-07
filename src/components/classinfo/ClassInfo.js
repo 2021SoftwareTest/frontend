@@ -28,7 +28,7 @@ class ClassInfo extends React.Component {
             courseId: this.props.courseId,
         };
         const callback = (data) => {
-            console.log(data);
+            // console.log(data);
             this.setState({
                 endTime: data.data.endTime,
                 startTime: data.data.startTime,

@@ -70,6 +70,7 @@ class HomeworkView extends React.Component {
             teacherGetHomework(args, callback);
         } else if (this.userType === 2) {     // 学生
             const args = {hwId: this.homeworkId};
+            console.log(args);
             const callback = (data) => {
                 if (data.status === 200) {
                     this.setState({
