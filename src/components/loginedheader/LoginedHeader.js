@@ -81,11 +81,9 @@ class LoginedHeader extends React.Component {
                         </Col>
                         {
                             userType ?
-                                <Col sapn={1} styles={{height: 28, marginLeft: -40}}>
                                     <Link to={{pathname: '/addclass'}} className="header-link">
                                         新建课程
                                     </Link>
-                                </Col>
                                 :
                                 <></>
                         }
@@ -94,7 +92,7 @@ class LoginedHeader extends React.Component {
                                 测试功能
                             </Link>
                         </Col>
-                        <Col offset={15} style={{paddingTop: 7, marginRight: 5, paddingLeft: 40}}>
+                        <Col offset={13} style={{paddingTop: 7, marginRight: 5, paddingLeft: 40}}>
                             <Link to={{pathname: '/user'}}>
                                 <BellOutlined style={{color: 'white', fontSize: 18}}/>
                             </Link>
