@@ -6,7 +6,7 @@ import {Button, Col, Input, message, Row} from 'antd';
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import {login, logout} from '../../services/userService';
+import {login} from '../../services/userService';
 import {history} from "../../utils/history";
 
 class LoginForm extends React.Component {

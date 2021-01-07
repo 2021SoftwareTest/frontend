@@ -57,7 +57,8 @@ export {postRequest};
 
 const getRequest = (url, json, callback) => {
     const opts = {
-        method: 'GET',
+        method: 'POST',
+        body: JSON.stringify(json),
         headers: {
             'Content-Type': 'application/json',
         },

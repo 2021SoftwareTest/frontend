@@ -128,7 +128,6 @@ export class UserProfile extends React.Component {
 
     render() {
         const userInfo = this.state;
-        console.log(userInfo);
         return (
             <div className="user-profile">
                 <div className="profile-title">

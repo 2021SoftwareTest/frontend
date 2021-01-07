@@ -21,10 +21,9 @@ import UserImport from '../../components/userimport/UserImport';
 class ClassView extends React.Component {
     constructor(props) {
         super(props);
-        this.courseId = -1;
         this.state = {
             curSection: 1,
-            courseId:1,
+            courseId:2,
         };
     }
 

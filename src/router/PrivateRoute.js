@@ -1,30 +1,31 @@
+import {message} from "antd";
 import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
-// import {message} from "antd";
-// import {checkAuth} from "../services/userService";
+
+import {checkAuth} from "../services/userService";
 
 export default class PrivateRoute extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isAuthed: true,
-            hasAuthed: true,
+            isAuthed: false,
+            hasAuthed: false,
         };
     }
 
-    // componentDidMount() {
-    //     const callback = (data) => {
-    //         console.log(data);
-    //         if (data.status === 200) {
-    //             this.setState({isAuthed: true, hasAuthed: true});
-    //         } else {
-    //             message.error(data.msg);
-    //             localStorage.removeItem('user');
-    //             this.setState({isAuthed: false, hasAuthed: true});
-    //         }
-    //     };
-    //     checkAuth(callback);
-    // }
+    componentDidMount() {
+        const callback = (data) => {
+            console.log(data);
+            if (data.status === 200) {
+                this.setState({isAuthed: true, hasAuthed: true});
+            } else {
+                message.error(data.msg);
+                localStorage.removeItem('user');
+                this.setState({isAuthed: false, hasAuthed: true});
+            }
+        };
+        checkAuth(callback);
+    }
 
     render() {
         // eslint-disable-next-line react/prop-types

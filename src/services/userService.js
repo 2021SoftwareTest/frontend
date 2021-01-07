@@ -27,7 +27,7 @@ export const getOtherUserInfo = (data, callback) => {
 };
 
 export const getUserInfo = (data, callback) => {
-    const url = userUrl + 'info';
+    const url = userUrl + 'getinfo';
     getRequest(url, data, callback);
 };
 
@@ -48,5 +48,5 @@ export const saveUserInfo = (data, callback) => {
 
 export const checkAuth = (callback) => {
     const url = authUrl + 'checkAuth';
-    getRequest(url, {}, callback);
+    getRequest(url, undefined, callback);
 };
