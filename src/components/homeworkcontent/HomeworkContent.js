@@ -101,6 +101,7 @@ class HomeworkContent extends React.Component {
                 console.log(data);
               if (data.status === 200) {
                   message.success(data.msg);
+                  this.props.updateSrcData();
               }
               else {
                   message.error(data.msg);

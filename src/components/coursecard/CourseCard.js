@@ -64,22 +64,22 @@ class CourseCard extends React.Component {
                     </Link>
                     <Row style={{marginLeft: "9%"}}>
                         <Col span={6}>
-                            <Link to={{pathname: '/class', search: '?classId=' + courseId}}>
+                            <Link to={{pathname: '/class', search: '?id=' + courseId}}>
                                 <NotificationOutlined style={{fontSize: 24, color: "rgb(100, 100, 100)"}}/>
                             </Link>
                         </Col>
                         <Col span={6}>
-                            <Link to={{pathname: '/class', search: '?classId=' + courseId}}><FolderOutlined
+                            <Link to={{pathname: '/class', search: '?id=' + courseId}}><FolderOutlined
                                 style={{fontSize: 24, color: "rgb(100, 100, 100)"}}/>
                             </Link>
                         </Col>
                         <Col span={6}>
-                            <Link to={{pathname: '/class', search: '?classId=' + courseId}}><FormOutlined
+                            <Link to={{pathname: '/class', search: '?id=' + courseId}}><FormOutlined
                                 style={{fontSize: 24, color: "rgb(100, 100, 100)"}}/>
                             </Link>
                         </Col>
                         <Col span={6}>
-                            <Link to={{pathname: '/class', search: '?classId=' + courseId}}><CommentOutlined
+                            <Link to={{pathname: '/class', search: '?id=' + courseId}}><CommentOutlined
                                 style={{fontSize: 24, color: "rgb(100, 100, 100)"}}/></Link>
                         </Col>
                     </Row>
