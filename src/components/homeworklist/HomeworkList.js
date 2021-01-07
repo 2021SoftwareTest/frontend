@@ -6,7 +6,6 @@ import {
     EditOutlined,
     ExclamationCircleOutlined,
     MinusCircleOutlined,
-    SyncOutlined
 } from '@ant-design/icons';
 import {List, Tag} from 'antd';
 import React from 'react';
@@ -23,13 +22,13 @@ export class HomeworkList extends React.Component {
                 case 0:
                     return (
                         <Tag icon={<ExclamationCircleOutlined/>} color="warning">
-                            未读
+                            未完成
                         </Tag>
                     );
                 case 1:
                     return (
-                        <Tag icon={<SyncOutlined spin/>} color="processing">
-                            正在做
+                        <Tag icon={<ExclamationCircleOutlined/>} color="warning">
+                            未完成
                         </Tag>
                     );
                 case 2:
@@ -76,7 +75,7 @@ export class HomeworkList extends React.Component {
                                             pathname: "/homework",
                                             search: "?homeworkId=" + item.hwId
                                         }}>{item.title} </Link>
-                                        {TagSwitch(item.state)}
+                                        {TagSwitch(item.userHomeworkState)}
                                     </div>
                                 }
                                 description={item.comment}

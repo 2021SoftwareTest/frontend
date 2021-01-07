@@ -21,7 +21,7 @@ class HomeworkSubmitList extends React.Component {
             console.log(data);
             if (data.status === 200) {
                 this.setState({studentList:data.data});
-                message.success(data.msg);
+                // message.success(data.msg);
             }
             else {
                 message.error(data.msg);
@@ -34,8 +34,7 @@ class HomeworkSubmitList extends React.Component {
         this.submitListCallback(item);
     }
 
-    renderList = (list) => {
-        return (
+    renderList = (list) => (
             list.map((item, index) => {
                 let tag = null;
                 switch (item.state) {
@@ -70,7 +69,6 @@ class HomeworkSubmitList extends React.Component {
 
             })
         );
-    };
 
     render() {
         const content = this.renderList(this.state.studentList);

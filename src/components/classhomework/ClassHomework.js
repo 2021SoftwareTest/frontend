@@ -6,54 +6,6 @@ import React from 'react';
 import {HomeworkList} from '../homeworklist/HomeworkList';
 import {getCourseHwlist} from "../../services/courseService";
 
-// const todoHomework = [
-//     {
-//         hwId: 1,
-//         courseId:1,
-//         userId:1,
-//         startTime:"2021-1-1",
-//         endTime:"2021-1-8",
-//         title: '语文作业1',
-//         score:'100',
-//         state:1,
-//         answerId: 1,
-//     },
-//     {
-//         hwId: 2,
-//         courseId:1,
-//         userId:1,
-//         startTime:"2021-1-1",
-//         endTime:"2021-1-8",
-//         title: '语文作业2',
-//         score:'100',
-//         state:2,
-//         answerId: 1,
-//     },
-// ];
-// const doneHomework = [
-//     {
-//         hwId: 3,
-//         courseId:1,
-//         userId:1,
-//         startTime:"2021-1-1",
-//         endTime:"2021-1-8",
-//         title: '语文作业3',
-//         score:'100',
-//         state:3,
-//         answerId: 1,
-//     },
-//     {
-//         hwId: 4,
-//         courseId:1,
-//         userId:1,
-//         startTime:"2021-1-1",
-//         endTime:"2021-1-8",
-//         title: '语文作业4',
-//         score:'100',
-//         state:4,
-//         answerId: 1,
-//     },
-// ];
 
 class ClassHomework extends React.Component {
 
@@ -70,6 +22,7 @@ class ClassHomework extends React.Component {
         const data = {
             courseId: this.state.courseId,
         };
+        console.log(data);
         const callback = (data) => {
             console.log(data);
             let todoHomework = [];
@@ -81,8 +34,6 @@ class ClassHomework extends React.Component {
                     doneHomework.push(data.data[i]);
                 }
             }
-            console.log(todoHomework);
-            console.log(doneHomework);
             this.setState({
                 todoHomework: todoHomework,
                 doneHomework: doneHomework

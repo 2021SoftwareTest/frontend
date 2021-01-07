@@ -62,7 +62,7 @@ class HomeworkView extends React.Component {
                 console.log(data);
                 if (data.status === 200) {
                     this.setState({homeworkData: data.data});
-                    message.success(data.msg);
+                    // message.success(data.msg);
                 } else {
                     message.error(data.msg);
                 }
@@ -96,7 +96,7 @@ class HomeworkView extends React.Component {
                         }
                     });
                     console.log(this.state.ansCheckData);
-                    message.success(data.msg);
+                    // message.success(data.msg);
                 } else {
                     message.error(data.msg);
                 }

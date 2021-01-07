@@ -59,8 +59,8 @@ class CourseCard extends React.Component {
                 <div className="course-content">
                     <Link to={{pathname: '/class', search: '?id=' + courseId}}>
                         <p className="course-name">{courseName}</p>
-                        <p className="course-id ellipsis">{courseId}</p>
-                        <p className="course-term ellipsis">{courseTerm}</p>
+                        {/* <p className="course-id ellipsis">{courseId}</p>*/}
+                        {/* <p className="course-term ellipsis">{courseTerm}</p>*/}
                     </Link>
                     <Row style={{marginLeft: "9%"}}>
                         <Col span={6}>

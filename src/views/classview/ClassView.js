@@ -25,7 +25,7 @@ class ClassView extends React.Component {
         super(props);
         this.state = {
             curSection: 1,
-            courseId:2,
+            courseId:-1,
         };
     }
 

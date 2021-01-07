@@ -53,8 +53,8 @@ export class HomeworkHeader extends React.Component {
                             />
                         </svg>
                         <p className="homework-title">
-                            <Link to={{pathname: "/class", search: "classId=" + courseId}}>{courseName}</Link>
-                            &nbsp;/&nbsp;
+                            {/*<Link to={{pathname: "/class", search: "classId=" + courseId}}>{courseName}</Link>*/}
+                            {/*&nbsp;/&nbsp;*/}
                             <Link to={{pathname: "/homework", search: "homeworkId=" + homeworkId}}
                                   className="homework-name">{title}</Link>
                         </p>

@@ -1,7 +1,5 @@
 import 'braft-editor/dist/index.css';
-
-import {FrownOutlined, MehOutlined, SmileOutlined} from '@ant-design/icons';
-import {Avatar, Button, Comment, Input} from 'antd';
+import {Avatar, Comment, Input} from 'antd';
 import React from 'react';
 
 const {TextArea} = Input;
@@ -44,15 +42,15 @@ export class HomeworkCorrect extends React.Component {
                 <div>
                     <Input style={{width: 200}} placeholder="分数" value={score} onChange={this.onScoreChange}
                            disabled={this.userType !== 1}/>
-                    <Button className="correct-button">
-                        <SmileOutlined/>做得不错
-                    </Button>
-                    <Button className="correct-button">
-                        <MehOutlined/>做得还行
-                    </Button>
-                    <Button className="correct-button">
-                        <FrownOutlined/>有待提高
-                    </Button>
+                    {/* <Button className="correct-button">*/}
+                    {/*    <SmileOutlined/>做得不错*/}
+                    {/* </Button>*/}
+                    {/* <Button className="correct-button">*/}
+                    {/*    <MehOutlined/>做得还行*/}
+                    {/* </Button>*/}
+                    {/* <Button className="correct-button">*/}
+                    {/*    <FrownOutlined/>有待提高*/}
+                    {/*</Button>*/}
                 </div>
                 <Comment
                     avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"

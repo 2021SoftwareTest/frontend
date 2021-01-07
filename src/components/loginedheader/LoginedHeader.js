@@ -37,8 +37,8 @@ class LoginedHeader extends React.Component {
             console.log(data);
             if (data.status === 200) {
                 localStorage.removeItem('user');
+                window.location.assign("/#/login");
                 message.success(data.msg);
-                // history.push('/login');
             } else {
                 message.error("登出失败");
             }
@@ -72,7 +72,7 @@ class LoginedHeader extends React.Component {
                         </Col>
                         <Col span={4} style={{height: 28}}>
                             <Search placeholder="搜索课程" onSearch={(value) => console.log(value)}
-                                    className="logined-search"/>
+                                    className="logined-search" disabled={true}/>
                         </Col>
                         <Col span={1} style={{height: 28, marginLeft: -20}}>
                             <Link to={{pathname: '/'}} className="header-link">
