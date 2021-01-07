@@ -24,6 +24,14 @@ class HomeView extends React.Component {
     }
 
     componentDidMount() {
+        const courseList = sessionStorage.getItem('courseList');
+        if (courseList)
+        {
+            this.setState({
+                courseList: JSON.parse(courseList)
+            });
+            return;
+        }
         let userId = 1;
         const user = JSON.parse(localStorage.getItem('user'));
         if (user) {

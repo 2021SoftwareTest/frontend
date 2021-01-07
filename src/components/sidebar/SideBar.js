@@ -1,12 +1,11 @@
 import './SideBar.css';
 
 import {BookOutlined} from '@ant-design/icons';
-import {Layout, Menu} from 'antd';
+import {Layout, Menu, message} from 'antd';
 import React from 'react';
 import {Link} from 'react-router-dom';
 
 import {getCourseList} from '../../services/courseService';
-// import {getUserHomework} from "../../services/homeworkService";
 
 const {Sider} = Layout;
 
@@ -21,20 +20,22 @@ export class SideBar extends React.Component {
         };
     }
 
-    handleClick = (e) => {
-        console.log('click ', e);
-    };
-
     componentDidMount() {
-        let userId = 1;
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (user) {
-            userId = user.userID;
+        const courseList = sessionStorage.getItem('courseList');
+        if (courseList)
+        {
+            console.log(courseList);
+            this.setState({
+                courseList: JSON.parse(courseList)
+            });
+            return;
         }
+
+        const userId = JSON.parse(localStorage.getItem('user')).userID;
         const data = {
             userId: userId,
         };
-        const callback1 = (data) => {
+        const callback = (data) => {
             console.log(data);
             if (data.status === 200) {
                 if (data.data) {
@@ -42,45 +43,24 @@ export class SideBar extends React.Component {
                         courseList: data.data,
                     });
                 }
-                // eslint-disable-next-line no-empty
+                sessionStorage.setItem('courseList', JSON.stringify(data.data));
             } else {
+                message.error(data.msg);
             }
         };
-        getCourseList(data, callback1);
-
-        // const callback2 = (data) => {
-        //     if (data.status === 200) {
-        //         if (data.data) {
-        //             this.setState({
-        //                 homeworkList: data.data,
-        //             });
-        //         }
-        //         // eslint-disable-next-line no-empty
-        //     } else {
-        //     }
-        // };
-        //
-        // getUserHomework(data, callback2);
-
+        getCourseList(data, callback);
     }
 
     render() {
+
         const courseList = this.state.courseList.map((item) => (
-            <Menu.Item key={item.courseID}>
-                <Link to={{pathname: '/class', search: 'classId=' + item.courseID}}>
+            <Menu.Item key={item.courseId}>
+                <Link to={{pathname: '/class', search: '?id=' + item.courseId}}>
                     <BookOutlined/>
                     {item.courseName}
                 </Link>
             </Menu.Item>
         ));
-        // const homeworkList = this.state.homeworkList.map((item) => (
-        //     <Menu.Item key={item.homeworkID}>
-        //         <Link to={{pathname: '/homework', search: '?homeworkId=' + item.homeworkID}}>
-        //             <EditOutlined/>
-        //             {item.title}
-        //         </Link>
-        //     </Menu.Item>
-        // ));
         return (
             <Sider
                 width="16%"
@@ -94,30 +74,13 @@ export class SideBar extends React.Component {
                 }}
                 theme={'white'}
             >
-                <Menu onClick={this.handleClick} style={{height: '100%', borderRight: 0}} defaultSelectedKeys={[]}
-                      defaultOpenKeys={['sub1', 'sub2']} mode="inline">
+                <Menu style={{height: '100%', borderRight: 0}} defaultSelectedKeys={[]}
+                      defaultOpenKeys={['sub1']} mode="inline">
                     <SubMenu
                         key="sub1"
-                        title={
-                            <span>
-                <BookOutlined/>
-                <span>我的课程</span>
-              </span>
-                        }
-                    >
+                        title={<div><BookOutlined/>我的课程</div>}>
                         {courseList}
                     </SubMenu>
-              {/*      <SubMenu*/}
-              {/*          key="sub2"*/}
-              {/*          title={*/}
-              {/*              <span>*/}
-              {/*  <EditOutlined/>*/}
-              {/*  <span>我的作业</span>*/}
-              {/* </span>*/}
-              {/*          }*/}
-              {/*      >*/}
-              {/*          {homeworkList}*/}
-              {/*      </SubMenu>*/}
                 </Menu>
             </Sider>
         );

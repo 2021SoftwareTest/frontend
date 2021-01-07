@@ -41,7 +41,7 @@ class AddClassForm extends React.Component {
     };
 
     onSubmit = () => {
-        console.log(this.state);
+        sessionStorage.removeItem("courseList");
         const data = {
             courseName: this.state.courseName,
             introduction: this.state.introduction,

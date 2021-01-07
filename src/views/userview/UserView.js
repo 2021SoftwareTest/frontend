@@ -5,6 +5,7 @@ import LoginedHeader from '../../components/loginedheader/LoginedHeader';
 import UserHeader from '../../components/userheader/UserHeader';
 import {UserProfile} from '../../components/userprofile/UserProfile';
 import {NotificationList} from "../../components/notificationlist/NotificationList";
+import {withRouter} from "react-router-dom";
 
 class UserView extends React.Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class UserView extends React.Component {
         this.state = {
             curSection: 1,
         };
+        console.log("userview");
     }
 
     menuCallback = (key) => {
@@ -53,4 +55,4 @@ class UserView extends React.Component {
     }
 }
 
-export default UserView;
+export default withRouter(UserView);

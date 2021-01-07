@@ -3,6 +3,7 @@ import './ReleaseView.css';
 import {Col, DatePicker, Divider, Input, InputNumber, Row, Space, Typography} from 'antd';
 import React from 'react';
 
+import {withRouter} from 'react-router-dom';
 import MyFooter from '../../components/footer/MyFooter';
 import {HomeworkHandin} from '../../components/homeworkhandin/HomeworkHandin';
 import {HomeworkHeader} from '../../components/homeworkheader/HomeworkHeader';
@@ -64,4 +65,4 @@ class ReleaseView extends React.Component {
     }
 }
 
-export default ReleaseView;
+export default withRouter(ReleaseView);

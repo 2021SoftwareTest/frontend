@@ -1,8 +1,7 @@
-import {message} from "antd";
 import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
 
-import {checkAuth} from "../services/userService";
+import * as userService from "../services/userService";
 
 export default class PrivateRoute extends React.Component {
     constructor(props) {
@@ -13,25 +12,29 @@ export default class PrivateRoute extends React.Component {
         };
     }
 
+    checkAuth1 = (data) => {
+        console.log(data);
+        if (data.status === 200) {
+            this.setState({isAuthed: true, hasAuthed: true});
+        } else {
+            localStorage.removeItem('user');
+            this.setState({isAuthed: false, hasAuthed: true});
+        }
+    };
+
+
     componentDidMount() {
-        const callback = (data) => {
-            console.log(data);
-            if (data.status === 200) {
-                this.setState({isAuthed: true, hasAuthed: true});
-            } else {
-                message.error(data.msg);
-                localStorage.removeItem('user');
-                this.setState({isAuthed: false, hasAuthed: true});
-            }
-        };
-        checkAuth(callback);
+        userService.checkSession(this.checkAuth1);
     }
+
 
     render() {
         // eslint-disable-next-line react/prop-types
         const {component: Component, path = '/', exact = false, strict = false} = this.props;
 
-        console.log(this.state.isAuthed);
+        console.log("isAuthed:" + this.state.isAuthed);
+        console.log("hasAuthed:" + this.state.hasAuthed);
+        console.log(this.props);
 
         if (!this.state.hasAuthed) {
             return null;

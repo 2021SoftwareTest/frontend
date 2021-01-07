@@ -54,7 +54,7 @@ class LoginedHeader extends React.Component {
                 </Menu.Item>
                 <Menu.Divider/>
                 <Menu.Item key="4">
-                    <Link to={{pathname: '/login'}} onClick={this.logoutOnClick}> 退出登录 </Link>
+                    <div onClick={this.logoutOnClick}> 退出登录 </div>
                 </Menu.Item>
             </Menu>
         );

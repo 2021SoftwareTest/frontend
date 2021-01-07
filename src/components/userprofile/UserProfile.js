@@ -109,8 +109,7 @@ export class UserProfile extends React.Component {
         saveUserInfo(userInfo, callback);
     };
 
-    // eslint-disable-next-line no-unused-vars
-    onSubmit = (values) => {
+    onSubmit = () => {
         this._saveUserInfo();
     };
 
@@ -118,12 +117,8 @@ export class UserProfile extends React.Component {
         this.formRef.current.resetFields();
     };
 
-    onFill = () => {
-        // console.log(this.formRef.current);
-    };
 
     render() {
-        const userInfo = this.state;
         return (
             <div className="user-profile">
                 <div className="profile-title">

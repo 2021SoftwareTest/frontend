@@ -1,8 +1,23 @@
 import {getRequest, postRequest} from '../utils/ajax';
 import {authUrl, userUrl, verificationUrl} from '../utils/config';
+import {message} from "antd";
+import {history} from "../utils/history";
 
-export const login = (data, callback) => {
+export const login = (data) => {
     const url = authUrl + 'login';
+    const callback = (data) => {
+        if (data.status === 200) {
+            if (data.data.user.userType === -1) {
+                message.error('您的账号已经被禁用！');
+            } else {
+                localStorage.setItem('user', JSON.stringify(data.data.user));
+                window.location.assign("/#/") ;
+                message.success(data.msg);
+            }
+        } else {
+            message.error(data.msg);
+        }
+    };
     postRequest(url, data, callback);
 };
 
@@ -46,7 +61,7 @@ export const saveUserInfo = (data, callback) => {
 //     postRequest(url, data, callback);
 // };
 
-export const checkAuth = (callback) => {
+export const checkSession = (callback) => {
     const url = authUrl + 'checkAuth';
     getRequest(url, undefined, callback);
 };
