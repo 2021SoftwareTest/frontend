@@ -126,13 +126,13 @@ class ClassUser extends React.Component {
                 title: '类型',
                 dataIndex: 'userType',
                 filters: [
-                    {text: '教师', value: '0'},
-                    {text: '学生', value: '1'},
+                    {text: '教师', value: 1},
+                    {text: '学生', value: 2},
                 ],
-                onFilter: (value, record) => record.userType.indexOf(value) === 0,
+                onFilter: (value, record) => record.userType === value,
                 render: (text) =>
                     <text>
-                        {text === '0' ? '教师' : '学生'}
+                        {text === 1 ? '教师' : '学生'}
                     </text>
             },
             {

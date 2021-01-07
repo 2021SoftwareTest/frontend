@@ -51,9 +51,10 @@ class RegisterForm extends React.Component {
 
     sendVerification = () => {
         const data = {
-            userName: this.state.userName,
+            userName: this.state.username,
             email: this.state.email
         };
+        console.log(data);
         const callback = (data) => {
             if (data.status === 200) {
                 message.success(data.msg);
@@ -78,8 +79,8 @@ class RegisterForm extends React.Component {
         const callback = (data) => {
             console.log(data);
             if (data.status === 200) {
-                message.success(data.msg);
                 window.location.href = '/login';
+                message.success("注册成功，请登录");
             } else {
                 message.error(data.msg);
             }

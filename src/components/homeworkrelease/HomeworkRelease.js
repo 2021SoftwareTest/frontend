@@ -24,7 +24,7 @@ const {Title} = Typography;
 class HomeworkRelease extends React.Component {
     constructor(props) {
         super(props);
-        this.courseId = parseInt(this.props.courseId);
+        this.courseId = this.props.courseId;
         this.state = {
             title: '',
             description: 'default description',

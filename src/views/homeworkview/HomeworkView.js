@@ -13,14 +13,13 @@ import HomeworkSubmitList from '../../components/homeworksubmitlist/HomeworkSubm
 import TeacherHomeworkCorrect from "../../components/teacherhomeworkcorrect/TeacherHomeworkCorrect";
 import StandardAnswer from "../../components/standardanswer/StandardAnswer";
 
-import {teacherGetHomework} from "../../services/homeworkService";
-import {getHomeworkDetail} from "../../services/homeworkService";
+import {getHomeworkDetail, teacherGetHomework} from "../../services/homeworkService";
 
 
 class HomeworkView extends React.Component {
     constructor(props) {
         super(props);
-        this.userType = 1;  // 需要从localstorage中拿
+        this.userType = JSON.parse(localStorage.getItem("user")).userType;  // 需要从localstorage中拿
         this.setKeyFun = null;
         this.state = {
             curSection: 0,
@@ -37,7 +36,7 @@ class HomeworkView extends React.Component {
                 description: '',
                 note: ''
             },
-            ansCheckData:{
+            ansCheckData: {
                 hwId: -1,
                 answerId: -1,
                 checkId: -1,
@@ -56,21 +55,20 @@ class HomeworkView extends React.Component {
     componentDidMount() {
         const query = this.props.location.search;
         const arr = query.split('&');
-        this.homeworkId = arr[0].substr(12);
+        this.homeworkId = parseInt(arr[0].substr(12));
         if (this.userType === 1) {  // 老师
             const args = {hwId: this.homeworkId};
             const callback = (data) => {
+                console.log(data);
                 if (data.status === 200) {
-                    this.setState({homeworkData:data.data});
+                    this.setState({homeworkData: data.data});
                     message.success(data.msg);
-                }
-                else {
+                } else {
                     message.error(data.msg);
                 }
             };
             teacherGetHomework(args, callback);
-        }
-        else if (this.userType === 2) {     // 学生
+        } else if (this.userType === 2) {     // 学生
             const args = {hwId: this.homeworkId};
             const callback = (data) => {
                 if (data.status === 200) {
@@ -98,8 +96,7 @@ class HomeworkView extends React.Component {
                     });
                     console.log(this.state.ansCheckData);
                     message.success(data.msg);
-                }
-                else {
+                } else {
                     message.error(data.msg);
                 }
             };
@@ -171,7 +168,8 @@ class HomeworkView extends React.Component {
                         <SideBar/>
                     </Col>
                     <Col span={20}>
-                        <HomeworkHeader menuCallback={this.menuCallback} data={this.state.homeworkData} userType={userType}
+                        <HomeworkHeader menuCallback={this.menuCallback} data={this.state.homeworkData}
+                                        userType={userType}
                                         homeworkHeaderSetKeyFunCallback={this.homeworkHeaderSetKeyFunCallback}/>
                         <div className="homework-container">
                             {content}

@@ -1,4 +1,4 @@
-import './ClassView.css';
+import './CourseListView.css';
 
 import {Col, Divider, Row} from 'antd';
 import React from 'react';
@@ -10,13 +10,6 @@ import LoginedHeader from '../../components/loginedheader/LoginedHeader';
 import {SideBar} from '../../components/sidebar/SideBar';
 
 
-const data = [
-    {courseImage: "xxx", courseId: 1, courseName: "CSE", courseTerm: "2020-2021 Fall"},
-    {courseImage: "xxx", courseId: 1, courseName: "CSE", courseTerm: "2020-2021 Fall"},
-    {courseImage: "xxx", courseId: 1, courseName: "CSE", courseTerm: "2020-2021 Fall"},
-    {courseImage: "xxx", courseId: 1, courseName: "CSE", courseTerm: "2020-2021 Fall"}
-];
-
 class CourseListView extends React.Component {
     constructor(props) {
         super(props);
@@ -26,7 +19,7 @@ class CourseListView extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({courseList: data});
+        this.setState({courseList:[]});
     }
 
     render() {

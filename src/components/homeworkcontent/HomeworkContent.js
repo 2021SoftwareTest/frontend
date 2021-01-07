@@ -44,14 +44,16 @@ class HomeworkContent extends React.Component {
                     };
                     getStuAnswerByAnsId(args, callback);
                 }
-            },1000);
+            }, 1000);
         }
         else if (this.userType === 1) { // 老师
             setTimeout(() => {
                 const {standardAnswerId} = this.props.homeworkData;
                 if (standardAnswerId !== -1) {
                     let args = {answerId: standardAnswerId};
+                    console.log(args);
                     const callback = (data) => {
+                        console.log(data);
                         if (data.status === 200) {
                             this.setState({
                                 hwContent: data.data.content,

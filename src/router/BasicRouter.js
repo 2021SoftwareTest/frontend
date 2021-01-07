@@ -18,10 +18,10 @@ class BasicRouter extends React.Component {
     constructor(props) {
         super(props);
 
-        history.listen((location, action) => {
-            // clear alert on location change
-            console.log(location, action);
-        });
+        // history.listen((location, action) => {
+        //     // clear alert on location change
+        //     console.log(location, action);
+        // });
     }
 
     render() {

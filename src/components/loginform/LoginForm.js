@@ -48,10 +48,10 @@ class LoginForm extends React.Component {
                 <Row className="login-form">
                     <Col span={24}>
                         <div>
-                            <p className="login-hint">用户名或邮箱</p>
+                            <p className="login-hint">用户名</p>
                         </div>
                         <div>
-                            <Input placeholder="请输入用户名或邮箱" value={this.state.username}
+                            <Input placeholder="请输入用户名" value={this.state.username}
                                    onChange={this.usernameOnChange} className="login-input"/>
                         </div>
                         <div>

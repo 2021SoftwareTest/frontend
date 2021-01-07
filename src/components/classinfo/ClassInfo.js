@@ -36,11 +36,11 @@ class ClassInfo extends React.Component {
                 courseId: data.data.courseId,
                 introduction: data.data.introduction,
                 textbooks: data.data.textbooks,
-                status: data.data.status
+                state: data.data.state
             });
         };
         getCourseDetail(data, callback);
-    };
+    }
 
     endTimeOnChange = (e) => {
         this.setState({endTime: e.target.value});
@@ -71,8 +71,9 @@ class ClassInfo extends React.Component {
             textbooks: this.state.textbooks,
             startTime: this.state.startTime,
             endTime: this.state.endTime,
-            status: this.state.status,
+            state: this.state.state,
         };
+        console.log(data);
         const callback = (data) => {
             if (data.status === 200) {
                 message.success(data.msg);

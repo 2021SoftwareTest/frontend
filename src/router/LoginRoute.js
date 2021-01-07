@@ -31,9 +31,6 @@ export class LoginRoute extends React.Component {
         // eslint-disable-next-line react/prop-types
         const {component: Component, path = '/', exact = false, strict = false} = this.props;
 
-        console.log("isAuthed:" + this.state.isAuthed);
-        console.log("hasAuthed:" + this.state.hasAuthed);
-
         if (!this.state.hasAuthed) {
             return null;
         }

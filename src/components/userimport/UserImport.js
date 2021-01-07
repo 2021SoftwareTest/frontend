@@ -84,7 +84,7 @@ class UserImport extends React.Component {
 
     renderStudentList = (list, handleClick) => (
         list.map((item, index) => (
-            <div key={index} className="list-item" onClick={() => handleClick(item.userId)}>
+            <div key={index} className="list-item" onClick={() => handleClick(item.userID)}>
                 <Row>
                     <Col span={8}>{item.name}</Col>
                     <Col span={8}>{item.school}</Col>

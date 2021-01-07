@@ -18,6 +18,7 @@ import LoginedHeader from '../../components/loginedheader/LoginedHeader';
 import {SideBar} from '../../components/sidebar/SideBar';
 import TeacherHeader from '../../components/teacherheader/TeacherHeader';
 import UserImport from '../../components/userimport/UserImport';
+import {getCourseDetail} from "../../services/courseService";
 
 class ClassView extends React.Component {
     constructor(props) {
@@ -42,10 +43,20 @@ class ClassView extends React.Component {
         const query = this.props.location.search;
         const arr = query.split('&');
         const id = arr[0].substr(4);
-        this.courseId = id;
-        console.log("classId:" + id);
-
         this.setState({courseId:parseInt(id)});
+
+        const data = {
+            // eslint-disable-next-line react/prop-types
+            courseId: parseInt(id),
+        };
+        const callback = (data) => {
+            console.log(data);
+            this.setState({
+                courseName: data.data.courseName,
+            });
+        };
+        getCourseDetail(data, callback);
+
     }
 
     menuCallback = (key) => {
@@ -126,7 +137,7 @@ class ClassView extends React.Component {
             ) : curSection === 11 ? (
                 <UserImport courseId={this.state.courseId}/>
             ) : curSection === 12 ? (
-                <HomeworkRelease courseId={this.courseId}/>
+                <HomeworkRelease courseId={this.state.courseId}/>
             ) : (
                 <></>
             );
@@ -138,7 +149,7 @@ class ClassView extends React.Component {
                         <SideBar/>
                     </Col>
                     <Col span={20}>
-                        <TeacherHeader menuCallback={this.menuCallback} userType={userType}/>
+                        <TeacherHeader title= {this.state.courseName} menuCallback={this.menuCallback} userType={userType}/>
                         <div className="teacher-view-content">{content}</div>
                         <MyFooter/>
                     </Col>

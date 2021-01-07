@@ -32,10 +32,6 @@ export default class PrivateRoute extends React.Component {
         // eslint-disable-next-line react/prop-types
         const {component: Component, path = '/', exact = false, strict = false} = this.props;
 
-        console.log("isAuthed:" + this.state.isAuthed);
-        console.log("hasAuthed:" + this.state.hasAuthed);
-        console.log(this.props);
-
         if (!this.state.hasAuthed) {
             return null;
         }
