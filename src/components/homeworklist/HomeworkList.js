@@ -16,6 +16,7 @@ export class HomeworkList extends React.Component {
     };
 
     render() {
+        const userType = JSON.parse(localStorage.getItem('user')).userType;
         const TagSwitch = (type) => {
             switch (type) {
                 case 0:
@@ -74,7 +75,13 @@ export class HomeworkList extends React.Component {
                                             pathname: "/homework",
                                             search: "?homeworkId=" + item.hwId
                                         }}>{item.title} </Link>
-                                        {TagSwitch(item.userHomeworkState)}
+                                        {
+                                            (userType !== 1) ? (
+                                                TagSwitch(item.userHomeworkState)
+                                            ) : (
+                                                <></>
+                                            )
+                                        }
                                         {
                                             (item.state === 1) ? (
                                                 <Tag icon={<CheckCircleOutlined/>} color="default">
