@@ -89,7 +89,11 @@ class LoginedHeader extends React.Component {
                                 :
                                 <></>
                         }
-
+                        <Col span={1} style={{height: 28, marginLeft: -20}}>
+                            <Link to={{pathname: '/test'}} className="header-link">
+                                测试功能
+                            </Link>
+                        </Col>
                         <Col offset={15} style={{paddingTop: 7, marginRight: 5, paddingLeft: 40}}>
                             <Link to={{pathname: '/user'}}>
                                 <BellOutlined style={{color: 'white', fontSize: 18}}/>

@@ -39,15 +39,18 @@ class HomeworkSubmitList extends React.Component {
                 let tag = null;
                 switch (item.state) {
                     case 0:
-                        tag = (<Tag color="blue">未提交</Tag>);
+                        tag = (<Tag color="blue">未查看</Tag>);
                         break;
                     case 1:
-                        tag = (<Tag color="green">已提交</Tag>);
+                        tag = (<Tag color="green">已查看</Tag>);
                         break;
                     case 2:
-                        tag = (<Tag color="red">超时提交</Tag>);
+                        tag = (<Tag color="red">已提交</Tag>);
                         break;
                     case 3:
+                        tag = (<Tag color="green">超时提交</Tag>);
+                        break;
+                    case 4:
                         tag = (<Tag color="green">已批改</Tag>);
                         break;
                     case 5:
