@@ -30,12 +30,12 @@ class BasicRouter extends React.Component {
                 <Switch>
                     <PrivateRoute exact path="/" component={HomeView}/>
                     <LoginRoute exact path="/login" component={LoginView}/>
-                    {/*<PrivateRoute exact pah="/test" component ={PicHandleView}/>*/}
                     <PrivateRoute exact path="/class" component={ClassView}/>
                     <Route exact path="/register" component={RegisterView}/>
                     <PrivateRoute exact path="/homework" component={HomeworkView}/>
                     <PrivateRoute exact path="/user" component={UserView}/>
                     <PrivateRoute exact path="/addclass" component={AddClassView}/>
+                    <PrivateRoute exact path="/test" component ={PicHandleView}/>
                     <Redirect from="/*" to="/"/>
                 </Switch>
             </HashRouter>

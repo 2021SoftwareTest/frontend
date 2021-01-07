@@ -8,3 +8,4 @@ export const homeworkUrl = baseUrl + 'homework/';
 export const answerUrl = baseUrl + 'answer/';
 export const courseUrl = baseUrl + 'course/';
 export const messageUrl = baseUrl + 'message/';
+export const picUrl = 'http://localhost:5000/';
