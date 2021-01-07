@@ -1,7 +1,7 @@
 import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
 
-import {checkAuth} from "../services/userService";
+import * as userService from "../services/userService";
 
 export class LoginRoute extends React.Component {
     constructor(props) {
@@ -12,24 +12,27 @@ export class LoginRoute extends React.Component {
         };
     }
 
+    checkAuth = (data) => {
+        console.log(data);
+        if (data.status === 200) {
+            this.setState({isAuthed: true, hasAuthed: true});
+        } else {
+            localStorage.removeItem('user');
+            this.setState({isAuthed: false, hasAuthed: true});
+        }
+    };
+
+
     componentDidMount() {
-        const callback = (data) => {
-            console.log(data);
-            if (data.status === 200) {
-                this.setState({isAuthed: true, hasAuthed: true});
-            } else {
-                localStorage.removeItem('user');
-                this.setState({isAuthed: false, hasAuthed: true});
-            }
-        };
-        checkAuth(callback);
+       userService.checkSession(this.checkAuth);
     }
 
     render() {
         // eslint-disable-next-line react/prop-types
         const {component: Component, path = '/', exact = false, strict = false} = this.props;
 
-        console.log(this.state.isAuthed);
+        console.log("isAuthed:" + this.state.isAuthed);
+        console.log("hasAuthed:" + this.state.hasAuthed);
 
         if (!this.state.hasAuthed) {
             return null;

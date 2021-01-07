@@ -3,6 +3,7 @@ import './ClassView.css';
 import {Col, Row} from 'antd';
 import React from 'react';
 
+import {withRouter} from 'react-router-dom';
 import {ClassDiscuss} from '../../components/classdiscuss/ClassDiscuss';
 import ClassEdit from '../../components/classedit/ClassEdit';
 import ClassHomework from '../../components/classhomework/ClassHomework';
@@ -147,4 +148,4 @@ class ClassView extends React.Component {
     }
 }
 
-export default ClassView;
+export default withRouter(ClassView);
