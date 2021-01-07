@@ -4,6 +4,7 @@ import './LoginHeader.css';
 import {BellOutlined, CaretDownOutlined, UserOutlined} from '@ant-design/icons';
 import {Avatar, Badge, Col, Dropdown, Input, Menu, message, Row} from 'antd';
 import {Link} from 'react-router-dom';
+import {history} from "../../utils/history";
 import React from 'react';
 
 import logo from '../../assets/logo.png';
@@ -33,12 +34,13 @@ class LoginedHeader extends React.Component {
 
     logoutOnClick = () => {
         const callback = (data) => {
+            console.log(data);
             if (data.status === 200) {
                 localStorage.removeItem('user');
-                window.location.href = '/login';
                 message.success(data.msg);
+                // history.push('/login');
             } else {
-                message.error(data.msg);
+                message.error("登出失败");
             }
         };
         logout(callback);

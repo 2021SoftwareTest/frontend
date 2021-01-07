@@ -59,6 +59,8 @@ export class HomeworkList extends React.Component {
             }
         };
 
+        console.log(this.props.data);
+
         return (
             <div className="homework-list">
                 <List
@@ -72,7 +74,7 @@ export class HomeworkList extends React.Component {
                                     <div>
                                         <Link to={{
                                             pathname: "/homework",
-                                            search: "homeworkId=" + item.homeworkId
+                                            search: "?homeworkId=" + item.hwId
                                         }}>{item.title} </Link>
                                         {TagSwitch(item.state)}
                                     </div>

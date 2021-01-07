@@ -15,10 +15,10 @@ class ClassInfo extends React.Component {
             endTime: "",
             startTime: "",
             courseName: "",
-            courseId: 0,
+            courseID: 0,
             introduction: "",
-            textbooks: "",
-            status: ""
+            textBooks: "",
+            state: ""
         };
     }
 
@@ -36,7 +36,7 @@ class ClassInfo extends React.Component {
                 courseId: data.data.courseId,
                 introduction: data.data.introduction,
                 textbooks: data.data.textbooks,
-                status: data.data.status
+                state: data.data.state
             });
         };
         getCourseDetail(data, callback);
@@ -71,7 +71,7 @@ class ClassInfo extends React.Component {
             textbooks: this.state.textbooks,
             startTime: this.state.startTime,
             endTime: this.state.endTime,
-            status: this.state.status,
+            state: this.state.state
         };
         const callback = (data) => {
             if (data.status === 200) {
@@ -80,6 +80,7 @@ class ClassInfo extends React.Component {
                 message.error(data.msg);
             }
         };
+        console.log(data);
         editCourse(data, callback);
     };
 
@@ -117,7 +118,7 @@ class ClassInfo extends React.Component {
                                     </Row>
                                     <Row>
                                         <Col span={24}>
-                                            <Input value={this.state.startTime} onChange={this.startTimeOnChange}/>
+                                            <Input value={this.state.startTime} onChange={this.startTimeOnChange} disabled/>
                                         </Col>
                                     </Row>
                                 </Col>
@@ -129,7 +130,7 @@ class ClassInfo extends React.Component {
                                     </Row>
                                     <Row>
                                         <Col span={24}>
-                                            <Input value={this.state.endTime} onChange={this.endTimeOnChange}/>
+                                            <Input value={this.state.endTime} onChange={this.endTimeOnChange} disabled/>
                                         </Col>
                                     </Row>
                                 </Col>

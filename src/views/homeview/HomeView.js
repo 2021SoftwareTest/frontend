@@ -13,7 +13,6 @@ import {SideBar} from '../../components/sidebar/SideBar';
 import {getCourseList} from "../../services/courseService";
 
 class HomeView extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
