@@ -2,11 +2,11 @@ import './App.css';
 
 import React from 'react';
 
-import Router from './router/Router';
+import BasicRouter from './router/BasicRouter';
 
 class App extends React.Component {
     render() {
-        return <Router/>;
+        return <BasicRouter/>;
     }
 }
 

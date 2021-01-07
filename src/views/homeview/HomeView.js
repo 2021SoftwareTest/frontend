@@ -34,9 +34,7 @@ class HomeView extends React.Component {
             userId: userId,
         };
         const callback = (data) => {
-            console.log(data);
             if (data.status === 200) {
-                console.log(data);
                 if (data.data) {
                     this.setState({
                         courseList: data.data,

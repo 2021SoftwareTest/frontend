@@ -5,7 +5,7 @@ import {Button, Col, Divider, Dropdown, Input, Menu, Row} from 'antd';
 import React from 'react';
 
 import AnnouncementCell from '../announcementcell/AnnouncementCell';
-import {getMessageByCourseId, getMessageByUserId} from "../../services/messageService";
+import {getMessageByUserId} from "../../services/messageService";
 
 function handleMenuClick(e) {
     console.log('click', e);

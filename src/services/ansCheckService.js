@@ -1,4 +1,4 @@
-import {getRequest, postRequest, putRequest} from '../utils/ajax';
+import {getRequest, putRequest} from '../utils/ajax';
 import {answerUrl} from '../utils/config';
 
 export const getStuAnswerByAnsId = (data, callback) => {

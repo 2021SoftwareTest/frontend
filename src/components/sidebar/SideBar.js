@@ -1,12 +1,12 @@
 import './SideBar.css';
 
-import {BookOutlined, EditOutlined} from '@ant-design/icons';
-import {Layout, Menu, message} from 'antd';
+import {BookOutlined} from '@ant-design/icons';
+import {Layout, Menu} from 'antd';
 import React from 'react';
 import {Link} from 'react-router-dom';
 
 import {getCourseList} from '../../services/courseService';
-import {getUserHomework} from "../../services/homeworkService";
+// import {getUserHomework} from "../../services/homeworkService";
 
 const {Sider} = Layout;
 
@@ -16,8 +16,8 @@ export class SideBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            courseList: [{courseID: 1, courseName: "数学"}],
-            homeworkList: [{homeworkID: 1, homeworkName: "数学作业"}],
+            courseList: [],
+            homeworkList: [],
         };
     }
 
@@ -37,35 +37,30 @@ export class SideBar extends React.Component {
         const callback1 = (data) => {
             console.log(data);
             if (data.status === 200) {
-                // console.log(data);
                 if (data.data) {
                     this.setState({
                         courseList: data.data,
                     });
                 }
-                // message.success(data.msg);
+                // eslint-disable-next-line no-empty
             } else {
-                // message.error(data.msg);
             }
         };
         getCourseList(data, callback1);
 
-        const callback2 = (data) => {
-            // console.log(data);
-            if (data.status === 200) {
-                // console.log(data);
-                if (data.data) {
-                    this.setState({
-                        homeworkList: data.data,
-                    });
-                }
-                // message.success(data.msg);
-            } else {
-                // message.error(data.msg);
-            }
-        };
-
-        getUserHomework(data, callback2);
+        // const callback2 = (data) => {
+        //     if (data.status === 200) {
+        //         if (data.data) {
+        //             this.setState({
+        //                 homeworkList: data.data,
+        //             });
+        //         }
+        //         // eslint-disable-next-line no-empty
+        //     } else {
+        //     }
+        // };
+        //
+        // getUserHomework(data, callback2);
 
     }
 
@@ -78,14 +73,14 @@ export class SideBar extends React.Component {
                 </Link>
             </Menu.Item>
         ));
-        const homeworkList = this.state.homeworkList.map((item) => (
-            <Menu.Item key={item.homeworkID}>
-                <Link to={{pathname: '/homework', search: '?homeworkId=' + item.homeworkID}}>
-                    <EditOutlined/>
-                    {item.title}
-                </Link>
-            </Menu.Item>
-        ));
+        // const homeworkList = this.state.homeworkList.map((item) => (
+        //     <Menu.Item key={item.homeworkID}>
+        //         <Link to={{pathname: '/homework', search: '?homeworkId=' + item.homeworkID}}>
+        //             <EditOutlined/>
+        //             {item.title}
+        //         </Link>
+        //     </Menu.Item>
+        // ));
         return (
             <Sider
                 width="16%"
@@ -112,17 +107,17 @@ export class SideBar extends React.Component {
                     >
                         {courseList}
                     </SubMenu>
-                    <SubMenu
-                        key="sub2"
-                        title={
-                            <span>
-                <EditOutlined/>
-                <span>我的作业</span>
-              </span>
-                        }
-                    >
-                        {homeworkList}
-                    </SubMenu>
+              {/*      <SubMenu*/}
+              {/*          key="sub2"*/}
+              {/*          title={*/}
+              {/*              <span>*/}
+              {/*  <EditOutlined/>*/}
+              {/*  <span>我的作业</span>*/}
+              {/* </span>*/}
+              {/*          }*/}
+              {/*      >*/}
+              {/*          {homeworkList}*/}
+              {/*      </SubMenu>*/}
                 </Menu>
             </Sider>
         );

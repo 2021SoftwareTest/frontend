@@ -54,7 +54,9 @@ export class ClassNotice extends React.Component {
         const data = {
             courseId: this.props.courseId,
         };
+        console.log(data);
         const callback = (data) => {
+
             this.setState({announcements: data.data});
         };
         getMessageByCourseId(data, callback);

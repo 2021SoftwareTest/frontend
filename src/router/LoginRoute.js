@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
-import {checkAuth} from "../services/userService";
+// import {checkAuth} from "../services/userService";
 
 export class LoginRoute extends React.Component {
     constructor(props) {

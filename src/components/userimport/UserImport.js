@@ -21,10 +21,10 @@ class UserImport extends React.Component {
         const callback = (data) => {
             if (data.status === 200) {
                 this.setState({unselected: data.data});
-                message.success(data.msg);
+                // message.success(data.msg);
             }
             else {
-                message.error(data.msg);
+                // message.error(data.msg);
             }
         };
         getCourseNotInUser(data, callback);

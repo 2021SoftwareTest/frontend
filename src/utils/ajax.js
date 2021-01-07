@@ -31,7 +31,7 @@ function getParams(url) {  // URL参数转为json
     }
 }
 
-// const fetch = require('node-fetch');
+const fetch = require('node-fetch');
 
 const postRequest = (url, json, callback) => {
     const opts = {
@@ -40,7 +40,7 @@ const postRequest = (url, json, callback) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        // credentials: 'include',
+        credentials: 'include',
         mode: 'cors',
     };
 
@@ -61,13 +61,13 @@ const getRequest = (url, json, callback) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        // credentials: 'include',
+        credentials: 'include',
         mode: 'cors',
     };
     // console.log("参数",url+"?"+parseParams(json));
-    if (json) {
-        url = url + '?' + parseParams(json);
-    }
+    // if (json) {
+    //     url = url + '?' + parseParams(json);
+    // }
     console.log(url);
     fetch(url, opts)
         .then((response) =>
@@ -91,7 +91,7 @@ const deleteRequest = (url, json, callback) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        // credentials: 'include',
+        credentials: 'include',
         mode: 'cors',
     };
     // console.log("参数",url+"?"+parseParams(json));
@@ -117,7 +117,7 @@ const putRequest = (url, json, callback) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        // credentials: 'include',
+        credentials: 'include',
         mode: 'cors',
     };
 

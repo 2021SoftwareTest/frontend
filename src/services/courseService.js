@@ -1,5 +1,4 @@
-import {getRequest, putRequest, postRequest, deleteRequest} from '../utils/ajax';
-
+import {getRequest, postRequest,putRequest} from '../utils/ajax';
 import {courseUrl} from '../utils/config';
 
 export const putNewCourse = (data, callback) => {

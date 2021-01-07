@@ -24,6 +24,7 @@ class ClassView extends React.Component {
         this.courseId = -1;
         this.state = {
             curSection: 1,
+            courseId:1,
         };
     }
 
@@ -40,11 +41,11 @@ class ClassView extends React.Component {
 
         const query = this.props.location.search;
         const arr = query.split('&');
-        const id = arr[0].substr(9);
+        const id = arr[0].substr(4);
         this.courseId = id;
         console.log("classId:" + id);
 
-        this.setState({courseId:id});
+        this.setState({courseId:parseInt(id)});
     }
 
     menuCallback = (key) => {

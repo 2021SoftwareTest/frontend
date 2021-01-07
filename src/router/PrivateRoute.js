@@ -1,7 +1,7 @@
 import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
-import {message} from "antd";
-import {checkAuth} from "../services/userService";
+// import {message} from "antd";
+// import {checkAuth} from "../services/userService";
 
 export default class PrivateRoute extends React.Component {
     constructor(props) {

@@ -7,26 +7,26 @@ import Highlighter from 'react-highlight-words';
 
 import {deleteCourseUser, getCourseUser} from "../../services/courseService";
 
-const dataSource = [
-    {
-        userId: '0',
-        name: 'teacher',
-        userType: '0',
-        school: 'SJTU',
-        ID: '00000',
-        phone: '00000',
-        email: '00@00.com'
-    },
-    {
-        userId: '1',
-        userType: '1',
-        name: 'student',
-        school: 'SJTU',
-        ID: '00001',
-        phone: '00001',
-        email: '01@01.com'
-    }
-];
+// const dataSource = [
+//     {
+//         userId: '0',
+//         name: 'teacher',
+//         userType: '0',
+//         school: 'SJTU',
+//         ID: '00000',
+//         phone: '00000',
+//         email: '00@00.com'
+//     },
+//     {
+//         userId: '1',
+//         userType: '1',
+//         name: 'student',
+//         school: 'SJTU',
+//         ID: '00001',
+//         phone: '00001',
+//         email: '01@01.com'
+//     }
+// ];
 
 
 class ClassUser extends React.Component {
@@ -41,7 +41,6 @@ class ClassUser extends React.Component {
 
     componentDidMount() {
         this.setState({
-            dataSource: dataSource,
             courseId: this.props.courseId,
         });
         const callback = (data) => {

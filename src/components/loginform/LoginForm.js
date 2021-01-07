@@ -6,7 +6,8 @@ import {Button, Col, Input, message, Row} from 'antd';
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import {login} from '../../services/userService';
+import {login, logout} from '../../services/userService';
+import {history} from "../../utils/history";
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -27,23 +28,21 @@ class LoginForm extends React.Component {
             userName: this.state.username,
             password: this.state.password,
         };
-        // TODO: Remove this after connect
-        window.location.href = '/';
         const callback = (data) => {
             if (data.status === 200) {
                 if (data.data.user.userType === -1) {
                     message.error('您的账号已经被禁用！');
                 } else {
                     localStorage.setItem('user', JSON.stringify(data.data.user));
-                    window.location.href = '/';
                     message.success(data.msg);
+                    history.push("/");
                 }
             } else {
                 message.error(data.msg);
             }
         };
         login(data, callback);
-    };
+    }
 
     render() {
         return (
