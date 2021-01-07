@@ -48,5 +48,5 @@ export const saveUserInfo = (data, callback) => {
 
 export const checkAuth = (callback) => {
     const url = authUrl + 'checkAuth';
-    getRequest(url, undefined, callback);
+    getRequest(url, {}, callback);
 };

@@ -12,13 +12,6 @@ import {ReplyList} from '../../components/replylist/ReplyList';
 import {SideBar} from '../../components/sidebar/SideBar';
 import {getCourseList} from "../../services/courseService";
 
-const data = [
-    {courseImage: "xxx", courseId: 1, courseName: "CSE1", courseTerm: "2020-2021 Fall"},
-    {courseImage: "xxx", courseId: 2, courseName: "CSE2", courseTerm: "2020-2021 Fall"},
-    {courseImage: "xxx", courseId: 3, courseName: "CSE3", courseTerm: "2020-2021 Fall"},
-    {courseImage: "xxx", courseId: 4, courseName: "CSE4", courseTerm: "2020-2021 Fall"}
-];
-
 class HomeView extends React.Component {
 
     constructor(props) {
@@ -27,7 +20,7 @@ class HomeView extends React.Component {
             courseList: []
         };
         this.state = {
-            courseList: data
+            courseList: []
         };
     }
 

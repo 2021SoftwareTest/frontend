@@ -15,7 +15,7 @@ export class LoginRoute extends React.Component {
     // componentDidMount() {
     //     const callback = (data) => {
     //         console.log(data);
-    //         if (data.status >= 0) {
+    //         if (data.status === 200) {
     //             this.setState({isAuthed: true, hasAuthed: true});
     //         } else {
     //             localStorage.removeItem('user');

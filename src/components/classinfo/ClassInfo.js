@@ -20,15 +20,6 @@ class ClassInfo extends React.Component {
             textbooks: "",
             status: ""
         };
-        // this.state = {
-        //     endTime: "2020-7-1",
-        //     startTime: "2020-1-1",
-        //     courseName: "六年级语文",
-        //     courseId: 1,
-        //     introduction: "这个老师很懒，他没有写描述。",
-        //     textbooks: "六年级语文书",
-        //     status: "0"
-        // };
     }
 
     componentDidMount() {
@@ -110,7 +101,7 @@ class ClassInfo extends React.Component {
                                     </Row>
                                     <Row>
                                         <Col span={24}>
-                                            <Input value={this.state.courseName} onChange={this.courseNameOnChange}/>
+                                            <Input value={this.state.courseName} onChange={this.courseNameOnChange} placeholder="输入课名"/>
                                         </Col>
                                     </Row>
                                 </Col>

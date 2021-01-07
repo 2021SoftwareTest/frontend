@@ -75,7 +75,7 @@ class AddClassForm extends React.Component {
                             </Row>
                             <Row>
                                 <Col span={24}>
-                                    <Input value={this.state.courseName} onChange={this.courseNameOnChange}/>
+                                    <Input value={this.state.courseName} onChange={this.courseNameOnChange} placeholder="输入课程名称"/>
                                 </Col>
                             </Row>
                         </div>

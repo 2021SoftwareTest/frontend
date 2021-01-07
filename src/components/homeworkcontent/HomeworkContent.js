@@ -134,7 +134,7 @@ class HomeworkContent extends React.Component {
 
     handleNoteChange = (e) => {
         // console.log(e.target.value);
-        this.setState({commentContent: e.target.value});
+        this.setState({noteContent: e.target.value});
     };
 
     render() {

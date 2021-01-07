@@ -31,7 +31,7 @@ class LoginForm extends React.Component {
         window.location.href = '/';
         const callback = (data) => {
             if (data.status === 200) {
-                if (data.data.userType === -1) {
+                if (data.data.user.userType === -1) {
                     message.error('您的账号已经被禁用！');
                 } else {
                     localStorage.setItem('user', JSON.stringify(data.data.user));
