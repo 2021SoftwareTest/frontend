@@ -17,6 +17,7 @@ export class UserProfile extends React.Component {
             ID: '',
             phone: '',
             email: '',
+            password: ''
         };
     }
 
@@ -38,6 +39,10 @@ export class UserProfile extends React.Component {
 
     emailOnChange = (e) => {
         this.setState({email: e.target.value});
+    };
+
+    passwordOnChange = (e) => {
+      this.setState({password: e.target.value});
     };
 
     componentDidMount() {
@@ -90,6 +95,7 @@ export class UserProfile extends React.Component {
             ID: this.state.ID,
             phone: this.state.phone,
             email: this.state.email,
+            password: this.state.password
         };
         const callback = (data) => {
             console.log(data);
@@ -100,22 +106,12 @@ export class UserProfile extends React.Component {
             }
         };
         console.log(userInfo);
-        saveUserInfo({user: userInfo}, callback);
+        saveUserInfo(userInfo, callback);
     };
 
     // eslint-disable-next-line no-unused-vars
     onSubmit = (values) => {
         this._saveUserInfo();
-        // test
-        // const obj = {
-        //     id: 11,
-        //     name: 'name',
-        //     email: 'email',
-        //     phone: 'phone',
-        //     school: 'school'
-        // };
-        // this.formRef.current.setFieldsValue(obj);
-        // console.log(this.formRef.current);
     };
 
     onReset = () => {
@@ -174,11 +170,13 @@ export class UserProfile extends React.Component {
                                                    value={this.state.school} onChange={this.schoolOnChange}/>
                                         </Form.Item>
                                     </Col>
-                                    {/* <Col span={12}>*/}
-                                    {/*    <Form.Item name="class" label="班级" rules={[{required: true, message:"请输入姓名"}]}>*/}
-                                    {/*        <Input placeholder="请输入班级" style={{width:240, height:40, borderRadius:5}} value={userInfo.school}/>*/}
-                                    {/*    </Form.Item>*/}
-                                    {/* </Col>*/}
+                                    <Col span={12}>
+                                        <Form.Item name="password" label="密码"
+                                                   rules={[{required: true, message: '请输入确认密码'}]}>
+                                            <Input placeholder="请输入确认密码" style={{width: 240, height: 40, borderRadius: 5}}
+                                                   value={this.state.password} onChange={this.passwordOnChange}/>
+                                        </Form.Item>
+                                    </Col>
                                 </Row>
                                 <Form.Item>
                                     <Button htmlType="submit" className="profile-pic-button">

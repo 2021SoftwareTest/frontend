@@ -5,7 +5,6 @@ import React from 'react';
 import {addCourseUser, getCourseNotInUser} from "../../services/courseService";
 
 class UserImport extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -16,9 +15,10 @@ class UserImport extends React.Component {
 
     componentDidMount() {
         const data = {
-            "courseId": this.props.courseId,
+            courseId: this.props.courseId,
         };
         const callback = (data) => {
+            console.log(data);
             if (data.status === 200) {
                 this.setState({unselected: data.data});
                 // message.success(data.msg);
@@ -27,6 +27,7 @@ class UserImport extends React.Component {
                 // message.error(data.msg);
             }
         };
+        console.log(data);
         getCourseNotInUser(data, callback);
     }
 
@@ -35,7 +36,7 @@ class UserImport extends React.Component {
         const _selected = this.state.selected;
         let tmpObj;
         for (let i = 0; i < _unselected.length; ++i) {
-            if (_unselected[i].userId === userId) {
+            if (_unselected[i].userID === userId) {
                 tmpObj = _unselected[i];
                 _unselected.splice(i, 1);
                 break;
@@ -49,7 +50,7 @@ class UserImport extends React.Component {
         const selected = this.state.selected;
         let students = [];
         for (let i = 0, len = selected.length; i < len; i++) {
-            students.push({userId: selected[i].userId});
+            students.push({userId: selected[i].userID});
         }
         const data = {
             students: students,
@@ -62,6 +63,7 @@ class UserImport extends React.Component {
                 message.error(data.msg);
             }
         };
+        console.log(data);
         addCourseUser(data, callback);
     };
 
@@ -70,7 +72,7 @@ class UserImport extends React.Component {
         const _selected = this.state.selected;
         let tmpObj;
         for (let i = 0; i < _selected.length; ++i) {
-            if (_selected[i].userId === userId) {
+            if (_selected[i].userID === userId) {
                 tmpObj = _selected[i];
                 _selected.splice(i, 1);
                 break;
@@ -86,7 +88,7 @@ class UserImport extends React.Component {
                 <Row>
                     <Col span={8}>{item.name}</Col>
                     <Col span={8}>{item.school}</Col>
-                    <Col span={8}>{item.ID}</Col>
+                    <Col span={8}>{item.id}</Col>
                 </Row>
             </div>
         ))

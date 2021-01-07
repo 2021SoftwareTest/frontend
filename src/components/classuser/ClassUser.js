@@ -7,27 +7,6 @@ import Highlighter from 'react-highlight-words';
 
 import {deleteCourseUser, getCourseUser} from "../../services/courseService";
 
-// const dataSource = [
-//     {
-//         userId: '0',
-//         name: 'teacher',
-//         userType: '0',
-//         school: 'SJTU',
-//         ID: '00000',
-//         phone: '00000',
-//         email: '00@00.com'
-//     },
-//     {
-//         userId: '1',
-//         userType: '1',
-//         name: 'student',
-//         school: 'SJTU',
-//         ID: '00001',
-//         phone: '00001',
-//         email: '01@01.com'
-//     }
-// ];
-
 
 class ClassUser extends React.Component {
 
@@ -44,7 +23,7 @@ class ClassUser extends React.Component {
             courseId: this.props.courseId,
         });
         const callback = (data) => {
-            console.log("getUser" + data);
+            console.log("getUser", data);
             this.setState({dataSource: data.data});
         };
         const data = {
@@ -118,19 +97,19 @@ class ClassUser extends React.Component {
         this.setState({searchText: ''});
     };
 
-    handleDelete = (userId) => {
+    handleDelete = (userID) => {
         const callback = (data) => {
-            if (data.status >= 0) {
+            if (data.status === 200) {
                 message.success(data.msg);
                 const dataSource = [...this.state.dataSource];
                 this.setState({
-                    dataSource: dataSource.filter((item) => item.userId !== userId),
+                    dataSource: dataSource.filter((item) => item.userID !== userID),
                 });
             } else {
                 message.error(data.msg);
             }
         };
-        deleteCourseUser({"courseId": this.state.courseId, "userId": userId}, callback);
+        deleteCourseUser({courseId: this.state.courseId, students:[{userId: userID}]}, callback);
     };
 
     render() {
@@ -139,9 +118,9 @@ class ClassUser extends React.Component {
         const columns = [
             {
                 title: '序号',
-                dataIndex: 'userId',
-                key: 'userId',
-                sorter: (a, b) => a.userId - b.userId,
+                dataIndex: 'userID',
+                key: 'userID',
+                sorter: (a, b) => a.userID - b.userID,
             },
             {
                 title: '类型',
@@ -163,8 +142,8 @@ class ClassUser extends React.Component {
             },
             {
                 title: '学号',
-                dataIndex: 'ID',
-                sorter: (a, b) => a.ID - b.ID,
+                dataIndex: 'id',
+                sorter: (a, b) => a.id - b.id,
             }, {
                 title: '手机',
                 dataIndex: 'phone',
@@ -177,7 +156,7 @@ class ClassUser extends React.Component {
                 dataIndex: 'action',
                 render: (text, record) => (
                     <Space size="middle">
-                        <Button onClick={() => {this.handleDelete(record.userId);}}>Delete</Button>
+                        <Button onClick={() => {this.handleDelete(record.userID);}}>Delete</Button>
                     </Space>
                 )
             },
