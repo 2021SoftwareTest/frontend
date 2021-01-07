@@ -15,10 +15,10 @@ class ClassInfo extends React.Component {
             endTime: "",
             startTime: "",
             courseName: "",
-            courseId: 0,
+            courseID: 0,
             introduction: "",
-            textbooks: "",
-            status: ""
+            textBooks: "",
+            state: ""
         };
     }
 
@@ -71,7 +71,7 @@ class ClassInfo extends React.Component {
             textbooks: this.state.textbooks,
             startTime: this.state.startTime,
             endTime: this.state.endTime,
-            state: this.state.state,
+            state: this.state.state
         };
         console.log(data);
         const callback = (data) => {
@@ -81,6 +81,7 @@ class ClassInfo extends React.Component {
                 message.error(data.msg);
             }
         };
+        console.log(data);
         editCourse(data, callback);
     };
 
@@ -118,7 +119,7 @@ class ClassInfo extends React.Component {
                                     </Row>
                                     <Row>
                                         <Col span={24}>
-                                            <Input value={this.state.startTime} onChange={this.startTimeOnChange}/>
+                                            <Input value={this.state.startTime} onChange={this.startTimeOnChange} disabled/>
                                         </Col>
                                     </Row>
                                 </Col>
@@ -130,7 +131,7 @@ class ClassInfo extends React.Component {
                                     </Row>
                                     <Row>
                                         <Col span={24}>
-                                            <Input value={this.state.endTime} onChange={this.endTimeOnChange}/>
+                                            <Input value={this.state.endTime} onChange={this.endTimeOnChange} disabled/>
                                         </Col>
                                     </Row>
                                 </Col>
