@@ -56,7 +56,6 @@ class ClassView extends React.Component {
             });
         };
         getCourseDetail(data, callback);
-
     }
 
     menuCallback = (key) => {

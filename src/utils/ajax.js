@@ -27,7 +27,7 @@ const getRequest = (url, json, callback) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        credentials: 'include',
+       credentials: 'include',
         mode: 'cors',
     };
     console.log(url);
