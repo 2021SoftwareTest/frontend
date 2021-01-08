@@ -31,7 +31,7 @@ export class HomeworkDone extends React.Component {
                     drawContent: this.props.hwDoneData.description
                 });
                 this.canvas.loadSaveData(this.props.hwDoneData.description);
-            }, 1500);
+            }, 2000);
         }
     };
 
