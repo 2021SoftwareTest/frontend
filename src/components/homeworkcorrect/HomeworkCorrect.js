@@ -20,7 +20,7 @@ export class HomeworkCorrect extends React.Component {
                 comment: this.props.hwCorrectData.comment,
                 score: this.props.hwCorrectData.score
             });
-        }, 1000);
+        }, 1500);
     }
 
     handleSubmit = () => {

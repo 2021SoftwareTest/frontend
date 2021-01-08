@@ -120,6 +120,7 @@ class HomeworkContent extends React.Component {
             const callback = (data) => {
                 if (data.status === 200) {
                     message.success(data.msg);
+                    this.props.updateSrcData();
                 }
                 else {
                     message.error(data.msg);

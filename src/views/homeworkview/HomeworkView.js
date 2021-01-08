@@ -2,7 +2,6 @@ import './HomeworkView.css';
 
 import {Col, message, Row} from 'antd';
 import React from 'react';
-import {withRouter} from 'react-router-dom';
 
 import MyFooter from '../../components/footer/MyFooter';
 import {HomeworkHeader} from '../../components/homeworkheader/HomeworkHeader';
@@ -12,6 +11,7 @@ import HomeworkContent from '../../components/homeworkcontent/HomeworkContent';
 import HomeworkSubmitList from '../../components/homeworksubmitlist/HomeworkSubmitList';
 import TeacherHomeworkCorrect from "../../components/teacherhomeworkcorrect/TeacherHomeworkCorrect";
 import StandardAnswer from "../../components/standardanswer/StandardAnswer";
+import {withRouter} from 'react-router-dom';
 
 import {getHomeworkDetail, teacherGetHomework} from "../../services/homeworkService";
 
@@ -231,7 +231,9 @@ class HomeworkView extends React.Component {
                 </Row>
             </div>
         );
-    };
+    }
+
+    ;
 }
 
 export default withRouter(HomeworkView);
