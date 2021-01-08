@@ -1,40 +1,40 @@
 .homework-header {
-  margin-left:-10px;
-  padding-top: 16px;
-  background-color: #fafbfc;
+    margin-left: -10px;
+    padding-top: 16px;
+    background-color: #fafbfc;
 }
 
-.homework-title {
-  margin-bottom: 5px;
-  font-weight: 400;
-  font-size: 20px !important;
-  color: #24292e;
-  float: left;
+.homework-header .homework-title {
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 20px !important;
+    color: #24292e;
+    float: left;
 }
 
-.homework-name {
-  font-weight: 600;
-  color: #0366d6;
+.homework-header .homework-name {
+    font-weight: 600;
+    color: #0366d6;
 }
 
-.homework-header a:hover {
-  border-bottom: 2px solid #1890ff;
-  padding-bottom: 1px;
+.homework-header .homework-header a:hover {
+    border-bottom: 2px solid #1890ff;
+    padding-bottom: 1px;
 }
 
-.class-svg {
-  margin-top: 9px;
-  margin-right: 8px;
-  color: #586069;
-  vertical-align: text-bottom;
-  float: left;
+.homework-header .class-svg {
+    margin-top: 9px;
+    margin-right: 8px;
+    color: #586069;
+    vertical-align: text-bottom;
+    float: left;
 }
 
-.homework-menu {
-  margin-left: 20px !important;
-  background-color: #fafbfc !important;
+.homework-header .homework-menu {
+    margin-left: 20px !important;
+    background-color: #fafbfc !important;
 }
 
-.homework-button {
-  margin-left: 10px;
+.homework-header .homework-button {
+    margin-left: 10px;
 }

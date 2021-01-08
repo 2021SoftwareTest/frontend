@@ -1,101 +1,67 @@
-import { message } from 'antd';
-
-import { getRequest, postRequest } from '../utils/ajax';
-import { history } from '../utils/history';
-
-const baseUrl = 'http://localhost:8080/';
-const authUrl = baseUrl + 'auth/';
-const userUrl = baseUrl + 'user/';
-const checkUrl = baseUrl + 'check/';
+import {getRequest, postRequest} from '../utils/ajax';
+import {authUrl, userUrl, verificationUrl} from '../utils/config';
+import {message} from "antd";
+import {history} from "../utils/history";
 
 export const login = (data) => {
-  const url = authUrl + 'login';
-  // TODO
-  const callback = (data) => {
-    if (data.status === 200) {
-      if (data.data.userType === -1) {
-        message.error('您的账号已经被禁用！');
-      } else {
-        localStorage.setItem('user', JSON.stringify(data.data));
-        history.push('/');
-        window.location = '/';
-        message.success(data.msg);
-      }
-    } else {
-      message.error('登录失败');
-    }
-  };
-  postRequest(url, data, callback);
+    const url = authUrl + 'login';
+    const callback = (data) => {
+        if (data.status === 200) {
+            if (data.data.user.userType === -1) {
+                message.error('您的账号已经被禁用！');
+            } else {
+                localStorage.setItem('user', JSON.stringify(data.data.user));
+                window.location.assign("/#/") ;
+                message.success(data.msg);
+            }
+        } else {
+            message.error(data.msg);
+        }
+    };
+    postRequest(url, data, callback);
 };
 
-export const logout = () => {
-  const url = authUrl + 'logout';
-
-  const callback = (data) => {
-    if (data.status === 200) {
-      localStorage.removeItem('user');
-      history.push('/login');
-      window.location = '/login';
-      message.success(data.msg);
-    } else {
-      message.error(data.msg);
-    }
-  };
-  getRequest(url, undefined, callback);
+export const logout = (callback) => {
+    const url = authUrl + 'logout';
+    getRequest(url, undefined, callback);
 };
 
-export const register = (data) => {
-  const url = userUrl + 'register';
-  // TODO
-  const callback = (data) => {
-    console.log(data);
-    if (data.status === 200) {
-      message.success(data.msg);
-      history.push('/login');
-      window.location = '/login';
-    } else {
-      message.error(data.msg);
-    }
-  };
-  postRequest(url, data, callback);
+export const sendVerification = (data, callback) => {
+    const url = verificationUrl + 'send';
+    postRequest(url, data, callback);
+};
+
+export const register = (data, callback) => {
+    const url = userUrl + 'register';
+    postRequest(url, data, callback);
+};
+
+export const getOtherUserInfo = (data, callback) => {
+    const url = userUrl + 'otherinfo';
+    getRequest(url, data, callback);
 };
 
 export const getUserInfo = (data, callback) => {
-  const url = userUrl + 'info';
-  getRequest(url, data, callback);
+    const url = userUrl + 'getinfo';
+    getRequest(url, data, callback);
 };
 
 export const saveUserInfo = (data, callback) => {
-  const url = userUrl + 'info';
-  postRequest(url, data, callback);
+    const url = userUrl + 'info';
+    postRequest(url, data, callback);
 };
 
-export const checkPassword = (data, callback) => {
-  const url = checkUrl + 'password';
-  postRequest(url, data, callback);
-};
+// export const changePassword = (data, callback) => {
+//     const url = userUrl + 'password';
+//     postRequest(url, data, callback);
+// };
 
-export const checkPhone = (data, callback) => {
-  const url = checkUrl + 'phone';
-  postRequest(url, data, callback);
-};
+// export const setAvatar = (data, callback) => {
+//     const url = baseUrl + 'avatar';
+//     postRequest(url, data, callback);
+// };
 
-export const checkEmail = (data, callback) => {
-  const url = checkUrl + 'email';
-  postRequest(url, data, callback);
-};
-
-export const getUsersInClass = (data, callback) => {
-  const url = userUrl + 'getUsersInClass';
-  postRequest(url, data, callback);
-};
-
-export const deleteUserInClass = (data, callback) => {
-  const url = userUrl + 'deleteUserInClass';
-  postRequest(url, data, callback);
-};
-
-export const editUserInClass = (data, callback) => {
-  const url = userUrl + 'editUserInClass';
-  postRequest(url, data, callback);
+export const checkSession = (callback) => {
+    const url = authUrl + 'checkAuth';
+    getRequest(url, undefined, callback);
 };

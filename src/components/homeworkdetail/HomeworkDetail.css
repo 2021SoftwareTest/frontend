@@ -1,4 +1,10 @@
 .homework-detail p {
-  font-size: 14px;
-  color: #24292e;
+    font-size: 16px;
+    margin-bottom: 7px;
+    color: rgb(66, 75, 85);
+}
+
+.homework-detail h2 {
+    font-weight: bold;
+    color: rgb(56, 65, 75);
 }

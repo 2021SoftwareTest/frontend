@@ -1,99 +1,90 @@
 import './HomeView.css';
 
-import { Col, Divider, Row } from 'antd';
+import {Col, Divider, message, Row} from 'antd';
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
-import { BackToTop } from '../../components/backtotop/BackToTop';
+import {BackToTop} from '../../components/backtotop/BackToTop';
+import CourseCard from '../../components/coursecard/CourseCard';
 import MyFooter from '../../components/footer/MyFooter';
-import { HomeworkList } from '../../components/homeworklist/HomeworkList';
 import LoginedHeader from '../../components/loginedheader/LoginedHeader';
-import { ReplyList } from '../../components/replylist/ReplyList';
-import { SideBar } from '../../components/sidebar/SideBar';
-
-const todoHomework = [
-  {
-    title: '语文作业3',
-    tag: '未读',
-    comment: 'deadline: Today',
-  },
-  {
-    title: '语文作业4',
-    tag: '未读',
-    comment: 'deadline: Today',
-  },
-  {
-    title: '数学作业2',
-    tag: '未读',
-    comment: '最后一题比较难，同学们注意一下',
-  },
-  {
-    title: '英语作业2',
-    tag: '正在做',
-    comment: 'deadline: Today',
-  },
-];
-const doneHomework = [
-  {
-    title: '语文作业1',
-    tag: '已完成',
-    comment: '做的不错',
-  },
-  {
-    title: '语文作业2',
-    tag: '请订正',
-    comment: '作文自己再琢磨琢磨',
-  },
-  {
-    title: '数学作业1',
-    tag: '已完成',
-    comment: '有进步',
-  },
-  {
-    title: '英语作业1',
-    tag: '已结束',
-    comment: '无',
-  },
-];
+import {ReplyList} from '../../components/replylist/ReplyList';
+import {SideBar} from '../../components/sidebar/SideBar';
+import {getCourseList} from "../../services/courseService";
 
 class HomeView extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            courseList: []
+        };
+        this.state = {
+            courseList: []
+        };
+    }
 
-  componentDidMount() {
-    const user = localStorage.getItem('user');
-    this.setState({ user: user });
-  }
+    componentDidMount() {
+        const courseList = sessionStorage.getItem('courseList');
+        if (courseList)
+        {
+            this.setState({
+                courseList: JSON.parse(courseList)
+            });
+            return;
+        }
+        let userId = 1;
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            userId = user.userID;
+        }
+        const data = {
+            userId: userId,
+        };
+        const callback = (data) => {
+            if (data.status === 200) {
+                if (data.data) {
+                    this.setState({
+                        courseList: data.data,
+                    });
+                }
+                // message.success(data.msg);
+            } else {
+                message.error(data.msg);
+            }
+        };
+        getCourseList(data, callback);
+    }
 
-  render() {
-    return (
-      <div className="home-view">
-        <LoginedHeader />
-        <Row style={{ minHeight: '100vh' }}>
-          <Col span={4}>
-            <SideBar />
-          </Col>
-          <Col span={20} style={{ paddingLeft: 10 }}>
-            <Row>
-              <Col span={18} style={{ paddingRight: 10 }}>
-                <Divider orientation="left">最近要做的作业</Divider>
-                <HomeworkList data={todoHomework} style={{ backgroundColor: '#fafbfc' }} />
-                <Divider orientation="left">已经完成的作业</Divider>
-                <HomeworkList data={doneHomework} style={{ backgroundColor: '#fafbfc' }} />
-              </Col>
-              <Col span={6}>
-                <ReplyList />
-              </Col>
-            </Row>
-            <Row>
-              <Col span={16}>
-                <MyFooter />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <BackToTop />
-      </div>
-    );
-  }
+    render() {
+        const content = this.state.courseList.map((item, index) => (<CourseCard data={item} key={index}/>));
+        return (
+            <div className="home-view">
+                <LoginedHeader/>
+                <Row style={{minHeight: '100vh'}}>
+                    <Col span={4}>
+                        <SideBar/>
+                    </Col>
+                    <Col span={20} style={{paddingLeft: 10}}>
+                        <Row>
+                            <Col span={18} style={{paddingRight: 10}}>
+                                <Divider orientation="left">课程列表</Divider>
+                                {content}
+                            </Col>
+                            <Col span={6}>
+                                <ReplyList/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col span={16}>
+                                <MyFooter/>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+                <BackToTop/>
+            </div>
+        );
+    }
 }
 
 export default withRouter(HomeView);

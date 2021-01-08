@@ -1,96 +1,64 @@
 import 'braft-editor/dist/index.css';
-
-import { FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
-import { Avatar, Button, Col, Comment, Form, Input, Row } from 'antd';
-import moment from 'moment';
+import {Avatar, Comment, Input} from 'antd';
 import React from 'react';
 
-const { TextArea } = Input;
-
-// eslint-disable-next-line react/prop-types
-const Editor = ({ onChange, onSubmit, submitting, value }) => (
-  <>
-    <Form.Item>
-      <TextArea rows={4} onChange={onChange} value={value} />
-    </Form.Item>
-    <Form.Item>
-      <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
-        提交
-      </Button>
-    </Form.Item>
-  </>
-);
+const {TextArea} = Input;
 
 export class HomeworkCorrect extends React.Component {
-  state = {
-    comments: [],
-    submitting: false,
-    value: '非常棒！',
-  };
-
-  handleSubmit = () => {
-    if (!this.state.value) {
-      return;
+    constructor(props) {
+        super(props);
+        this.userType = this.props.userType;
+        this.state = {
+            comment: this.props.hwCorrectData.comment,
+            score: this.props.hwCorrectData.score
+        }
     }
 
-    this.setState({
-      submitting: true,
-    });
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                comment: this.props.hwCorrectData.comment,
+                score: this.props.hwCorrectData.score
+            });
+        }, 1500);
+    }
 
-    setTimeout(() => {
-      this.setState({
-        submitting: false,
-        value: '',
-        comments: [
-          {
-            author: 'Han Solo',
-            avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-            content: <p>{this.state.value}</p>,
-            datetime: moment().fromNow(),
-          },
-          ...this.state.comments,
-        ],
-      });
-    }, 1000);
-  };
+    handleSubmit = () => {
 
-  handleChange = (e) => {
-    this.setState({
-      value: e.target.value,
-    });
-  };
+    };
 
-  scoreChange = (value) => {
-    console.log('changed', value);
-  };
+    onCommentChange = (e) => {
+        this.setState({comment: e.target.value});
+    };
 
-  render() {
-    const { submitting, value } = this.state;
+    onScoreChange = (e) => {
+        this.setState({score: e.target.value});
+    };
 
-    return (
-      <>
-        <Row>
-          <Col>
-            <Input style={{ width: 200 }} placeholder="分数" />
-            <Button className="correct-button">
-              <SmileOutlined />
-              做得不错
-            </Button>
-            <Button className="correct-button">
-              <MehOutlined />
-              做得还行
-            </Button>
-            <Button className="correct-button">
-              <FrownOutlined />
-              有待提高
-            </Button>
-          </Col>
-        </Row>
-        <Comment
-          avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
-          content={<Editor onChange={this.handleChange} onSubmit={this.handleSubmit} submitting={submitting} value={value} />}
-        />
-      </>
-    );
-  }
+    render() {
+        const {comment, score} = this.state;
+        return (
+            <>
+                <div>
+                    <Input style={{width: 200}} placeholder="分数" value={score} onChange={this.onScoreChange}
+                           disabled={this.userType !== 1}/>
+                    {/* <Button className="correct-button">*/}
+                    {/*    <SmileOutlined/>做得不错*/}
+                    {/* </Button>*/}
+                    {/* <Button className="correct-button">*/}
+                    {/*    <MehOutlined/>做得还行*/}
+                    {/* </Button>*/}
+                    {/* <Button className="correct-button">*/}
+                    {/*    <FrownOutlined/>有待提高*/}
+                    {/*</Button>*/}
+                </div>
+                <Comment
+                    avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                                    alt="Han Solo"/>}
+                    content={<TextArea rows={4} onChange={this.onCommentChange} value={comment}
+                                       disabled={this.userType !== 1}/>}
+                />
+            </>
+        );
+    }
 }

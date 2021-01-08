@@ -1,108 +1,88 @@
 import './SideBar.css';
 
-import { BookOutlined, EditOutlined } from '@ant-design/icons';
-import { Layout, Menu, message } from 'antd';
+import {BookOutlined} from '@ant-design/icons';
+import {Layout, Menu, message} from 'antd';
 import React from 'react';
+import {Link} from 'react-router-dom';
 
-import { getCourseList } from '../../services/courseService';
+import {getCourseList} from '../../services/courseService';
 
-const { Sider } = Layout;
+const {Sider} = Layout;
 
-const { SubMenu } = Menu;
+const {SubMenu} = Menu;
 
 export class SideBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      courseList: [{courseID:1, courseName:"数学"}],
-      homeworkList: [{homeworkID:1, homeworkName:"数学作业"}],
-    };
-  }
-  handleClick = (e) => {
-    console.log('click ', e);
-  };
-
-  componentDidMount() {
-    let userId = 1;
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user) {
-      userId = user.user.userID;
+    constructor(props) {
+        super(props);
+        this.state = {
+            courseList: [],
+            homeworkList: [],
+        };
     }
-    const data = {
-      userId: userId,
-    };
-    const callback = (data) => {
-      console.log(data);
-      if (data.status === 200) {
-        console.log(data);
-        if (data.data) {
-          this.setState({
-            courseList: data.data,
-          });
-        }
-        message.success(data.msg);
-      } else {
-        message.error(data.msg);
-      }
-    };
-    getCourseList(data, callback);
-  }
 
-  render() {
-    const courseList = this.state.courseList.map((item) => (
-      <Menu.Item key={item.courseID}>
-        <a href = {'/class'}>
-        <BookOutlined />
-        {item.courseName}
-        </a>
-      </Menu.Item>
-    ));
-    const homeworkList = this.state.homeworkList.map((item) => (
-      <Menu.Item key={item.homeworkID}>
-        <a href = {'/homework'}>
-        <BookOutlined />
-        {item.homeworkName}
-        </a>
-      </Menu.Item>
-    ));
-    return (
-      <Sider
-        width="16%"
-        className="site-layout-background"
-        collapsible={true}
-        style={{
-          overflow: 'auto',
-          height: '100vh',
-          position: 'fixed',
-          left: 0,
-        }}
-        theme={'white'}
-      >
-        <Menu onClick={this.handleClick} style={{ height: '100%', borderRight: 0 }} defaultSelectedKeys={[]} defaultOpenKeys={['sub1', 'sub2']} mode="inline">
-          <SubMenu
-            key="sub1"
-            title={
-              <span>
-                <BookOutlined />
-                <span>我的课程</span>
-              </span>
+    componentDidMount() {
+        const courseList = sessionStorage.getItem('courseList');
+        if (courseList)
+        {
+            console.log(courseList);
+            this.setState({
+                courseList: JSON.parse(courseList)
+            });
+            return;
+        }
+
+        const userId = JSON.parse(localStorage.getItem('user')).userID;
+        const data = {
+            userId: userId,
+        };
+        const callback = (data) => {
+            console.log(data);
+            if (data.status === 200) {
+                if (data.data) {
+                    this.setState({
+                        courseList: data.data,
+                    });
+                }
+                sessionStorage.setItem('courseList', JSON.stringify(data.data));
+            } else {
+                message.error(data.msg);
             }
-          >
-            {courseList}
-          </SubMenu>
-          <SubMenu
-            key="sub2"
-            title={
-              <span>
-                <EditOutlined />
-                <span>我的作业</span>
-              </span>
-            }
-          >
-           {homeworkList}
-          </SubMenu>
-        </Menu>
-      </Sider>
-    );
-  }
+        };
+        getCourseList(data, callback);
+    }
+
+    render() {
+
+        const courseList = this.state.courseList.map((item) => (
+            <Menu.Item key={item.courseId}>
+                <Link to={{pathname: '/class', search: '?id=' + item.courseId}}>
+                    <BookOutlined/>
+                    {item.courseName}
+                </Link>
+            </Menu.Item>
+        ));
+        return (
+            <Sider
+                width="16%"
+                className="site-layout-background"
+                collapsible={true}
+                style={{
+                    overflow: 'auto',
+                    height: '100vh',
+                    position: 'fixed',
+                    left: 0,
+                }}
+                theme={'white'}
+            >
+                <Menu style={{height: '100%', borderRight: 0}} defaultSelectedKeys={[]}
+                      defaultOpenKeys={['sub1']} mode="inline">
+                    <SubMenu
+                        key="sub1"
+                        title={<div><BookOutlined/>我的课程</div>}>
+                        {courseList}
+                    </SubMenu>
+                </Menu>
+            </Sider>
+        );
+    }
 }

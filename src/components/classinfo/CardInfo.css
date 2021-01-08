@@ -1,32 +1,33 @@
 .class-card {
-  background-color: #fafbfc;
-  border: 1px solid rgb(230, 230, 230);
-  border-radius: 5px;
-  width: 65%;
-  margin-left: 17.5%;
-  margin-top: 50px;
-  padding: 30px 50px;
+    background-color: #fafbfc;
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 5px;
+    width: 65%;
+    margin-left: 17.5%;
+    margin-top: 50px;
+    padding: 30px 50px;
 }
 
 .student-list-container {
-  margin-top: 20px;
-  margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .student-list-header {
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(230, 230, 230);
-  text-align: center;
-  padding: 5px 30px;
-  margin-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(230, 230, 230);
+    text-align: center;
+    padding: 5px 30px;
+    margin-bottom: 10px;
 }
 
 .student-list {
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(230, 230, 230);
-  text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(230, 230, 230);
+    text-align: center;
 }
+
 .list-item {
-  border: 1px solid rgb(240, 240, 240);
-  padding: 5px 30px;
+    border: 1px solid rgb(240, 240, 240);
+    padding: 5px 30px;
 }

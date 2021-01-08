@@ -10,7 +10,7 @@
 
 http://localhost:3000/login
 
-（PS：注意 src/routes/LoginRouter.js 中第九行的 isAuthed 修改为 false，src/routes/PrivateRouter.js 中第九行的 isAuthed 修改为 false）
+（PS：注意 src/routes/LoginRoute.js 中第九行的 isAuthed 修改为 false，src/routes/PrivateRoute.js 中第九行的 isAuthed 修改为 false）
 
 #### 示例
 
@@ -22,7 +22,7 @@ http://localhost:3000/login
 
 http://localhost:3000/login
 
-（PS：注意 src/routes/LoginRouter.js 中第九行的 isAuthed 修改为 true，src/routes/PrivateRouter.js 中第九行的 isAuthed 修改为 true，以下相同）
+（PS：注意 src/routes/LoginRoute.js 中第九行的 isAuthed 修改为 true，src/routes/PrivateRoute.js 中第九行的 isAuthed 修改为 true，以下相同）
 
 #### 示例
 

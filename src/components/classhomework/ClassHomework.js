@@ -1,68 +1,60 @@
 import './ClassHomework.css';
 
-import { Divider } from 'antd';
+import {Divider} from 'antd';
 import React from 'react';
 
-import { HomeworkList } from '../homeworklist/HomeworkList';
+import {HomeworkList} from '../homeworklist/HomeworkList';
+import {getCourseHwlist} from "../../services/courseService";
 
-const todoHomework = [
-  {
-    title: '语文作业3',
-    tag: '未读',
-    comment: 'deadline: Today',
-  },
-  {
-    title: '语文作业4',
-    tag: '未读',
-    comment: 'deadline: Today',
-  },
-  {
-    title: '数学作业2',
-    tag: '未读',
-    comment: '最后一题比较难，同学们注意一下',
-  },
-  {
-    title: '英语作业2',
-    tag: '正在做',
-    comment: 'deadline: Today',
-  },
-];
-const doneHomework = [
-  {
-    title: '语文作业1',
-    tag: '已完成',
-    comment: '做的不错',
-  },
-  {
-    title: '语文作业2',
-    tag: '请订正',
-    comment: '作文自己再琢磨琢磨',
-  },
-  {
-    title: '数学作业1',
-    tag: '已完成',
-    comment: '有进步',
-  },
-  {
-    title: '英语作业1',
-    tag: '已结束',
-    comment: '无',
-  },
-];
 
 class ClassHomework extends React.Component {
-  render() {
-    return (
-      <div className="class-homework">
-        <h2 style={{ marginTop: 30, marginBottom: 0 }}>最近布置的作业</h2>
-        <Divider style={{ margin: '20px 0' }} />
-        <HomeworkList data={todoHomework} />
-        <h2 style={{ marginTop: 30, marginBottom: 0 }}>已经过期的作业</h2>
-        <Divider style={{ margin: '20px 0' }} />
-        <HomeworkList data={doneHomework} />
-      </div>
-    );
-  }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            todoHomework: [],
+            doneHomework: [],
+            courseId: props.courseId,
+        }
+    }
+
+    componentDidMount() {
+        const data = {
+            courseId: this.state.courseId,
+        };
+        console.log(data);
+        const callback = (data) => {
+            console.log(data);
+            let todoHomework = [];
+            let doneHomework = [];
+            for (let i = 0; i < data.data.length; i++) {
+                if (data.data[i].state <= 2) {
+                    todoHomework.push(data.data[i]);
+                } else {
+                    doneHomework.push(data.data[i]);
+                }
+            }
+            this.setState({
+                todoHomework: todoHomework,
+                doneHomework: doneHomework
+            });
+
+        };
+        getCourseHwlist(data, callback);
+    }
+
+    render() {
+        return (
+            <div className="class-homework">
+                <h2 style={{marginTop: 30, marginBottom: 0}}>最近布置的作业</h2>
+                <Divider style={{margin: '20px 0'}}/>
+                <HomeworkList data={this.state.todoHomework}/>
+                <h2 style={{marginTop: 30, marginBottom: 0}}>已经过期的作业</h2>
+                <Divider style={{margin: '20px 0'}}/>
+                <HomeworkList data={this.state.doneHomework}/>
+            </div>
+        );
+    }
 }
 
 export default ClassHomework;
