@@ -49,26 +49,26 @@ export class NotificationList extends React.Component {
                         <div className="announcement-section">
                             <h2>最近的通知</h2>
                             <Row>
-                                <Col span={2}>
-                                    <Dropdown overlay={menu}>
-                                        <Button>
-                                            全部 <DownOutlined/>
-                                        </Button>
-                                    </Dropdown>
-                                </Col>
-                                <Col span={4}>
-                                    <Search placeholder="搜索" onSearch={(value) => console.log(value)}
-                                            style={{width: 200}}/>
-                                </Col>
-                                <Col span={14}></Col>
-                                <Col span={1}>
-                                    <DeleteOutlined/>
-                                </Col>
-                                <Col span={2}>
-                                    <Button type="primary" icon={<PlusOutlined/>}>
-                                        通知
-                                    </Button>
-                                </Col>
+                                {/*<Col span={2}>*/}
+                                {/*    <Dropdown overlay={menu}>*/}
+                                {/*        <Button>*/}
+                                {/*            全部 <DownOutlined/>*/}
+                                {/*        </Button>*/}
+                                {/*    </Dropdown>*/}
+                                {/*</Col>*/}
+                                {/*<Col span={4}>*/}
+                                {/*    <Search placeholder="搜索" onSearch={(value) => console.log(value)}*/}
+                                {/*            style={{width: 200}}/>*/}
+                                {/*</Col>*/}
+                                {/*<Col span={14}></Col>*/}
+                                {/*<Col span={1}>*/}
+                                {/*    <DeleteOutlined/>*/}
+                                {/*</Col>*/}
+                                {/*<Col span={2}>*/}
+                                {/*    <Button type="primary" icon={<PlusOutlined/>}>*/}
+                                {/*        通知*/}
+                                {/*    </Button>*/}
+                                {/*</Col>*/}
                             </Row>
                             <Divider style={{margin: '10px 0'}}/>
                             {announcementContent}

@@ -7,27 +7,6 @@ import React from 'react';
 import AnnouncementCell from '../announcementcell/AnnouncementCell';
 import {getMessageByCourseId} from "../../services/messageService";
 
-// const announcementContentEx = [
-//     {
-//         msgId: 1,
-//         msgTime: '2020年11月15日 15:15:15',
-//         msgType: 0,
-//         userId: 3,
-//         courseId: 1,
-//         title: '期末考试通知',
-//         content: '各位同学好，本学期课程已经进入尾声，本课程期末考试安排如下...',
-//     },
-//     {
-//         msgId: 2,
-//         msgTime: '2020年11月16日 15:15:15',
-//         msgType: 0,
-//         userId: 3,
-//         courseId: 1,
-//         title: '期末考试通知',
-//         content: '各位同学好，本学期课程已经进入尾声，本课程期末考试安排如下...',
-//     },
-// ];
-
 function handleMenuClick(e) {
     console.log('click', e);
 }
@@ -47,24 +26,44 @@ export class ClassNotice extends React.Component {
         super(props);
         this.state = {
             announcements: [],
+            courseId: props.courseId,
         };
     }
 
     componentDidMount() {
-        const courseId = parseInt(this.props.courseId);
-        const data = {
-            courseId: courseId
-        };
-
-        const callback = (data) => {
-            this.setState({announcements: data.data});
-        };
-        getMessageByCourseId(data, callback);
+        setTimeout(() => {
+            this.setState({
+                courseId:parseInt(this.props.courseId),
+            });
+            const courseId = this.state.courseId;
+            if (courseId === -1) {
+                return;
+            }
+            const data = {
+                courseId: courseId
+            };
+            const callback = (data) => {
+                console.log(data);
+                this.setState({announcements: data.data});
+            };
+            getMessageByCourseId(data, callback);
+        }, 100);
     }
 
+    // UNSAFE_componentWillReceiveProps() {
+    //     const data = {
+    //         courseId: courseId
+    //     };
+    //     const callback = (data) => {
+    //         console.log(data);
+    //         this.setState({announcements: data.data});
+    //     };
+    //     getMessageByCourseId(data, callback);
+    // }
+
     render() {
-        const announcementContent = this.state.announcements.map((item) => <AnnouncementCell announcement={item}
-                                                                                             key={item.title}/>);
+        let announcementContent = this.state.announcements.map((item) => <AnnouncementCell announcement={item}
+                                                                                            key={item.title}/>);
 
         return (
             <div className="class-notice">
@@ -74,24 +73,24 @@ export class ClassNotice extends React.Component {
                             <h2>最近的公告</h2>
                             <Row>
                                 <Col span={2}>
-                                    <Dropdown overlay={menu}>
-                                        <Button>
-                                            全部 <DownOutlined/>
-                                        </Button>
-                                    </Dropdown>
+                                    {/*<Dropdown overlay={menu}>*/}
+                                    {/*    <Button>*/}
+                                    {/*        全部 <DownOutlined/>*/}
+                                    {/*    </Button>*/}
+                                    {/*</Dropdown>*/}
                                 </Col>
                                 <Col span={4}>
-                                    <Search placeholder="搜索" onSearch={(value) => console.log(value)}
-                                            style={{width: 200}}/>
+                                    {/*<Search placeholder="搜索" onSearch={(value) => console.log(value)}*/}
+                                    {/*        style={{width: 200}}/>*/}
                                 </Col>
                                 <Col span={14}></Col>
                                 <Col span={1}>
-                                    <DeleteOutlined/>
+                                    {/*<DeleteOutlined/>*/}
                                 </Col>
                                 <Col span={2}>
-                                    <Button type="primary" icon={<PlusOutlined/>}>
-                                        公告
-                                    </Button>
+                                    {/*<Button type="primary" icon={<PlusOutlined/>}>*/}
+                                    {/*    公告*/}
+                                    {/*</Button>*/}
                                 </Col>
                             </Row>
                             <Divider style={{margin: '10px 0'}}/>

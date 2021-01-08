@@ -37,8 +37,8 @@ class LoginedHeader extends React.Component {
             console.log(data);
             if (data.status === 200) {
                 localStorage.removeItem('user');
+                window.location.assign("/#/login");
                 message.success(data.msg);
-                // history.push('/login');
             } else {
                 message.error("登出失败");
             }
@@ -72,7 +72,7 @@ class LoginedHeader extends React.Component {
                         </Col>
                         <Col span={4} style={{height: 28}}>
                             <Search placeholder="搜索课程" onSearch={(value) => console.log(value)}
-                                    className="logined-search"/>
+                                    className="logined-search" disabled={true}/>
                         </Col>
                         <Col span={1} style={{height: 28, marginLeft: -20}}>
                             <Link to={{pathname: '/'}} className="header-link">
@@ -81,16 +81,18 @@ class LoginedHeader extends React.Component {
                         </Col>
                         {
                             userType ?
-                                <Col sapn={1} styles={{height: 28, marginLeft: -40}}>
                                     <Link to={{pathname: '/addclass'}} className="header-link">
                                         新建课程
                                     </Link>
-                                </Col>
                                 :
                                 <></>
                         }
-
-                        <Col offset={15} style={{paddingTop: 7, marginRight: 5, paddingLeft: 40}}>
+                        <Col span={1} style={{height: 28, marginLeft: 20}}>
+                            <Link to={{pathname: '/test'}} className="header-link">
+                                测试功能
+                            </Link>
+                        </Col>
+                        <Col offset={13} style={{paddingTop: 7, marginRight: 5, paddingLeft: 40}}>
                             <Link to={{pathname: '/user'}}>
                                 <BellOutlined style={{color: 'white', fontSize: 18}}/>
                             </Link>

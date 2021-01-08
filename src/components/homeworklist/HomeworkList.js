@@ -2,11 +2,9 @@ import './HomeworkList.css';
 
 import {
     CheckCircleOutlined,
-    CloseCircleOutlined,
     EditOutlined,
     ExclamationCircleOutlined,
-    MinusCircleOutlined,
-    SyncOutlined
+    MinusCircleOutlined, SyncOutlined,
 } from '@ant-design/icons';
 import {List, Tag} from 'antd';
 import React from 'react';
@@ -18,36 +16,37 @@ export class HomeworkList extends React.Component {
     };
 
     render() {
+        const userType = JSON.parse(localStorage.getItem('user')).userType;
         const TagSwitch = (type) => {
             switch (type) {
                 case 0:
                     return (
                         <Tag icon={<ExclamationCircleOutlined/>} color="warning">
-                            未读
+                            未查看
                         </Tag>
                     );
                 case 1:
                     return (
-                        <Tag icon={<SyncOutlined spin/>} color="processing">
-                            正在做
+                        <Tag icon={<ExclamationCircleOutlined/>} color="warning">
+                            未提交
                         </Tag>
                     );
                 case 2:
                     return (
-                        <Tag icon={<CheckCircleOutlined/>} color="success">
-                            已完成
+                        <Tag icon={<SyncOutlined spin />} color="success">
+                            已提交
                         </Tag>
                     );
                 case 3:
                     return (
-                        <Tag icon={<CloseCircleOutlined/>} color="error">
-                            请订正
+                        <Tag icon={<MinusCircleOutlined/>} color="error">
+                            迟交
                         </Tag>
                     );
                 case 4:
                     return (
-                        <Tag icon={<MinusCircleOutlined/>} color="default">
-                            已结束
+                        <Tag icon={<CheckCircleOutlined/>} color="purple">
+                            已批改
                         </Tag>
                     );
                 default:
@@ -76,7 +75,24 @@ export class HomeworkList extends React.Component {
                                             pathname: "/homework",
                                             search: "?homeworkId=" + item.hwId
                                         }}>{item.title} </Link>
-                                        {TagSwitch(item.state)}
+                                        {
+                                            (userType !== 1) ? (
+                                                TagSwitch(item.userHomeworkState)
+                                            ) : (
+                                                <></>
+                                            )
+                                        }
+                                        {
+                                            (item.state === 1) ? (
+                                                <Tag icon={<CheckCircleOutlined/>} color="default">
+                                                    未发布答案
+                                                </Tag>
+                                            ) : (
+                                                <Tag icon={<CheckCircleOutlined/>} color="green">
+                                                    已发布答案
+                                                </Tag>
+                                            )
+                                        }
                                     </div>
                                 }
                                 description={item.comment}

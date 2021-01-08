@@ -91,10 +91,13 @@ class TeacherHomeworkCorrect extends React.Component {
         // }
         const args = {
             answerId: this.answerId,
-            score: this.componentHwCorrect.state.score,
+            score: parseInt(this.componentHwCorrect.state.score),
             comment: this.componentHwCorrect.state.comment,
-            description: this.componentHwDone.state.drawContent
+            description: this.componentHwDone.state.drawContent,
+            hwId: this.props.homeworkData.hwId,
+            userId: this.props.userData.userId
         };
+        console.log(args);
         const callback = (data) => {
             if (data.status === 200) {
                 message.success(data.msg);

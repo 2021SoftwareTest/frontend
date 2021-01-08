@@ -31,7 +31,7 @@ export class HomeworkDone extends React.Component {
                     drawContent: this.props.hwDoneData.description
                 });
                 this.canvas.loadSaveData(this.props.hwDoneData.description);
-            }, 1000);
+            }, 1500);
         }
     };
 
@@ -73,7 +73,14 @@ export class HomeworkDone extends React.Component {
                 <Descriptions title="作业情况" bordered>
                     <Descriptions.Item label="提交时间">{commitTime}</Descriptions.Item>
                     <Descriptions.Item label="提交状态" span={3}>
-                        <Badge status="success" text="已提交"/>
+                        {
+                            (this.props.hwDoneData.answerId === -1) ? (
+                                <Badge color="#1890ff" text="未提交"/>
+                            ) : (
+                                <Badge status="success" text="已提交"/>
+                            )
+                        }
+
                     </Descriptions.Item>
                     <Descriptions.Item label="留言" span={3}>
                         {note}

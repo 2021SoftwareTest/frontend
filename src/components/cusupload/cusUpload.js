@@ -30,8 +30,8 @@ class CusUpload extends Component {
             message.error("请上传JPG或PNG格式文件！");
             return false;
         }
-        if (file.size / 1024 / 1024 > 10) {
-            message.error("图片大小须小于10M！");
+        if (file.size / 1024 / 1024 > 2) {
+            message.error("图片大小须小于2M！");
             return false;
         }
         return true;

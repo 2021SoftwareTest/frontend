@@ -2,7 +2,6 @@ import './HomeworkView.css';
 
 import {Col, message, Row} from 'antd';
 import React from 'react';
-import {withRouter} from 'react-router-dom';
 
 import MyFooter from '../../components/footer/MyFooter';
 import {HomeworkHeader} from '../../components/homeworkheader/HomeworkHeader';
@@ -12,6 +11,7 @@ import HomeworkContent from '../../components/homeworkcontent/HomeworkContent';
 import HomeworkSubmitList from '../../components/homeworksubmitlist/HomeworkSubmitList';
 import TeacherHomeworkCorrect from "../../components/teacherhomeworkcorrect/TeacherHomeworkCorrect";
 import StandardAnswer from "../../components/standardanswer/StandardAnswer";
+import {withRouter} from 'react-router-dom';
 
 import {getHomeworkDetail, teacherGetHomework} from "../../services/homeworkService";
 
@@ -62,7 +62,7 @@ class HomeworkView extends React.Component {
                 console.log(data);
                 if (data.status === 200) {
                     this.setState({homeworkData: data.data});
-                    message.success(data.msg);
+                    // message.success(data.msg);
                 } else {
                     message.error(data.msg);
                 }
@@ -96,7 +96,57 @@ class HomeworkView extends React.Component {
                         }
                     });
                     console.log(this.state.ansCheckData);
-                    message.success(data.msg);
+                    // message.success(data.msg);
+                } else {
+                    message.error(data.msg);
+                }
+            };
+            getHomeworkDetail(args, callback);
+        }
+    }
+
+    updateSrcData = () => {
+        if (this.userType === 1) {  // 老师
+            const args = {hwId: this.homeworkId};
+            const callback = (data) => {
+                console.log(data);
+                if (data.status === 200) {
+                    this.setState({homeworkData: data.data});
+                    // message.success(data.msg);
+                } else {
+                    message.error(data.msg);
+                }
+            };
+            teacherGetHomework(args, callback);
+        } else if (this.userType === 2) {     // 学生
+            const args = {hwId: this.homeworkId};
+            console.log(args);
+            const callback = (data) => {
+                if (data.status === 200) {
+                    this.setState({
+                        homeworkData: {
+                            hwId: data.data.hwId,
+                            courseId: data.data.courseId,
+                            teacherId: data.data.teacherId,
+                            startTime: data.data.startTime,
+                            endTime: data.data.endTime,
+                            title: data.data.title,
+                            score: data.data.score,
+                            standardAnswerId: data.data.standardAnswerId,
+                            content: data.data.content,
+                            description: data.data.description,
+                            note: data.data.note
+                        },
+                        ansCheckData: {
+                            hwId: data.data.hwId,
+                            answerId: data.data.answerId,
+                            checkId: data.data.checkId,
+                            studentId: -1,
+                            state: data.data.state
+                        }
+                    });
+                    console.log(this.state.ansCheckData);
+                    // message.success(data.msg);
                 } else {
                     message.error(data.msg);
                 }
@@ -142,6 +192,7 @@ class HomeworkView extends React.Component {
                 <HomeworkContent homeworkData={this.state.homeworkData}
                                  ansCheckData={this.state.ansCheckData}
                                  userType={this.userType}
+                                 updateSrcData={this.updateSrcData}
                 />
             ) : curSection === 1 ? (
                 <HomeworkSubmitList homeworkData={this.state.homeworkData}
@@ -180,7 +231,9 @@ class HomeworkView extends React.Component {
                 </Row>
             </div>
         );
-    };
+    }
+
+    ;
 }
 
 export default withRouter(HomeworkView);

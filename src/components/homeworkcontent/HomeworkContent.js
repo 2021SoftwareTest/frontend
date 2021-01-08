@@ -36,7 +36,7 @@ class HomeworkContent extends React.Component {
                                 hwContent: data.data.content,
                                 noteContent: data.data.note
                             });
-                            message.success(data.msg);
+                            // message.success(data.msg);
                         }
                         else {
                             message.error(data.msg);
@@ -59,7 +59,7 @@ class HomeworkContent extends React.Component {
                                 hwContent: data.data.content,
                                 noteContent: data.data.note
                             });
-                            message.success(data.msg);
+                            // message.success(data.msg);
                         }
                         else {
                             message.error(data.msg);
@@ -101,6 +101,7 @@ class HomeworkContent extends React.Component {
                 console.log(data);
               if (data.status === 200) {
                   message.success(data.msg);
+                  this.props.updateSrcData();
               }
               else {
                   message.error(data.msg);
@@ -119,6 +120,7 @@ class HomeworkContent extends React.Component {
             const callback = (data) => {
                 if (data.status === 200) {
                     message.success(data.msg);
+                    this.props.updateSrcData();
                 }
                 else {
                     message.error(data.msg);
@@ -143,6 +145,13 @@ class HomeworkContent extends React.Component {
         return (
             <div className="homework-content-container">
                 <HomeworkDetail data={this.props.homeworkData}/>
+                {
+                    (this.userType === 1) ? (
+                        <h4 style={{color:'#ff0000'}}>*老师应在富文本框中输入标准答案点击【提交】，再点击【发布标准答案】</h4>
+                    ) : (
+                        <></>
+                    )
+                }
                 <div className="editor">
                     <CKEditor
                         editor={ClassicEditor}
@@ -164,7 +173,7 @@ class HomeworkContent extends React.Component {
                         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
                                         alt="Han Solo"/>}
                         content={<TextArea rows={4} onChange={this.handleNoteChange}
-                                           value={this.state.noteContent}/>}
+                                           value={this.state.noteContent} placeholder={"请输入备注"}/>}
                     />
                 </div>
                 <Button className="submit-button" type="primary" onClick={this.handleSubmit}>提交</Button>
