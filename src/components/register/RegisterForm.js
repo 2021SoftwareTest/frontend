@@ -85,9 +85,77 @@ class RegisterForm extends React.Component {
                 message.error(data.msg);
             }
         };
+        if(registerInfo.password.length < 7){
+            message.error("请使用至少7位密码");
+            //return;
+        };
+        if(!this.containsLetter(registerInfo.password)){
+            message.error("密码中请包含字母");
+            //return;
+        }
+        if(!this.containsNum(registerInfo.password)){
+            message.error("密码中请包含数字");
+            //return;
+        }
+        if(!this.verifyPhone(registerInfo.phone)){
+            message.error("请输入正确的手机号！");
+            //return;
+        }
+        if(!this.verifyEmail(registerInfo.email)){
+            message.error("请输入正确的邮箱！");
+        }
+       
         register(registerInfo, callback);
     };
 
+    containsLetter = (str) => {
+        for (var i in str) {
+            var asc = str.charCodeAt(i);
+            if ((asc >= 65 && asc <= 90 )) {
+                return true;
+            }
+            if((asc >= 97 && asc <= 122)){
+                return true;
+            }
+        }
+        return false;
+    };
+
+    containsNum = (str) => {
+        for (var i in str) {
+            var asc = str.charCodeAt(i);
+            if ((asc >= 47 && asc <= 57)) {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    verifyPhone = (str) => {
+        if(str.length != 11){
+            return false;
+        }
+        for(var i in str){
+            var asc = str.charCodeAt(i);
+            if((asc < 47 || asc > 57)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    verifyEmail = (str)=>{
+        var pattern= /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+        var strEmail=pattern.test(str);
+        if(strEmail){
+            return true;
+        }else{
+            return false;
+        }
+    };
+    
+   
     render() {
         const registerInfo = this.state;
         return (
